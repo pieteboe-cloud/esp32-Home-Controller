@@ -1,0 +1,2545 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+.gitignore
+.repomix/bundles.json
+.repomix/config/m-repomix.config.json
+include/HardwareConfig.h
+lib/AutomationManager/AutomationManager.cpp
+lib/AutomationManager/AutomationManager.h
+lib/CC2500/CC2500.cpp
+lib/CC2500/CC2500.h
+lib/ControlLivingColors/ControlLivingColors.cpp
+lib/ControlLivingColors/ControlLivingColors.h
+lib/ControlLivingColors/LampTypes.h
+lib/Debug/Debug.cpp
+lib/Debug/Debug.h
+lib/IRremote/IRController.cpp
+lib/IRremote/IRController.h
+lib/IRremote/IRremote.h
+lib/RF433/RF433.cpp
+lib/RF433/RF433.h
+lib/SettingsManager/SettingsManager.cpp
+lib/SettingsManager/SettingsManager.h
+lib/WebUI/WebInterface.h
+lib/WebUI/WebUI.cpp
+lib/WebUI/WebUI.h
+LivingColors Remote.png
+platformio.ini
+src/main.cpp
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path=".gitignore">
+.pio
+.vscode/.browse.c_cpp.db*
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch
+</file>
+
+<file path=".repomix/bundles.json">
+{
+  "bundles": {}
+}
+</file>
+
+<file path=".repomix/config/m-repomix.config.json">
+{
+  "output": {
+    "filePath": "c:\\Users\\tybhrthgfbhft\\Desktop\\esp32_home-controller\\repomix-output.xml",
+    "style": "xml",
+    "parsableStyle": false,
+    "headerText": "",
+    "instructionFilePath": "",
+    "fileSummary": true,
+    "directoryStructure": true,
+    "removeComments": false,
+    "removeEmptyLines": false,
+    "topFilesLength": 5,
+    "showLineNumbers": false,
+    "copyToClipboard": true,
+    "includeEmptyDirectories": false,
+    "compress": false
+  },
+  "include": [],
+  "ignore": {
+    "useGitignore": false,
+    "useDefaultPatterns": true,
+    "customPatterns": []
+  },
+  "security": {
+    "enableSecurityCheck": true
+  },
+  "tokenCount": {
+    "encoding": "o200k_base"
+  },
+  "cwd": "c:\\Users\\tybhrthgfbhft\\Desktop\\esp32_home-controller"
+}
+</file>
+
+<file path="include/HardwareConfig.h">
+#ifndef HARDWARE_CONFIG_H
+#define HARDWARE_CONFIG_H
+
+// RF433 Pins
+#define PIN_RF433_RX    26
+#define PIN_RF433_TX    26
+
+// IR Zone Pins
+#define PIN_IR_RX       35
+#define PIN_IR_BOTTOM   25
+#define PIN_IR_MID      27
+#define PIN_IR_UPPER    14
+
+// CC2500 SPI Pins
+#define PIN_CC2500_SCK  18
+#define PIN_CC2500_MISO 19
+#define PIN_CC2500_MOSI 23
+#define PIN_CC2500_CS   5
+
+// System LEDs (Inverted logic: LOW = ON)
+#define PIN_STATUS_LED  2
+#define PIN_RUNNING_LED 4
+
+#endif
+</file>
+
+<file path="lib/AutomationManager/AutomationManager.cpp">
+#include "AutomationManager.h"
+#include "ControlLivingColors.h"
+
+
+void AutomationSequence::execute(RF433& rf, IRController& ir, ControlLivingColors* lampControl, uint8_t (*addresses)[9]) {
+    Debug::print("[AUTOMATION] Executing sequence: ");
+    Debug::println(name.c_str());
+
+    for (const auto& action : actions) {
+        switch (action.type) {
+            case ACTION_RF_SEND:
+                Debug::print("[AUTOMATION] RF Send: ");
+                Debug::print(action.value);
+                Debug::print(" (");
+                Debug::print(action.bitLength);
+                Debug::print("bit, Protocol: ");
+                Debug::print(action.protocol);
+                Debug::println(")");
+                rf.send(action.value, action.bitLength);
+                break;
+
+            case ACTION_IR_SEND:
+                Debug::print("[AUTOMATION] IR Send: 0x");
+                Debug::println(String(action.value, HEX));
+                ir.send(action.value, action.bitLength);
+                break;
+
+            case ACTION_DELAY:
+                Debug::print("[AUTOMATION] Delay: ");
+                Debug::print(action.value);
+                Debug::println("ms");
+                delay(action.value);
+                break;
+
+            case ACTION_RGB_SET:
+                Debug::print("[AUTOMATION] RGB Set: R=");
+                Debug::print(action.rgbRed);
+                Debug::print(" G=");
+                Debug::print(action.rgbGreen);
+                Debug::print(" B=");
+                Debug::println(action.rgbBlue);
+                
+                // Bridge to LivingColors: We treat R/G/B fields as H/S/V for these lamps
+                if (lampControl && addresses) {
+                    for (int i = 0; i < 11; i++) {
+                        lampControl->setColor(addresses[i], addresses[i], (uint8_t)action.rgbRed, (uint8_t)action.rgbGreen, (uint8_t)action.rgbBlue);
+                    }
+                }
+                break;
+        }
+    }
+
+    Debug::println("[AUTOMATION] Sequence complete");
+    
+}
+
+void AutomationManager::initDefaultScenes() {
+    Debug::println("[AUTOMATION] Initializing default scenes...");
+
+    // Example Scene 1: "Movie Night" - Dim red lighting (H=0, S=200, V=180)
+    AutomationSequence* movieNight = createSequence("movie_night");
+    movieNight->addAction(ACTION_RGB_SET, 0, 0, 0, 0, 200, 180); 
+    
+    // Example Scene 2: "All Off"
+    AutomationSequence* allOff = createSequence("all_off");
+    allOff->addAction(ACTION_RF_SEND, 7654321, 24, 1);
+    allOff->addAction(ACTION_RF_SEND, 7654322, 24, 1);
+    allOff->addAction(ACTION_RGB_SET, 0, 0, 0, 0, 0, 0); // V=0 is OFF
+}
+
+AutomationSequence* AutomationManager::findSequence(String name) {
+    for (auto& seq : sequences) {
+        if (seq.getName() == name) {
+            return &seq;
+        }
+    }
+    return nullptr;
+}
+
+AutomationSequence* AutomationManager::createSequence(String name) {
+    // Check if sequence already exists
+    if (findSequence(name) != nullptr) {
+        Debug::print("[Automation] Sequence already exists: ");
+        Debug::println(name.c_str());
+        return findSequence(name);
+    }
+
+    sequences.emplace_back(name);
+    Debug::print("[Automation] Created new sequence: ");
+    Debug::println(name.c_str());
+    return &sequences.back();
+}
+
+void AutomationManager::addTrigger(unsigned long rfCode, int bitLength, int protocol, String sceneName) {
+    triggers.push_back({rfCode, bitLength, protocol, sceneName});
+    Debug::print("[Automation] Added trigger: RF=");
+    Debug::print(rfCode);
+    Debug::print(" -> Scene: ");
+    Debug::println(sceneName.c_str());
+}
+
+bool AutomationManager::checkTrigger(unsigned long rfCode, int bitLength, int protocol) {
+    for (const auto& trigger : triggers) {
+        if (trigger.rfCode == rfCode &&
+            trigger.bitLength == bitLength &&
+            trigger.protocol == protocol) {
+            Debug::print("[Automation] Trigger activated: ");
+            Debug::println(trigger.sceneName.c_str());
+            executeScene(trigger.sceneName);
+            return true;
+        }
+    }
+    return false;
+}
+
+bool AutomationManager::executeScene(String name) {
+    AutomationSequence* seq = findSequence(name);
+    if (seq != nullptr) {
+        seq->execute(rfModule, irModule, lampController, lampAddresses);
+        return true;
+    }
+    Debug::print("[Automation] Scene not found: ");
+    Debug::println(name.c_str());
+    return false;
+}
+
+std::vector<String> AutomationManager::getSceneNames() {
+    std::vector<String> names;
+    for (const auto& seq : sequences) {
+        names.push_back(seq.getName());
+    }
+    return names;
+}
+</file>
+
+<file path="lib/AutomationManager/AutomationManager.h">
+#ifndef AUTOMATION_MANAGER_H
+#define AUTOMATION_MANAGER_H
+
+#include <Arduino.h>
+#include <vector>
+#include "RF433.h"
+#include "IRController.h"
+#include "Debug.h"
+
+// Forward declaration to avoid circular dependencies
+class ControlLivingColors;
+
+// Action types for automation sequences
+enum ActionType {
+    ACTION_RF_SEND,
+    ACTION_IR_SEND,
+    ACTION_DELAY,
+    ACTION_RGB_SET
+};
+
+// Single action in a sequence
+struct Action {
+    ActionType type;
+    unsigned long value;      // RF code or IR code or delay in ms
+    int bitLength;            // Bit length for RF/IR
+    int protocol;             // Protocol for RF/IR
+    int rgbRed;               // RGB red value (for RGB actions)
+    int rgbGreen;             // RGB green value (for RGB actions)
+    int rgbBlue;              // RGB blue value (for RGB actions)
+};
+
+// Automation sequence (scene)
+class AutomationSequence {
+private:
+    std::vector<Action> actions;
+    String name;
+
+public:
+    AutomationSequence(String seqName) : name(seqName) {}
+
+    void addAction(ActionType type, unsigned long value = 0, int bitLength = 0,
+                   int protocol = 0, int r = 0, int g = 0, int b = 0) {
+        actions.push_back({type, value, bitLength, protocol, r, g, b});
+    }
+
+    void execute(RF433& rf, IRController& ir, ControlLivingColors* lampControl, uint8_t (*addresses)[9]);
+
+    String getName() const { return name; }
+    int getActionCount() const { return actions.size(); }
+};
+
+// Scene trigger (RF button -> automation sequence)
+struct SceneTrigger {
+    unsigned long rfCode;
+    int bitLength;
+    int protocol;
+    String sceneName;
+};
+
+// Main automation manager
+class AutomationManager {
+private:
+    std::vector<AutomationSequence> sequences;
+    std::vector<SceneTrigger> triggers;
+    RF433& rfModule;
+    IRController& irModule;
+    ControlLivingColors* lampController = nullptr;
+    uint8_t (*lampAddresses)[9] = nullptr;
+
+    AutomationSequence* findSequence(String name);
+
+public:
+    AutomationManager(RF433& rf, IRController& ir) : rfModule(rf), irModule(ir) {}
+    
+    void setLampController(ControlLivingColors* control, uint8_t (*addresses)[9]) {
+        lampController = control;
+        lampAddresses = addresses;
+    }
+
+    // Create a new automation sequence
+    AutomationSequence* createSequence(String name);
+
+    // Setup default scenes (Movie Night, All Off, etc)
+    void initDefaultScenes();
+
+    // Add a trigger (RF button -> scene)
+    void addTrigger(unsigned long rfCode, int bitLength, int protocol, String sceneName);
+
+    // Check if received RF code triggers a scene
+    bool checkTrigger(unsigned long rfCode, int bitLength, int protocol);
+
+    // Execute a scene by name
+    bool executeScene(String name);
+
+    // Get list of all scene names
+    std::vector<String> getSceneNames();
+};
+
+#endif // AUTOMATION_MANAGER_H
+</file>
+
+<file path="lib/CC2500/CC2500.cpp">
+#include "CC2500.h"
+
+
+CC2500::CC2500(uint8_t csPin, uint8_t sckPin, uint8_t misoPin, uint8_t mosiPin) {
+    _csPin   = csPin;
+    _sckPin  = sckPin;
+    _misoPin = misoPin;
+    _mosiPin = mosiPin;
+}
+
+void CC2500::begin() {
+    Debug::println("[INFO][CC2500] Begin...");
+    
+    pinMode(_csPin, OUTPUT); 
+    digitalWrite(_csPin, HIGH);
+    SPI.begin(_sckPin, _misoPin, _mosiPin, _csPin);
+    
+    Debug::println("[CC2500] SPI pins  SCK=" + String(_sckPin) + " MISO=" + String(_misoPin) + " MOSI=" + String(_mosiPin) + " CS=" + String(_csPin));   
+
+    SPI.beginTransaction(SPISettings(4000000, MSBFIRST, SPI_MODE0));
+    
+    Debug::println("[CC2500] SPI 4000000, MSBFIRST, SPI_MODE0 " );
+
+    verify();
+    init();
+}
+
+bool CC2500::verify() {
+    Debug::println("[CC2500] Verifying chip...");
+
+    byte partnum = readStatusReg(CC2500_REG_PARTNUM);
+    byte version = readStatusReg(CC2500_REG_VERSION);
+
+    Debug::println("[CC2500] PARTNUM: 0x"+ String(partnum, HEX));
+    Debug::println("[CC2500] VERSION: 0x"+ String(version, HEX));
+
+
+    if (partnum == 0x80 && version == 0x03) {
+        Debug::println("[CC2500] Chip detected and correct version");
+        return true;
+    }
+
+    Debug::println("[ERROR][CC2500] ✖ Chip NOT detected or wrong version!");
+    Debug::println("[ERROR][CC2500] Check wiring: CS, SCK, MISO, MOSI");
+    Debug::println("[ERROR][CC2500] Check power: 3.3V only (NO 5V!)");
+    Debug::println("[ERROR][CC2500] Check GND connection");
+
+    return false;
+}
+
+
+
+void CC2500::setRXMode() { //
+    // Debug::println("[INFO][CC2500] Setting RX mode");
+    sendStrobe(0x36);   // SIDLE
+    sendStrobe(0x33);   // SCAL
+    sendStrobe(0x34);   // SRX
+}
+
+void CC2500::setChannel(byte channel) {
+    writeReg(0x0A, channel);  // CHANNR 
+    sendStrobe(0x36);         // SIDLE 
+    sendStrobe(0x33);         // SCAL 
+    sendStrobe(0x34);         // SRX 
+    Debug::println("[INFO][CC2500] Channel set to: " + String(channel));
+    
+}
+
+bool CC2500::dataReady() {
+    // Debug::println("[CC2500] Checking for data...");
+    byte rxbytes = readStatusReg(0x3B);  // RXBYTES register has the number of bytes in RX FIFO,
+                                         // and the high bit is set if there was an overflow 
+                                         // (more bytes received than FIFO can hold)
+    return rxbytes > 0;
+}
+
+// 
+byte CC2500::readMarcState() {
+    if (Debug::isVerbose()) {
+        if ((readStatusReg(0x35) & 0x1F) == 0x1D) {
+            Debug::println("[INFO][CC2500] MARCSTATE: RX");
+        } else if ((readStatusReg(0x35)  & 0x1F) == 0x13) {
+            Debug::println("[INFO][CC2500] MARCSTATE: TX");
+        } else if ((readStatusReg(0x35) & 0x1F) == 0x01) {
+            Debug::println("[INFO][CC2500] MARCSTATE: IDLE");
+        } else {
+            //Debug::println("[INFO][CC2500] MARCSTATE: " + String(readStatusReg(0x35), HEX));
+        }
+    }
+    // Debug::println("[INFO][CC2500] Reading MARCSTATE... " + String(readStatusReg(0x35))) ;
+    return readStatusReg(0x35) ; // MARCSTATE register gives the current state of the radio (RX, TX, IDLE, etc) 
+}
+
+int CC2500::readRSSI() {
+    Debug::println("[INFO][CC2500] Reading RSSI...");
+    byte rssi = readStatusReg( 0x34 );  // read RSSI from PKTSTATUS register
+    if (rssi >= 128) {
+        return (rssi - 256) / 2 - 74;
+    } else {
+        return rssi / 2 - 74;
+    }
+}
+
+// private methods
+byte CC2500::readStatusReg(byte addr) {
+    byte val;
+    digitalWrite(_csPin, LOW);
+    SPI.transfer(addr | 0xC0);
+    val = SPI.transfer(0x00);
+    digitalWrite(_csPin, HIGH);
+    return val;
+}
+
+void CC2500::writeReg(byte addr, byte val) {
+    digitalWrite(_csPin, LOW);
+    SPI.transfer(addr);
+    SPI.transfer(val);
+    digitalWrite(_csPin, HIGH);
+}
+
+void CC2500::sendStrobe(byte strobe) {
+    digitalWrite(_csPin, LOW);
+    SPI.transfer(strobe);
+    digitalWrite(_csPin, HIGH);
+}
+
+byte CC2500::bytesAvailable() {
+    Debug::println("[INFO][CC2500] Checking bytes available in RX FIFO...");
+    return readStatusReg(0x3B) & 0x7F;
+}
+
+
+void CC2500::sendPacket(uint8_t* data, uint8_t len) {
+    // Debug::println("[INFO][CC2500] Sending packet...");
+
+    // Put radio into IDLE and flush the TX FIFO
+    sendStrobe(CC2500_CMD_SIDLE);
+    sendStrobe(CC2500_CMD_SFTX);
+
+    // Burst write the packet to the TX FIFO
+    digitalWrite(_csPin, LOW);
+    SPI.transfer(CC2500_REG_TXFIFO | CC2500_OFF_WRITE_BURST);
+     // Debug::print("[INFO][CC2500] TX Packet: ") ;
+
+    for (uint8_t i = 0; i < len; i++) {
+        SPI.transfer(data[i]);
+        
+        
+       //  Debug::print(" " + String(i) + ": 0x" + String(data[i], HEX)) ;
+    }
+    SPI.transfer(0x00); // Send a dummy byte to ensure the last byte is clocked out
+    digitalWrite(_csPin, HIGH);
+
+    // Strobe STX to start transmission
+    sendStrobe(CC2500_CMD_STX);
+
+    // Wait for the transmission to finish (state 0x13 is TX)
+    while ((readMarcState() & 0x1F) == 0x13) {
+        yield();
+    
+        delay(1);
+    }
+
+    // Return to RX mode
+    delay(10);
+    setRXMode();
+}
+
+void CC2500::readPacket(uint8_t *buf, uint8_t &len) {
+    byte rxbytes = readStatusReg(CC2500_REG_RXBYTES);
+    
+    if ((rxbytes & 0x80) || ((rxbytes & 0x7F) == 0)) {
+        len = 0;
+        if (rxbytes & 0x80) {
+            sendStrobe(CC2500_CMD_SIDLE);
+            sendStrobe(CC2500_CMD_SFRX);
+            setRXMode();
+        }
+        return;
+    }
+
+    uint8_t available = rxbytes & 0x7F;
+    uint8_t toRead = (available < len) ? available : len;
+
+    digitalWrite(_csPin, LOW);
+    SPI.transfer(CC2500_REG_RXFIFO | CC2500_OFF_READ_BURST);
+    for (uint8_t i = 0; i < available; i++) {
+        uint8_t val = SPI.transfer(0x00);
+        if (i < toRead) buf[i] = val;
+    }
+    digitalWrite(_csPin, HIGH);
+    len = toRead;
+
+    sendStrobe(CC2500_CMD_SIDLE);
+    sendStrobe(CC2500_CMD_SFRX);
+    setRXMode();
+}
+
+void CC2500::readPacket() {
+    byte rxbytes = readStatusReg(CC2500_REG_RXBYTES);
+    
+    // Hard reset if overflow or no bytes, to clear the FIFO and get back to a known state
+    if ((rxbytes & 0x80) || rxbytes > 64 || rxbytes == 0) {
+        sendStrobe(CC2500_CMD_SIDLE);
+        sendStrobe(CC2500_CMD_SFRX);
+        setRXMode();
+        return;
+    }
+
+    digitalWrite(_csPin, LOW);
+    SPI.transfer(CC2500_REG_RXFIFO | CC2500_OFF_READ_BURST);
+    byte len = SPI.transfer(0x00);
+
+    // LivingColors packets are always 15 bytes long (1 length byte + 14 data bytes)
+    // Validate packet length (should be at least 1 and not exceed available bytes - 1 for the length byte)
+    if (len == 0 || len > (rxbytes - 1) || len > 64) {
+        digitalWrite(_csPin, HIGH);
+        sendStrobe(CC2500_CMD_SIDLE);
+        sendStrobe(CC2500_CMD_SFRX);
+        setRXMode();
+        return;
+    }
+
+    // Read the actual packet data based on the length byte
+    uint8_t packet[len + 1];  // +1 for the length byte itself
+    packet[0] = len;
+    for (byte i = 1; i <= len; i++) {
+        packet[i] = SPI.transfer(0x00);
+    }
+        
+    Debug::println("[INFO][CC2500] RX Packet: " + String  (packet, len + 1)) ;
+    
+
+    digitalWrite(_csPin, HIGH);
+
+    // After reading flash the RX FIFO to clear any remaining bytes and avoid overflow issues
+    sendStrobe(CC2500_CMD_SIDLE);
+    sendStrobe(CC2500_CMD_SFRX);
+    setRXMode();
+
+}
+
+
+
+
+
+void CC2500::readPacketTest() {
+    Debug::println("[INFO][CC2500] TEST Reading packet...");
+
+    byte rxbytes = readStatusReg(CC2500_REG_RXBYTES) & 0x7F; // Filter overflow bit
+    
+    // Overflow?
+    if (rxbytes & 0x80) {
+        Debug::println("[ERROR][CC2500] TEST RX FIFO Overflow detected! Flushing..."); 
+        sendStrobe(CC2500_CMD_SIDLE);
+        sendStrobe(CC2500_CMD_SFRX);
+        setRXMode();
+        return;
+    }
+
+    // No packet?
+    if (rxbytes == 0) {
+        Debug::println("[INFO][CC2500] TEST  No packets in FIFO"); 
+        return;
+    }               
+
+
+    if (rxbytes > 0) {
+        digitalWrite(_csPin, LOW);
+        SPI.transfer(CC2500_REG_RXFIFO | CC2500_OFF_READ_BURST);
+        
+        Debug::println("[INFO][CC2500] TEST Packet received! Raw Data " +    String(rxbytes) + String(" bytes): "));
+
+        for (byte i = 0; i < rxbytes; i++) {
+            byte b = SPI.transfer(0x00);
+            Debug::println("[INFO][CC2500] TEST Byte " + String(i) );//+ ": " + String(b, HEX) + " " );
+        }
+        digitalWrite(_csPin, HIGH);
+        
+        // always flush to avoid getting stuck in a loop if there is a bad packet that causes overflow
+        sendStrobe(CC2500_CMD_SIDLE);
+        sendStrobe(CC2500_CMD_SFRX);
+        setRXMode();
+}
+}
+
+
+void CC2500::init() {
+    
+    Debug::println("[INFO][CC2500] Setting up CC2500 for livingcolor protocol...");
+
+    sendStrobe(CC2500_CMD_SRES);   // SRES reset
+    delay(100);
+    sendStrobe(CC2500_CMD_SRES);   // SRES reset
+    delay(100);
+
+    // write configuration register: FSCTRL1 – Frequency Synthesizer Control
+    writeReg(CC2500_REG_FSCTRL1, 0x09); // fxtal = 26MHz 
+
+    // write configuration register: FSCTRL0 – Frequency Synthesizer Control
+    writeReg(CC2500_REG_FSCTRL0, 0x00); // fxtal = 26MHz
+
+    // write configuration register: FREQ2 – Frequency Control Word, High Byte
+    writeReg(CC2500_REG_FREQ2, 0x5D); 
+
+    // write configuration register: FREQ1 – Frequency Control Word, Middle Byte
+    writeReg(CC2500_REG_FREQ1, 0x93); 
+
+    // write configuration register: FREQ0 – Frequency Control Word, Low Byte
+    writeReg(CC2500_REG_FREQ0, 0xB1); // 2433.00 MHz (LivingColors Kanaal 0)
+
+    // write configuration register: MDMCFG4 – Modem Configuration
+    writeReg(CC2500_REG_MDMCFG4, 0x2D);
+
+    // write configuration register: MDMCFG3 – Modem Configuration
+    writeReg(CC2500_REG_MDMCFG3, 0x3B);
+
+    // write configuration register: MDMCFG2 – Modem Configuration
+    writeReg(CC2500_REG_MDMCFG2, 0x73); // GFSK, 30/32 sync word bits detect
+
+    // write configuration register: MDMCFG1 – Modem Configuration
+    writeReg(CC2500_REG_MDMCFG1, 0x22); // 250kbps
+
+    // write configuration register: MDMCFG0 – Modem Configuration
+    writeReg(CC2500_REG_MDMCFG0, 0xF8); 
+
+    // write configuration register: CHANNR – Channel Number
+    writeReg(CC2500_REG_CHANNR, 0x03); // Kanaal 3 (2440.00 MHz) is ook veel gebruikt door LivingColors, maar kanaal 0 (2433.00 MHz) is het meest betrouwbaar in mijn tests
+
+    // write configuration register: DEVIATN – Modem Deviation Setting
+    writeReg(CC2500_REG_DEVIATN, 0x00); // 5.1 kHz
+
+    // write configuration register: FREND1 – Front End RX Configuration
+    writeReg(CC2500_REG_FREND1, 0xB6); // set to 0xB6 for normal operation instead of production testing
+
+    // write configuration register: FREND0 – Front End TX configuration
+    writeReg(CC2500_REG_FREND0, 0x10); // set to 0x10 for normal operation instead of production testing
+
+    // write configuration register: MCSM0 – Main Radio Control State Machine Configuration
+    writeReg(CC2500_REG_MCSM0, 0x18); // set to 0x18 for normal operation instead of production testing
+
+    // write configuration register: FOCCFG – Frequency Offset Compensation Configuration
+    writeReg(CC2500_REG_FOCCFG, 0x1D);  
+
+    // write configuration register: BSCFG – Bit Synchronization Configuration
+    writeReg(CC2500_REG_BSCFG, 0x1C); 
+
+    // write configuration register: AGCCTRL2 – AGC Control
+    writeReg(CC2500_REG_AGCCTRL2, 0xC7); 
+
+    // write configuration register: AGCCTRL1 – AGC Control
+    writeReg(CC2500_REG_AGCCTRL1, 0x00);
+
+    // write configuration register: AGCCTRL0 – AGC Control 
+    writeReg(CC2500_REG_AGCCTRL0, 0xB2); //   
+
+    // write configuration register: FSCAL3 – Frequency Synthesizer Calibration
+    writeReg(CC2500_REG_FSCAL3, 0xEA); // 
+
+    // write configuration register: FSCAL2 – Frequency Synthesizer Calibration
+    writeReg(CC2500_REG_FSCAL2, 0x0A); 
+
+    // write configuration register: FSCAL1 – Frequency Synthesizer Calibration
+    writeReg(CC2500_REG_FSCAL1, 0x00); // set to 0x00 for normal operation instead of production testing    
+
+    // write configuration register: FSCAL0 – Frequency Synthesizer Calibration
+    writeReg(CC2500_REG_FSCAL0, 0x11); // set to 0x11 for normal operation instead of production testing
+
+    // write configuration register: TEST2 – Various Test Settings
+    writeReg(CC2500_REG_TEST2, 0x88); // set to 0x88 for normal operation instead of production testing 
+
+    // write configuration register: TEST1 – Various Test Settings
+    writeReg(CC2500_REG_TEST1, 0x31); // set to 0x31 for normal operation instead of production testing
+
+    // write configuration register: TEST0 – Various Test Settings
+    writeReg(CC2500_REG_TEST0, 0x0B); // set to 0x0B for normal operation instead of production testing
+
+    // write configuration register: IOCFG2 – GDO2 Output Pin Configuration
+    writeReg(CC2500_REG_IOCFG2, 0x06); // GDO2 output pin is configured to assert when sync word is sent/received,
+                                        // and de-assert when packet is finished
+
+    // write configuration register: IOCFG0 – GDO0 Output Pin Configuration
+    writeReg(CC2500_REG_IOCFG0, 0x01); // GDO0 output is not used, so set to default value which is "high impedance"
+
+    // write configuration register: PKTCTRL1 – Packet Automation Control
+    writeReg(CC2500_REG_PKTCTRL1, 0x04);  // enable CRC check, append status bytes to the end of the payload (RSSI and LQI)
+
+    // write configuration register: PKTCTRL0 – Packet Automation Control
+    writeReg(CC2500_REG_PKTCTRL0, 0x45);  // enable CRC, use variable length packets
+
+    // write configuration register: ADDR – Device Address
+    writeReg(CC2500_REG_ADDR, 0x00); // we will use the first byte of the payload to specify actual destination address, so set this to 0x00
+
+    // write configuration register: PKTLEN – Packet Length
+    writeReg(CC2500_REG_PKTLEN, 0xFF); // max packet length, we will use the first byte of the payload to specify actual length of each packet
+
+    // write configuration register: FIFOTHR – RX FIFO and TX FIFO Thresholds
+    writeReg(CC2500_REG_FIFOTHR, 0x0D);
+
+    // write power setting to PATABLE memory using single access write. See table 31 on page 47
+    // of datasheet original value is 0xA9    
+    writeReg(CC2500_REG_PATABLE, 0xFF);
+    
+    sendStrobe(CC2500_CMD_SIDLE); 
+    Debug::println("[INFO][CC2500] initialized livingcolor protocol");
+
+}
+
+
+void CC2500::setPromiscuousMode() {
+    Debug::println("[INFO][CC2500] Setting Promiscuous Mode...");
+
+    // PKTCTRL1 (0x08): 
+    // - Schakel Address Check uit (bits 0-1 op 00)
+    // - Laat Append Status aan staan (bit 2 op 1) voor RSSI info
+    writeReg(CC2500_REG_PKTCTRL1, 0x04); 
+
+    // PKTCTRL0 (0x07):
+    // - Zet CRC_EN uit (bit 2 op 0) -> Ontvang ook corrupte pakketten
+    // - Zet op Variable Packet Length (bits 0-1 op 01)
+    writeReg(CC2500_REG_PKTCTRL0, 0x05); 
+    
+    Debug::println("[INFO][CC2500] Promiscuous Mode:  Address Check OFF, CRC Check OFF");
+
+}
+</file>
+
+<file path="lib/CC2500/CC2500.h">
+#pragma once
+#include <Arduino.h>
+#include <SPI.h>
+#include "Debug.h"
+
+
+// configuration registers, see page 59 of datasheet
+#define CC2500_REG_IOCFG2       0x00    // GDO2 output pin configuration
+#define CC2500_REG_IOCFG1       0x01    // GDO1 output pin configuration
+#define CC2500_REG_IOCFG0       0x02    // GDO0 output pin configuration
+#define CC2500_REG_FIFOTHR      0x03    // RX FIFO and TX FIFO thresholds
+#define CC2500_REG_SYNC1        0x04    // Sync word, high byte
+#define CC2500_REG_SYNC0        0x05    // Sync word, low byte
+#define CC2500_REG_PKTLEN       0x06    // Packet length
+#define CC2500_REG_PKTCTRL1     0x07    // Packet automation control
+#define CC2500_REG_PKTCTRL0     0x08    // Packet automation control
+#define CC2500_REG_ADDR         0x09    // Device address
+#define CC2500_REG_CHANNR       0x0A    // Channel number
+#define CC2500_REG_FSCTRL1      0x0B    // Frequency synthesizer control
+#define CC2500_REG_FSCTRL0      0x0C    // Frequency synthesizer control
+#define CC2500_REG_FREQ2        0x0D    // Frequency control word, high byte
+#define CC2500_REG_FREQ1        0x0E    // Frequency control word, middle byte
+#define CC2500_REG_FREQ0        0x0F    // Frequency control word, low byte
+#define CC2500_REG_MDMCFG4      0x10    // Modem configuration
+#define CC2500_REG_MDMCFG3      0x11    // Modem configuration
+#define CC2500_REG_MDMCFG2      0x12    // Modem configuration
+#define CC2500_REG_MDMCFG1      0x13    // Modem configuration
+#define CC2500_REG_MDMCFG0      0x14    // Modem configuration
+#define CC2500_REG_DEVIATN      0x15    // Modem deviation setting
+#define CC2500_REG_MCSM2        0x16    // Main Radio Control State Machine configuration
+#define CC2500_REG_MCSM1        0x17    // Main Radio Control State Machine configuration
+#define CC2500_REG_MCSM0        0x18    // Main Radio Control State Machine configuration
+#define CC2500_REG_FOCCFG       0x19    // Frequency Offset Compensation configuration
+#define CC2500_REG_BSCFG        0x1A    // Bit Synchronization configuration
+#define CC2500_REG_AGCCTRL2     0x1B    // AGC control
+#define CC2500_REG_AGCCTRL1     0x1C    // AGC control
+#define CC2500_REG_AGCCTRL0     0x1D    // AGC control
+#define CC2500_REG_WOREVT1      0x1E    // High byte Event0 timeout
+#define CC2500_REG_WOREVT0      0x1F    // Low byte Event0 timeout
+#define CC2500_REG_WORCTRL      0x20    // Wake On Radio control
+#define CC2500_REG_FREND1       0x21    // Front end RX configuration
+#define CC2500_REG_FREND0       0x22    // Front end TX configuration
+#define CC2500_REG_FSCAL3       0x23    // Frequency synthesizer calibration
+#define CC2500_REG_FSCAL2       0x24    // Frequency synthesizer calibration
+#define CC2500_REG_FSCAL1       0x25    // Frequency synthesizer calibration
+#define CC2500_REG_FSCAL0       0x26    // Frequency synthesizer calibration
+#define CC2500_REG_RCCTRL1      0x27    // RC oscillator configuration
+#define CC2500_REG_RCCTRL0      0x28    // RC oscillator configuration
+#define CC2500_REG_FSTEST       0x29    // Frequency synthesizer calibration control
+#define CC2500_REG_PTEST        0x2A    // Production test
+#define CC2500_REG_AGCTEST      0x2B    // AGC test
+#define CC2500_REG_TEST2        0x2C    // Various test settings
+#define CC2500_REG_TEST1        0x2D    // Various test settings
+#define CC2500_REG_TEST0        0x2E    // Various test settings
+                                       
+// status registers, see page 60 of datasheet
+#define CC2500_REG_PARTNUM      0x30    // Chip ID
+#define CC2500_REG_VERSION      0x31    // Chip ID
+#define CC2500_REG_FREQEST      0x32    // Frequency Offset Estimate from demodulator
+#define CC2500_REG_LQI          0x33    // Demodulator estimate for Link Quality
+#define CC2500_REG_RSSI         0x34    // Received signal strength indication
+#define CC2500_REG_MARCSTATE    0x35    // Main Radio Control State Machine state
+#define CC2500_REG_WORTIME1     0x36    // High byte of WOR time
+#define CC2500_REG_WORTIME0     0x37    // Low byte of WOR time
+#define CC2500_REG_PKTSTATUS    0x38    // Current GDOx status and packet status
+#define CC2500_REG_VCO_VC_DAC   0x39    // Current setting from PLL calibration module
+#define CC2500_REG_TXBYTES      0x3A    // Underflow and number of bytes
+#define CC2500_REG_RXBYTES      0x3B    // Overflow and number of bytes
+                                                                                                                                             
+// burst write registers, see pages 25 & 61 of datasheet
+#define CC2500_REG_PATABLE      0x3E    // PA control settings table
+#define CC2500_REG_TXFIFO       0x3F    // Transmit FIFO; Single access is +0x00, burst is +0x40
+#define CC2500_REG_RXFIFO       0x3F    // Receive FIFO; Single access is +0x80, burst is +0xC0
+
+// command strobe registers, see page 58 of datasheet
+#define CC2500_CMD_SRES         0x30    // Reset chip
+#define CC2500_CMD_SFSTXON      0x31    // Enable and calibrate frequency synthesizer
+#define CC2500_CMD_SXOFF        0x32    // Turn off crystal oscillator
+#define CC2500_CMD_SCAL         0x33    // Calibrate frequency synthesizer and turn it off
+#define CC2500_CMD_SRX          0x34    // Enable RX. Perform calibration if enabled
+#define CC2500_CMD_STX          0x35    // Enable TX. If in RX state, only enable TX if CCA passes
+#define CC2500_CMD_SIDLE        0x36    // Exit RX / TX, turn off frequency synthesizer
+#define CC2500_CMD_SRSVD        0x37    // Reserved
+#define CC2500_CMD_SWOR         0x38    // Start automatic RX polling sequence (Wake-on-Radio)
+#define CC2500_CMD_SPWD         0x39    // Enter power down mode when CSn goes high
+#define CC2500_CMD_SFRX         0x3A    // Flush the RX FIFO buffer
+#define CC2500_CMD_SFTX         0x3B    // Flush the TX FIFO buffer
+#define CC2500_CMD_SWORRST      0x3C    // Reset real time clock
+#define CC2500_CMD_SNOP         0x3D    // No operation, returns status byte
+
+// offsets for registers, see page 61 of datasheet
+#define CC2500_OFF_WRITE_SINGLE 0x00    // Offset for writing in single access mode
+#define CC2500_OFF_WRITE_BURST  0x40    // Offset for writing in burst mode
+#define CC2500_OFF_READ_SINGLE  0x80    // Offset for reading in single access mode
+#define CC2500_OFF_READ_BURST   0xC0    // Offset for reading in burst mode
+
+
+class CC2500 {
+    public:
+        CC2500(uint8_t csPin, uint8_t sckPin, uint8_t misoPin, uint8_t mosiPin);
+        void begin();
+        void init();
+        byte readMarcState();
+
+        void init_alt();    
+        void setPromiscuousMode();
+        void readPacketTest();
+        bool verify();
+        
+        void setRXMode();    // tell CC2500 "start listening NOW"
+        bool dataReady();    // "is there a packet waiting for me?"
+        void readPacket();   // "give me the raw bytes" 
+        void setChannel(byte channel); // "what channel should I listen on?" 
+        int readRSSI();
+        byte bytesAvailable();
+        void sendPacket(uint8_t* data, uint8_t len);
+        void readPacket(uint8_t *buf, uint8_t &len);
+
+
+
+
+    private:
+        uint8_t _csPin;
+        uint8_t _sckPin;
+        uint8_t _misoPin;
+        uint8_t _mosiPin;
+        byte readStatusReg(byte addr);
+        void writeReg(byte addr, byte val);
+        void sendStrobe(byte strobe);
+};
+</file>
+
+<file path="lib/ControlLivingColors/ControlLivingColors.cpp">
+#include "ControlLivingColors.h"
+
+ControlLivingColors::ControlLivingColors(CC2500 &r)
+    : radio(r)
+{
+}
+
+void ControlLivingColors::setColor(const uint8_t *lampAddr,
+                                   const uint8_t *remoteAddr,
+                                   uint8_t h, uint8_t s, uint8_t v)
+{
+    if (Debug::isVerbose()) {
+        Debug::println("[INFO][CONTROL] setColor H=" + String(h) +
+                          " S=" + String(s) +
+                          " V=" + String(v));
+    }
+
+    sendPacket(lampAddr, 0x05 /* ON command */, h, s, v);
+}
+
+void ControlLivingColors::turnOnWhite(const uint8_t *lampAddr)
+{
+    if (Debug::isVerbose())
+        Debug::println("[INFO][CONTROL] turnOnWhite");
+
+    sendPacket(lampAddr, 0x05, 0, 0, 255);
+}
+
+void ControlLivingColors::turnOff(const uint8_t *lampAddr)
+{
+    if (Debug::isVerbose())
+        Debug::println("[INFO][CONTROL] turnOff");
+
+    sendPacket(lampAddr, 0x07, 0, 0, 0);
+}
+void ControlLivingColors::turnOn(const uint8_t *lampAddr)
+{
+    if (Debug::isVerbose())
+        Debug::println("[INFO][CONTROL] turnOn");
+
+    sendPacket(lampAddr, 0x05 /* ON command */, 0, 0, 255); 
+}
+
+void ControlLivingColors::sendPacket(const uint8_t *lampAddr,
+                                     uint8_t command,
+                                     uint8_t h, uint8_t s, uint8_t v)
+{
+    uint8_t data[15];
+
+    data[0] = 0x0E;  // packet length
+
+    // 9‑byte lamp address
+    for (int i = 0; i < 9; i++)
+        data[1 + i] = lampAddr[i];
+
+    data[10] = command;
+    data[11] = sequence++;
+    data[12] = h;
+    data[13] = s;
+    data[14] = v;
+
+    if (Debug::isVerbose()) {
+        Debug::println("[INFO][CONTROL] TX "  + Debug::hex  (data, 15)) ;
+    }
+
+    radio.sendPacket(data, 15);
+}
+
+void ControlLivingColors::sniffForLamp() {
+    uint8_t buf[64];
+    uint8_t len = sizeof(buf);
+
+  
+
+    radio.readPacket(buf, len);
+
+    if (len == 0)
+        return;
+
+    // LivingColors packets are always 15 bytes
+    if (len >0 ) {
+        Debug:: println("SNIFF: " + Debug::hex(buf, len));
+
+        // First byte is length (0x0E)
+        // Next 9 bytes = lamp+remote+11
+        // Then command, seq, H, S, V
+
+        uint8_t *addr = &buf[1];
+        Debug::println("sniffed ADDR: " + Debug::hex(addr, 9));
+    }
+}
+
+/* 
+Message setup
+
+Position   Length   Information
+===================================================
+0000-0000  1        Length of the message (always 0x0E)
+0001-0004  4        Destination - to address
+0005-0008  4        Source - from address
+0009-0009  1        port ? (always 0x11)
+000A-000A  1        Command (see below table)
+000B-000B  1        tractid: Sequence number byte
+000C-000E  3        Payload  (HSV) each 1 byte
+000F-0010  2        CRC-16
+
+Commands	Description	Comment
+0x01	?? Ping / Identify / search	Is seen when no Ack from lamp is received
+0x03	Set HSV color	payload is H,S,V bytes
+0x04	Set HSV color Ack	payload is H,S,V bytes
+0x05	Switch Lamp On	payload is H,S,V bytes
+0x06	Switch Lamp On Ack	payload is H,S,V bytes
+0x07	Switch Lamp Off	payload is 0,0,0
+0x08	Switch Lamp Off Ack	payload is 0,0,0
+0x0C	Color Changing/rotating mode. (Seen when holding ON)	payload is G,S,V
+
+After each command the sequence byte is increased with 1 digit 
+Lamp will acknoledge with the command bit +1 (0x04 is ack of command 0x03). 
+
+Destination address FF FF FF FF is broadcast 
+    rgb_to_hsv(unsigned char r, unsigned char g, unsigned char b,
+    unsigned char *h, unsigned char *s, unsigned char *v);
+
+    rgb_color {
+    unsigned char r, g, b;    /* Channel intensities between 0 and 255 
+
+    
+    hsv_color {
+    unsigned char hue;        /* Hue degree between 0 and 255 
+    unsigned char sat;        /* Saturation between 0 (gray) and 255 
+    unsigned char val;        /* Value between 0 (black) and 255 
+};
+
+*/
+</file>
+
+<file path="lib/ControlLivingColors/ControlLivingColors.h">
+#pragma once
+#include <Arduino.h>
+#include "CC2500.h"
+#include "Debug.h"
+
+
+/* 
+Message setup
+
+Position   Length   Information
+===================================================
+0000-0000  1        Length of the message (always 0x0E)
+0001-0004  4        Destination - to address
+0005-0008  4        Source - from address
+0009-0009  1        port ? (always 0x11)
+000A-000A  1        Command (see below table)
+000B-000B  1        tractid: Sequence number byte
+000C-000E  3        Payload  (HSV) each 1 byte
+000F-0010  2        CRC-16
+
+Commands	Description	Comment
+0x01	?? Ping / Identify / search	Is seen when no Ack from lamp is received
+0x03	Set HSV color	payload is H,S,V bytes
+0x04	Set HSV color Ack	payload is H,S,V bytes
+0x05	Switch Lamp On	payload is H,S,V bytes
+0x06	Switch Lamp On Ack	payload is H,S,V bytes
+0x07	Switch Lamp Off	payload is 0,0,0
+0x08	Switch Lamp Off Ack	payload is 0,0,0
+0x0C	Color Changing/rotating mode. (Seen when holding ON)	payload is G,S,V
+
+After each command the sequence byte is increased with 1 digit 
+Lamp will acknoledge with the command bit +1 (0x04 is ack of command 0x03). 
+
+    Destination address FF FF FF FF is broadcast 
+    // rgb_to_hsv(unsigned char r, unsigned char g, unsigned char b,
+    // unsigned char *h, unsigned char *s, unsigned char *v);
+
+    // rgb_color {
+    // unsigned char r, g, b;    /* Channel intensities between 0 and 255 
+
+    
+    // hsv_color {
+    hue;        /* Hue degree between 0 and 255 
+    sat;        /* Saturation between 0 (gray) and 255 
+    val;        /* Value between 0 (black) and 255 
+
+
+*/
+
+// ---------------- Full lamp code ----------------
+// 11 lamps, 9 bytes each
+// First 4 bytes is remote address, 
+// next 4 bytes is lamp address, 
+// then 1 byte is always 0x11 (unknown purpose)
+// ---------------------------------------------
+
+class ControlLivingColors {
+public:
+    ControlLivingColors(CC2500 &radio);
+
+    // Main API
+    void setColor(const uint8_t *lampAddr,
+                  const uint8_t *remoteAddr,
+                  uint8_t h, uint8_t s, uint8_t v);
+
+    void turnOnWhite(const uint8_t *lampAddr);
+    void turnOff(const uint8_t *lampAddr);
+    void turnOn(const uint8_t *lampAddr);
+    void sniffForLamp();
+    
+private:
+    CC2500 &radio;
+    uint8_t sequence = 0;
+
+    void sendPacket(const uint8_t *lampAddr,
+                    uint8_t command,
+                    uint8_t h, uint8_t s, uint8_t v);
+};
+</file>
+
+<file path="lib/ControlLivingColors/LampTypes.h">
+#ifndef LAMP_TYPES_H
+#define LAMP_TYPES_H
+
+#include <Arduino.h>
+
+struct LampState {
+    uint8_t h;
+    uint8_t s;
+    uint8_t v;
+};
+
+#endif
+</file>
+
+<file path="lib/Debug/Debug.cpp">
+#include "Debug.h"
+
+String Debug::webLogBuffer = "";
+const int MAX_LOG_SIZE = 2048;
+
+void Debug::init(long baud) {
+    Serial.begin(baud);
+    println("[DEBUG] Debugging initialized at " + String(baud) + " baud");
+}
+
+void Debug::print(const char* message) {
+    Serial.print(message);
+    webLogBuffer += String(message);
+}
+
+void Debug::print(int value) {
+    Serial.print(value);
+    webLogBuffer += String(value);
+}
+
+void Debug::print(unsigned long value) {
+    Serial.print(value);
+    webLogBuffer += String(value);
+
+}
+
+void Debug::print(const String& message) {
+    Serial.print(message);
+    webLogBuffer += message;
+}
+
+
+void Debug::println(const char* message) {
+    Serial.println(message);
+    webLogBuffer += String(message) + "\n";
+}
+
+void Debug::println(int value) {
+    Serial.println(value);
+    webLogBuffer += String(value) + "\n";
+}
+
+void Debug::println(unsigned long value) {
+    Serial.println(value);
+    webLogBuffer += String(value) + "\n";
+}
+
+void Debug::println(const String& message) {
+    Serial.println(message);
+    webLogBuffer += message + "\n";
+}
+
+String Debug::getWebLogs() {
+    return webLogBuffer;
+}
+
+bool Debug::_verbose = false;
+
+void Debug::setVerbose(bool verbose) {
+    _verbose = verbose;
+}
+
+bool Debug::isVerbose() {
+    return _verbose;
+}
+
+void Debug::info(const String& message) {
+    println("[INFO] " + message);
+}
+
+void Debug::packet(const String& message) {
+    println("[PACKET] " + message);
+}
+
+String Debug::hex(const uint8_t* data, uint8_t len) {
+    String result = "";
+    for (uint8_t i = 0; i < len; i++) {
+        if (data[i] < 0x10) {
+            result += "0";
+        }
+        result += String(data[i], HEX);
+        result += " ";
+    }
+    return result;
+}
+
+void Debug::clearLogs() {
+    webLogBuffer = "";
+}
+</file>
+
+<file path="lib/Debug/Debug.h">
+#ifndef DEBUG_H
+#define DEBUG_H
+
+#include <Arduino.h>
+
+class Debug {
+public:
+    static void init(long baud = 115200);
+    static void print(const char* message);
+    static void print(int value);
+    static void print(unsigned long value);
+    static void print(const String& message); // Added for String support
+    static void println(const char* message = "");
+    static void println(int value);
+    static void println(unsigned long value);
+    static void println(const String& message); // Added for String support
+    static String getWebLogs();
+    static void setVerbose(bool verbose);
+    static bool isVerbose();
+    static void info(const String& message);
+    static void packet(const String& message);
+    static String hex(const uint8_t* data, uint8_t len);
+    static void clearLogs();
+private:
+    static String webLogBuffer;
+    static bool _verbose;
+};
+
+#endif
+</file>
+
+<file path="lib/IRremote/IRController.cpp">
+#define USE_IRREMOTE_HPP_AS_PLAIN_INCLUDE
+#include <IRremote.hpp>
+#include "IRController.h"
+#include <Debug.h>
+
+
+IRController::IRController(int rxPin, int txPin)
+    : rxPin(rxPin), txPin(txPin)
+{
+}
+
+void IRController::init()
+{
+    Debug::println("[INFO][IRController] Initializing IR Controller with RX pin " + String(rxPin) + " and TX pin " + String(txPin));   
+
+
+    IrReceiver.begin(rxPin, ENABLE_LED_FEEDBACK);
+    IrSender.begin(txPin, DISABLE_LED_FEEDBACK);
+}
+
+void IRController::send(unsigned long code, int bits)
+{
+        if (Debug::isVerbose()) {
+            Debug::println("[INFO][IRController] Sending code: " + String(code) + " / " + String(bits) + " bits");
+        }   
+    IrSender.sendNECMSB(code, bits); // Use sendNECMSB for raw MSB-first NEC codes
+}
+
+unsigned long IRController::receive()
+{
+    if (IrReceiver.decode())
+    {
+        if (Debug::isVerbose()) {
+            Debug::println("[INFO][IRController] Received code: " + String(IrReceiver.decodedIRData.decodedRawData) + " / " + String(IrReceiver.decodedIRData.numberOfBits) + " bits");
+        }
+
+        unsigned long value = IrReceiver.decodedIRData.decodedRawData;
+        IrReceiver.resume();
+        return value;
+    }
+    return 0;
+}
+
+int IRController::getReceivedBitlength()
+{
+    return IrReceiver.decodedIRData.numberOfBits;
+}
+
+int IRController::getReceivedProtocol()
+{
+    return IrReceiver.decodedIRData.protocol;
+}
+</file>
+
+<file path="lib/IRremote/IRController.h">
+#ifndef IR_CONTROLLER_H
+#define IR_CONTROLLER_H
+
+
+// NEC Adres controller
+// ADDRESS = 0xEF00;
+
+// NEC 0xef00fc03  power on
+// NEC 0xef00fd02  power off
+/* commands 
+IR_Codes
+  // basic functions
+  BRIGHTNESS_UP   = 0xFF00,
+  BRIGHTNESS_DOWN = 0xFE01,
+  OFF             = 0xFD02,
+  ON              = 0xFC03,
+
+  // colors
+  RED             = 0xFB04,
+  GREEN           = 0xFA05,
+  BLUE            = 0xF906,
+  WHITE           = 0xF807,
+  ORANGE          = 0xF708,
+  LIGHT_GREEN     = 0xF609,
+  DARK_BLUE       = 0xF50A,
+  YELLOW_ORANGE   = 0xF30C,
+  CYAN            = 0xF20D,
+  PURPLE          = 0xF10E,
+  YELLOW          = 0xF00F,
+
+  // Effects
+  FLASH           = 0xEB14,
+  STROBE          = 0xEA15,
+  FADE            = 0xE916,
+  SMOOTH          = 0xE817
+*/
+
+class IRController
+{
+public:
+    IRController(int rxPin, int txPin);
+    void init();
+    void send(unsigned long code, int bits = 32);
+    unsigned long receive();
+    int getReceivedBitlength();
+    int getReceivedProtocol();
+
+private:
+    int rxPin;
+    int txPin;
+};
+
+#endif
+</file>
+
+<file path="lib/IRremote/IRremote.h">
+
+</file>
+
+<file path="lib/RF433/RF433.cpp">
+#include "RF433.h"
+
+RF433::RF433(int rxPin, int txPin) : rxPin(rxPin), txPin(txPin) {}
+
+// Known codes:
+// 4276245 / 24bit / protocol: 1 = main power group 1.04276244
+// 5974596 / 24bit / Protocol: 5 = main power group 1.1
+//    5397 / 24bit / Protocol: 1 = dimmer function
+
+
+
+void RF433::init() {
+    mySwitch.enableReceive(digitalPinToInterrupt(rxPin));
+    mySwitch.enableTransmit(txPin);
+    mySwitch.setProtocol(1); // Standard protocol for TX
+}
+
+void RF433::send(unsigned long code, int length) {
+    mySwitch.send(code, length);
+     if (Debug::isVerbose()) {
+        Debug::println("[INFO][RF433] Sent code: " + String(code) + " / " + String(length) + " bits");
+    }   
+}
+
+unsigned long RF433::receive() {
+    if (mySwitch.available()) {
+        unsigned long value = mySwitch.getReceivedValue();
+         if (Debug::isVerbose()) {
+            Debug::println("[INFO][RF433] Received code: " + String(value) + " / " + String(mySwitch.getReceivedBitlength()) + " bits / Protocol: " + String(mySwitch.getReceivedProtocol()));
+        }   
+        mySwitch.resetAvailable();
+        return value;
+    }
+    return 0;
+}
+
+int RF433::getReceivedBitlength() {
+     if (Debug::isVerbose()) {
+        Debug::println("[INFO][RF433] Received bit length: " + String(mySwitch.getReceivedBitlength()));
+    }   
+    return mySwitch.getReceivedBitlength();
+}
+
+int RF433::getReceivedProtocol() {
+     if (Debug::isVerbose()) {
+        Debug::println("[INFO][RF433] Received protocol: " + String(mySwitch.getReceivedProtocol()));
+    }           
+    return mySwitch.getReceivedProtocol();
+}
+</file>
+
+<file path="lib/RF433/RF433.h">
+#ifndef RF433_H
+#define RF433_H
+
+#include <RCSwitch.h>
+#include <Arduino.h>
+#include "Debug.h"
+
+
+class RF433 {
+public:
+    RF433(int rxPin, int txPin);
+    void init();
+    void send(unsigned long code, int length = 24);
+    unsigned long receive();
+    int getReceivedBitlength();
+    int getReceivedProtocol();
+
+private:
+    RCSwitch mySwitch;
+    int rxPin;
+    int txPin;
+};
+
+#endif
+</file>
+
+<file path="lib/SettingsManager/SettingsManager.cpp">
+#include "SettingsManager.h"
+#include "../Debug/Debug.h"
+
+const char* SettingsManager::SETTINGS_FILE = "/settings.json";
+
+uint8_t SettingsManager::lampAddr[11][9] = {
+    { 0x5B,0xC8,0x15,0x63, 0x6D,0x92,0xE5,0x0C, 0x11 },
+    { 0xB0,0x56,0x86,0x01, 0x6D,0x92,0xE5,0x0C, 0x11 },
+    { 0xD3,0x06,0x8E,0x43, 0x6D,0x92,0xE5,0x0C, 0x11 },
+    { 0x04,0x11,0x68,0x2E, 0x6D,0x92,0xE5,0x0C, 0x11 },
+    { 0x94,0x4B,0x2D,0x30, 0x6D,0x92,0xE5,0x0C, 0x11 },
+    { 0x60,0xA7,0x3B,0x0A, 0x6D,0x92,0xE5,0x0C, 0x11 },
+
+    { 0x1C,0x27,0x2F,0x1B, 0x78,0x53,0x51,0x2E, 0x11 },
+    { 0xF8,0x6F,0x21,0x31, 0x78,0x53,0x51,0x2E, 0x11 },
+    { 0x73,0x34,0x63,0x73, 0x78,0x53,0x51,0x2E, 0x11 },
+
+    { 0x2F,0x06,0xE6,0x30, 0xAD,0xFA,0x3F,0x50, 0x11 },
+    { 0x8B,0x73,0xA3,0x18, 0xAD,0xFA,0x3F,0x50, 0x11 }
+};
+
+SettingsManager::SettingsManager() {
+}
+
+bool SettingsManager::init() {
+    if (!SPIFFS.begin(true)) {
+        Debug::println("[ERROR][SETTINGS] Failed to mount file system");
+        return false;
+    }
+
+    Debug::println("[INFO][SETTINGS] File system mounted successfully");
+
+    // Check if settings file exists, if not create a default one
+    if (!settingsExist()) {
+        Debug::println("[ERROR][SETTINGS] Settings file not found, creating default settings");
+        String defaultSettings = "{\"system\": {\"name\": \"Home Controller\", \"version\": \"1.0\"}, \"wifi\": {\"ssid\": \"Home-Controller-AP\"}}";
+        saveSettings(defaultSettings);
+    }
+
+    return true;
+}
+
+bool SettingsManager::saveSettings(const String& settings) {
+    File file = SPIFFS.open(SETTINGS_FILE, FILE_WRITE);
+    if (!file) {
+        Debug::println("[ERROR][SETTINGS] Failed to open settings file for writing");
+        return false;
+    }
+
+    if (file.print(settings)) {
+        Debug::println("[INFO][SETTINGS] Settings saved successfully");
+        file.close();
+        return true;
+    } else {
+        Debug::println("[ERROR][SETTINGS] Failed to write settings to file");
+        file.close();
+        return false;
+    }
+}
+
+String SettingsManager::loadSettings() {
+    if (!settingsExist()) {
+        Debug::println("[WARN][SETTINGS] Settings file does not exist");
+        return "{}";
+    }
+
+    File file = SPIFFS.open(SETTINGS_FILE, FILE_READ);
+    if (!file) {
+        Debug::println("[ERROR][SETTINGS] Failed to open settings file for reading");
+        return "{}";
+    }
+
+    String settings = file.readString();
+    file.close();
+
+    Debug::println("[INFO][SETTINGS] Settings loaded successfully");
+    return settings;
+}
+
+bool SettingsManager::savePresets(const uint8_t* data, size_t size) {
+    File file = SPIFFS.open("/presets.bin", FILE_WRITE);
+    if (!file) {
+        Debug::println("[ERROR][SETTINGS] Failed to open presets file for writing");
+        return false;
+    }
+    file.write(data, size);
+    file.close();
+    Debug::println("[INFO][SETTINGS] Presets saved to flash memory.");
+    return true;
+}
+
+void SettingsManager::loadPresets(uint8_t* data, size_t size) {
+    if (SPIFFS.exists("/presets.bin")) {
+        File file = SPIFFS.open("/presets.bin", FILE_READ);
+        if (file) {
+            file.read(data, size);
+            file.close();
+            Debug::println("[INFO][SETTINGS] Presets loaded from flash memory.");
+        }
+    }
+}
+
+bool SettingsManager::settingsExist() {
+    return SPIFFS.exists(SETTINGS_FILE);
+}
+
+bool SettingsManager::formatFileSystem() {
+    Debug::println("[WARN][SETTINGS] Formatting file system...");
+    if (SPIFFS.format()) {
+        Debug::println("[INFO][SETTINGS] File system formatted successfully");
+        return true;
+    } else {
+        Debug::println("[ERROR][SETTINGS] Failed to format file system");
+        return false;
+    }
+}
+
+void SettingsManager::reboot() {
+    Debug::println("[INFO][SETTINGS] Rebooting system...");
+    delay(1000);
+    ESP.restart();
+}
+</file>
+
+<file path="lib/SettingsManager/SettingsManager.h">
+#ifndef SETTINGS_MANAGER_H
+#define SETTINGS_MANAGER_H
+
+#include <Arduino.h>
+#include <FS.h>
+#include <SPIFFS.h>
+
+class SettingsManager {
+public:
+    SettingsManager();
+    bool init();
+    bool saveSettings(const String& settings);
+    String loadSettings();
+    bool settingsExist();
+    void reboot();
+    bool savePresets(const uint8_t* data, size_t size);
+    void loadPresets(uint8_t* data, size_t size);
+
+    static uint8_t lampAddr[11][9];
+
+private:
+    static const char* SETTINGS_FILE;
+    bool formatFileSystem();
+};
+
+#endif
+</file>
+
+<file path="lib/WebUI/WebInterface.h">
+#ifndef WEB_INTERFACE_H
+#define WEB_INTERFACE_H
+
+const char INDEX_HTML[] PROGMEM = R"=====(
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#1a1a2e">
+    <style>
+        body { font-family: Arial; text-align: center; margin: 0; padding: 20px; background: #1a1a2e; color: #eee; }
+        .section { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; max-width: 400px; }
+        button { padding: 15px; font-size: 18px; cursor: pointer; border: none; border-radius: 5px; background: #4ecca3; color: #1a1a2e; transition: all 0.3s; }
+        button:active { background: #3db892; transform: scale(0.98); }
+        button:hover { background: #5edbb3; }
+        button.verbose-active { background: #ff6b6b; color: #fff; }
+        #debug-container { background: #16213e; color: #eee; padding: 10px; margin: 20px; min-height: 200px; max-height: 400px; overflow-y: auto; text-align: left; font-family: monospace; font-size: 12px; border-radius: 5px; border: 1px solid #0f3460; }
+        .status-header { display: flex; align-items: center; gap: 10px; }
+        .led { width: 12px; height: 12px; border-radius: 50%; background: #444; box-shadow: 0 0 2px #000; transition: background 0.1s; }
+        .led.active { background: #00ff00; box-shadow: 0 0 8px #00ff00; }
+        .log-info { color: #4ecca3; font-weight: bold; }
+        .log-warn { color: #ffaa00; font-weight: bold; }
+        .log-error { color: #ff5555; font-weight: bold; }
+        .log-packet { color: #bb86fc; }
+        .log-test { color: #f4d03f; }
+        .log-debug { color: #03dac6; }
+        .remote-container { background: #16213e; padding: 15px; border-radius: 15px; border: 2px solid #0f3460; max-width: 280px; margin: 20px auto; box-shadow: 0 10px 20px rgba(0,0,0,0.5); }
+        .remote-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .remote-btn { width: 100%; aspect-ratio: 1; border-radius: 50%; font-size: 10px; cursor: pointer; border: none; transition: all 0.2s; font-weight: bold; color: white; text-shadow: 1px 1px 2px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; box-shadow: 0 4px #222; }
+        .remote-btn:active { transform: translateY(2px); box-shadow: 0 2px #111; }
+        .remote-zone-select { width: 100%; padding: 10px; margin-bottom: 20px; background: #1a1a2e; color: #4ecca3; border: 1px solid #4ecca3; border-radius: 5px; font-weight: bold; }
+        .spacer { height: 100vh; background: linear-gradient(#16213e, #0f3460); color: #eee; }
+        .content-wrapper { display: flex; flex-direction: column; min-height: 100vh; }
+        .main-content { flex: 1; display: flex; flex-direction: column; }
+        .log-section { background: #0f3460; padding: 20px; border-top: 2px solid #1a1a2e; }
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+        <div class="main-content">
+            <div class="section">
+                <div class="status-header">
+                    <h1>Home Control Panel</h1>
+                    <div id="running-led" class="led"></div>
+                </div>
+                <div class="btn-grid">
+                    <button onclick="sendCmd('light_on')">Light ON</button>
+                    <button onclick="sendCmd('light_off')">Light OFF</button>
+                    <button onclick="sendCmd('fan_toggle')">Fan Toggle</button>
+                    <button onclick="sendCmd('ac_boost')">AC Boost</button>
+                </div>
+            </div>
+
+            <div class="spacer">
+                <h2>Scene Effects</h2>
+                <p style="color: #aaa;">Pre-configured automation scenes</p>
+                <div class="btn-grid" style="margin-top: 20px; max-width: 400px;">
+                    <button onclick="sendCmd('movie_night')">🎬 Movie Night</button>
+                    <button onclick="sendCmd('all_off')">🌙 All Off</button>
+                    <button onclick="sendCmd('rainbow_effect')">🌈 Rainbow</button>
+                    <button onclick="sendCmd('warm_white')">🔥 Warm White</button>
+                </div>
+            </div>
+
+            <div class="spacer">
+                <h2>LivingColors Lamp Control</h2>
+                <div style="max-width: 400px; margin: 0 auto; text-align: left;">
+                    <label style="color: #eee; display: block; margin-bottom: 10px;">Select Lamp:</label>
+                    <select id="lamp-select" style="width: 100%; padding: 10px; font-size: 16px; border-radius: 5px; border: 1px solid #0f3460; background: #16213e; color: #eee; margin-bottom: 20px;">
+                        <option value="0">Lamp 0 (Red)</option>
+                        <option value="1">Lamp 1 (Orange)</option>
+                        <option value="2">Lamp 2 (Yellow)</option>
+                        <option value="3">Lamp 3 (Green-Yellow)</option>
+                        <option value="4">Lamp 4 (Green)</option>
+                        <option value="5">Lamp 5 (Cyan)</option>
+                        <option value="6">Lamp 6 (Blue)</option>
+                        <option value="7">Lamp 7 (Purple)</option>
+                        <option value="8">Lamp 8 (Magenta)</option>
+                        <option value="9">Lamp 9 (Pink)</option>
+                        <option value="10">Lamp 10 (Red-Pink)</option>
+                    </select>
+
+                    <label style="color: #eee; display: block; margin-bottom: 10px;">Color Wheel:</label>
+                    <div style="position: relative; width: 200px; height: 200px; margin: 0 auto;">
+                        <canvas id="color-wheel" width="200" height="200" style="border-radius: 50%; cursor: pointer; box-shadow: 0 0 10px rgba(0,0,0,0.5);"></canvas>
+                        <div id="color-preview" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; border-radius: 50%; background: white; border: 2px solid #fff; box-shadow: 0 0 5px rgba(0,0,0,0.3);"></div>
+                    </div>
+
+                    <div class="btn-grid" style="margin-top: 20px;">
+                        <button onclick="turnOnLamp()">Turn ON</button>
+                        <button onclick="turnOffLamp()">Turn OFF</button>
+                        <button onclick="setWhite()">White</button>
+                        <button onclick="setColor()">Set Color</button>
+                    </div>
+
+                    <h3 style="margin-top: 30px; color: #eee;">Master Brightness</h3>
+                    <input type="range" id="master-dimmer" min="0" max="255" value="255" style="width: 100%; margin-bottom: 10px;" oninput="updateMasterDimmer()">
+                    <span id="dimmer-value" style="color: #4ecca3;">255</span>
+
+                    <h3 style="margin-top: 30px; color: #eee;">Presets</h3>
+                    <div class="btn-grid" style="margin-top: 10px;">
+                        <button onclick="savePreset(0)">Save P1</button>
+                        <button onclick="loadPreset(0)">Load P1</button>
+                        <button onclick="savePreset(1)">Save P2</button>
+                        <button onclick="loadPreset(1)">Load P2</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spacer" style="height: auto; padding-bottom: 60px;">
+                <h2>RGB Strip Remote</h2>
+                <div class="remote-container">
+                    <select id="remote-zone" class="remote-zone-select">
+                        <option value="bottom">BOTTOM ZONE</option>
+                        <option value="mid">MIDDLE ZONE</option>
+                        <option value="upper">UPPER ZONE</option>
+                    </select>
+                    <div class="remote-grid">
+                        <!-- Row 1: Brightness & Power -->
+                        <button class="remote-btn" style="background:#555;" onclick="sendRemote(0xEF00FF00)">B+</button>
+                        <button class="remote-btn" style="background:#555;" onclick="sendRemote(0xEF00FE01)">B-</button>
+                        <button class="remote-btn" style="background:#b33;" onclick="sendRemote(0xEF00FD02)">OFF</button>
+                        <button class="remote-btn" style="background:#3b3;" onclick="sendRemote(0xEF00FC03)">ON</button>
+                        <!-- Row 2: Basic Colors -->
+                        <button class="remote-btn" style="background:#f00;" onclick="sendRemote(0xEF00FB04)">R</button>
+                        <button class="remote-btn" style="background:#0f0;" onclick="sendRemote(0xEF00FA05)">G</button>
+                        <button class="remote-btn" style="background:#00f;" onclick="sendRemote(0xEF00F906)">B</button>
+                        <button class="remote-btn" style="background:#eee; color:#333;" onclick="sendRemote(0xEF00F807)">W</button>
+                        <!-- Row 3: Colors + Flash -->
+                        <button class="remote-btn" style="background:#ff8c00;" onclick="sendRemote(0xEF00F708)">OR</button>
+                        <button class="remote-btn" style="background:#90ee90; color:#333;" onclick="sendRemote(0xEF00F609)">LG</button>
+                        <button class="remote-btn" style="background:#00008b;" onclick="sendRemote(0xEF00F50A)">DB</button>
+                        <button class="remote-btn" style="background:#444;" onclick="sendRemote(0xEF00EB14)">FLSH</button>
+                        <!-- Row 4: Colors + Strobe -->
+                        <button class="remote-btn" style="background:#ffcc00;" onclick="sendRemote(0xEF00F30C)">YO</button>
+                        <button class="remote-btn" style="background:#00ffff; color:#333;" onclick="sendRemote(0xEF00F20D)">CY</button>
+                        <button class="remote-btn" style="background:#800080;" onclick="sendRemote(0xEF00F10E)">PU</button>
+                        <button class="remote-btn" style="background:#444;" onclick="sendRemote(0xEF00EA15)">STRB</button>
+                        <!-- Row 5: Colors + Fade -->
+                        <button class="remote-btn" style="background:#ffff00; color:#333;" onclick="sendRemote(0xEF00F00F)">YLW</button>
+                        <button class="remote-btn" style="background:#444;" onclick="sendRemote(0xEF00E916)">FADE</button>
+                        <button class="remote-btn" style="background:#444;" onclick="sendRemote(0xEF00E817)">SMTH</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="spacer">
+                <h2>System Information</h2>
+                <p style="color: #aaa;">Hardware status, uptime, etc.</p>
+                <div class="btn-grid" style="margin-top: 20px;">
+                    <button onclick="rebootController()">Reboot</button>
+                    <button onclick="openSettings()">Open Settings</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="log-section">
+            <h2>Debug Logs</h2>
+            <div class="btn-grid" style="margin-top: 10px;">
+                <button id="verbose-btn" onclick="toggleVerbose()">Verbose: OFF</button>
+                <button onclick="clearLogs()">Clear Logs</button>
+            </div>
+            <div id="debug-container"></div>
+        </div>
+    </div>
+
+    <script>
+        function sendCmd(cmd) {
+            fetch('/command?val=' + cmd);
+        }
+
+        function rebootController() {
+            if (confirm('Are you sure you want to reboot the controller?')) {
+                fetch('/reboot').then(response => {
+                    if (response.ok) {
+                        alert('Controller is rebooting...');
+                    }
+                });
+            }
+        }
+
+        function openSettings() {
+            fetch('/settings').then(r => r.text()).then(settings => {
+                alert('Current Settings:\n\n' + settings);
+            }).catch(error => {
+                alert('Failed to load settings: ' + error);
+            });
+        }
+
+        function updateLogs() {
+            fetch('/logs').then(r => r.text()).then(text => {
+                const container = document.getElementById('debug-container');
+                const lines = text.trim().split('\n');
+                container.innerHTML = '';
+                lines.forEach(line => {
+                    let cls = '';
+                    const upperLine = line.toUpperCase();
+                    if (upperLine.includes('[ERROR]')) cls = 'log-error';
+                    else if (upperLine.includes('[WARN]')) cls = 'log-warn';
+                    else if (upperLine.includes('[INFO]')) cls = 'log-info';
+                    else if (upperLine.includes('[PACKET]')) cls = 'log-packet';
+                    else if (upperLine.includes('[TEST]')) cls = 'log-test';
+                    else if (upperLine.includes('[DEBUG]') || upperLine.includes('[MAIN]') || upperLine.includes('[SETTINGS]') || upperLine.includes('[AUTOMATION]')) cls = 'log-debug';
+                    
+                    const span = document.createElement('div');
+                    span.className = cls;
+                    span.textContent = line;
+                    container.appendChild(span);
+                });
+                // Auto-scroll to bottom only if user is already at bottom
+                const isAtBottom = container.scrollHeight - container.scrollTop <= container.clientHeight + 50;
+                if (isAtBottom) {
+                    container.scrollTop = container.scrollHeight;
+                }
+            });
+        }
+
+        function updateStatus() {
+            fetch('/status').then(r => r.text()).then(state => {
+                const led = document.getElementById('running-led');
+                if (state === "on") led.classList.add('active');
+                else led.classList.remove('active');
+            });
+        }
+
+        setInterval(updateLogs, 2000);
+        setInterval(updateStatus, 500);
+
+        let verboseEnabled = false;
+
+        function toggleVerbose() {
+            verboseEnabled = !verboseEnabled;
+            const btn = document.getElementById('verbose-btn');
+            if (verboseEnabled) {
+                btn.textContent = 'Verbose: ON';
+                btn.classList.add('verbose-active');
+                fetch('/verbose?val=1');
+            } else {
+                btn.textContent = 'Verbose: OFF';
+                btn.classList.remove('verbose-active');
+                fetch('/verbose?val=0');
+            }
+        }
+
+        function clearLogs() {
+            document.getElementById('debug-container').innerHTML = '';
+            fetch('/clearlogs');
+        }
+
+        // Color wheel and lamp control functions
+        let selectedHue = 0;
+        let selectedSaturation = 255;
+        let selectedValue = 255;
+
+        function initColorWheel() {
+            const canvas = document.getElementById('color-wheel');
+            const ctx = canvas.getContext('2d');
+            const centerX = canvas.width / 2;
+            const centerY = canvas.height / 2;
+            const radius = canvas.width / 2;
+
+            // Draw color wheel
+            for (let angle = 0; angle < 360; angle++) {
+                const startAngle = (angle - 2) * Math.PI / 180;
+                const endAngle = (angle + 2) * Math.PI / 180;
+                ctx.beginPath();
+                ctx.moveTo(centerX, centerY);
+                ctx.arc(centerX, centerY, radius, startAngle, endAngle);
+                ctx.closePath();
+                ctx.fillStyle = `hsl(${angle}, 100%, 50%)`;
+                ctx.fill();
+            }
+
+            // Add click handler
+            canvas.addEventListener('click', function(e) {
+                const rect = canvas.getBoundingClientRect();
+                const x = e.clientX - rect.left - centerX;
+                const y = e.clientY - rect.top - centerY;
+                const distance = Math.sqrt(x * x + y * y);
+
+                if (distance <= radius) {
+                    let angle = Math.atan2(y, x) * 180 / Math.PI;
+                    if (angle < 0) angle += 360;
+                    selectedHue = Math.round(angle);
+                    updateColorPreview();
+                }
+            });
+        }
+
+        function updateColorPreview() {
+            const preview = document.getElementById('color-preview');
+            preview.style.background = `hsl(${selectedHue}, 100%, 50%)`;
+        }
+
+        function turnOnLamp() {
+            const lampIndex = document.getElementById('lamp-select').value;
+            fetch(`/lamp?index=${lampIndex}&cmd=on`);
+        }
+
+        function turnOffLamp() {
+            const lampIndex = document.getElementById('lamp-select').value;
+            fetch(`/lamp?index=${lampIndex}&cmd=off`);
+        }
+
+        function setWhite() {
+            const lampIndex = document.getElementById('lamp-select').value;
+            fetch(`/lamp?index=${lampIndex}&cmd=white`);
+        }
+
+        function setColor() {
+            const lampIndex = document.getElementById('lamp-select').value;
+            fetch(`/lamp?index=${lampIndex}&cmd=color&hue=${selectedHue}&sat=${selectedSaturation}&val=${selectedValue}`);
+        }
+
+        function updateMasterDimmer() {
+            const value = document.getElementById('master-dimmer').value;
+            document.getElementById('dimmer-value').textContent = value;
+            sendCmd(`master_dim:${value}`);
+        }
+
+        function savePreset(slot) {
+            sendCmd(`preset_save:${slot}`);
+            alert(`Preset ${slot + 1} saved!`);
+        }
+
+        function loadPreset(slot) {
+            sendCmd(`preset_load:${slot}`);
+            alert(`Preset ${slot + 1} loaded!`);
+        }
+
+        function sendRemote(hexCode) {
+            const zone = document.getElementById('remote-zone').value;
+            controlStrip(zone, hexCode);
+        }
+
+        function controlStrip(zone, hexCode) {
+            const cmd = `strip:${zone}:${hexCode.toString(16)}`;
+            sendCmd(cmd);
+        }
+
+        // Initialize color wheel on page load
+        window.addEventListener('load', initColorWheel);
+    </script>
+</body>
+</html>
+)=====";
+
+#endif
+</file>
+
+<file path="lib/WebUI/WebUI.cpp">
+#include "WebUI.h"
+#include "WebInterface.h"
+#include "../Debug/Debug.h"
+#include "../ControlLivingColors/ControlLivingColors.h"
+#include "../SettingsManager/SettingsManager.h"
+#include "../AutomationManager/AutomationManager.h"
+#include <HardwareConfig.h>
+#define USE_IRREMOTE_HPP_AS_PLAIN_INCLUDE
+#include <IRremote.hpp>
+
+WebUI::WebUI() : server(80) {}
+
+void WebUI::init(const char* ssid, CommandCallback callback) {
+    onCommand = callback;
+
+    WiFi.softAP(ssid);
+    IPAddress IP = WiFi.softAPIP();
+
+    // Captive Portal: Redirect all DNS queries to the ESP IP
+    dnsServer.start(53, "*", IP);
+
+    setupRoutes();
+    server.begin();
+    Debug::println("[INFO][WEBUI] WebUI AP Started. SSID: " + String(ssid));
+}
+
+void WebUI::setControllers(ControlLivingColors* c, AutomationManager* a, SettingsManager* s, 
+                           LampState* current, LampState* presets_ptr, bool* rainbow_flag, int* lamp_idx) {
+    control = c;
+    automation = a;
+    settings = s;
+    currentStates = current;
+    presets = presets_ptr;
+    rainbowActive = rainbow_flag;
+    currentLampIndex = lamp_idx;
+}
+
+void WebUI::setStatusProvider(StatusProvider provider) {
+    statusProvider = provider;
+}
+
+void WebUI::setRebootCallback(RebootCallback callback) {
+    onReboot = callback;
+}
+
+void WebUI::setSettingsCallback(SettingsCallback callback) {
+    onGetSettings = callback;
+}
+
+void WebUI::setupRoutes() {
+    // Captive Portal Redirect: Force OS to recognize the login page
+    auto captiveRedirect = [this]() {
+        server.sendHeader("Location", String("http://") + WiFi.softAPIP().toString() + "/", true);
+        server.send(302, "text/plain", ""); // 302 Redirect is the standard trigger
+    };
+
+    server.on("/generate_204", captiveRedirect); // Android connectivity check
+    server.on("/favicon.ico", [this]() { server.send(204); });
+
+    server.on("/", [this]() {
+        server.send(200, "text/html", INDEX_HTML);
+    });
+
+    server.on("/logs", [this]() {
+        server.send(200, "text/plain", Debug::getWebLogs());
+    });
+
+    server.on("/status", [this]() {
+        if (statusProvider) {
+            server.send(200, "text/plain", statusProvider() ? "on" : "off");
+        } else {
+            server.send(200, "text/plain", "unknown");
+        }
+    });
+
+    server.on("/command", [this]() {
+        if (server.hasArg("val")) {
+            String cmd = server.arg("val");
+            processCommand(cmd);
+            server.send(200, "text/plain", "OK");
+        } else {
+            server.send(400, "text/plain", "Missing Command");
+        }
+    });
+
+    server.on("/reboot", [this]() {
+        if (onReboot) {
+            server.send(200, "text/plain", "Rebooting...");
+            onReboot();
+        } else {
+            server.send(500, "text/plain", "Reboot callback not set");
+        }
+    });
+
+    server.on("/settings", [this]() {
+        if (onGetSettings) {
+            String settings = onGetSettings();
+            server.send(200, "application/json", settings);
+        } else {
+            server.send(500, "text/plain", "Settings callback not set");
+        }
+    });
+
+    server.on("/verbose", [this]() {
+        if (server.hasArg("val")) {
+            int val = server.arg("val").toInt();
+            Debug::setVerbose(val == 1);
+            server.send(200, "text/plain", Debug::isVerbose() ? "ON" : "OFF");
+        } else {
+            server.send(400, "text/plain", "Missing value");
+        }
+    });
+
+    server.on("/clearlogs", [this]() {
+        Debug::clearLogs();
+        server.send(200, "text/plain", "OK");
+    });
+
+    server.on("/lamp", [this]() {
+        if (!server.hasArg("index") || !server.hasArg("cmd")) {
+            server.send(400, "text/plain", "Missing parameters");
+            return;
+        }
+
+        int lampIndex = server.arg("index").toInt();
+        String cmd = server.arg("cmd");
+
+        if (lampIndex < 0 || lampIndex > 10) {
+            server.send(400, "text/plain", "Invalid lamp index");
+            return;
+        }
+
+        // Forward the lamp command to the main application
+        String fullCmd = "lamp_" + cmd + ":" + String(lampIndex);
+        if (cmd == "color" && server.hasArg("hue")) {
+            fullCmd += ":" + server.arg("hue") + ":" + server.arg("sat") + ":" + server.arg("val");
+        }
+        processCommand(fullCmd);
+        server.send(200, "text/plain", "OK");
+    });
+
+    server.onNotFound(captiveRedirect); // Redirect all other unknown requests
+}
+
+void WebUI::processCommand(String cmd) {
+    if (!control || !automation || !settings) return;
+
+    Debug::print("[INFO][WEBUI] Processing Command: ");
+    Debug::println(cmd.c_str());
+
+    if (cmd != "rainbow_effect" && !cmd.startsWith("master_dim:") && rainbowActive) {
+        *rainbowActive = false;
+    }
+
+    if (cmd == "movie_night") {
+        for (int i = 0; i < 11; i++) {
+            currentStates[i] = {0, 200, 180};
+        }
+        prepareBatch();
+        control->turnOnWithColorBatch(addrs, 11, h_batch, s_batch, v_batch);
+    } else if (cmd == "all_off") {
+        for (int i = 0; i < 11; i++) {
+            currentStates[i] = {0, 0, 0};
+                        addrs[i] = SettingsManager::lampAddr[i];
+        }
+        control->turnOffBatch(addrs, 11);
+    } else if (cmd == "rainbow_effect") {
+        *rainbowActive = true;
+        if (currentLampIndex) *currentLampIndex = 0;
+    } else if (cmd == "warm_white") {
+        for (int i = 0; i < 11; i++) {
+            currentStates[i] = {25, 150, 255};
+        }
+        prepareBatch();
+        control->turnOnWithColorBatch(addrs, 11, h_batch, s_batch, v_batch);
+    } else if (cmd.startsWith("lamp_")) {
+        int firstColon = cmd.indexOf(':');
+        int secondColon = cmd.indexOf(':', firstColon + 1);
+        String lampCmd = cmd.substring(5, firstColon);
+        int lampIndex = cmd.substring(firstColon + 1, secondColon > 0 ? secondColon : cmd.length()).toInt();
+
+        if (lampIndex >= 0 && lampIndex < 11) {
+            if (lampCmd == "on") {
+                currentStates[lampIndex].v = 255;
+                control->setColor(SettingsManager::lampAddr[lampIndex], SettingsManager::lampAddr[lampIndex], currentStates[lampIndex].h, currentStates[lampIndex].s, currentStates[lampIndex].v);
+            } else if (lampCmd == "off") {
+                currentStates[lampIndex].v = 0;
+                control->turnOff(SettingsManager::lampAddr[lampIndex]);
+            } else if (lampCmd == "white") {
+                currentStates[lampIndex] = {0, 0, 255};
+                control->turnOnWhite(SettingsManager::lampAddr[lampIndex]);
+            } else if (lampCmd == "color") {
+                int thirdColon = cmd.indexOf(':', secondColon + 1);
+                int fourthColon = cmd.indexOf(':', thirdColon + 1);
+                int hue = cmd.substring(secondColon + 1, thirdColon).toInt();
+                int sat = cmd.substring(thirdColon + 1, fourthColon).toInt();
+                int val = cmd.substring(fourthColon + 1).toInt();
+                currentStates[lampIndex] = {(uint8_t)hue, (uint8_t)sat, (uint8_t)val};
+                control->setColor(SettingsManager::lampAddr[lampIndex], SettingsManager::lampAddr[lampIndex], hue, sat, val);
+            }
+        }
+    } else if (cmd.startsWith("master_dim:")) {
+        int val = cmd.substring(11).toInt();
+        for (int i = 0; i < 11; i++) {
+            currentStates[i].v = (uint8_t)val;
+        }
+        prepareBatch();
+        control->turnOnWithColorBatch(addrs, 11, h_batch, s_batch, v_batch);
+    } else if (cmd.startsWith("preset_")) {
+        int slot = cmd.substring(12).toInt();
+        if (slot >= 0 && slot <= 4) {
+            if (cmd.startsWith("preset_save")) {
+                // Copy current memory to preset memory
+                for(int i=0; i<11; i++) ((LampState*)presets)[(slot*11)+i] = currentStates[i];
+                settings->savePresets((uint8_t*)presets, sizeof(LampState)*55);
+            } else {
+                for(int i=0; i<11; i++) {
+                    currentStates[i] = ((LampState*)presets)[(slot*11)+i];
+            }
+                prepareBatch();
+                control->turnOnWithColorBatch(addrs, 11, h_batch, s_batch, v_batch);
+     
+            }
+        }
+    } else if (cmd.startsWith("strip:")) {
+        int firstColon = cmd.indexOf(':');
+        int secondColon = cmd.indexOf(':', firstColon + 1);
+        String zone = cmd.substring(firstColon + 1, secondColon);
+        uint32_t hexCode = strtoul(cmd.substring(secondColon + 1).c_str(), NULL, 16);
+        
+        int targetPin = PIN_IR_BOTTOM; 
+        if (zone == "mid") targetPin = PIN_IR_MID;
+        else if (zone == "upper") targetPin = PIN_IR_UPPER;
+
+        IrSender.setSendPin(targetPin);
+        IrSender.sendNECRaw(hexCode, 0);
+    } else {
+        automation->executeScene(cmd);
+    }
+
+    // Signal back to main via callback for UI feedback (LED pulse)
+    if (onCommand) onCommand("pulse");
+}
+
+void WebUI::handle() {
+    dnsServer.processNextRequest();
+    server.handleClient();
+}
+</file>
+
+<file path="lib/WebUI/WebUI.h">
+#ifndef WEB_UI_H
+#define WEB_UI_H
+
+#include <WiFi.h>
+#include <WebServer.h>
+#include <DNSServer.h>
+#include <functional>
+#include <LampTypes.h>
+
+// Forward declarations
+class SettingsManager;
+class ControlLivingColors;
+class AutomationManager;
+
+class WebUI {
+public:
+    typedef std::function<void(String)> CommandCallback;
+    typedef std::function<bool()> StatusProvider;
+    typedef std::function<void()> RebootCallback;
+    typedef std::function<String()> SettingsCallback;
+
+    WebUI();
+    void init(const char* ssid, CommandCallback callback);
+    void setStatusProvider(StatusProvider provider);
+    void setRebootCallback(RebootCallback callback);
+    void setSettingsCallback(SettingsCallback callback);
+    
+    // Link core modules for command processing
+    void setControllers(ControlLivingColors* c, AutomationManager* a, SettingsManager* s, 
+                        LampState* current, LampState* presets_ptr, bool* rainbow_flag, int* lamp_idx);
+
+    void handle();
+    void processCommand(String cmd);
+
+private:
+    WebServer server;
+    DNSServer dnsServer;
+    CommandCallback onCommand;
+    StatusProvider statusProvider;
+    RebootCallback onReboot;
+    SettingsCallback onGetSettings;
+
+    // Pointers to main application objects
+    ControlLivingColors* control = nullptr;
+    AutomationManager* automation = nullptr;
+    SettingsManager* settings = nullptr;
+    LampState* currentStates = nullptr;
+    LampState* presets = nullptr;
+    bool* rainbowActive = nullptr;
+    int* currentLampIndex = nullptr;
+
+    void setupRoutes();
+};
+
+#endif
+</file>
+
+<file path="platformio.ini">
+[env:esp32doit-devkit-v1]
+platform = espressif32
+board = esp32doit-devkit-v1
+framework = arduino
+build_flags = -I include
+lib_deps = 
+    sui77/rc-switch
+    z3t0/IRremote @ ^4.4.1
+monitor_speed = 115200
+
+
+; Enable auto-reset via DTR/RTS
+upload_port = COM6  ; Replace with your port
+upload_speed = 921600
+board_upload.wait_for_upload_port = yes
+board_upload.use_1200bps_touch = yes
+</file>
+
+<file path="src/main.cpp">
+#include <Arduino.h>
+#include <IRremote.hpp> // Primary implementation: ONLY in main.cpp!
+#include <RF433.h>
+#include <IRController.h>
+#include "WebUI.h"
+#include "Debug.h"
+#include <AutomationManager.h>
+#include <SettingsManager.h>
+#include "CC2500.h"
+#include "ControlLivingColors.h"
+#include <LampTypes.h>
+#include <HardwareConfig.h> // Include the centralized hardware configuration
+#include <SPIFFS.h>
+
+// Forward declarations for the compiler
+void handleWebCommand(String cmd);
+void testAllLamps();
+
+LampState currentStates[11]; // Current state of all 11 lamps
+LampState presets[5][11];    // 5 slots of 11 lamp states
+
+// Pin setup  used sofare 33 26 35 25 2 4 5 18 19 23 27 14
+RF433 rf(PIN_RF433_RX, PIN_RF433_TX);          //   RX on GPIO 33, TX on GPIO 26
+IRController ir(PIN_IR_RX, PIN_IR_BOTTOM);     // RX on GPIO 35, TX on GPIO 25 (PIN_IR_BOTTOM is the shared TX pin)
+
+
+// 
+CC2500 radio(PIN_CC2500_CS, PIN_CC2500_SCK, PIN_CC2500_MISO, PIN_CC2500_MOSI);
+ControlLivingColors control(radio);
+WebUI webInterface;
+AutomationManager automation(rf, ir); // Automation manager
+SettingsManager settingsManager; // Settings manager
+
+
+// --- Animation State ---
+bool rainbowActive = false;
+uint8_t rainbowStep = 0;
+int currentLampIndex = 0;
+unsigned long lastRainbowUpdate = 0;
+
+
+unsigned long runningLedTimer = 0; // Timestamp for non-blocking running LED control
+bool runningLedState = HIGH; // Initial state for running LED (HIGH = off for inverted logic)
+unsigned long ledTimer = 0; // Timestamp for non-blocking LED control
+
+void pulseLed(int ms) {
+    digitalWrite(PIN_STATUS_LED, LOW);
+    ledTimer = millis() + ms;
+}
+
+void setup() {
+    Debug::init(); // Initialize debugging
+    
+    radio.begin(); //  Initialize SPI and CC2500 pins and living colors setup
+    //radio.setRXMode(); // Ensure radio starts in listening mode
+
+    // Initialize file system and settings
+    settingsManager.init();
+    settingsManager.loadPresets((uint8_t*)presets, sizeof(presets)); // Load saved lamp data immediately after filesystem init
+   
+       
+    webInterface.init("Home-Controller-AP", [](String n){ pulseLed(100); });
+    webInterface.setControllers(&control, &automation, &settingsManager, 
+                                currentStates, (LampState*)presets, 
+                                &rainbowActive, &currentLampIndex);
+
+    
+
+    // Link hardware state to WebUI (Inverted logic: LOW = ON)
+    webInterface.setStatusProvider([]() {
+        return runningLedState == LOW;
+    });
+    
+    // Set reboot callback
+    webInterface.setRebootCallback([]() {
+        settingsManager.reboot();
+    });
+    
+    // Set settings callback
+    webInterface.setSettingsCallback([]() -> String {
+        String json = settingsManager.loadSettings();
+        
+        // Inject lamp data into the settings view
+        String lampJson = ",\"lamp_data\":{";
+        for(int i=0; i<5; i++) {
+            int configured = 0;
+            for(int j=0; j<11; j++) if(presets[i][j].v > 0) configured++;
+            lampJson += "\"Preset_" + String(i) + "\":\"" + String(configured) + " lamps configured\"";
+            if(i < 4) lampJson += ",";
+        }
+        lampJson += "}";
+
+        // If the settings manager returns a JSON object, merge the strings
+        if (json.endsWith("}")) {
+            return json.substring(0, json.length() - 1) + lampJson + "}";
+        }
+        return json;
+    });
+
+    pinMode(PIN_STATUS_LED, OUTPUT);
+    pinMode(PIN_RUNNING_LED, OUTPUT); 
+    digitalWrite(PIN_RUNNING_LED, runningLedState); 
+    digitalWrite(PIN_STATUS_LED, HIGH);
+    rf.init();
+    ir.init();
+    
+    // Link automation to hardware and load scenes
+    automation.setLampController(&control, SettingsManager::lampAddr);
+    automation.initDefaultScenes();
+
+    // Initialize the library's IR Sender for the zoned strips
+    IrSender.begin(PIN_IR_BOTTOM);
+
+    // Initialize current states to "Off"
+    for(int i=0; i<11; i++) {
+        currentStates[i] = {0, 0, 255}; // Default brightness to 255 to match WebUI
+    }
+
+    Debug::println("[INFO][MAIN] System Online: RF433, IR, and 11-Lamp Controller ready.");
+    
+    // Configure CC2500 for LivingColors
+   
+    Debug::setVerbose( false); // Enable verbose logging for testing
+
+   
+}
+
+void loop() {
+
+        webInterface.handle();
+
+        
+    // Handle non-blocking LED turn-off
+    if (ledTimer != 0 && (long)(millis() - ledTimer) >= 0) {
+        digitalWrite(PIN_STATUS_LED, HIGH);
+        ledTimer = 0;
+    }
+
+    // Handle non-blocking running LED toggle
+    if (millis() - runningLedTimer >= 500) { // Toggle every 500ms
+        runningLedState = !runningLedState; // Invert the state
+        digitalWrite(PIN_RUNNING_LED, runningLedState); 
+        runningLedTimer = millis(); // Reset the timer
+    }
+
+    // Handle animated rainbow effect
+    // To maintain WebUI responsiveness and RF/IR sensing, we update only one lamp
+    // per cycle. This prevents the CC2500's blocking TX loop from starving other tasks.
+    if (rainbowActive && millis() - lastRainbowUpdate >= 30) {
+        lastRainbowUpdate = millis();
+
+        uint8_t hue = (uint8_t)((currentLampIndex * 255 / 11) + rainbowStep);
+        uint8_t brightness = currentStates[currentLampIndex].v; // Respect current dimmer level
+        control.setColor(settingsManager.lampAddr[currentLampIndex], settingsManager.lampAddr[currentLampIndex], hue, 255, brightness);
+        currentStates[currentLampIndex] = {hue, 255, brightness};
+
+        currentLampIndex++;
+        if (currentLampIndex >= 11) {
+            currentLampIndex = 0;
+            rainbowStep += 2; // Controls the rotation speed of the color wheel
+        }
+    }
+
+    unsigned long received = rf.receive();
+    if (received != 0) {
+        pulseLed(100);
+        Debug::print("[INFO][MAIN] RF Received: ");
+        Debug::print(received);
+        Debug::print(" / ");
+        Debug::print(rf.getReceivedBitlength());
+        Debug::print("bit / Protocol: ");
+        Debug::println(rf.getReceivedProtocol());
+        
+        // Check if this RF code triggers any automation
+        automation.checkTrigger(received, rf.getReceivedBitlength(), rf.getReceivedProtocol());
+    }
+
+    unsigned long receivedIR = ir.receive();
+    if (receivedIR != 0) {
+        pulseLed(100);
+        Debug::print("[INFO][MAIN] IR Received: 0x");
+        Debug::print(String(receivedIR, HEX));
+        Debug::print(" / ");
+        Debug::print(ir.getReceivedBitlength());
+        Debug::print("bit / Protocol: ");
+        Debug::println(ir.getReceivedProtocol());
+    }
+
+   
+}
+
+void testAllLamps() {
+    Debug::println("[TEST] Starting lamp test sequence...");
+
+    // Test each lamp with a different color (non-blocking - commands queued)
+    for (int i = 0; i < 11; i++) {
+        // Calculate a different hue for each lamp (spread across the color wheel)
+        uint8_t hue = (i * 255) / 11;
+
+        // Set the lamp color (HSV: hue, saturation=255, value=255)
+        control.setColor(settingsManager.lampAddr[i], settingsManager.lampAddr[i], hue, 255, 255);
+
+        Debug::println("[TEST] Lamp " + String(i + 1) + " set to hue: " + String(hue));
+    }
+
+    Debug::println("[TEST] All lamps tested!");
+}
+</file>
+
+</files>
