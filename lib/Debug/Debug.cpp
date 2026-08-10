@@ -1,12 +1,22 @@
 #include "Debug.h"
 
+
+
 String Debug::webLogBuffer = "";
 const int MAX_LOG_SIZE = 8192; // Maximum size of the web log buffer in characters
 static unsigned long deviceTimeOffset = 0; // Stores the device time in seconds
 
 void Debug::init(long baud) {
+
     Serial.begin(baud);
     println("[DEBUG] Debugging initialized at " + String(baud) + " baud");
+
+#ifdef DEBUG_LEVEL
+    println("[DEBUG] DEBUG_LEVEL = " + String(DEBUG_LEVEL));
+#else
+    // DEBUG_LEVEL build flag not defined → only basic logging is active.
+    println("[DEBUG] DEBUG_LEVEL not defined (basic logging only)");
+#endif
 }
 
 String Debug::getTimestamp() {
@@ -97,7 +107,7 @@ void Debug::println(const String& message) {
     }
     
     // Add the message if buffer is still not full
-    if (webLogBuffer.length() + msgLen <= MAX_LOG_SIZE * 1.2) {  // Allow some overflow for rotation
+if (webLogBuffer.length() + msgLen <= MAX_LOG_SIZE + 64) {  // Allow some overflow for rotation
         webLogBuffer += timestampedMsg + "\n";
     }
 }
