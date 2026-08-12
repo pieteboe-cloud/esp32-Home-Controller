@@ -3,13 +3,11 @@
 #include <Debug.h>
 
 // ============================================================================
-//  IRController.cpp - implementation of the IR receive/echo logic.
+//  IRController.cpp - implementation of the IR receive logic.
 //
 //  The key idea: when we receive an IR frame we don't just keep the decoded
 //  number - we also snapshot the raw waveform (a list of on/off timings).
-//  Later, echo() replays that exact snapshot with sendRaw(), so what goes out
-//  is a faithful copy of what came in. This is what makes the device behave
-//  like a transparent IR "repeater".
+//  The Core will handle echoing the signal.
 // ============================================================================
 
 // ----------------------------------------------------------------------------
@@ -66,6 +64,7 @@ void IRController::onCommand(IRCallback callback)
 // ----------------------------------------------------------------------------
 void IRController::update()
 {
+   // Debug::println("[IR][DEBUG] Calling IRController::update()");
     if (IrReceiver.decode())
     {
         unsigned long value = IrReceiver.decodedIRData.decodedRawData;
@@ -129,34 +128,21 @@ void IRController::update()
 }
 
 // ----------------------------------------------------------------------------
-// echo()
-//   Re-transmit a previously received IRCommand so the output waveform is
-//   identical to the input.
-//
-//   Why stop() / start()?
-//   ---------------------
-//   The IR TX LED and RX module are physically close. If we transmit while the
-//   receiver is live, we'll pick up our own burst and loop forever. So we
-//   briefly disable the receiver, blast the raw waveform, then re-enable it.
-//
-//   Why sendRaw() and not sendNECMSB()?
-//   -----------------------------------
-//   sendNECMSB() re-encodes a *number* into a fresh NEC frame - the resulting
-//   waveform may not match the original (different bit order etc.).
-//   sendRaw() replays the captured on/off timings verbatim, guaranteeing an
-//   exact copy of the received signal.
+// send()
+//   Transmit an IR signal with the given command.
 // ----------------------------------------------------------------------------
-void IRController::echo(const IRCommand& cmd)
+void IRController::send(const IRCommand& cmd)
 {
 #ifdef DEBUG_LEVEL
     #if DEBUG_LEVEL >= 2
-        Debug::println("[IR][echo] Echoing code 0x" + String(cmd.code, HEX) +
+        Debug::println("[IR][send] Sending code 0x" + String(cmd.code, HEX) +
                        " rawLen=" + String(cmd.rawCodeLength));
     #endif
 #endif
 
+    Debug::println("[IR][DEBUG] Disabling IR receiver for transmission");
     // Pause the receiver so it does not pick up our own transmission.
-    IrReceiver.stop();
+    disableReceive();
 
     if (cmd.hasRaw && cmd.rawCodeLength > 0) {
         // Replay the exact received waveform (assume 38 kHz carrier).
@@ -167,5 +153,27 @@ void IRController::echo(const IRCommand& cmd)
     }
 
     // Re-enable the receiver so we can capture the next incoming frame.
+    enableReceive();
+}
+
+// ----------------------------------------------------------------------------
+// enableReceive()
+//   Enable the IR receiver.
+// ----------------------------------------------------------------------------
+void IRController::enableReceive()
+{
+    Debug::println("[IR][DEBUG] Enabling IR receiver");
     IrReceiver.start();
 }
+
+// ----------------------------------------------------------------------------
+// disableReceive()
+//   Disable the IR receiver.
+// ----------------------------------------------------------------------------
+void IRController::disableReceive()
+{
+    Debug::println("[IR][DEBUG] Disabling IR receiver");
+    IrReceiver.stop();
+}
+
+

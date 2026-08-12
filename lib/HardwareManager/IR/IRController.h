@@ -68,9 +68,10 @@ public:
     // Call this every loop() iteration.
     void update();
 
-    // Replay a captured IRCommand exactly as it was received.
-    // This is what makes the "remote echo / repeater" behaviour work.
-    void echo(const IRCommand& cmd);
+    // Transmit IR signals directly
+    void send(const IRCommand& cmd);
+    void enableReceive();
+    void disableReceive();
 
     // Register the function invoked by update() when a new code is received.
     void onCommand(IRCallback callback);

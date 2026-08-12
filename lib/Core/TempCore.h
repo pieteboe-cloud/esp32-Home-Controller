@@ -10,11 +10,24 @@ public:
     void update();
 
 private:
-    HardwareManager& hardware;   // member reference to the hardware manager
+    HardwareManager& hardware;
+
+    // --- RF test routine variables ---
+    RFSignal  testRf;
+    unsigned long testRfEchoTime = 0;
+    bool testRfWaiting = false;
+
+    // --- IR test routine variables ---
+    IRCommand testIr;
+    unsigned long testIrEchoTime = 0;
+    bool testIrWaiting = false;
+
+    // --- Real echo variables (your existing system) ---
+    unsigned long _rfEchoTime = 0;
+    RFSignal      _rfEchoCmd;
+
+    unsigned long _irEchoTime = 0;
+    IRCommand     _irEchoCmd;
 
     void handleKaku(const RFCommand& cmd);
-
-// IR echo scheduling
-    unsigned long _echoTime = 0;   // when to send the echo (millis)
-    IRCommand _echoCmd;            // full command (with raw timings) to echo back
 };

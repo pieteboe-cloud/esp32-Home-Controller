@@ -3,8 +3,8 @@
 ## 📊 Project Information
 
 - **Project Name**: `esp32_home-controller`
-- **Generated On**: 2026-08-08 13:06:00 (Europe/Amsterdam / GMT+02:00)
-- **Total Files Processed**: 22
+- **Generated On**: 2026-08-12 13:43:41 (Europe/Amsterdam / GMT+02:00)
+- **Total Files Processed**: 24
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
 
@@ -22,15 +22,15 @@
 ```
 ├── 📁 lib/
 │   ├── 📁 Core/
-│   │   ├── 📄 TempCore.cpp (1.49 KB)
-│   │   └── 📄 TempCore.h (509 B)
+│   │   ├── 📄 TempCore.cpp (5.01 KB)
+│   │   └── 📄 TempCore.h (759 B)
 │   ├── 📁 Debug/
 │   │   ├── 📄 Debug.cpp (4.13 KB)
 │   │   └── 📄 Debug.h (1001 B)
 │   └── 📁 HardwareManager/
 │       ├── 📁 IR/
-│       │   ├── 📄 IRController.cpp (7.14 KB)
-│       │   └── 📄 IRController.h (3.82 KB)
+│       │   ├── 📄 IRController.cpp (7.1 KB)
+│       │   └── 📄 IRController.h (3.78 KB)
 │       ├── 📁 KakuDecoder/
 │       │   ├── 📄 KakuDecoder.cpp (4.26 KB)
 │       │   └── 📄 KakuDecoder.h (1.03 KB)
@@ -43,12 +43,15 @@
 │       ├── 📁 RCSwitch/
 │       │   ├── 📄 RFReceiver.cpp (1.35 KB)
 │       │   └── 📄 RFReceiver.h (952 B)
+│       ├── 📁 RF/
+│       │   ├── 📄 RFController.cpp (6.08 KB)
+│       │   └── 📄 RFController.h (2.75 KB)
 │       ├── 📄 Config.h (834 B)
-│       ├── 📄 HardwareManager.cpp (1.75 KB)
-│       └── 📄 HardwareManager.h (1.23 KB)
+│       ├── 📄 HardwareManager.cpp (2.65 KB)
+│       └── 📄 HardwareManager.h (1.16 KB)
 ├── 📁 src/
-│   └── 📄 main.cpp (382 B)
-├── 📄 esp32_home-controller.rar.txt (15.31 KB)
+│   └── 📄 main.cpp (401 B)
+├── 📄 esp32_home-controller.rar (17.07 KB)
 ├── 📄 LivingColors Remote.png (197.23 KB)
 └── 📄 platformio.ini (720 B)
 ```
@@ -72,11 +75,12 @@
 - [📄 lib/HardwareManager/LivingColors/LivingColors.h](#📄-lib-hardwaremanager-livingcolors-livingcolors-h)
 - [📄 lib/HardwareManager/RCSwitch/RFReceiver.cpp](#📄-lib-hardwaremanager-rcswitch-rfreceiver-cpp)
 - [📄 lib/HardwareManager/RCSwitch/RFReceiver.h](#📄-lib-hardwaremanager-rcswitch-rfreceiver-h)
+- [📄 lib/HardwareManager/RF/RFController.cpp](#📄-lib-hardwaremanager-rf-rfcontroller-cpp)
+- [📄 lib/HardwareManager/RF/RFController.h](#📄-lib-hardwaremanager-rf-rfcontroller-h)
 - [📄 lib/HardwareManager/Config.h](#📄-lib-hardwaremanager-config-h)
 - [📄 lib/HardwareManager/HardwareManager.cpp](#📄-lib-hardwaremanager-hardwaremanager-cpp)
 - [📄 lib/HardwareManager/HardwareManager.h](#📄-lib-hardwaremanager-hardwaremanager-h)
 - [📄 src/main.cpp](#📄-src-main-cpp)
-- [📄 esp32_home-controller.rar.txt](#📄-esp32-home-controller-rar-txt)
 - [📄 platformio.ini](#📄-platformio-ini)
 
 ---
@@ -85,19 +89,19 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Files | 22 |
-| Total Directories | 9 |
-| Text Files | 21 |
-| Binary Files | 1 |
-| Total Size | 258.24 KB |
+| Total Files | 24 |
+| Total Directories | 10 |
+| Text Files | 22 |
+| Binary Files | 2 |
+| Total Size | 273.36 KB |
 
 ### 📄 File Types Distribution
 
 | Extension | Count |
 |-----------|-------|
-| `.h` | 10 |
-| `.cpp` | 9 |
-| `.txt` | 1 |
+| `.h` | 11 |
+| `.cpp` | 10 |
+| `.rar` | 1 |
 | `.png` | 1 |
 | `.ini` | 1 |
 
@@ -106,16 +110,16 @@
 ### <a id="📄-lib-core-tempcore-cpp"></a>📄 `lib/Core/TempCore.cpp`
 
 **File Info:**
-- **Size**: 1.49 KB
+- **Size**: 5.01 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/Core/TempCore.cpp`
 - **Relative Path**: `lib/Core`
 - **Created**: 2026-08-08 03:18:54 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-08-08 12:56:01 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `1ccd71e0fb6a3cd38755e79050ea2059`
-- **SHA256**: `e57700ad1cc683ecc3f57e7427f65b0708a91fd63caf8910aaf5e65ab86a4083`
-- **Encoding**: ASCII
+- **Modified**: 2026-08-12 13:43:40 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `ee24cfaf1e103975d3485e657ea956cc`
+- **SHA256**: `4dbc2413cca22a98ebb6e8ebe66719146f72b5162c70e56f84783afb8f3e62b4`
+- **Encoding**: UTF-8
 
 **File code content:**
 
@@ -129,32 +133,136 @@ TempCore::TempCore(HardwareManager& hw)
 }
 
 void TempCore::init() {
-    // Register the Kaku (RF433) callback
-    hardware.onRFCommand([this](const RFCommand& cmd) {
+
+    // ----------------------------------------------------
+    // RF callback → store first RF code for test routine
+    // ----------------------------------------------------
+    hardware.onRFCommand([this](const RFSignal& signal) {
+
+        Debug::println("[CORE][TEST][RF] Received RF: 0x" + String(signal.value, HEX));
+
+        if (!testRf.value) {
+            testRf = signal;
+            Debug::println("[CORE][TEST][RF] Stored first RF code");
+        }
+    });
+
+    // ----------------------------------------------------
+    // Kaku decoded callback
+    // ----------------------------------------------------
+    hardware.onKakuCommand([this](const RFCommand& cmd) {
         this->handleKaku(cmd);
     });
 
-// Register the IR callback: received IR code -> core (store + schedule echo)
+    // ----------------------------------------------------
+    // IR callback → store first IR code for test routine
+    // ----------------------------------------------------
     hardware.onIRCommand([this](const IRCommand& cmd) {
-        Debug::println("[CORE] IR received: 0x" + String(cmd.code, HEX));
 
-        // Schedule the echo after 2 seconds (store the full command incl. raw timings)
-        _echoTime = millis() + 2000;
-        _echoCmd  = cmd;
+        Debug::println("[CORE][TEST][IR] Received IR: 0x" + String(cmd.code, HEX));
+
+        if (!testIr.code) {
+            testIr = cmd;
+            Debug::println("[CORE][TEST][IR] Stored first IR code");
+        }
     });
 }
 
 void TempCore::update() {
-    // Poll hardware (RF + IR)
+
     hardware.update();
 
-    // Echo the IR code after the 2s delay
-    if (_echoTime && (long)(millis() - _echoTime) >= 0) {
-        Debug::println("[CORE] Echoing IR code: 0x" + String(_echoCmd.code, HEX));
-        hardware.ir().echo(_echoCmd);
+    // ----------------------------------------------------
+    // RF TEST ROUTINE (independent)
+    // ----------------------------------------------------
 
-        _echoTime = 0;
-        _echoCmd  = IRCommand();   // reset to an empty command
+    // Start RF timer when first RF code arrives
+    if (!testRfWaiting && testRf.value) {
+        testRfEchoTime = millis() + 2000;
+        testRfWaiting = true;
+        Debug::println("[CORE][TEST][RF] RF echo scheduled in 2 seconds");
+    }
+
+    // Echo RF when timer expires
+    if (testRfWaiting && millis() >= testRfEchoTime) {
+
+        Debug::println("[CORE][TEST][RF] Echoing RF: 0x" + String(testRf.value, HEX));
+        Debug::println("[CORE][TEST][RF] Protocol=" + String(testRf.protocol) +
+                       " Bits=" + String(testRf.bits) +
+                       " Pulse=" + String(testRf.pulse));
+
+        hardware.rf().disableReceive();
+        hardware.rf().setProtocol(testRf.protocol);
+        hardware.rf().setPulseLength(testRf.pulse);
+        hardware.rf().send(testRf.value, testRf.bits);
+        hardware.rf().enableReceive();
+
+        Debug::println("[CORE][TEST][RF] RF echo complete");
+
+        // Reset RF test routine
+        testRf = RFSignal();
+        testRfWaiting = false;
+        testRfEchoTime = 0;
+    }
+
+    // ----------------------------------------------------
+    // IR TEST ROUTINE (independent)
+    // ----------------------------------------------------
+
+    // Start IR timer when first IR code arrives
+    if (!testIrWaiting && testIr.code) {
+        testIrEchoTime = millis() + 2000;
+        testIrWaiting = true;
+        Debug::println("[CORE][TEST][IR] IR echo scheduled in 2 seconds");
+    }
+
+    // Echo IR when timer expires
+    if (testIrWaiting && millis() >= testIrEchoTime) {
+
+        Debug::println("[CORE][TEST][IR] Echoing IR: 0x" + String(testIr.code, HEX));
+
+        hardware.ir().send(testIr);
+
+        Debug::println("[CORE][TEST][IR] IR echo complete");
+
+        // Reset IR test routine
+        testIr = IRCommand();
+        testIrWaiting = false;
+        testIrEchoTime = 0;
+    }
+
+    // ----------------------------------------------------
+    // REAL RF echo logic (your existing system)
+    // ----------------------------------------------------
+    if (_rfEchoTime && (long)(millis() - _rfEchoTime) >= 0) {
+
+        Debug::println("[CORE][DEBUG][RF] Echoing RF code: 0x" + String(_rfEchoCmd.value, HEX));
+
+        if (_rfEchoCmd.value != 0) {
+            hardware.rf().disableReceive();
+            hardware.rf().setProtocol(_rfEchoCmd.protocol);
+            hardware.rf().setPulseLength(_rfEchoCmd.pulse);
+            hardware.rf().send(_rfEchoCmd.value, _rfEchoCmd.bits);
+            hardware.rf().enableReceive();
+        }
+
+        _rfEchoTime = 0;
+        _rfEchoCmd = RFSignal();
+    }
+
+    // ----------------------------------------------------
+    // REAL IR echo logic (your existing system)
+    // ----------------------------------------------------
+    if (_irEchoTime && (long)(millis() - _irEchoTime) >= 0) {
+
+        Debug::println("[CORE][DEBUG][IR] Echoing IR code: 0x" + String(_irEchoCmd.code, HEX));
+
+        if (_irEchoCmd.code != 0) {
+            hardware.ir().send(_irEchoCmd);
+        }
+
+        _irEchoTime = 0;
+        _irEchoCmd = IRCommand();
     }
 }
 
@@ -165,11 +273,9 @@ void TempCore::handleKaku(const RFCommand& cmd) {
 #endif
 
     if (cmd.button == 2) {
-#if DEBUG_LEVEL >= 1
         Debug::println("[CORE] Button 2 → BLUE");
-#endif
         for (int i = 0; i < 12; i++) {
-            hardware.living().setColor(i, 160, 255, 255);   // BLUE
+            hardware.living().setColor(i, 160, 255, 255);
         }
     }
 }
@@ -181,15 +287,15 @@ void TempCore::handleKaku(const RFCommand& cmd) {
 ### <a id="📄-lib-core-tempcore-h"></a>📄 `lib/Core/TempCore.h`
 
 **File Info:**
-- **Size**: 509 B
+- **Size**: 759 B
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/Core/TempCore.h`
 - **Relative Path**: `lib/Core`
 - **Created**: 2026-08-08 02:59:36 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-08-08 12:55:49 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `33a2cccdad775c53643129af70f8c2d5`
-- **SHA256**: `664acc578511b8130bcf99e4d1a34448a4984a7eb360473d6cd707f1d64783b7`
+- **Modified**: 2026-08-12 13:43:40 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `e83e040d2f5c937385c25c5d0ce74b5a`
+- **SHA256**: `146fed2c095ab6f1fb9f39c4f0917be00fd0cce04fdda50582bcfc7f2f9cca8d`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -207,13 +313,26 @@ public:
     void update();
 
 private:
-    HardwareManager& hardware;   // member reference to the hardware manager
+    HardwareManager& hardware;
+
+    // --- RF test routine variables ---
+    RFSignal  testRf;
+    unsigned long testRfEchoTime = 0;
+    bool testRfWaiting = false;
+
+    // --- IR test routine variables ---
+    IRCommand testIr;
+    unsigned long testIrEchoTime = 0;
+    bool testIrWaiting = false;
+
+    // --- Real echo variables (your existing system) ---
+    unsigned long _rfEchoTime = 0;
+    RFSignal      _rfEchoCmd;
+
+    unsigned long _irEchoTime = 0;
+    IRCommand     _irEchoCmd;
 
     void handleKaku(const RFCommand& cmd);
-
-// IR echo scheduling
-    unsigned long _echoTime = 0;   // when to send the echo (millis)
-    IRCommand _echoCmd;            // full command (with raw timings) to echo back
 };
 
 ```
@@ -448,15 +567,15 @@ private:
 ### <a id="📄-lib-hardwaremanager-ir-ircontroller-cpp"></a>📄 `lib/HardwareManager/IR/IRController.cpp`
 
 **File Info:**
-- **Size**: 7.14 KB
+- **Size**: 7.1 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/IR/IRController.cpp`
 - **Relative Path**: `lib/HardwareManager/IR`
 - **Created**: 2026-05-16 15:02:20 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-08-08 13:06:00 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `b1af1d3fe660b6b5283fa41e5ec4de33`
-- **SHA256**: `eba9518a277165b32f0619a086b82061f8ea96d8383502d84cbe7a9ebffc9dde`
+- **Modified**: 2026-08-12 11:45:46 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `7f90cd55ce3278c9d4a9d10c3065b91e`
+- **SHA256**: `c6ba8e6db9a49ca83a9686c58cc73a05a72db1493a048930389c9ce7f02a0b21`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -467,13 +586,11 @@ private:
 #include <Debug.h>
 
 // ============================================================================
-//  IRController.cpp - implementation of the IR receive/echo logic.
+//  IRController.cpp - implementation of the IR receive logic.
 //
 //  The key idea: when we receive an IR frame we don't just keep the decoded
 //  number - we also snapshot the raw waveform (a list of on/off timings).
-//  Later, echo() replays that exact snapshot with sendRaw(), so what goes out
-//  is a faithful copy of what came in. This is what makes the device behave
-//  like a transparent IR "repeater".
+//  The Core will handle echoing the signal.
 // ============================================================================
 
 // ----------------------------------------------------------------------------
@@ -530,6 +647,7 @@ void IRController::onCommand(IRCallback callback)
 // ----------------------------------------------------------------------------
 void IRController::update()
 {
+   // Debug::println("[IR][DEBUG] Calling IRController::update()");
     if (IrReceiver.decode())
     {
         unsigned long value = IrReceiver.decodedIRData.decodedRawData;
@@ -593,34 +711,21 @@ void IRController::update()
 }
 
 // ----------------------------------------------------------------------------
-// echo()
-//   Re-transmit a previously received IRCommand so the output waveform is
-//   identical to the input.
-//
-//   Why stop() / start()?
-//   ---------------------
-//   The IR TX LED and RX module are physically close. If we transmit while the
-//   receiver is live, we'll pick up our own burst and loop forever. So we
-//   briefly disable the receiver, blast the raw waveform, then re-enable it.
-//
-//   Why sendRaw() and not sendNECMSB()?
-//   -----------------------------------
-//   sendNECMSB() re-encodes a *number* into a fresh NEC frame - the resulting
-//   waveform may not match the original (different bit order etc.).
-//   sendRaw() replays the captured on/off timings verbatim, guaranteeing an
-//   exact copy of the received signal.
+// send()
+//   Transmit an IR signal with the given command.
 // ----------------------------------------------------------------------------
-void IRController::echo(const IRCommand& cmd)
+void IRController::send(const IRCommand& cmd)
 {
 #ifdef DEBUG_LEVEL
     #if DEBUG_LEVEL >= 2
-        Debug::println("[IR][echo] Echoing code 0x" + String(cmd.code, HEX) +
+        Debug::println("[IR][send] Sending code 0x" + String(cmd.code, HEX) +
                        " rawLen=" + String(cmd.rawCodeLength));
     #endif
 #endif
 
+    Debug::println("[IR][DEBUG] Disabling IR receiver for transmission");
     // Pause the receiver so it does not pick up our own transmission.
-    IrReceiver.stop();
+    disableReceive();
 
     if (cmd.hasRaw && cmd.rawCodeLength > 0) {
         // Replay the exact received waveform (assume 38 kHz carrier).
@@ -631,8 +736,30 @@ void IRController::echo(const IRCommand& cmd)
     }
 
     // Re-enable the receiver so we can capture the next incoming frame.
+    enableReceive();
+}
+
+// ----------------------------------------------------------------------------
+// enableReceive()
+//   Enable the IR receiver.
+// ----------------------------------------------------------------------------
+void IRController::enableReceive()
+{
+    Debug::println("[IR][DEBUG] Enabling IR receiver");
     IrReceiver.start();
 }
+
+// ----------------------------------------------------------------------------
+// disableReceive()
+//   Disable the IR receiver.
+// ----------------------------------------------------------------------------
+void IRController::disableReceive()
+{
+    Debug::println("[IR][DEBUG] Disabling IR receiver");
+    IrReceiver.stop();
+}
+
+
 
 ```
 
@@ -641,15 +768,15 @@ void IRController::echo(const IRCommand& cmd)
 ### <a id="📄-lib-hardwaremanager-ir-ircontroller-h"></a>📄 `lib/HardwareManager/IR/IRController.h`
 
 **File Info:**
-- **Size**: 3.82 KB
+- **Size**: 3.78 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/HardwareManager/IR/IRController.h`
 - **Relative Path**: `lib/HardwareManager/IR`
 - **Created**: 2026-05-16 15:00:24 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-08-08 13:05:33 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `7d38c51848770216deb542dfeb1d2743`
-- **SHA256**: `6c26f24a16d73100ca7d442b1b74c7eac590e748ee4a1718173893a944bb96a7`
+- **Modified**: 2026-08-12 11:37:34 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `b37e3e42eda876e49a6c45b2f29a465f`
+- **SHA256**: `e2eded52492115047e627565fae30965d1e604e04ad1c687e2042ab3032dc076`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -725,9 +852,10 @@ public:
     // Call this every loop() iteration.
     void update();
 
-    // Replay a captured IRCommand exactly as it was received.
-    // This is what makes the "remote echo / repeater" behaviour work.
-    void echo(const IRCommand& cmd);
+    // Transmit IR signals directly
+    void send(const IRCommand& cmd);
+    void enableReceive();
+    void disableReceive();
 
     // Register the function invoked by update() when a new code is received.
     void onCommand(IRCallback callback);
@@ -1776,6 +1904,285 @@ class RFReceiver {
 
 ---
 
+### <a id="📄-lib-hardwaremanager-rf-rfcontroller-cpp"></a>📄 `lib/HardwareManager/RF/RFController.cpp`
+
+**File Info:**
+- **Size**: 6.08 KB
+- **Extension**: `.cpp`
+- **Language**: `cpp`
+- **Location**: `lib/HardwareManager/RF/RFController.cpp`
+- **Relative Path**: `lib/HardwareManager/RF`
+- **Created**: 2026-08-12 11:12:27 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-08-12 11:17:51 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `eed327f1e801f8a86d9595bb36184f7c`
+- **SHA256**: `e055bc791bf0d0fd833bdba78c93e1e5bbfca8ff903afebe3ec119c998197511`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```cpp
+
+#include "RFController.h"
+
+// ============================================================================
+//  RFController.cpp - implementation of the RF receive logic.
+//
+//  The key idea: when we receive an RF frame we don't just keep the decoded
+//  number - we also store all the raw parameters (value, bits, protocol, pulse).
+//  The Core will handle echoing the signal.
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// Constructor.
+//   Stores the pins. The debounce window (300 ms) also conveniently stops a
+//   remote that keeps repeating its frame (while a button is held) from
+//   flooding our callback every few milliseconds.
+// ----------------------------------------------------------------------------
+RFController::RFController(int rxPin, int txPin)
+    : rxPin(rxPin), txPin(txPin),
+      _lastCodeValue(0), _lastCodeTime(0), _debounceMs(300)
+{
+}
+
+// ----------------------------------------------------------------------------
+// init()
+//   Start both the RF receiver (on rxPin) and the RF sender (on txPin).
+// ----------------------------------------------------------------------------
+void RFController::init()
+{
+#ifdef DEBUG_LEVEL
+    #if DEBUG_LEVEL >= 1
+        Debug::println("[RF][init] Initializing RF Controller with RX pin " + String(rxPin) + " and TX pin " + String(txPin));
+    #endif
+#endif
+    pinMode(rxPin, INPUT);
+    pinMode(txPin, OUTPUT);
+    _rfSwitch = new RCSwitch();
+    _rfSwitch->enableReceive(rxPin);
+    _rfSwitch->enableTransmit(txPin);
+}
+
+// ----------------------------------------------------------------------------
+// onCommand()
+//   Store the user-supplied callback. update() will invoke it whenever a new,
+//   valid RF frame has been received.
+// ----------------------------------------------------------------------------
+void RFController::onCommand(RFCallback callback)
+{
+    _callback = callback;
+}
+
+// ----------------------------------------------------------------------------
+// update()
+//   Poll the RF receiver. Must be called regularly from loop().
+//
+//   Flow:
+//     1. If no frame is pending, do nothing.
+//     2. Drop empty/invalid decodes (the library sometimes reports a decode
+//        when there is no real data - we filter those out here).
+//     3. Debounce: if it's the same code again within _debounceMs, ignore it.
+//     4. Build an RFSignal that carries the raw data, then fire the callback.
+//     5. resetAvailable() the receiver so it can capture the next frame.
+// ----------------------------------------------------------------------------
+void RFController::update()
+{
+    if (_rfSwitch->available())
+    {
+        unsigned long value   = _rfSwitch->getReceivedValue();
+        int bits              = _rfSwitch->getReceivedBitlength();
+        int protocol          = _rfSwitch->getReceivedProtocol();
+        int pulse             = _rfSwitch->getReceivedDelay();
+
+#ifdef DEBUG_LEVEL
+    #if DEBUG_LEVEL >= 2
+        Debug::println("[RF][receive] Received code: 0x" + String(value, HEX) +
+                       " / " + String(bits) + " bits / protocol=" + String(protocol) +
+                       " / pulse=" + String(pulse) + "us");
+    #endif
+#endif
+
+        // Ignore empty/invalid decodes
+        if (value == 0) {
+            _rfSwitch->resetAvailable();
+            return;
+        }
+
+        // Debounce: ignore the same code repeating within the debounce window.
+        if (value == _lastCodeValue && (millis() - _lastCodeTime) < _debounceMs) {
+            _rfSwitch->resetAvailable();
+            return;
+        }
+
+        // Remember this code/time so we can detect repeats on the next decode.
+        _lastCodeValue = value;
+        _lastCodeTime  = millis();
+
+        if (_callback) {
+            RFSignal signal;
+            signal.value     = value;
+            signal.bits      = bits;
+            signal.protocol  = protocol;
+            signal.pulse     = pulse;
+            signal.timestamp = millis();
+
+            // Debug: Print received RF signal
+            Debug::println("[RF][DEBUG] Received signal with value: 0x" + String(value, HEX) +
+                          ", bits: " + String(bits) +
+                          ", protocol: " + String(protocol) +
+                          ", pulse: " + String(pulse) + "us");
+
+            // Hand the packet to the user handler.
+            _callback(signal);
+        }
+
+        // Ready for the next frame.
+        _rfSwitch->resetAvailable();
+    }
+}
+
+// ----------------------------------------------------------------------------
+// send()
+//   Transmit an RF signal with the given value and number of bits.
+// ----------------------------------------------------------------------------
+void RFController::send(unsigned long value, int bits) {
+    _rfSwitch->send(value, bits);
+}
+
+// ----------------------------------------------------------------------------
+// setProtocol()
+//   Set the protocol for RF transmission.
+// ----------------------------------------------------------------------------
+void RFController::setProtocol(int protocol) {
+    _rfSwitch->setProtocol(protocol);
+}
+
+// ----------------------------------------------------------------------------
+// setPulseLength()
+//   Set the pulse length for RF transmission.
+// ----------------------------------------------------------------------------
+void RFController::setPulseLength(int pulse) {
+    _rfSwitch->setPulseLength(pulse);
+}
+
+// ----------------------------------------------------------------------------
+// enableReceive()
+//   Enable the RF receiver.
+// ----------------------------------------------------------------------------
+void RFController::enableReceive() {
+    _rfSwitch->enableReceive(rxPin);
+}
+
+// ----------------------------------------------------------------------------
+// disableReceive()
+//   Disable the RF receiver.
+// ----------------------------------------------------------------------------
+void RFController::disableReceive() {
+    _rfSwitch->disableReceive();
+}
+
+```
+
+---
+
+### <a id="📄-lib-hardwaremanager-rf-rfcontroller-h"></a>📄 `lib/HardwareManager/RF/RFController.h`
+
+**File Info:**
+- **Size**: 2.75 KB
+- **Extension**: `.h`
+- **Language**: `text`
+- **Location**: `lib/HardwareManager/RF/RFController.h`
+- **Relative Path**: `lib/HardwareManager/RF`
+- **Created**: 2026-08-12 09:10:10 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-08-12 11:17:05 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `9344de6998c8b4aa80858eeeab4df144`
+- **SHA256**: `7a367373f2a3fa422f2a1c0de45f043dddd7d959dc63b7dc068c1d17d69c044b`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```text
+#ifndef RF_CONTROLLER_H
+#define RF_CONTROLLER_H
+
+#include <Arduino.h>
+#include <RCSwitch.h>
+#include "../../Debug/Debug.h"
+#include <functional>
+
+// ============================================================================
+//  RFController - wraps the RCSwitch library for this project.
+//
+//  PURPOSE
+//  --------
+//  Provide a clean interface to receive and transmit RF signals, with the
+//  special ability to "echo" (replay) a received signal after a delay.
+// ============================================================================
+
+// ----------------------------------------------------------------------------
+// RFSignal
+//   Everything about one received RF signal.
+//   - 'value/bits/protocol/pulse' : the raw data from the RCSwitch library.
+// ----------------------------------------------------------------------------
+struct RFSignal {
+  unsigned long value;     // decoded raw data
+  int bits;               // number of data bits
+  int protocol;           // protocol from the RCSwitch library
+  int pulse;              // pulse timing in microseconds
+  uint32_t timestamp;     // millis() when the signal arrived
+};
+
+// Callback signature. Called on the main loop whenever a valid RF frame arrives.
+typedef std::function<void(const RFSignal&)> RFCallback;
+
+// ----------------------------------------------------------------------------
+// RFController
+// ----------------------------------------------------------------------------
+class RFController
+{
+public:
+    // rxPin: input from the RF receiver module.
+    // txPin: output that drives the RF transmitter.
+    RFController(int rxPin, int txPin);
+
+    // Begin the RF receiver + sender. Call once from setup().
+    void init();
+
+    // Poll the receiver for new data and fire the callback if a code arrived.
+    // Call this every loop() iteration.
+    void update();
+
+    // Transmit RF signals directly
+    void send(unsigned long value, int bits);
+    void setProtocol(int protocol);
+    void setPulseLength(int pulse);
+    void enableReceive();
+    void disableReceive();
+
+    // Register the function invoked by update() when a new code is received.
+    void onCommand(RFCallback callback);
+
+private:
+    int rxPin;                            // RF receiver module data pin
+    int txPin;                            // RF transmitter module data pin
+
+    RCSwitch* _rfSwitch;                  // RCSwitch instance
+    RFCallback _callback;                 // user-supplied handler
+
+
+
+    // Simple debounce: ignore the same code arriving again within this window,
+    // so a remote that repeats its frame while held down doesn't spam us.
+    unsigned long _lastCodeValue;
+    unsigned long _lastCodeTime;
+    unsigned long _debounceMs;
+};
+
+#endif
+
+```
+
+---
+
 ### <a id="📄-lib-hardwaremanager-config-h"></a>📄 `lib/HardwareManager/Config.h`
 
 **File Info:**
@@ -1825,16 +2232,16 @@ static const uint8_t LAMP_ADDRESSES[LAMP_COUNT][9] = {
 ### <a id="📄-lib-hardwaremanager-hardwaremanager-cpp"></a>📄 `lib/HardwareManager/HardwareManager.cpp`
 
 **File Info:**
-- **Size**: 1.75 KB
+- **Size**: 2.65 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/HardwareManager.cpp`
 - **Relative Path**: `lib/HardwareManager`
 - **Created**: 2026-08-07 18:00:23 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-08-08 12:16:34 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `248bb1594dc52b246b6456b9d921b8e7`
-- **SHA256**: `5bacde14e71a1d7c79de91f96b878457c335a3a246b36ca266255b0393788e5f`
-- **Encoding**: ASCII
+- **Modified**: 2026-08-12 11:44:28 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `39fd2e8ca73a51e3133c5ef5e94730bd`
+- **SHA256**: `a76c6625957fa7bd96a0a5a354e3a64d66c59c85fa790d5f727ec1151d7452e1`
+- **Encoding**: UTF-8
 
 **File code content:**
 
@@ -1842,12 +2249,12 @@ static const uint8_t LAMP_ADDRESSES[LAMP_COUNT][9] = {
 #include "HardwareManager.h"
 
 HardwareManager::HardwareManager(uint8_t lc_cs, uint8_t lc_sck, uint8_t lc_miso, uint8_t lc_mosi, uint8_t lc_gdo2,
-                                 uint8_t rf_rx,
+                                 uint8_t rf_rx, uint8_t rf_tx,
                                  uint8_t ir_rx, uint8_t ir_tx)
     : _living(lc_cs, lc_sck, lc_miso, lc_mosi, lc_gdo2),
-      _rf(rf_rx),
+      _rf(rf_rx, rf_tx),
       _kaku(),
-      _ir(ir_rx, ir_tx)   // <-- NEW
+      _ir(ir_rx, ir_tx)
 {
 }
 
@@ -1858,19 +2265,26 @@ void HardwareManager::init() {
     _living.begin();
 
 #if DEBUG_LEVEL >= 1
-    Debug::println("[HW] Init RF433 receiver...");
+    Debug::println("[HW] Init RF Controller...");
 #endif
-    _rf.begin();
+    _rf.init();
 
-#if DEBUG_LEVEL >= 1
-    Debug::println("[HW] Wiring RFReceiver -> KakuDecoder...");
-#endif
-    _rf.onReceive([this](unsigned long value, int bits, int protocol, int pulse) {
-        _kaku.onRawData(value, bits, protocol, pulse);
+    // RF → HardwareManager → Core
+    Debug::println("[HW][DEBUG] Setting up RF callback in HardwareManager");
+    _rf.onCommand([this](const RFSignal& signal) {
+        Debug::println("[HW][DEBUG] RF callback triggered in HardwareManager");
+        this->handleRFDecoded(signal);
+        
+        // Also pass to Kaku decoder for Kaku-specific processing
+        Debug::println("[HW][DEBUG] Passing RF signal to Kaku decoder");
+        _kaku.onRawData(signal.value, signal.bits, signal.protocol, signal.pulse);
     });
-
+    
+    // Kaku → HardwareManager → Core
     _kaku.onCommand([this](const RFCommand& cmd) {
-        this->handleRFDecoded(cmd);
+        if (_kakuCb) {
+            _kakuCb(cmd);
+        }
     });
 
 #if DEBUG_LEVEL >= 1
@@ -1889,11 +2303,13 @@ void HardwareManager::init() {
 }
 
 void HardwareManager::update() {
+   // Debug::println("[HW][DEBUG] Calling HardwareManager::update()");
     _rf.update();
+   // Debug::println("[HW][DEBUG] Calling IRController::update()");
     _ir.update();   // poll the IR receiver for new codes
 }
 
-void HardwareManager::onRFCommand(KakuCallback callback) {
+void HardwareManager::onRFCommand(RFCallback callback) {
     _rfCb = callback;
 }
 
@@ -1901,13 +2317,27 @@ void HardwareManager::onIRCommand(IRCallback callback) {
     _irCb = callback;
 }
 
-void HardwareManager::handleRFDecoded(const RFCommand& cmd) {
-    if (_rfCb) _rfCb(cmd);
+void HardwareManager::onKakuCommand(KakuCallback callback) {
+    _kakuCb = callback;
+}
+
+void HardwareManager::handleRFDecoded(const RFSignal& signal) {
+    Debug::println("[HW][DEBUG] Received RF signal in HardwareManager with value: 0x" + String(signal.value, HEX));
+    if (_rfCb) {
+        Debug::println("[HW][DEBUG] Calling RF callback in HardwareManager");
+        _rfCb(signal);
+    } else {
+        Debug::println("[HW][DEBUG] No RF callback set in HardwareManager");
+    }
 }
 
 void HardwareManager::handleIRDecoded(const IRCommand& cmd) {
     if (_irCb) _irCb(cmd);
 }
+
+
+
+
 
 ```
 
@@ -1916,15 +2346,15 @@ void HardwareManager::handleIRDecoded(const IRCommand& cmd) {
 ### <a id="📄-lib-hardwaremanager-hardwaremanager-h"></a>📄 `lib/HardwareManager/HardwareManager.h`
 
 **File Info:**
-- **Size**: 1.23 KB
+- **Size**: 1.16 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/HardwareManager/HardwareManager.h`
 - **Relative Path**: `lib/HardwareManager`
 - **Created**: 2026-08-07 17:59:36 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-08-08 12:06:38 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `a8b6f17ce6ccf4a1d23da80574c7ef65`
-- **SHA256**: `53ecabb081b8e64e3f09b479ac4b79a28885d003d87665a3f7b3dfd0328eabef`
+- **Modified**: 2026-08-12 09:59:05 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `05f26f001a64c1fe0e7dda4f50624770`
+- **SHA256**: `94a2635d39330501214a97fca861e93dbd6ffdb8cdb21db41610fb7ab34fd9b8`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -1935,40 +2365,44 @@ void HardwareManager::handleIRDecoded(const IRCommand& cmd) {
 #include <functional>
 #include "../Debug/Debug.h"
 #include "LivingColors/LivingColors.h"
-#include "RCSwitch/RFReceiver.h"
+#include "RF/RFController.h"
 #include "KakuDecoder/KakuDecoder.h"
-#include "IR/IRController.h"     // <-- NEW
+#include "IR/IRController.h"
 
 class HardwareManager {
 public:
     HardwareManager(uint8_t lc_cs, uint8_t lc_sck, uint8_t lc_miso, uint8_t lc_mosi, uint8_t lc_gdo2,
-                    uint8_t rf_rx,
-                    uint8_t ir_rx, uint8_t ir_tx);   // <-- NEW
+                    uint8_t rf_rx, uint8_t rf_tx,
+                    uint8_t ir_rx, uint8_t ir_tx);
 
     void init();
     void update();
 
     LivingColors& living() { return _living; }
-    RFReceiver& rf() { return _rf; }
+    RFController& rf() { return _rf; }
     KakuDecoder& kaku() { return _kaku; }
-    IRController& ir() { return _ir; }                // <-- NEW
+    IRController& ir() { return _ir; }
 
     // Upstream callbacks
-    void onRFCommand(KakuCallback callback);
-    void onIRCommand(IRCallback callback);            // <-- NEW
+    void onRFCommand(RFCallback callback);
+    void onIRCommand(IRCallback callback);
+    void onKakuCommand(KakuCallback callback);
 
 private:
     LivingColors _living;
-    RFReceiver   _rf;
+    RFController _rf;
     KakuDecoder  _kaku;
-    IRController _ir;                                 // <-- NEW
+    IRController _ir;
 
     // Upstream callbacks
-    KakuCallback _rfCb;
-    IRCallback   _irCb;                               // <-- NEW
+    KakuCallback _kakuCb;
+    RFCallback   _rfCb;
+    IRCallback   _irCb;
 
-    void handleRFDecoded(const RFCommand& cmd);
-    void handleIRDecoded(const IRCommand& cmd);       // <-- NEW
+    void handleRFDecoded(const RFSignal& signal);
+    void handleIRDecoded(const IRCommand& cmd);
+    
+private:
 };
 
 ```
@@ -1978,15 +2412,15 @@ private:
 ### <a id="📄-src-main-cpp"></a>📄 `src/main.cpp`
 
 **File Info:**
-- **Size**: 382 B
+- **Size**: 401 B
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `src/main.cpp`
 - **Relative Path**: `src`
 - **Created**: 2026-05-16 15:04:48 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-08-08 12:06:38 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `7f615f8a6263eed6cea71ab9b2b04b63`
-- **SHA256**: `6a97b4127197e687d64fd11f0df8d7b139099b7841f86bc98fc71176be027a5d`
+- **Modified**: 2026-08-12 10:52:21 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `ffeb63c14d7e67d1bf1d00c2799ca4ff`
+- **SHA256**: `594548f1dccb9c3564d34d0fd294daab9f41e8e4902488a7097570504d18239e`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -1999,7 +2433,7 @@ private:
 
 HardwareManager hw(
     5,18,19,23,22,   // LivingColors CC2500
-    33,              // RF433 receiver
+    33,26,           // RF433 receiver, RF433 transmitter
     35,25            // IR RX, IR TX
 );
 
@@ -2015,120 +2449,6 @@ void loop() {
     core.update();
 }
 
-```
-
----
-
-### <a id="📄-esp32-home-controller-rar-txt"></a>📄 `esp32_home-controller.rar.txt`
-
-**File Info:**
-- **Size**: 15.31 KB
-- **Extension**: `.txt`
-- **Language**: `text`
-- **Location**: `esp32_home-controller.rar.txt`
-- **Relative Path**: `root`
-- **Created**: 2026-08-08 08:34:42 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-08-08 08:34:42 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `fc4944f8c482955b474ab290fdd829d4`
-- **SHA256**: `22607e3ad0888a776bd205aeda7503437e52e63212c8887391f34e038edf9eaf`
-- **Encoding**: UTF-8
-
-**File code content:**
-
-```text
-Rar! ��� ��� ~�W1�� ��t� lib/Core/TempCore.cpp
-�_��'��v�0TC3/VO����A!J�H�����|��HB�2ȉd��
-
-��8�)j1��V[ax������ݻț�Ǜ�u�y/pp��_��M���5� �e�Sgc:2�/d�EzOq��
-�Zn*�3��C�}��öNb�$yXr��X��Ȕ:�g'D��դX�?{�9�t��cŋe��[�$��pa�y�T���ǡu�ȗy�y��	vT�]��a(o!���%PQ:Au�]q���ޝ8�J_&u�� e��Z9���P�N�	2��e�����5��h�x
-���B��+}��ϟ`~ć����a�T ~���,m����������:�5�}�U#U�iOM��l��W�\���_3�z���i`�L(j��>`t��v��Խ�PaE�kW2�PE	�{�B�]�Ge�Z+8��m�n�<��9h�����6�qii�}�����3s��igU���~-�cJ��ֿ8��j3�g�2M����dR/�� �G�^� lib/Core/TempCore.h
-��u��&��'�&C2�`T�A��Z	_�� �"���c$��-��#��Z5R���3�&�]���4����;�n�15�N<Q���Ii��@�ͫ�إ�6�kO0B��H���l�P\��lhL�]s���B�^ГY
-j��zuST���� ԦͷoUV����}�`�b'N�u���).;Gĵ�	'Z.��`El/�
-�! 8&�f� lib/Debug/Debug.cpp
-~�9'�Ȣ50fD33?5^��}��MH�nJ�; r5%b��,�(�)�:��M;B��}��I��wO�Tj	'��'N����f����f����.����~`����ˇo_ܿ�Y"xL�6��X�u|���7�Z��D1�`�>��~��z�r��77˹�n�7��<�e����a��I�t �@�}aax��r'�`�
-�'$}�J_�	�IA{ ����c<�Ĵ��2�#ơu���FH�@E�$?�!���%�P��������r���A�|�B#j˶����$�x������]	$ !��N���4k&V�,�4�;I�l>�3<e޻s�rI��b��,$W`��`�CWG�g�pB�Z&�_�������W�k������}�d��}� ��Xie�p�u�VRp�B�"7��6���L3uc8�!��C�,P�����!Q�)]����/��Y�wB��MѫY�L�7���ȠnZ���@���`>�{��w���P��C֬ov�����Bµ4��c�)湚�F����Nu��Y,�Y�xֶ��f�}��;�ﬁ̕X;���mh��4�̸����X�[����M����S�R��z�SxuR�����tOCt�G����'aI�N�( �\�q�n�[���(�70�;/j5��̘���jm4��}6@"]Ky]��]K��fgq��N��-F�:wf��$3]�d��pԨ��mSo���B��OYf��G��R����7Ãj�<835�#-��a�y��:u �z���K��3�j3}��JF\u���a��G3G����փ������{��~��&��n��T��O �w� <4n�O\�R�W�ŵ�r�A���#�X�7H3u&��h �!���J����.�:1pfѼcty���j 2Q1g��8J��^8	@n�lKn�=1�,	�_hV"֡��ϖ�a?\��W�O�/#������(`�P��-�l�#�PQSA*R^�:9oƪZ�8$��K1��ãY���N]�(yC��*�l؜�W�*F�l�L�_gv���,Ֆ�MZ�R��F�,��̐s�7V=(�
-���iM�����XGXGhdd�'	S�"���ŕ�v�Xtm�3���մl������������F1���N��)�%�B�)�f��>�_�k-N��%�L�A2�ݵķ������}i^Gq��+b�k?ʳ��zO&�-���~�=ځva{��"R\�ޓh�����%�)����@����2�nu7���:p%p�,٠R�b�?�H���Z��Y�0ؽ�r�X��������K�ZjSoJ%��]ӱ���[�3 ����-�� �>f�� lib/Debug/Debug.h
- rw�:����l&dC3?U^����),)d�(R^ �������&޷\i��,
-_x����(����ٙ����%�u-�����?�*�h�2��ϻw3�(Z.�ˉ�
-����EA���4�T�w8��C "�	D�Ī�/@�O�Y\���n�K�S�,
-��(q!vK�*$?�v��15+�	�5@��ߪ�W�8ql\�Ez(�F�K�0�l�sJ�g̗<֬(j%w��ɿ�z�?�Z�BU�������m7����J��Za&�j_R�`wY��2!�6oh���yi@w:0��D#��X�S���zT�� ��E�k�3��A�r����#��>���|�p�Y/�8�o7g��:˴=�q&0ha�)8�� �v��� lib/HardwareManager/Config.h
-z����&�˥5&eC3?U]�/���`D�i6�]	��%�� �݃#�n҄'�4�Ɏ�m�	<A4��g:3^D��1gJYßm���ɺ�5쐔�~��|͘���a7���6낟zj� �f�*i����<���O����������й��,�RJP~��,wU�a�>qg���'N���t���8�y~�>P�T�;��I�y歉6��_�^lE>���+$U�F�f+�ZS��[
-�����Ж� U@4ɑoE����a�����&1���t�/m8�w�d�J�����G�q�)-��P�w9}�%�5�<!���;Х8�OC�� h7TȀ 'lib/HardwareManager/HardwareManager.cpp
-��V�'���0eCC#�Pe�ԯ��U8�B�_�DA�!
-Tԋ�T�(���Ʀ�b׺t*�yy�oL��|7gF�Ǚ·��<|�<y�����~>�-fGS)ek�2+�2/��
-仒ׯ�>Y���f&�~8e(���|N�.�<�s��gq�M��U�~�:��\�,13�dB���*7�҂{u 8�8MhYS�d��}�=���/���J$���3o��������`�-���N��SB&:$5��E�n^r��|���du�իw�q�OOCR�%�;!������ᵴA~�`4,�t������d��F��<P��JKv7K�jX���<Zc;%��;%������8�i���4B�~�LLRecc�S����hC���Ή�s!�j(�eGU2����t�!�l� �Q�h��� R��.���J(�9Z�z���_�S�uꍓ�1,ٓ��me�A�˛�҈	�H��^n��(Rء�=M-�g}(��9���|�cw!�ĺ�|�
->r����[d��F���!an֊��i�{˧��=����Ę2��<+
-O����Y�����t�YPs��|vW�:�kǋk|�b��	�ٜ����-r��|���w#�_9�؟k齶
-]饔%��^,�|�,w�=�4ݞv�eY�o�������6O��xk���G`��K���_�{�S�9ʟ��3�)A�� ^'[� %lib/HardwareManager/HardwareManager.h
-��v^�&�� � UC43�`e�о�����IhSe�(�IK`Cd��&�ר��b�l������浻⭍���R��/#�K;���Y��p�<_���K����8�i�z_�������O�AQ���,�������]���[EuN���� 7״���\��Ra�}/��0�X��z���kK����|��5B�y�>��}���LU���~
-FIO??כ��{?�p5���T3�}:::����j�v;�Ë����(�}���5{�-���!|����y����t�3y�V���f��ľ���"l�nA��"�y�H�Ң%t��V�蠱��P���%F�0S�н�5���]ɲ���_KN�R����n^<�$a�"���j�,��q75����1��3���p<�k�-�.p���?.E�*zr�p&��Z���y��6"�H|���I�� ��WV� -lib/HardwareManager/IRremote/IRController.cpp
-i��|&��D�0eD23�`U�_�N�*"
-ް%H�8�� C%Q(�a��Lm������	su�o[��|$f��g���x�9�����Ͼ_}�Z˱ǊOӋ>u���_Ovl�o1�6;ز�0c�¿���jv04�@�K���pA�U�os��t����Ba+Q��0}�ݺ+�$>���#Q���$?�ip����K���:�D���5�� ~�H�%Y��O@萭�{r��P��<Wu�����(��ɟĐ@�B0,����6^sG(	���&��r�+��R�v�We�^��}#�:{W����R8�D�<{�q1σ�B�<�hމͯ;u�u>&�-��)�����a-ԭQ�}���^�@J��_�Ki�e�юԗ��ٶ���,�t"��Mj��i���/����JlH/�Kǁ���2�(�#ҡr�%�J	��I���?��׈Y�C������A���a�� ʑSgS��
-`q_Sd3��,�FX��B"P9�-g��X@/p?|v�`���n�<u�<�Cn�����n@{��tfdǴ����2���F4� �>x����b�g���J',ܪ㎔��$��J95��֣��zV�+���z�R��H�1S�+X��ə��pW�T1ڭ��k�|�~Iq��N�z=��v_��)ú^�,���U8^�*�/ʹ�.�d��;@3粃!z�6�Y
-��E���"�2���~�&	bE���wG�� \��� +lib/HardwareManager/IRremote/IRController.h
- t�D��Ȥ7&D#?V^���'KB�o\��j����w#Vh5��Y`R��(sum���� �����o�sp37��s�!��r�M1H���v)4r�dP��������w�B��#Q��i|
-�okq�$��;B(/��^��Y޸��H�����[i&=iAꨨ���pI�2w�����u��R��4�~]��M�PE}�k�I��9R}�����u
-d����v.��R6��b���U�vu��+E��C8\��`�GW�/�H,�6����,��D��;�!A�qܪ��� 	*K�k��m���k�Ȭ�����=C� �      �  'lib/HardwareManager/IRremote/IRremote.h
- �;`��^V>�M� ��  ��?_� /lib/HardwareManager/KakuDecoder/KakuDecoder.cpp
-5���'��}�0�334E�Xu��<l�3d�Yl�h�&`�,����^�����#rV+��}�����m9d�$��|Z-���J+�R~6�|J)/�A!~+�=M�yși9�����2��}�?��������I�����������l��F �C^�t(Ȯ�k�悐>B,��b4W��0p�}��j�I�6�d���<�m.�C9u���KH[����y�Q=�@�a�ì�2��PʪKdn�V����ܿ��@��q 20�}��!���q�U�V����w��s��~�W����p���v��+H�'ņY#Q���Q`a~�a����n�&c&D|��8u>�*YC�C����w�-b3��U�ۍOD�Fxc,}n.��x�֪��v3��j�8�V�S�Wq�-Ⱥ�!��D�݌sf9O>c��f��g�\6Z��NB0f�����4�v�����F9"T�k�{�<���n��:Rj�EJč��3�+������V9X������z+X�u�T���A|������i�8��B.������RY�pd �z����Xʴs����h��� c����b;��dG|��4�:�F�v������n�.c�����2�^	`��P���
-}&���oaT��^EQa����Q�Z�[��rfH��p���Ɯ#��mH���%��`2��� T����nQ�H����Ѷ;d����$�2#�ӡ�
-X=�A�h���H�!A'��-9 �E|�K����~��ݯJ���0ó���lG��O�;Z�oG����7���Bȶ�}�s1�Qܤ:�;��ftR?����'���3�U.�D홬�>���h�_&C��jl��Od��m[AX2�G�掫���)}��t�NE9�����l6�־���k���V� �Y<�g!�̯5a�_"t��Uy�^=�!����HΖ�֩I�㰨 OfB����~H��-$%Z7JW�U�L<�}���Q0L20.�����,b������!�>�#�!��3��������pۡ����a�e��.�'�7��n�b`��\1���D�%�/������ݧ)�/&^�
-�J�/�j?����F�p�[��:76�:L9�j�X,��Xи�W/��*��V̋�W?�0�'Q�,˧ViiO�r�P���
-Y/�_�ʶp��kz�s���!J����F<����G@�-7��=iUhBCi3��0+�2�z�A9'�COU!��1OY�p�@�&��!����$I���23���'�C�I�y�&EX�A����07�K/:�������l��3̶�x�c	��-)���R
-�^%���k��Ns�JM�
-5Џ�u*�T)ԨW�P�R�~�C��ƾy9�Sޝ��	��GM�1�}*�lw~��k���x �Z�%�q#Ҷd��{�=	_��u�,3�#�W�g�7c�o9�/J$nRӵwQ����L)�"*��x[(z�(|[�����m���Fg�h �r����XG@����;���#>
--����3�p��:�K��mU]��Z��d-��?�>������&d��±`.2�rXr�Ba��p�R��b	ةRlϤ�Tnq�����y�ĳF y��7�} �9��|͏��P��.�52�1<+�t�,:v����'X�Y?����]�)yu<���12�s6�x;����M}�Ud9��ޮεJ�T΃�'r�O�9�Y�';]�gE��i����r��/act,�g��y;-}eWl�r���&0� ����A��uq*����Q��$��]�����-���S]�P�>�ߏw-���)�+CaW�������-ILU�-�ZK�����Ӎ�NZ��!�ɛ�kEh�P���u��+���+ϙ! a��h$�j���{#�Sa\��\rj���{w����d���J��js�0������b��w��z {�����`Zj	��ffצ��;qZ���,���c.��#}�@ٮ���?�_���/2#�^��5
-)O����]sc�O�ܯ�^��W�S�s�����P���3:�\|�/�h�BlI	��r�`�.n	��11�04����8��k��ʠ�4=��p'٪��"K�#�ޑ$��ò�`����:�0�9"���,�y� �R"��@h������������u��u'uއ9M�ڧZ�W�������e��OMV���6d�Q��l&uO����i����m>��Qg�M��NQ� �W�ŕ�UO��E}���M$�������l~g��u��*{-�ԅ�vw�oz������I�� ["�� -lib/HardwareManager/KakuDecoder/KakuDecoder.h
-�hT�'��t�73C#�pf������ �d���[!`{j��-莽9t����ް�rN���X�mVޑ��~?���׍��/��VjP���'���2К����m�5R����PḸ�kC��្�}�8w�腕�����"�8ij�L�B��vɤ~�)�%�ob��V���@�4�a�v�BU�	$�6�� �n�����x���Z�|lxxr��r�.N�JU5��Ukj�"�6��'!�9��Nk	Y,1=���t�+U#cb4�e~g��.�̽ �O����@�8z��){��n����|��{�6�QT��	L��.]���/���mo�+b$H0�S�1���54')ß	b���`981i�SR. ��-9"S�7��J��	���w�� _�����0d5�tZ&�h&ɢ��~�N�R��i?Tv�ҷ��R>�EܳI��~�J*i��T �Yu׌��5�j�(A^^q��Y�5�p��Z�i�My�:�l�frO�Dq�,X S�ffa�����m3���Z�%��fՑ�}fe�r�?�.���tX����
-Ƹ�d�3����)>TB�����k�����sQ�`���6�Y|�,�Oe���񇞣���:] �i/]}�	5�L���*b���h����ԩe�7������|ͤم�R��v�������Z��޾ųd��/�ü�@zDx>F}�I�8���ť���;��=�#��=��P���y�H�G�
-�- �B8W� +lib/HardwareManager/LivingColors/CC2500.cpp
-�s�%
-'���m0D#4_5f_����jZ���Nl�95&��_O �	E���nHȘ96)��89y���svxX�`f]�]_@f?��UՆYU^!�{&�8�Q>Q�����>?vqq��.�7���gK����?��`�@���n@������'�M
-��� nSq�p���&���>eB`א|�$$��,)��2"T��;���:��
-������S�ٮ<	�6�NP���̿/1P4���z���mZ�1���nS�]j�
-����'�c��c����=m�Ly؂�r	-%Wpf�~�|�D��u������j3ɸ-�t""9J�&/��	 �ʟy�F R)�]���%6R��eq��F�Un�?�����G�g�Z����Ag��/�Gt�D��:����v�q��u�)��ޓ���@��Hqa_Rڷ�b�>��#�_l�#%4ͻ���œ7h�����d�f��q�$ �z�\�U��!�z�����v���<��"?��)4��=Tt�+���)J3G-���|8���W
-"���A��#X�}_ �KA����Rêr���,@���z���� ��ʜ�JH�mR6�*�J�VeF���RCߩR�"5����#=�*7$3��7"3a*Bu�m��.��tc��a��cJÀ�%4�<[�ъsW�q�I=m�쭞��sD����J����iȐ���*V��iB�)Ik�Gfjƻ��
-U�T%M'V:S�8R�p�;��5�� �e|����cd`�ڒ�Z��F�����Y(��`l^�.T�*G�!�R��G�;�V}�o�F��K?���hڳr<YhԲ�]k���R����W�Z�t^oT������E�(rb{�N�J��@�%;�
-o��n��F��|t�?V�v��f�P>=�+a�֡�6,��	������,��!A9(\d��@���}/?Ӏ"�]��[n����M@�`���PJ2V��mr�I�:CŹ�1�M��O��9�`��wt���Kt�b���������=�*��9#eNd�n��y�]Dx'
-ɭ�Փ3b~ƣ}UС,ԅ�o� �E��~���.Ֆ����Y�c��O�Sj����"N����Χ:{:��Mb5�#Y'x�����Wq�Е��^���.7�v��x6k�o���+^��U�	Gݮ��+p�L��P��B�kϾ��%��PǤ�N��/:��M�@�H�/�P�������ܜ��/?��8sg�W������,d��h����Y
-;u��f}�1f�������	W=zo�+H�K$ck����Z��cЮ�Xu�X:��>~��8$�q&�0p������[�R?_�@�U5b����Pd��(�04;�|20Ԑ�]�~������_��;F�R��^�E�� @P��� )lib/HardwareManager/LivingColors/CC2500.h
-D���&��� dC3?UO��� Q�BX:P���G��p&Ҏ"����){�t��c��oM6-�ūqc�[�n���f`|a�N�ĎzF$b��_1桄(��Fï���3zZ��G׋���YR��{xÇ���YY<>�{��R��|�{-��4	���6�_f��ef8!+�UM��ˤ-d��o��D{�>7]U=�1+U��8)P� p[W�a���~(NSm3�R��JQW&��壉O�� D��J����ɜ{��R��c�\T�j�(߸��Y���5S�Leyd�����~'�v(w��ʈTuF�J�IP���݉6֡`����s��؏u�2��s�dJ��^�XYLPká�2&�Tn�]�
-��e���
-��R״S�qM�*��O�� /�cu� 3lib/HardwareManager/LivingColors/CC2500_Registers.h
-��&��e�0t333�pe��/��/�T���D�jV4��ڶM������I(�o�L�ɼE�a�\�ğ'��@�Q �����.�ު���7���Ξ�����-i�s�U�}5�Q�Ѣ��øz�Y���g3�&,�ζ�I���>���9"m������2�kJp�6:>��$û-��@��c��SI��gx��4ԎP�j� ���Xx���Kw#��d��̐a��;�HHI@Q
-�+���<�S�$A�Y-�~�:�-	�V��<�{�:_��|�w�x�%X�C���`H	'8���*u��+y�%�g'�ղ����_��R�r����,�=#���l7��7�S����,����V����z�q���+�^�{��^H��csw�����r��˻�E�I�c���X@J�r� �����,��FV��D��p�O�d{O�u倚z���,?�s`���SXi�N&e��C�M|��G�jݻB��pf�JM��) ~�̀ 1lib/HardwareManager/LivingColors/LivingColors.cpp
-#�w�'��y�0D34?5fO�p|�@ؓoW�sv57@��7t�����a�
-G$2�,��nh�'���'�Nq=��^fM���$��˻����Å���5]�5G/a��g�_g6�ҽ����(�;�����V�_|����*H>�����mLc�OWD����4����g�����o!�nH���b��h�m�*L-8u �7Rf���D�%��͘q�w/@;�����_u���S|��S���j�k�{�}�E)���)��B!���F�7�9�.����ֶ�X2�́��;z���#Ɏ,S`}'y-�ޓ�� :Ej��X��|�00�BH�Jx�
-���J ^��5��@�Is����O4�ߴ�vvx�힇�K!�����O�w�Ҥ�]R�*�=�`ߗ�������X�c��og����]�9��F^���!)9R��y�g�a}��%�Í.T0��ɯ1È�\�槊��x}�>��/��ˣ���;!�d9��!�14���|`�P�Qs�/C	"b�{��k�U8��ZT��S}v-���Q��[~:�)S�HG>��<٩�P�h'/r��Z��1��R)�,�f!:40Zn���(#�B��Σ)J��f��\xް�\�*U"]�/�^z�\���3������l�J畒
-�'�	��oA@z-ض,���K��}��0M�M���i�B��I}ڗ���g��+_=*�	�=��Ё`y�1�]=�����ś���*�+��Ȥ�_ϑ9)Օ|e[��da���?��+�{Å�ë��ugXd�i��2�Wۿ�w���~���>�Y��jF����@+��9L~������~p�@y�y �'����
-�\���(���_8e�Y¶�쯴�-�w�di����J��bl�Zr�+�	�7V��]�s�����7+���F �H�׿��0�|!����7u�4g�;P����o��?�A�T�y21� "���L��=`ΝkI�k6�R�s���&#�l�j�����'�мv�;�����8��4Jr@O��0r�i�-Bp\��e��Q|z�� ����C=�	Q�Ku�| 7`���`�7�P�(��ր`���q"�"l�BG����!ba�n@t��؀(&}���@l�	�R����]|� ~"� �-)��3K3͟�&}�:M�ڧ�����y��G�����ч�m��\��zz�ee���-,��nRK2�ׅ�/���t��7����J��$6��/�h*Ԝ����\�^����MA���"҄< !�^մ�" �	\ݸ�,c�)4Q�k�۠V�Ar����٠$K�㟩c���{K����hy�ʴoA�e�x{p��/W�]OU����U��V�w��k��*@�2��-ժ\���X{D�6
-��d���՚5՚�P�=zO���5Ȍ���]�L��<����73%���%��(K��g��j��\��i<��m	�y.[H2"�F��"Z����D���eUW�%s��K��
-  :�m� /lib/HardwareManager/LivingColors/LivingColors.h
-��)��&��0� dC3?VOz��������B��O(P����i(�#m:�jP��)ٮ7cQ��,�͌ijŹ��rַ���b���������#HބbDD7?5��H%)��%�*"��M��� .�;����&�(��1�B�:���J$*}�X�v��X�nZ9;\����omeN�xN�V����Q����)jZQ:g����P��c`���L����%5�c�1s馧�.5I{%��^<|)b[32:Ƞ�_�'��r�7/��F�ݨ,c���DD�6�:��r�p��(^����mφk�S%v�MMy<h�d�hєi-���Y��,�90@�^A52)y�teR��uo�R��l��7Mv���p�����2�̍'X?MOG�t���tS��?�������
-����M&���/��ha+��q��� �9� G��
- �s�р +lib/HardwareManager/RCSwitch/RFReceiver.cpp
-�}'�Ȃ eD33�`U�<*���%/M	+r�юY-
-1��ؚ.�1=M�Q����Z��"d'�oJ[���39��C��n�a�t|u}�>�f��r{/VS�yu������r.�H��t���.E���c�B/���d5�,eh�ȩfH�W��c���g��ݏ���@/��Y�#�L�f���9�㆙��݅�^��J��~�J��u�h�ӟA�#��8]l���~2v�W68�(�6J��`��jMe��V��W5d_���M��o�/�!׼�����1�'���g�?���h����C(X�u�(��^F�iP��mV5Lڥ�c�U��HE'TXj$:[V�ܾg��*�"OQnw"�D �����h�3�+�ב�;�)F��%�#����wo/����/G�i;�9�ȆB�_\��%E�ym,�^��YK@����=l�*xqӪ�TAX4���@\���f[�=t��OF�P�#Pm�2l�+J�{&W�5�S1~���V�{��:���m�o ��FS9I�>�#���Z�Y��\/��g�2�ڿk j�9E�� �.��� )lib/HardwareManager/RCSwitch/RFReceiver.h
-\�O,�&��C�7tC3/V^�G��eH%�*
-���xUj�H��5M�iP�x
-�����j�~Y��,���7��w_����]S*&6�=(:(؅ů����QJ9j�qP�\7���H�u�⫧&��4��kMX��*�Ӽ�;��7���Y�{f�×�8K�TI\��}_�8�v�&�S$g�3wT�F�+���q�#lb��4��`����a� ��Ѐ.߸�ceŊ���X��zKu"���:�������|5-MQԛe�,Fw�ی;�8��2����A�K�K�_�m����X/�����~�U�X��|u@q�f����z ��OiT��63����Hi$���n@<Ž��Ɓ��"^�r���E6Y���6�����Z]P`��I�4�i�1�
-,�Q�ɏPg RT�`�4?�#�i{��� ����' [;��h@{7��wK�K�K[x��w����.���w�V>��[�@��u(�� ˫�� src/main.cpp
-���&��n�&US2OV^��~t� �[�fW�
-��*Pk����V
-؋b�#��r�Z���nnjnO%���s�8s�h5�
-�=,BJ���1R��z��ԕ��̒�w��.�G��'e]܉ծ�wZz�zY���M��|��~׹:f�f�aV�.A����;nէ�q(0��C�݅�<�T�K�0L�hoY���㼍 ��ǔp�rxωppE�WrԂڙ����÷?�>�����(L>��p����!�]1}��y��z�ӟ*�� {�	�� platformio.ini
-��+W'��.�0TC33�`d�Z��V�M� ��Gh�:$	4X�i��&P$���9'�E0ĜU|
-Gw377O#'���3����GUR6u.���u-]����V��Ւ)?Q�����<n�\��fB��%�H�~��3�("T�HMJ�7�ʕ&�2�ƪ�Z��f���I�&����������@_��3$<����x5`�'����k�3~��t�:���_�����YI|L�ܬ\o�aT7I-N�{��tIY`}?���\�d?%�`5��i~U�ʐ�(w�(�qٗ X��-����t_�V��C�z6'�(�&|OqRd�=������������tc��Ύ|ܽ������ɗk(�c2��
-p�¹q3X�.�A���p�MjjQ�Gg��W��@�Q�d7_\��E���ѹ�|�7�d��e}��A�O0qr�bw��{DZ���z�c��pP��2  �  lib/HardwareManager/IRremote
-8�� ����z�5  �  lib/HardwareManager/KakuDecoder
-���_x���6  �   lib/HardwareManager/LivingColors
-)TP��&��ƒ�2  �  lib/HardwareManager/RCSwitch
-22�,�&��Cͺ  �  lib/Core
-�6��&��X&,  �  	lib/Debug
-6��� ����z)  �  lib/HardwareManager
-A`�(�&����  �  lib
-e�;�&�R�\G  �  src
-�6� ��wVQ 
 ```
 
 ---
@@ -2184,5 +2504,6 @@ board_upload.use_1200bps_touch = yes
 
 The following files were not included in the text content:
 
+- `esp32_home-controller.rar`
 - `LivingColors Remote.png`
 

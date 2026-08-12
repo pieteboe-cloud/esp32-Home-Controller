@@ -5,7 +5,7 @@
 
 HardwareManager hw(
     5,18,19,23,22,   // LivingColors CC2500
-    33,              // RF433 receiver
+    33,26,           // RF433 receiver, RF433 transmitter
     35,25            // IR RX, IR TX
 );
 
