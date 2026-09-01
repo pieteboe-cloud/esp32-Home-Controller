@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Home Controller — Actions</title>
+<style>
+:root{
+  --bg:#0b1020;
+  --bg-2:#111827;
+  --panel:#171d2b;
+  --panel-2:#1d2438;
+  --panel-3:#232d44;
+  --line:#2d3a57;
+  --text:#edf2ff;
+  --muted:#9aa7c2;
+  --primary:#7c9cff;
+  --primary-2:#5b7cff;
+  --good:#22c55e;
+  --warn:#f59e0b;
+  --danger:#ef4444;
+  --shadow:0 20px 45px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:radial-gradient(circle at top,#18213b,#0b1020 52%);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+body{padding:20px}
+button,input,select{font:inherit}
+.app-shell{max-width:1500px;margin:0 auto;display:grid;grid-template-columns:300px minmax(0,1fr) 330px;gap:18px;align-items:start}
+.sidebar,.main-panel,.inspector{background:rgba(23,29,43,.96);border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow)}
+.sidebar,.inspector{padding:18px;position:sticky;top:18px}
+.sidebar{display:flex;flex-direction:column;gap:14px}
+.main-panel{padding:0 0 18px}
+.card{background:rgba(29,36,56,.8);border:1px solid var(--line);border-radius:16px;padding:18px;margin:18px 18px 0}
+.panel-head{display:flex;align-items:center;justify-content:space-between;margin:0 18px;padding:18px 0 0}
+.panel-head h2{margin:0;font-size:1.05rem;color:#f4f7ff}
+.panel-head .mini{font-size:.72rem;color:var(--muted);background:rgba(124,156,255,.12);border:1px solid rgba(124,156,255,.25);padding:5px 8px;border-radius:999px}
+.status-wrap{position:sticky;top:18px;z-index:40;padding:18px 18px 0;background:rgba(11,16,32,.85);backdrop-filter:blur(10px);border-bottom:1px solid rgba(45,58,87,.9)}
+.status{padding:12px 14px;border-radius:12px;background:linear-gradient(180deg,#212b42,#1a2236);border:1px solid var(--line);min-height:48px;display:flex;align-items:center;color:var(--text);font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.04)}
+.status.good{border-color:rgba(34,197,94,.7);box-shadow:0 0 0 1px rgba(34,197,94,.1)}
+label{display:block;margin:0 0 8px;font-size:.82rem;color:var(--muted);font-weight:700;letter-spacing:.02em;text-transform:uppercase}
+input,select,button{font:inherit}
+input[type=text],input[type=number],select{width:100%;box-sizing:border-box;padding:11px 12px;border-radius:12px;background:#0d1424;border:1px solid var(--line);color:var(--text);outline:none}
+input[type=color]{width:64px;height:42px;padding:2px;border-radius:10px;border:1px solid var(--line);background:#0d1424}
+input:focus,select:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(124,156,255,.18)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.row3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+.toolbar{display:flex;gap:8px;align-items:center}
+.toolbar input{flex:1}
+.btn{border:none;border-radius:12px;padding:10px 13px;background:linear-gradient(180deg,#2c3d66,#233457);color:var(--text);cursor:pointer;transition:transform .12s ease,filter .12s ease;box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.btn:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn.ok{background:linear-gradient(180deg,#1d7a4d,#145739)}
+.btn.warn{background:linear-gradient(180deg,#bb7d1d,#7d4f0d)}
+.btn.danger{background:linear-gradient(180deg,#8b1e2d,#631720)}
+.btn.small{padding:8px 10px;font-size:.8rem;border-radius:10px}
+.muted{color:var(--muted)}
+.small{font-size:.82rem}
+.pill{display:inline-block;padding:4px 8px;border-radius:999px;background:rgba(124,156,255,.12);border:1px solid rgba(124,156,255,.2);color:#dfe8ff;font-size:.74rem}
+.alias{display:grid;grid-template-columns:1fr auto;gap:8px;margin:8px 0}
+.alias .btn{margin-top:4px}
+.action-list,.trigger-list,.scene-list{display:flex;flex-direction:column;gap:10px}
+.action,.trigger,.scene-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 14px;border:1px solid var(--line);background:rgba(19,25,38,.9);border-radius:14px}
+.action .meta,.trigger .meta,.scene-item .meta{display:flex;flex-direction:column;gap:4px;min-width:0}
+.action strong,.scene-item strong{font-size:.96rem}
+.scene-item{cursor:pointer;transition:.12s ease}
+.scene-item:hover{border-color:rgba(124,156,255,.45);background:rgba(28,37,57,.95)}
+.scene-item.active{border-color:rgba(124,156,255,.75);background:rgba(29,42,72,.95)}
+.scene-item .actions{display:flex;gap:6px;flex-wrap:wrap}
+.header-row{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.mini-actions{display:flex;gap:8px;flex-wrap:wrap}
+.lamp-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.lamp-card{background:rgba(16,21,34,.88);border:1px solid var(--line);border-radius:14px;padding:10px;display:flex;flex-direction:column;gap:10px;min-height:126px}
+.lamp-card.active{border-color:rgba(124,156,255,.8);background:rgba(24,34,59,.96)}
+.lamp-tile{width:100%;display:flex;flex-direction:column;align-items:center;gap:8px;background:transparent;border:none;color:var(--text);cursor:pointer;padding:8px;border-radius:10px}
+.lamp-number{font-weight:700;letter-spacing:.08em;font-size:.8rem;color:var(--muted)}
+.lamp-swatch{display:block;width:54px;height:54px;border-radius:14px;border:2px solid rgba(255,255,255,.35);box-shadow:inset 0 1px 0 rgba(255,255,255,.3)}
+.lamp-state{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.lamp-inline{display:flex;gap:8px;align-items:center}
+.lamp-inline input[type=color]{flex:0 0 auto}
+.lamp-inline .btn{flex:1}
+.section{padding-top:10px}
+.section + .section{margin-top:18px}
+.trigger-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.trigger-tools .btn{flex:1 1 calc(50% - 8px)}
+.empty{padding:16px;border:1px dashed var(--line);border-radius:12px;color:var(--muted);background:rgba(16,21,34,.5)}
+#saved{display:flex;flex-direction:column;gap:10px}
+@media (max-width:1100px){.app-shell{grid-template-columns:1fr}.sidebar,.inspector{position:static}.status-wrap{top:0}}
+</style>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="header-row">
+      <h2 style="margin:0">Scenes</h2>
+      <button class="btn ok small" onclick="newScene()">NEW</button>
+    </div>
+    <div class="toolbar">
+      <input id="sceneSearch" type="text" placeholder="Search scenes..." oninput="filterSavedScenes()">
+    </div>
+    <div id="saved" class="scene-list"></div>
+  </aside>
+
+  <main class="main-panel">
+    <div class="status-wrap">
+      <div class="status" id="status">Ready.</div>
+    </div>
+
+    <div class="panel-head">
+      <h2>Scene Builder</h2>
+      <span class="mini">Live editor</span>
+    </div>
+
+    <div class="card">
+      <div class="row">
+        <div>
+          <label>Name</label>
+          <input id="name" placeholder="All Purple">
+        </div>
+        <div>
+          <label>Scene color</label>
+          <div style="display:flex;gap:10px;align-items:center">
+            <input id="sceneColor" type="color" value="#8000ff">
+            <span id="sceneHex" class="pill">#8000ff</span>
+            <button class="btn small" onclick="applySceneColor()">Apply to selected</button>
+          </div>
+        </div>
+      </div>
+      <div class="section">
+        <label>Aliases</label>
+        <div id="aliases"></div>
+        <button class="btn small" onclick="addAlias()">+ Add alias</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="header-row">
+        <h2 style="margin:0">LivingColors lamps</h2>
+        <button class="btn ok small" onclick="testAllLamps()">Test all</button>
+      </div>
+      <div id="lamps" class="lamp-grid"></div>
+    </div>
+
+    <div class="card">
+      <div class="header-row">
+        <h2 style="margin:0">RGB LED strips</h2>
+      </div>
+      <div id="strips" class="action-list"></div>
+    </div>
+
+    <div class="card">
+      <div class="header-row">
+        <h2 style="margin:0">RF switch</h2>
+      </div>
+      <div class="row3">
+        <div><label>Code</label><input id="rfCode" value="0x569337548"></div>
+        <div><label>Bits</label><input id="rfBits" type="number" min="1" max="32" value="24"></div>
+        <div><label>Protocol</label><input id="rfProtocol" type="number" value="1"></div>
+      </div>
+      <div class="row" style="margin-top:12px">
+        <div><label>Pulse (µs)</label><input id="rfPulse" type="number" value="350"></div>
+        <div style="display:flex;align-items:end"><button class="btn warn" onclick="testRF()">TEST RF</button></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="header-row">
+        <h2 style="margin:0">Save scene</h2>
+      </div>
+      <div class="mini-actions">
+        <button class="btn ok" onclick="saveScene()">SAVE / ADD</button>
+        <button class="btn" onclick="previewScene()">PREVIEW</button>
+        <button class="btn" onclick="printScriptsFile()">PRINT FILE</button>
+        <button class="btn" onclick="newScene()">NEW</button>
+      </div>
+      <input type="hidden" id="scriptId">
+    </div>
+  </main>
+
+  <aside class="inspector">
+    <div class="header-row">
+      <h2 style="margin:0">Triggers</h2>
+    </div>
+    <div class="trigger-tools">
+      <button class="btn" onclick="learn('KAKU')">LEARN KAKU</button>
+      <button class="btn" onclick="learn('IR')">LEARN IR</button>
+      <button class="btn" onclick="learn('RF')">LEARN RF</button>
+      <button class="btn" onclick="learn('ANY')">LEARN ANY</button>
+    </div>
+    <div id="triggers" class="trigger-list"></div>
+    <div id="learnStatus" class="status" style="margin-top:14px">Not learning.</div>
+  </aside>
+</div>
+
+<script>
+let currentActions=[], currentTriggers=[], editId=0, aliases=[''], selectedLamps=new Set(), savedScenes=[];
+const remoteButtons={
+ 'RGB_24KEY-R1':{name:'24-key-1',bits:32, colors:{BRIGHTER:'0xf700ff00',DARKER:'0xf7807f00',OFF:'0xf740bf00',ON:'0xf7c03f00',RED:'0xfb04ef00',GREEN:'0xfa05ef00',BLUE:'0xf906ef00',WHITE:'0xf807ef00',ORANGE:'0xf708ef00',LIGHT_GREEN:'0xf609ef00',DARK_CYAN:'0xf50aef00',FLASH:'0xf40bef00',LIGHT_ORANGE:'0xf30cef00',CYAN:'0xf20def00',DARK_PURPLE:'0xf10eef00',STROBE:'0xf00fef00',YELLOW_ORANGE:'0xef10ef00',LIGHT_BLUE:'0xee11ef00',PURPLE:'0xed12ef00',FADE:'0xec13ef00',YELLOW:'0xeb14ef00',TEAL:'0xea15ef00',MAGENTA:'0xe916ef00',SMOOTH:'0xe817ef00'}},
+ 'RGB_44KEY-R1':{name:'44-key-1',bits:32, colors:{RED:'0xFF1AE5',GREEN:'0xFF9A65',BLUE:'0xFFA25D',WHITE:'0xFF22DD',ORANGE:'0xFF2AD5',TEAL:'0xFFAA55',PURPLE:'0xFF926D',PINK:'0xFF0AF5',YELLOW_ORANGE:'0xFF8A75',AQUA:'0xFFB24D',MAGENTA:'0xFF38C7',YELLOW:'0xFF5AA5',CYAN:'0xFF7887',VIOLET:'0xFF28D7'}},
+ 'RGB_44KEY-R3':{name:'44-key-2',bits:32, colors:{RED:'0xFF1AE5',GREEN:'0xFF9A65',BLUE:'0xFFA25D',WHITE:'0xFF22DD',ORANGE:'0xFF2AD5',TEAL:'0xFFAA55',PURPLE:'0xFF926D',PINK:'0xFF12ED',YELLOW_ORANGE:'0xFF0AF5',AQUA:'0xFF8A75',MAGENTA:'0xFFB24D',YELLOW:'0xFF38C7',CYAN:'0xFFB847',VIOLET:'0xFF7887'}},
+};
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+function msg(t,good=false){let e=document.getElementById('status');e.textContent=t;e.className='status'+(good?' good':'')}
+function post(url,obj){return fetch(url,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:'body='+encodeURIComponent(JSON.stringify(obj))}).then(r=>r.json())}
+function addAlias(v=''){aliases.push(v);renderAliases()}
+function renderAliases(){document.getElementById('aliases').innerHTML=aliases.map((a,i)=>`<div class="alias"><input value="${esc(a)}" oninput="aliases[${i}]=this.value"><button class="btn danger small" onclick="aliases.splice(${i},1);renderAliases()">×</button></div>`).join('')}
+function applySceneColor(){let c=document.getElementById('sceneColor').value;if(!selectedLamps.size){msg('Select one or more lamps first.');return;}selectedLamps.forEach(i=>{let a=currentActions.find(x=>x.type==='living'&&x.deviceId===String(i));if(a)a.color=c;else currentActions.push({type:'living',deviceId:String(i),color:c,intensity:100});});renderLamps()}
+function renderLamps(){let c=document.getElementById('lamps');let sceneColor=document.getElementById('sceneColor').value;c.innerHTML='';for(let i=0;i<12;i++){let a=currentActions.find(x=>x.type==='living'&&x.deviceId===String(i));let color=a?.color||sceneColor;let selected=selectedLamps.has(i);if(!selected&&a) selected=true;c.innerHTML+=`<div class="lamp-card ${selected?'active':''}"><button class="lamp-tile" onclick="toggleLamp(${i})"><span class="lamp-number">LAMP ${i+1}</span><span class="lamp-swatch" style="background:${color}"></span><span class="lamp-state">${selected?'Selected':'Off'}</span></button><div class="lamp-inline"><input type="color" value="${color}" onchange="setLamp(${i},this.value)"><button class="btn small" onclick="event.stopPropagation();testLamp(${i})">Test</button></div></div>`}}
+function toggleLamp(i){if(selectedLamps.has(i)){selectedLamps.delete(i);}else{selectedLamps.add(i);}renderLamps()}
+function setLamp(i,color){selectedLamps.add(i);let a=currentActions.find(x=>x.type==='living'&&x.deviceId===String(i));if(a)a.color=color;else currentActions.push({type:'living',deviceId:String(i),color,intensity:100});renderLamps()}
+function testLamp(i){let color=document.querySelectorAll('.lamp-card input[type=color]')[i].value;post('/api/test-action',{type:'living',deviceId:String(i),color,intensity:100}).then(d=>msg(d.success?`Lamp ${i+1} tested.`:'Lamp test failed.',d.success))}
+function testAllLamps(){let acts=currentActions.filter(x=>x.type==='living');let run=Promise.resolve();acts.forEach(a=>run=run.then(()=>post('/api/test-action',a)));run.then(()=>msg(`Tested ${acts.length} selected lamp(s).`,true))}
+function renderStrips(){let el=document.getElementById('strips');el.innerHTML='';Object.entries(remoteButtons).forEach(([rid,r])=>{let a=currentActions.find(x=>x.type==='ir'&&x.remoteId===rid);let chosen=a?.buttonName||'NONE';let opts=`<option value="NONE" ${chosen==='NONE'?'selected':''}>NONE</option>`+Object.keys(r.colors).map(n=>`<option ${n===chosen?'selected':''}>${n}</option>`).join('');let code=chosen==='NONE'?'No command selected':r.colors[chosen];el.innerHTML+=`<div class="action"><div class="meta"><strong>${r.name}</strong><select id="sel_${rid}" onchange="setStrip('${rid}')">${opts}</select><span class="small muted">IR code: <span id="code_${rid}">${code}</span></span></div><button class="btn small" onclick="testStrip('${rid}')">Test</button></div>`})}
+function setStrip(rid){let r=remoteButtons[rid],n=document.getElementById('sel_'+rid).value,a=currentActions.find(x=>x.type==='ir'&&x.remoteId===rid);if(n==='NONE'){if(a)currentActions.splice(currentActions.indexOf(a),1);document.getElementById('code_'+rid).textContent='No command selected';return}let code=r.colors[n];document.getElementById('code_'+rid).textContent=code;let obj={type:'ir',deviceId:rid,remoteId:rid,buttonName:n,code,bits:r.bits};if(a)Object.assign(a,obj);else currentActions.push(obj)}
+function testStrip(rid){setStrip(rid);let a=currentActions.find(x=>x.type==='ir'&&x.remoteId===rid);post('/api/test-action',a).then(d=>msg(d.success?`${remoteButtons[rid].name} ${a.buttonName} tested.`:'IR test failed.',d.success))}
+function testRF(){let code=document.getElementById('rfCode').value.trim();let hex=code.replace(/^0x/i,'');if(hex.length>8){return msg('This build can only transmit up to 32-bit RF values. '+code+' is '+(hex.length*4)+' bits; it needs a custom RF sender, which is intentionally not included because HardwareManager must remain untouched.');}let a={type:'rf',deviceId:'rf1',code,bits:+document.getElementById('rfBits').value,protocol:+document.getElementById('rfProtocol').value,pulse:+document.getElementById('rfPulse').value};post('/api/test-action',a).then(d=>msg(d.success?'RF transmitted.':'RF transmission failed.',d.success))}
+function renderTriggers(){document.getElementById('triggers').innerHTML=currentTriggers.map((t,i)=>`<div class="trigger"><div class="meta"><span class="pill">${esc(t.source)}</span><strong>${esc(t.identifier)}</strong></div><button class="btn danger small" onclick="currentTriggers.splice(${i},1);renderTriggers()">×</button></div>`).join('')||'<div class="empty">No triggers yet.</div>'}
+function learn(filter){fetch('/api/learn?filter='+encodeURIComponent(filter),{method:'POST'}).then(()=>{document.getElementById('learnStatus').textContent=`Waiting for ${filter}… press the remote button now.`;let timer=setInterval(()=>fetch('/api/learn').then(r=>r.json()).then(x=>{if(!x.waiting&&x.identifier){clearInterval(timer);currentTriggers.push({source:x.source,identifier:x.identifier});renderTriggers();document.getElementById('learnStatus').textContent=`Captured ${x.source} → ${x.identifier}`;}}),250);setTimeout(()=>clearInterval(timer),15000)})}
+function collectLamps(){currentActions=currentActions.filter(x=>x.type!=='living');selectedLamps.forEach(i=>{let color=document.querySelectorAll('.lamp-card input[type=color]')[i].value;currentActions.push({type:'living',deviceId:String(i),color,intensity:100})})}
+function buildScene(){collectLamps();let name=document.getElementById('name').value.trim();let als=aliases.map(x=>x.trim()).filter(Boolean);let actions=currentActions.map(x=>({...x}));return {id:editId||0,name,alias:als[0]||'',aliases:als,triggers:currentTriggers,actions}}
+function saveScene(){let s=buildScene();if(!s.name)return msg('Give the action a name first.');if(!s.actions.length)return msg('Add at least one action.');post('/api/action-scripts',s).then(d=>{if(d.success){msg('Saved! The scene and aliases are now stored.',true);editId=0;loadSaved();newScene()}else msg('Save failed.')})}
+function previewScene(){let s=buildScene();if(!s.actions.length)return msg('Nothing to test.');let p=Promise.resolve();s.actions.forEach(a=>p=p.then(()=>post('/api/test-action',a)));p.then(()=>msg(`Preview sent ${s.actions.length} action(s).`,true))}
+function newScene(){editId=0;currentActions=[];currentTriggers=[];selectedLamps.clear();aliases=[''];document.getElementById('name').value='';document.getElementById('sceneColor').value='#8000ff';document.getElementById('sceneHex').textContent='#8000ff';renderAliases();renderLamps();renderStrips();renderTriggers();msg('New scene.')}
+function renderSavedScenes(list){let e=document.getElementById('saved');if(!list||!list.length){e.innerHTML='<div class="empty">No scenes yet. Create a new one.</div>';return}e.innerHTML=list.map(s=>`<div class="scene-item ${editId===s.id?'active':''}" onclick="editScene(${s.id})"><div class="meta"><strong>${esc(s.name)}</strong><span class="small muted">${(s.aliases||[]).map(a=>`<span class="pill">${esc(a)}</span>`).join('') || '<span class="pill">main</span>'}</span></div><div class="actions"><button class="btn small" onclick="event.stopPropagation();editScene(${s.id})">Open</button><button class="btn danger small" onclick="event.stopPropagation();delScene(${s.id})">Delete</button></div></div>`).join('')}
+function filterSavedScenes(){let query=document.getElementById('sceneSearch').value.trim().toLowerCase();let list=(savedScenes||[]).filter(s=>!query || (s.name||'').toLowerCase().includes(query) || (s.aliases||[]).some(a=>String(a).toLowerCase().includes(query)));renderSavedScenes(list)}
+function loadSaved(){fetch('/api/action-scripts').then(r=>r.json()).then(list=>{savedScenes=list||[];filterSavedScenes()})}
+function printScriptsFile(){fetch('/api/action-scripts/raw').then(r=>r.ok?r.text():Promise.reject()).then(raw=>{let w=window.open('','_blank');if(!w)return msg('Allow pop-ups to print the file.');w.document.write(`<title>Home Controller scripts.json</title><style>body{font-family:monospace;background:#fff;color:#111;margin:24px}pre{white-space:pre-wrap;word-break:break-word;font-size:12px}</style><pre>${esc(raw)}</pre>`);w.document.close();w.focus();w.print()}).catch(()=>msg('Could not read /scripts.json.'))}
+function editScene(id){fetch('/api/action-scripts').then(r=>r.json()).then(list=>{let s=list.find(x=>x.id===id);if(!s)return;editId=s.id;currentActions=s.actions||[];currentTriggers=s.triggers||[];selectedLamps=new Set((s.actions||[]).filter(a=>a.type==='living').map(a=>Number(a.deviceId)));aliases=s.aliases||[s.alias||''];document.getElementById('name').value=s.name;document.getElementById('sceneColor').value=currentActions.find(a=>a.type==='living')?.color||'#8000ff';document.getElementById('sceneHex').textContent=document.getElementById('sceneColor').value;renderAliases();renderLamps();renderStrips();renderTriggers();loadSaved();msg('Editing '+s.name)})}
+function delScene(id){if(confirm('Delete this action?'))fetch('/api/action-scripts?id='+id,{method:'DELETE'}).then(r=>r.json()).then(d=>{msg(d.success?'Deleted.':'Delete failed.',d.success);loadSaved();if(editId===id){newScene()}})}
+document.getElementById('sceneColor').addEventListener('input',e=>document.getElementById('sceneHex').textContent=e.target.value);
+renderAliases();renderLamps();renderStrips();renderTriggers();loadSaved();
+</script>
+</body></html>

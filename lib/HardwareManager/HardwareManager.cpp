@@ -1,92 +1,168 @@
 #include "HardwareManager.h"
+#include "EventBus.h" // 1. Include the new EventBus
 
-HardwareManager::HardwareManager(uint8_t lc_cs, uint8_t lc_sck, uint8_t lc_miso, uint8_t lc_mosi, uint8_t lc_gdo2,
-                                 uint8_t rf_rx, uint8_t rf_tx,
-                                 uint8_t ir_rx, uint8_t ir_tx)
-    : _living(lc_cs, lc_sck, lc_miso, lc_mosi, lc_gdo2),
-      _rf(rf_rx, rf_tx),
+// pin definitions are from /HardwareManager/Config.h
+HardwareManager::HardwareManager()
+    : _living(LC_CS, LC_SCK, LC_MISO, LC_MOSI, LC_GDO2),
+      _rf(RF_RX, RF_TX),
       _kaku(),
-      _ir(ir_rx, ir_tx)
+      _ir(IR_RX, IR_TX)
 {
 }
 
 void HardwareManager::init() {
 #if DEBUG_LEVEL >= 1
-    Debug::println("[HW] Init LivingColors...");
+    Debug::println("[HW] Initializing hardware components...");
+#endif
+
+    // Storage is initialized first because the web UI and config files depend on it.
+    #if DEBUG_LEVEL >= 1
+    Debug::println("[HW] Init Storage Manager...");
+    #endif
+    if (_storage.init()) {
+        #if DEBUG_LEVEL >= 2
+        Debug::println("[HW] Storage initialized successfully");
+        #endif
+        _storage.setCallback([this](const String& event, const String& details) {
+            this->handleStorageEvent(event, details);
+        });
+    } else {
+        #if DEBUG_LEVEL >= 1
+        Debug::println("[HW][ERROR] Storage initialization failed");
+        #endif
+    }
+
+#if DEBUG_LEVEL >= 2
+    Debug::println("[HW][init] Starting LivingColors controller");
 #endif
     _living.begin();
 
-#if DEBUG_LEVEL >= 1
-    Debug::println("[HW] Init RF Controller...");
+#if DEBUG_LEVEL >= 2
+    Debug::println("[HW][init] Initializing RF receiver/transmitter");
 #endif
     _rf.init();
 
-    // RF → HardwareManager → Core
-    Debug::println("[HW][DEBUG] Setting up RF callback in HardwareManager");
+    // RF Callback -> Publish Event
     _rf.onCommand([this](const RFSignal& signal) {
-        Debug::println("[HW][DEBUG] RF callback triggered in HardwareManager");
+        Debug::println("[HW][RF] Incoming RF command callback registered");
         this->handleRFDecoded(signal);
-        
-        // Also pass to Kaku decoder for Kaku-specific processing
-        Debug::println("[HW][DEBUG] Passing RF signal to Kaku decoder");
+        // Pass to Kaku decoder (Kaku is a specific protocol of RF)
         _kaku.onRawData(signal.value, signal.bits, signal.protocol, signal.pulse);
     });
-    
-    // Kaku → HardwareManager → Core
+
+    // Kaku Callback -> Publish Event
     _kaku.onCommand([this](const RFCommand& cmd) {
-        if (_kakuCb) {
-            _kakuCb(cmd);
-        }
+        // Emit Kaku event to EventBus with format "house_button" ie. "A_1"
+        SystemEvent evt;
+        evt.source = "KAKU";
+        evt.identifier = String(cmd.house) + "_" + String(cmd.button);
+        evt.rawData = "house=" + String(cmd.house) + ",button=" + String(cmd.button);
+        
+        Debug::println("[HW][KAKU] Decoded Kaku event: " + evt.identifier);
+        EventBus::getInstance().publish(evt);
+        
+        // Legacy callback support
+        if (_kakuCb) _kakuCb(cmd);
     });
 
-#if DEBUG_LEVEL >= 1
-    Debug::println("[HW] Init IR Controller...");
+#if DEBUG_LEVEL >= 2
+    Debug::println(3,"[HW][init] IR receiver/transmitter");
 #endif
     _ir.init();
 
-    // IR → HardwareManager → Core
+    // IR Callback -> Publish Event
     _ir.onCommand([this](const IRCommand& cmd) {
+        Debug::println(3,"[HW][IR] Incoming IR command callback registered");
         this->handleIRDecoded(cmd);
     });
 
-#if DEBUG_LEVEL >= 1
-    Debug::println("[HW] HardwareManager ready.");
-#endif
+    #if DEBUG_LEVEL >= 1
+    Debug::println(4,"[HW] HardwareManager initialization complete.");
+    #endif
 }
 
 void HardwareManager::update() {
-   // Debug::println("[HW][DEBUG] Calling HardwareManager::update()");
+    // RF and IR updates must be polled regularly so raw packets are decoded in time.
     _rf.update();
-   // Debug::println("[HW][DEBUG] Calling IRController::update()");
-    _ir.update();   // poll the IR receiver for new codes
+    _ir.update();
 }
 
-void HardwareManager::onRFCommand(RFCallback callback) {
-    _rfCb = callback;
-}
-
-void HardwareManager::onIRCommand(IRCallback callback) {
-    _irCb = callback;
-}
-
-void HardwareManager::onKakuCommand(KakuCallback callback) {
-    _kakuCb = callback;
+// --- Callback Setters (Kept for compatibility, but mostly unused now) ---
+void HardwareManager::onRFCommand(RFCallback callback) { _rfCb = callback; }
+void HardwareManager::onIRCommand(IRCallback callback) { _irCb = callback; }
+void HardwareManager::onKakuCommand(KakuCallback callback) { _kakuCb = callback; }
+void HardwareManager::onStorageEvent(Storage::StorageCallback callback) {
+    _storage.setCallback([this, callback](const String& event, const String& details) {
+        callback(event, details);
+    });
 }
 
 void HardwareManager::handleRFDecoded(const RFSignal& signal) {
-    Debug::println("[HW][DEBUG] Received RF signal in HardwareManager with value: 0x" + String(signal.value, HEX));
-    if (_rfCb) {
-        Debug::println("[HW][DEBUG] Calling RF callback in HardwareManager");
-        _rfCb(signal);
-    } else {
-        Debug::println("[HW][DEBUG] No RF callback set in HardwareManager");
-    }
-}
+    Debug::println(4,"[HW][DEBUG] Received RF signal: 0x" + String(signal.value, HEX));
+
+    // 1. Create the Event using RAW data (House/Button unknown here)
+    SystemEvent evt;
+    evt.source = "RF";
+    // Use Raw Value as identifier. 
+    // Example: "RF_RAW_123456"
+    evt.identifier = "RF_RAW_" + String(signal.value, HEX); 
+    evt.rawData = String(signal.value, HEX);
+
+    // 2. Publish to Core/Translator
+    #ifdef DEBUG_LEVEL
+        #if DEBUG_LEVEL >= 1
+            Debug::println(4,"[HW][handleRFDecoder] Publishing RF event to EventBus...");
+        #endif
+    #endif
+    EventBus::getInstance().publish(evt);
+
+    // 3. IMPORTANT: Still pass raw data to KakuDecoder so it can decode House/Button
+    // The KakuDecoder will then trigger its OWN callback/event with the detailed info.
+    _kaku.onRawData(signal.value, signal.bits, signal.protocol, signal.pulse);
+}   
 
 void HardwareManager::handleIRDecoded(const IRCommand& cmd) {
-    if (_irCb) _irCb(cmd);
+    String codeHex = String(cmd.code, HEX);
+    codeHex.toLowerCase();
+    while (codeHex.length() < 8) codeHex += "0";
+    if (codeHex.length() > 8) codeHex = codeHex.substring(codeHex.length() - 8);
+
+    Debug::println(4,"[HW][DEBUG] Received IR code: 0x" + codeHex);
+
+    // 1. Create the Event
+    SystemEvent evt;
+    evt.source = "IR";
+    evt.identifier = "IR_RAW_" + codeHex; // Translator will look this up
+    evt.rawData = "0x" + codeHex;
+
+    // 2. Publish to Core/Translator
+    #ifdef DEBUG_LEVEL
+        #if DEBUG_LEVEL >= 1
+            Debug::println("[HW][handleIRDecoded] Publishing IR event to EventBus...");
+        #endif
+    #endif
+
+    EventBus::getInstance().publish(evt);
+
+    // 3. (Optional) Keep old callback
+    // if (_irCb) _irCb(cmd);
 }
 
-
-
-
+void HardwareManager::handleStorageEvent(const String& event, const String& details) {
+    #if DEBUG_LEVEL >= 2
+        Debug::println(3,"[HW][INFO] Storage event: " + event);
+    #endif
+    
+    // Publish storage events too (e.g., "CONFIG_SAVED")
+    SystemEvent evt;
+    evt.source = "STORAGE";
+    evt.identifier = event;
+    evt.rawData = details;
+    #ifdef DEBUG_LEVEL
+        #if DEBUG_LEVEL >= 2
+            Debug::println("[HW][handleStorageEvent] Publishing storage event to EventBus...");
+        #endif  
+    #endif
+    
+    EventBus::getInstance().publish(evt); // Publish to Core/Translator 
+}   

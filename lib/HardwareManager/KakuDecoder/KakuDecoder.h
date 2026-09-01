@@ -1,8 +1,7 @@
-#ifndef KakuDecoder_h
-#define KakuDecoder_h
-
+#pragma once
 #include <Arduino.h>
-#include "../../Debug/Debug.h"
+#include "EventBus.h" 
+#include "Debug.h"
 #include <functional>
 
 // Data structure passed to your callback
@@ -39,4 +38,3 @@ private:
     void decodeClassicKaku(unsigned long value);
 };
 
-#endif

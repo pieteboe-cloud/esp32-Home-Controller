@@ -1,9 +1,9 @@
-#ifndef IR_CONTROLLER_H
-#define IR_CONTROLLER_H
+#pragma once
 
 #include <Arduino.h>
-#include "../../Debug/Debug.h"
+#include "Debug.h"
 #include <functional>
+
 
 // ============================================================================
 //  IRController - wraps the Arduino-IRremote library for this project.
@@ -89,5 +89,5 @@ private:
     unsigned long _debounceMs;
 };
 
-#endif
+
 

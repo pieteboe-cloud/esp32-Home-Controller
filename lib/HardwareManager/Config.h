@@ -2,6 +2,20 @@
 
 
 
+// Pin definitions
+const uint8_t LC_CS = 5;
+const uint8_t LC_SCK = 18;
+const uint8_t LC_MISO = 19;
+const uint8_t LC_MOSI = 23;
+const uint8_t LC_GDO2 = 22;
+
+const uint8_t RF_RX = 33;
+const uint8_t RF_TX = 26;
+
+const uint8_t IR_RX = 35;
+const uint8_t IR_TX = 25;
+
+
 
 // =========================
 // LivingColors Lamp Addresses

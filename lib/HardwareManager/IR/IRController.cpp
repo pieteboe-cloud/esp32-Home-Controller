@@ -1,6 +1,5 @@
 #include <IRremote.hpp>
 #include "IRController.h"
-#include <Debug.h>
 
 // ============================================================================
 //  IRController.cpp - implementation of the IR receive logic.
@@ -89,7 +88,7 @@ void IRController::update()
 
 #ifdef DEBUG_LEVEL
     #if DEBUG_LEVEL >= 2
-        Debug::println("[IR][receive] Received code: 0x" + String(value, HEX) +
+        Debug::println(2, "[IR][receive] Received code: 0x" + String(value, HEX) +
                        " / " + String(IrReceiver.decodedIRData.numberOfBits) + " bits");
     #endif
 #endif
@@ -133,10 +132,16 @@ void IRController::update()
 // ----------------------------------------------------------------------------
 void IRController::send(const IRCommand& cmd)
 {
+    String sendHex = String(cmd.code, HEX);
+    sendHex.toLowerCase();
+    while (sendHex.length() < 8) sendHex = "0" + sendHex;
+    if (sendHex.length() > 8) sendHex = sendHex.substring(sendHex.length() - 8);
+
 #ifdef DEBUG_LEVEL
     #if DEBUG_LEVEL >= 2
-        Debug::println("[IR][send] Sending code 0x" + String(cmd.code, HEX) +
-                       " rawLen=" + String(cmd.rawCodeLength));
+        Debug::println("[IR][send] Sending code 0x" + sendHex +
+                       " rawLen=" + String(cmd.rawCodeLength) +
+                       " bits=" + String(cmd.bits));
     #endif
 #endif
 
@@ -145,10 +150,18 @@ void IRController::send(const IRCommand& cmd)
     disableReceive();
 
     if (cmd.hasRaw && cmd.rawCodeLength > 0) {
+        Debug::println("[IR][send] mode=RAW");
         // Replay the exact received waveform (assume 38 kHz carrier).
         IrSender.sendRaw(cmd.rawCode, cmd.rawCodeLength, 38);
+    } else if (cmd.bits == 32 || cmd.code > 0) {
+        Debug::println("[IR][send] mode=NECRaw code=0x" + sendHex);
+        // The RGB database stores the raw NEC payload itself (for example 0xfb04ef00),
+        // not an address/command pair. Sending it through the deprecated MSB-first
+        // path rewrites the bit order and produces a different device command.
+        // Use the raw NEC encoder so the exact remote bit sequence is preserved.
+        IrSender.sendNECRaw(cmd.code, 0);
     } else {
-        // Fallback: if no raw snapshot was captured, re-send as NEC MSB-first.
+        Debug::println("[IR][send] mode=NECMSB code=0x" + sendHex);
         IrSender.sendNECMSB(cmd.code, (cmd.bits > 0) ? cmd.bits : 32);
     }
 

@@ -1,6 +1,7 @@
 #pragma once
 
 // CC2500 register addresses
+// these are the same for all CC2500 variants
 #define CC2500_REG_IOCFG2      0x00
 #define CC2500_REG_IOCFG0      0x02
 #define CC2500_REG_FIFOTHR     0x03

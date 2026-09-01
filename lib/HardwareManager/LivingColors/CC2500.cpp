@@ -23,7 +23,7 @@ void CC2500::begin() {
 
 #ifdef DEBUG_LEVEL
     #if DEBUG_LEVEL >= 1
-        Debug::println("[CC2500] Begin : CS=" + String(_csPin)
+        Debug::println(1,"[CC2500] Begin SPI: CS=" + String(_csPin)
                        + " SCK=" + String(_sckPin)
                        + " MISO=" + String(_misoPin)
                        + " MOSI=" + String(_mosiPin)
@@ -34,7 +34,7 @@ void CC2500::begin() {
 
 bool CC2500::verify() {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
+    #if DEBUG_LEVEL >= 1
         Debug::println("[CC2500] Verifying chip...");
     #endif
 #endif
@@ -48,7 +48,7 @@ bool CC2500::verify() {
     uint8_t version = readStatusReg(CC2500_REG_VERSION);
 
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
+    #if DEBUG_LEVEL >= 1
         Debug::println("[CC2500] PARTNUM=0x" + String(partnum, HEX)
                        + " VERSION=0x" + String(version, HEX));
     #endif
@@ -59,7 +59,7 @@ bool CC2500::verify() {
 
 void CC2500::initForLivingColors() {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
+    #if DEBUG_LEVEL >= 1
         Debug::println("[CC2500] Init for LivingColors...");
     #endif
 #endif
@@ -117,18 +117,28 @@ void CC2500::initForLivingColors() {
     sendStrobe(CC2500_CMD_SIDLE);
 
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[CC2500] LC protocol config done");
+    #if DEBUG_LEVEL >= 1
+        Debug::println("[CC2500] LivingColors protocol configured...");
     #endif
 #endif
 }
 
 void CC2500::setChannel(uint8_t channel) {
+   #ifdef DEBUG_LEVEL
+        #if DEBUG_LEVEL >= 2
+            Debug::println("[CC2500] Set channel " + String(channel));
+        #endif
+    #endif
     writeReg(CC2500_REG_CHANNR, channel);
     sendStrobe(CC2500_CMD_SIDLE);
 }
 
 void CC2500::manualCalibrate() {
+    #ifdef DEBUG_LEVEL
+        #if DEBUG_LEVEL >= 2
+            Debug::println("[CC2500] Manual calibration...");
+        #endif
+    #endif
     sendStrobe(CC2500_CMD_SCAL);
     delayMicroseconds(200);
 }
@@ -174,8 +184,8 @@ void CC2500::waitForGDO2Low(uint32_t timeoutMs) {
         yield();
         if (millis() - start > timeoutMs) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-            Debug::println("[CC2500] GDO2 timeout");
+    #if DEBUG_LEVEL 
+            Debug::println(1, "[CC2500] GDO2 timeout");
     #endif
 #endif
             break;
