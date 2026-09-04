@@ -2,35 +2,22 @@
 #include "RFController.h"
 
 // ============================================================================
-//  RFController.cpp - implementation of the RF receive logic.
+//  RFController.cpp - RF receiver/transmitter implementation.
 //
-//  The key idea: when we receive an RF frame we don't just keep the decoded
-//  number - we also store all the raw parameters (value, bits, protocol, pulse).
-//  The Core will handle echoing the signal.
+//  Uses RC-Switch library. Stores all parameters for accurate replay.
+//  Debouncing (300ms) prevents button-hold from flooding events.
 // ============================================================================
 
-// ----------------------------------------------------------------------------
-// Constructor.
-//   Stores the pins. The debounce window (300 ms) also conveniently stops a
-//   remote that keeps repeating its frame (while a button is held) from
-//   flooding our callback every few milliseconds.
-// ----------------------------------------------------------------------------
 RFController::RFController(int rxPin, int txPin)
     : rxPin(rxPin), txPin(txPin),
       _lastCodeValue(0), _lastCodeTime(0), _debounceMs(300)
 {
 }
 
-// ----------------------------------------------------------------------------
-// init()
-//   Start both the RF receiver (on rxPin) and the RF sender (on txPin).
-// ----------------------------------------------------------------------------
-void RFController::init()
-{
-#ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[RF][init] Initializing RF Controller with RX pin " + String(rxPin) + " and TX pin " + String(txPin));
-    #endif
+void RFController::init() {
+    // Initialize RF receiver (on rxPin) and RF sender (on txPin).
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[RF][INIT] RX pin " + String(rxPin) + " TX pin " + String(txPin));
 #endif
     pinMode(rxPin, INPUT);
     pinMode(txPin, OUTPUT);
@@ -39,13 +26,7 @@ void RFController::init()
     _rfSwitch->enableTransmit(txPin);
 }
 
-// ----------------------------------------------------------------------------
-// onCommand()
-//   Store the user-supplied callback. update() will invoke it whenever a new,
-//   valid RF frame has been received.
-// ----------------------------------------------------------------------------
-void RFController::onCommand(RFCallback callback)
-{
+void RFController::onCommand(RFCallback callback) {
     _callback = callback;
 }
 

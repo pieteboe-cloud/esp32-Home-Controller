@@ -22,17 +22,44 @@ void SceneManager::begin() {
 
 bool SceneManager::loadScenes() {
     // Load scenes from storage file
-    // Reads scripts.json from filesystem and populates the scenes array
+    // Reads scenes.json from filesystem and populates the scenes array
     // Returns true if successful, false if file doesn't exist or has errors
 
-    if (!LittleFS.exists(SCENE_FILE)) {
-        Debug::println(2, "[SceneManager] scripts.json does not exist yet.");
+    // First try to load from the new scenes.json file. If it is missing OR empty
+    // (0 bytes after a partial flash), fall back to the legacy scripts.json file.
+    if (!LittleFS.exists(SCENE_FILE) || LittleFS.open(SCENE_FILE, "r").size() == 0) {
+        const char* OLD_SCENE_FILE = "/scripts.json";
+        if (LittleFS.exists(OLD_SCENE_FILE)) {
+            Debug::println(2, "[SceneManager] scenes.json empty/missing, loading scenes from scripts.json");
+            File f = LittleFS.open(OLD_SCENE_FILE, "r");
+            if (!f) {
+                Debug::println(1, "[SceneManager] Failed to open scripts.json.");
+                return false;
+            }
+            DynamicJsonDocument doc(JSON_DOC_SIZE);
+            DeserializationError error = deserializeJson(doc, f);
+            f.close();
+            if (error) {
+                Debug::println(1, "[SceneManager] JSON parse error: " + String(error.c_str()));
+                return false;
+            }
+            JsonArray arr = doc.as<JsonArray>();
+            sceneCount = 0;
+            for (JsonObject obj : arr) {
+                if (sceneCount >= MAX_SCENES) break;
+                if (!loadSceneObject(obj)) continue;
+                sceneCount++;
+            }
+            Debug::println(2, "[SceneManager] Loaded " + String(sceneCount) + " scenes from scripts.json.");
+            return true;
+        }
+        Debug::println(2, "[SceneManager] scenes.json does not exist yet.");
         return false;
     }
 
     File f = LittleFS.open(SCENE_FILE, "r");
     if (!f) {
-        Debug::println(1, "[SceneManager] Failed to open scripts.json.");
+        Debug::println(1, "[SceneManager] Failed to open scenes.json.");
         return false;
     }
 
@@ -68,83 +95,7 @@ bool SceneManager::loadScenes() {
             break;
         }
 
-        // Extract scene properties
-        scenes[sceneCount].id = obj["id"] | 0;
-        scenes[sceneCount].name = obj["name"].as<String>();
-
-        // Check if this is a script format (has triggers) or scene format
-        if (obj.containsKey("triggers")) {
-            // Script format - convert to scene format
-            Debug::println(3, "[SceneManager] Converting script to scene format");
-
-            // Create aliases from the script name
-            DynamicJsonDocument aliasDoc(512);
-            JsonArray aliases = aliasDoc.to<JsonArray>();
-            aliases.add(obj["name"].as<String>());
-            String aliasStr;
-            serializeJson(aliases, aliasStr);
-            scenes[sceneCount].aliasesJson = aliasStr;
-
-            // Create empty colors object
-            DynamicJsonDocument colorDoc(1024);
-            JsonObject colors = colorDoc.to<JsonObject>();
-            String colorStr;
-            serializeJson(colors, colorStr);
-            scenes[sceneCount].colorsJson = colorStr;
-
-            // Convert actions from script format to scene format
-            DynamicJsonDocument actionDoc(2048);
-            JsonArray actions = actionDoc.to<JsonArray>();
-
-            // Copy actions from script
-            if (obj.containsKey("actions")) {
-                for (JsonObject action : obj["actions"].as<JsonArray>()) {
-                    JsonObject newAction = actions.createNestedObject();
-                    newAction["type"] = action["type"];  // ir, living, etc.
-                    newAction["deviceId"] = action["deviceId"];
-
-                    // Copy specific properties based on type
-                    if (action.containsKey("remoteId")) newAction["remoteId"] = action["remoteId"];
-                    if (action.containsKey("buttonName")) newAction["buttonName"] = action["buttonName"];
-                    if (action.containsKey("code")) newAction["code"] = action["code"];
-                    if (action.containsKey("bits")) newAction["bits"] = action["bits"];
-                    if (action.containsKey("color")) newAction["color"] = action["color"];
-                    if (action.containsKey("intensity")) newAction["intensity"] = action["intensity"];
-                }
-            }
-
-            String actionStr;
-            serializeJson(actions, actionStr);
-            scenes[sceneCount].actionsJson = actionStr;
-
-            // Create empty kaku object
-            DynamicJsonDocument kakuDoc(256);
-            JsonObject kaku = kakuDoc.to<JsonObject>();
-            String kakuStr;
-            serializeJson(kaku, kakuStr);
-            scenes[sceneCount].kakuJson = kakuStr;
-        } else {
-            // Traditional scene format
-            Debug::println(3, "[SceneManager] Loading traditional scene format");
-
-            // Serialize each JSON element to string
-            String aliasStr;
-            serializeJson(obj["aliases"], aliasStr);
-            scenes[sceneCount].aliasesJson = aliasStr;
-
-            String colorStr;
-            serializeJson(obj["colors"], colorStr);
-            scenes[sceneCount].colorsJson = colorStr;
-
-            String actionStr;
-            serializeJson(obj["actions"], actionStr);
-            scenes[sceneCount].actionsJson = actionStr;
-
-            String kakuStr;
-            serializeJson(obj["kaku"], kakuStr);
-            scenes[sceneCount].kakuJson = kakuStr;
-        }
-
+        if (!loadSceneObject(obj)) continue;
         sceneCount++;
     }
 
@@ -152,9 +103,93 @@ bool SceneManager::loadScenes() {
     return true;
 }
 
+bool SceneManager::loadSceneObject(JsonObject obj) {
+    // Extract scene properties into scenes[sceneCount].
+    // Returns false if the object has no usable name.
+
+    // Extract scene properties
+    scenes[sceneCount].id = obj["id"] | 0;
+    scenes[sceneCount].name = obj["name"].as<String>();
+
+    // Check if this is a script format (has triggers) or scene format
+    if (obj.containsKey("triggers")) {
+        // Script format - convert to scene format
+        Debug::println(3, "[SceneManager] Converting script to scene format");
+
+        // Create aliases from the script name
+        DynamicJsonDocument aliasDoc(512);
+        JsonArray aliases = aliasDoc.to<JsonArray>();
+        aliases.add(obj["name"].as<String>());
+        String aliasStr;
+        serializeJson(aliases, aliasStr);
+        scenes[sceneCount].aliasesJson = aliasStr;
+
+        // Create empty colors object
+        DynamicJsonDocument colorDoc(1024);
+        JsonObject colors = colorDoc.to<JsonObject>();
+        String colorStr;
+        serializeJson(colors, colorStr);
+        scenes[sceneCount].colorsJson = colorStr;
+
+        // Convert actions from script format to scene format
+        DynamicJsonDocument actionDoc(2048);
+        JsonArray actions = actionDoc.to<JsonArray>();
+
+        // Copy actions from script
+        if (obj.containsKey("actions")) {
+            for (JsonObject action : obj["actions"].as<JsonArray>()) {
+                JsonObject newAction = actions.createNestedObject();
+                newAction["type"] = action["type"];  // ir, living, etc.
+                newAction["deviceId"] = action["deviceId"];
+
+                // Copy specific properties based on type
+                if (action.containsKey("remoteId")) newAction["remoteId"] = action["remoteId"];
+                if (action.containsKey("buttonName")) newAction["buttonName"] = action["buttonName"];
+                if (action.containsKey("code")) newAction["code"] = action["code"];
+                if (action.containsKey("bits")) newAction["bits"] = action["bits"];
+                if (action.containsKey("color")) newAction["color"] = action["color"];
+                if (action.containsKey("intensity")) newAction["intensity"] = action["intensity"];
+            }
+        }
+
+        String actionStr;
+        serializeJson(actions, actionStr);
+        scenes[sceneCount].actionsJson = actionStr;
+
+        // Create empty kaku object
+        DynamicJsonDocument kakuDoc(256);
+        JsonObject kaku = kakuDoc.to<JsonObject>();
+        String kakuStr;
+        serializeJson(kaku, kakuStr);
+        scenes[sceneCount].kakuJson = kakuStr;
+    } else {
+        // Traditional scene format
+        Debug::println(3, "[SceneManager] Loading traditional scene format");
+
+        // Serialize each JSON element to string
+        String aliasStr;
+        serializeJson(obj["aliases"], aliasStr);
+        scenes[sceneCount].aliasesJson = aliasStr;
+
+        String colorStr;
+        serializeJson(obj["colors"], colorStr);
+        scenes[sceneCount].colorsJson = colorStr;
+
+        String actionStr;
+        serializeJson(obj["actions"], actionStr);
+        scenes[sceneCount].actionsJson = actionStr;
+
+        String kakuStr;
+        serializeJson(obj["kaku"], kakuStr);
+        scenes[sceneCount].kakuJson = kakuStr;
+    }
+
+    return true;
+}
+
 bool SceneManager::saveScenes() {
     // Save scenes to storage file
-    // Creates a JSON document with all scenes and writes to scripts.json
+    // Creates a JSON document with all scenes and writes to scenes.json
     // Returns true if successful, false if file operations fail
 
     Debug::println(3, "[SceneManager] Saving " + String(sceneCount) + " scenes to disk...");
@@ -740,7 +775,7 @@ bool SceneManager::executeSceneActions(JsonArray actions) {
             // Convert hex color to RGB
             uint8_t r, g, b;
             parseHexColor(color, r, g, b);
-            
+
             // Set living color
             int lampId = deviceId.toInt();
             hardware.living().setColorRGB(lampId, r, g, b);

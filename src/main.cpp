@@ -6,10 +6,36 @@ namespace {
 constexpr unsigned long kSerialBaudRate = 115200;
 }
 
-// The app shell is intentionally thin: it just boots the debug logger,
-// starts the Core subsystem, and then repeatedly updates the runtime loop.
+// Read this first when debugging:
+// -----------------------------------------------------------------------------
+// Startup flow:
+//   1) App::begin() boots the logger and starts Core
+//   2) Core::init() initializes hardware, translator, scenes, and WebUI
+//   3) WebUI starts ScriptManager for action scripts and API routes
+//   4) EventBus subscriptions are registered last
+//   5) loop() stays simple and calls Core::update()
+//
+// Ownership:
+//   App            -> top-level shell, keeps startup thin
+//   Core           -> orchestration owner and runtime coordinator
+//   HardwareManager-> physical devices + storage + event publishing
+//   SceneManager   -> scenes, persistence, scene execution
+//   ScriptManager  -> scripts, triggers, action execution
+//   WebUI          -> dashboard + HTTP API + script runtime wiring
+//   EventBus       -> shared event broker for all subsystems
+// -----------------------------------------------------------------------------
+
+// App is the top-level orchestration shell.
+// It boots the debug console, launches the Core runtime, and then hands control
+// to the main loop. Keeping this class thin makes the startup path easier to follow.
 class App {
 public:
+    /**
+     * Bootstraps the firmware and initializes the system runtime.
+     *
+     * This method should stay intentionally small: it configures logging,
+     * then delegates all intelligent startup coordination to Core::init().
+     */
     void begin() {
         // Serial debug is the main observability tool during bring-up and runtime debugging.
         Debug::begin(kSerialBaudRate);
@@ -20,21 +46,22 @@ public:
         Debug::println(1, "[MAIN] Starting application");
 #endif
 
-        Debug::logSubsystemStatus("System", "initializing", "storage -> hardware -> webui -> scripts");
-
-        // Core owns the high-level startup order: hardware, translator, web UI, and bus subscriptions.
+        // Core owns the startup sequence and the single status log for the system lifecycle.
         core.init();
 
 #if DEBUG_LEVEL >= 1
         Debug::println(1, "[MAIN] Core startup complete, application is running");
         Debug::println(1, "[MAIN] Application started");
 #endif
-
-        Debug::logSubsystemStatus("System", "ready", "Core, WebUI, and event pipeline are online");
     }
 
+    /**
+     * Runs the runtime loop for the application.
+     *
+     * The system is event-driven, so this method remains deliberately minimal and
+     * simply forwards control to the Core runtime tick.
+     */
     void update() {
-        // The main loop stays simple; the system is event-driven and periodically ticked here.
         core.update();
     }
 

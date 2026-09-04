@@ -10,17 +10,34 @@
 class SceneManager;
 
 /**
- * Action/scene manager.
+ * ScriptManager owns the runtime action engine and script persistence.
  *
- * IMPORTANT: this class deliberately uses the existing HardwareManager API;
- * HardwareManager and Debug are not modified by this package.
+ * Responsibilities:
+ * - load and save script definitions from LittleFS
+ * - match incoming events to script triggers
+ * - execute actions against RF/IR/LivingColors hardware
+ * - optionally resolve Kaku events to scenes when a SceneManager is attached
+ *
+ * This class intentionally does not own scene loading itself; scene persistence and
+ * loading are owned by SceneManager and initialized by Core.
  */
 class ScriptManager {
 public:
     explicit ScriptManager(HardwareManager& hardware);
 
+    /**
+     * Starts the script runtime and loads scripts from disk.
+     */
     void begin();
+
+    /**
+     * Wiring for Kaku-to-scene lookup used by learned triggers.
+     */
     void setSceneManager(SceneManager* sm) { sceneManager = sm; }
+
+    /**
+     * Script persistence and runtime lifecycle methods.
+     */
     bool loadScripts();
     bool saveScripts();
     bool addScript(const String& script);
@@ -33,7 +50,10 @@ public:
     String getScriptById(int scriptId);
     String getRawScriptsFile() const;
 
-    // Learn the next incoming event. filter: ANY, KAKU, IR or RF.
+    /**
+     * Begins event capture for learning new triggers.
+     * @param filter One of ANY, KAKU, IR, RF.
+     */
     void startCapture(const String& filter = "ANY");
     String getCaptureStatus() const;
 

@@ -1,13 +1,17 @@
+// ============================================================================
+//  KakuDecoder.cpp - Kaku protocol (GE Enbrighten) RF decoder.
+//
+//  Extracts house codes (A-P) and button positions (1-32) from 24-bit RF data.
+//  Validates frame structure before firing callback.
+// ============================================================================
+
 #include "KakuDecoder.h"
-// EventBus include moved to KakuDecoder.h as requested!
 
 KakuDecoder::KakuDecoder(uint32_t debounceMs)
   : _debounceMs(debounceMs), _lastCodeTime(0), _lastCodeValue(0) {
-  // Initialize debounce timer to prevent duplicate signals
 }
 
 void KakuDecoder::onCommand(KakuCallback callback) {
-  // Store the callback function so we can call it when a command is decoded
   _callback = callback;
 }
 
@@ -73,9 +77,9 @@ void KakuDecoder::decodeClassicKaku(unsigned long value) {
   // Calculate button number (1-32) based on slider row and on/off state
   int button = (sliderPos - 1) * 8 + (rowPos - 1) * 2 + (isOn ? 1 : 2);
 
-  #ifdef DEBUG_LEVEL
-    Debug::println("[KAKU][decodeClassicKaku] House " + String(house) + " Button " + String(button)); 
-  #endif
+#if DEBUG_LEVEL >= 3
+  Debug::println(3, "[KAKU][DECODE] House " + String(house) + " Button " + String(button));
+#endif
 }
 
 // ==========================================

@@ -2,49 +2,28 @@
 #include "IRController.h"
 
 // ============================================================================
-//  IRController.cpp - implementation of the IR receive logic.
+//  IRController.cpp - IR receiver/transmitter implementation.
 //
-//  The key idea: when we receive an IR frame we don't just keep the decoded
-//  number - we also snapshot the raw waveform (a list of on/off timings).
-//  The Core will handle echoing the signal.
+//  Snapshots both decoded value and raw waveform for bit-exact replay.
+//  Debouncing (300ms) prevents button-hold from flooding events.
 // ============================================================================
 
-// ----------------------------------------------------------------------------
-// Constructor.
-//   Stores the pins. The debounce window (300 ms) also conveniently stops a
-//   remote that keeps repeating its frame (while a button is held) from
-//   flooding our callback every few milliseconds.
-// ----------------------------------------------------------------------------
 IRController::IRController(int rxPin, int txPin)
     : rxPin(rxPin), txPin(txPin),
       _lastCodeValue(0), _lastCodeTime(0), _debounceMs(300)
 {
 }
 
-// ----------------------------------------------------------------------------
-// init()
-//   Start both the IR receiver (on rxPin) and the IR sender (on txPin).
-//   The receiver drives the on-board LED as a visual feedback on each IR pulse,
-//   the sender LED feedback is disabled to keep pin usage minimal.
-// ----------------------------------------------------------------------------
-void IRController::init()
-{
-#ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[IR][init] Initializing IR Controller with RX pin " + String(rxPin) + " and TX pin " + String(txPin));
-    #endif
+void IRController::init() {
+    // Initialize IR receiver (with LED feedback) and sender (without).
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[IR][INIT] RX pin " + String(rxPin) + " TX pin " + String(txPin));
 #endif
     IrReceiver.begin(rxPin, ENABLE_LED_FEEDBACK);
     IrSender.begin(txPin, DISABLE_LED_FEEDBACK);
 }
 
-// ----------------------------------------------------------------------------
-// onCommand()
-//   Store the user-supplied callback. update() will invoke it whenever a new,
-//   valid IR frame has been received.
-// ----------------------------------------------------------------------------
-void IRController::onCommand(IRCallback callback)
-{
+void IRController::onCommand(IRCallback callback) {
     _callback = callback;
 }
 

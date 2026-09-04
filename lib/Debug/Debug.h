@@ -4,43 +4,39 @@
 
 /**
  * @brief Debug logging library with levels, timestamps, and web log support
- * 
- * This library provides a flexible debugging system with the following features:
- * - 5-level logging (0=off, 1=errors, 2=warnings, 3=debug, 4=verbose)
- * - Timestamp support for synchronized time across devices
- * - Web log buffer for remote debugging
- * - Color-coded logs for web interface
- * - Efficient memory management with buffer rotation
- * - Non-blocking operations for time-critical applications
- * 
- * Usage:
+ *
+ * Logging convention used across the firmware:
+ * - 1 = errors (red)
+ * - 2 = warnings / important startup info (yellow)
+ * - 3 = debug / normal runtime trace (blue)
+ * - 4 = verbose / very noisy internals (grey)
+ *
+ * Preferred usage:
  * @code
- * // In your setup():
- * Debug::begin(); // Default baud rate (115200)
- * 
- * // Set debug level (0-4)
- * #define DEBUG_LEVEL 3  // Will show errors, warnings, and debug messages
- * 
- * // Basic logging (uses DEBUG_LEVEL if defined, otherwise defaults to 3)
- * Debug::println("This is a debug message");
- * 
- * // Level-specific logging
- * Debug::println(1, "This is an error");
- * Debug::println(2, "This is a warning");
- * Debug::println(3, "This is debug info");
- * Debug::println(4, "This is verbose output");
- * 
- * // Set device time for synchronized timestamps
- * Debug::setDeviceTime(1609459200); // Unix timestamp for Jan 1, 2021
- * 
- * // Access web logs via HTTP endpoint
- * server.on("/logs", HTTP_GET, [](AsyncWebServerRequest *request) {
- *     request->send(200, "text/plain", Debug::getWebLogs());
- * });
- * 
- * // Clear logs when needed
- * Debug::clearLogs();
+ * #define DEBUG_LEVEL 3
+ *
+ * if (DEBUG_LEVEL >= 1) {
+ *     Debug::println(1, "[CORE][ERROR] Something failed");
+ * }
+ *
+ * if (DEBUG_LEVEL >= 2) {
+ *     Debug::println(2, "[CORE][WARN] Something may need attention");
+ * }
+ *
+ * if (DEBUG_LEVEL >= 3) {
+ *     Debug::println(3, "[CORE][INFO] Normal startup details");
+ * }
+ *
+ * if (DEBUG_LEVEL >= 4) {
+ *     Debug::println(4, "[CORE][TRACE] Verbose low-level trace");
+ * }
  * @endcode
+ *
+ * Notes:
+ * - The logger still enforces the level gate internally so a direct call like
+ *   Debug::println(3, "...") does not leak past the configured threshold.
+ * - This keeps the serial output readable while preserving high-detail logs when
+ *   you need them during troubleshooting.
  */
 class Debug {
 public:
@@ -107,10 +103,11 @@ public:
     static void println(const String& message);
     
     /**
-     * @brief Print a message with specified debug level
+     * @brief Print a message with specified debug level.
      * @param level Debug level (1-4)
      * @param message Message to print
-     * @note Level 1: Errors, Level 2: Warnings, Level 3: Debug, Level 4: Verbose
+     * @note Preferred convention: 1 = red/error, 2 = yellow/warn,
+     *       3 = blue/debug, 4 = grey/verbose.
      */
     static void println(int level, const String& message);
     

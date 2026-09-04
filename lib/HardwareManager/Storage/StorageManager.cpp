@@ -5,48 +5,36 @@ Storage::StorageCallback Storage::_callback = nullptr;
 
 bool Storage::init() {
     // LittleFS is the persistent storage layer for the web UI, config files, and action definitions.
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[STORAGE][init] Initializing storage system...");
-    #endif
-    #endif
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][INIT] Initializing storage system");
+#endif
 
     // Mount LittleFS before any read/write access. This is the filesystem used for the web pages.
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[STORAGE][DEBUG] Attempting to mount LittleFS...");
-    #endif
-    #endif
+#if DEBUG_LEVEL >= 3
+    Debug::println(3, "[STORAGE][INIT] Attempting to mount LittleFS");
+#endif
 
     if (!LittleFS.begin()) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][ERROR] Failed to mount LittleFS");
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 1
+        Debug::println(1, "[STORAGE][ERROR] Failed to mount LittleFS");
+#endif
         triggerCallback("mount_failed", "LittleFS mount failed");
         return false;
     }
 
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[STORAGE][INFO] LittleFS mounted successfully");
-    #endif
-    #endif
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][INFO] LittleFS mounted successfully");
+#endif
 
     // Initialize standard files
     if (initializeStandardFiles()) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 2
-            Debug::println("[STORAGE][INFO] Standard files initialized successfully");
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 2
+        Debug::println(2, "[STORAGE][INFO] Standard files initialized successfully");
+#endif
     } else {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][WARNING] Some standard files may not have been initialized");
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 1
+        Debug::println(1, "[STORAGE][WARN] Some standard files may not have been initialized");
+#endif
     }
 
     // Display file system info and root directory contents to validate the mounted filesystem.
@@ -54,94 +42,74 @@ bool Storage::init() {
     listDir("/");
 
     triggerCallback("mounted", "LittleFS mounted successfully");
-    Debug::println("[STORAGE][init] Storage initialization complete; root directory has been inspected");
+    Debug::println(2, "[STORAGE][INIT] Storage initialization complete; root directory has been inspected");
     return true;
 }
 
 bool Storage::exists(const String& path) {
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][exists] Checking if file exists: " + path);
-    #endif
-    #endif
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][EXISTS] Checking if file exists: " + path);
+#endif
     return LittleFS.exists(path);
 }
 
 bool Storage::remove(const String& path) {
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][remove] Attempting to remove file: " + path);
-    #endif
-    #endif
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][REMOVE] Attempting to remove file: " + path);
+#endif
 
     if (!LittleFS.exists(path)) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][ERROR] File not found for removal: " + path);
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 1
+        Debug::println(1, "[STORAGE][ERROR] File not found for removal: " + path);
+#endif
         triggerCallback("remove_failed", "File not found: " + path);
         return false;
     }
 
     bool success = LittleFS.remove(path);
     if (success) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 2
-            Debug::println("[STORAGE][remove] File removed successfully: " + path);
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 2
+        Debug::println(2, "[STORAGE][REMOVE] File removed successfully: " + path);
+#endif
         triggerCallback("removed", path);
     } else {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][ERROR] Failed to remove file: " + path);
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 1
+        Debug::println(1, "[STORAGE][ERROR] Failed to remove file: " + path);
+#endif
         triggerCallback("remove_failed", "Failed to remove: " + path);
     }
     return success;
 }
 
 bool Storage::mkdir(const String& path) {
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][mkdir] Attempting to create directory: " + path);
-    #endif
-    #endif
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][MKDIR] Attempting to create directory: " + path);
+#endif
 
     bool success = LittleFS.mkdir(path);
     if (success) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 2
-            Debug::println("[STORAGE][mkdir] Directory created successfully: " + path);
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 2
+        Debug::println(2, "[STORAGE][MKDIR] Directory created successfully: " + path);
+#endif
         triggerCallback("directory_created", path);
     } else {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][mkdir] Directory may already exist: " + path);
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 1
+        Debug::println(1, "[STORAGE][WARN] Directory may already exist: " + path);
+#endif
     }
     return success;
 }
 
 String Storage::read(const String& path) {
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][read] Attempting to read file: " + path);
-    #endif
-    #endif
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][READ] Attempting to read file: " + path);
+#endif
 
     File file = LittleFS.open(path, "r");
     if (!file) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][read] Failed to open file for reading: " + path);
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 1
+        Debug::println(1, "[STORAGE][ERROR] Failed to open file for reading: " + path);
+#endif
         triggerCallback("read_failed", "Failed to open for reading: " + path);
         return "";
     }
@@ -149,11 +117,9 @@ String Storage::read(const String& path) {
     String data = file.readString();
     file.close();
 
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[STORAGE][readString] Read " + String(data.length()) + " bytes from " + path);
-    #endif
-    #endif
+#if DEBUG_LEVEL >= 3
+    Debug::println(3, "[STORAGE][READ] Read " + String(data.length()) + " bytes from " + path);
+#endif
 
     triggerCallback("read", path + " (" + String(data.length()) + " bytes)");
     return data;
@@ -161,20 +127,16 @@ String Storage::read(const String& path) {
 
 bool Storage::write(const String& path, const String& data) {
     // Writes are used for JSON config files and persisted scenes/action data.
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][write] Attempting to write to file: " + path);
-        Debug::println("[STORAGE][write] Data size: " + String(data.length()) + " bytes");
-    #endif
-    #endif
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][WRITE] Attempting to write to file: " + path);
+    Debug::println(2, "[STORAGE][WRITE] Data size: " + String(data.length()) + " bytes");
+#endif
 
     File file = LittleFS.open(path, "w");
     if (!file) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][open] Failed to open file for writing: " + path);
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 1
+        Debug::println(1, "[STORAGE][ERROR] Failed to open file for writing: " + path);
+#endif
         triggerCallback("write_failed", "Failed to open for writing: " + path);
         return false;
     }
@@ -183,19 +145,15 @@ bool Storage::write(const String& path, const String& data) {
     file.close();
 
     if (bytesWritten > 0) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 2
-            Debug::println("[STORAGE][open] Successfully wrote " + String(bytesWritten) + " bytes to " + path);
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 2
+        Debug::println(2, "[STORAGE][WRITE] Successfully wrote " + String(bytesWritten) + " bytes to " + path);
+#endif
         triggerCallback("written", path + " (" + String(bytesWritten) + " bytes)");
         return true;
     } else {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][open] Failed to write data to file: " + path);
-        #endif
-        #endif
+#if DEBUG_LEVEL >= 1
+        Debug::println(1, "[STORAGE][ERROR] Failed to write data to file: " + path);
+#endif
         triggerCallback("write_failed", "Failed to write data to: " + path);
         return false;
     }
@@ -203,11 +161,9 @@ bool Storage::write(const String& path, const String& data) {
 
 void Storage::listDir(const String& path) {
     // This is useful when debugging filesystem structure or checking that the web pages were written correctly.
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][listDir] Listing directory: " + path);
-    #endif
-    #endif
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][LIST] Listing directory: " + path);
+#endif
 
     File root = LittleFS.open(path);
     if (!root || !root.isDirectory()) {

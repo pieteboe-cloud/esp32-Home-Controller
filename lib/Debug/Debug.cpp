@@ -77,7 +77,7 @@ void Debug::logStartupBanner(const String& projectName, const String& version) {
     println(3, "========================================");
     println(3, "[BOOT] " + projectName + " v" + version + " starting");
     println(3, "[BOOT] Target: ESP32 DOIT DEVKIT V1");
-    println(3, "[BOOT] Debug level: " + String(3));
+    println(3, "[BOOT] Debug levels: 1=errors, 2=warnings, 3=debug, 4=verbose");
     println(3, "[BOOT] Serial: " + String(115200) + " baud");
     println(3, "[BOOT] Timestamp mode: " + String(deviceTimeOffset == 0 ? "uptime fallback" : "wall clock"));
     println(3, "========================================");
@@ -165,17 +165,23 @@ void Debug::println(const String& message) {
  * @param message Message to print
  */
 void Debug::println(int level, const String& message) {
-    // Check if this message should be displayed based on current debug level
-    //if (level > currentDebugLevel || level < 1) return;
+    // Enforce the configured debug threshold so the logger behaves predictably.
+    // This keeps the serial window readable while still preserving noisy traces
+    // when DEBUG_LEVEL is raised intentionally during debugging.
+    if (level < 1 || level > 4) {
+        level = 3;
+    }
+    if (level > currentDebugLevel) {
+        return;
+    }
 
-    // Add timestamp to serial output
     String timestamp = getTimestamp();
     String output = timestamp + message;
 
-    // Print to serial
+    // Print to serial with the selected severity.
     Serial.println(output);
 
-    // Add to web log with level-specific color coding
+    // Add to web log with level-specific color coding.
     addToWebLog(message, level);
 }
 
@@ -241,13 +247,13 @@ void Debug::rotateWebLogBuffer() {
  * @return HTML color code string
  */
 String Debug::getWebLogColor(int level) {
-    // Return HTML color codes based on information from the debug message.
-    // This allows the web log to visually distinguish between errors, warnings, debug messages, and verbose output.
+    // Keep the web log colors aligned with the serial-level convention used in the firmware.
+    // 1=red errors, 2=yellow warnings, 3=blue debug, 4=grey verbose.
     switch(level) {
-        case 1: return "<span style='color:red'>";    //  1, message = Errors: red
-        case 2: return "<span style='color:orange'>"; //  2, message = Warnings: orange
-        case 3: return "<span style='color:blue'>";   //  3, message = Debug: blue
-        case 4: return "<span style='color:gray'>";   //  4, message = Verbose: gray
+        case 1: return "<span style='color:red'>";
+        case 2: return "<span style='color:yellow'>";
+        case 3: return "<span style='color:blue'>";
+        case 4: return "<span style='color:gray'>";
         default: return "";
     }
 }

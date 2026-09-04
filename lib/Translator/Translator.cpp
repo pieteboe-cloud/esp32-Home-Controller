@@ -12,7 +12,7 @@ String normalizeHex32(const String& value) {
         return "0x00000000";
     }
     while (s.length() < 8) {
-        s += "0";
+        s = "0" + s;
     }
     if (s.length() > 8) {
         s = s.substring(s.length() - 8);
@@ -24,7 +24,7 @@ String normalizeHex32(uint32_t value) {
     String s = String(value, HEX);
     s.toLowerCase();
     while (s.length() < 8) {
-        s += "0";
+        s = "0" + s;
     }
     return "0x" + s;
 }

@@ -1,38 +1,33 @@
+// ============================================================================
+//  LivingColors.cpp - (LivingColors) lighting controller.
+//
+//  Controls wireless RGB lamps via CC2500 radio module.
+//  Supports HSV/RGB color modes, power control, and synchronized scenes.
+// ============================================================================
+
 #include "LivingColors.h"
 #include "../Debug/Debug.h"
 
-/**
- * @brief Constructor for LivingColors controller
- * Initializes the CC2500 radio module with the specified pins
- */
 LivingColors::LivingColors(uint8_t csPin, uint8_t sckPin, uint8_t misoPin, uint8_t mosiPin, uint8_t gdo2Pin)
     : radio(csPin, sckPin, misoPin, mosiPin, gdo2Pin)
 {
 }
 
-/**
- * @brief Initialize the LivingColors system
- * Initializes the radio module and optionally sets all lamps to black
- */
 void LivingColors::begin(bool wakeAllBlack) {
-#ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[LC][begin] Starting LivingColors initialization");
-    #endif
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[LC][INIT] Starting LivingColors initialization");
 #endif
     // Initialize the radio module
     radio.begin();
 
-    // Verify radio module is working
+    // Verify radio module is working.
     if (!radio.verify()) {
-        Debug::println(1, "[LC][begin] ERROR: CC2500 verify failed");
+        Debug::println(1, "[LC][ERROR] CC2500 radio verification failed");
         return;
     }
 
-#ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println(3, "[LC][begin] Radio module verify succeeded");
-    #endif
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[LC][INFO] Radio module verified successfully");
 #endif
 
     // Configure radio for LivingColors communication
@@ -44,18 +39,16 @@ void LivingColors::begin(bool wakeAllBlack) {
         setColorRGB(i, 255, 0, 0);
         delay(50); // small delay for pretty effect
     }
-for (uint8_t i = 0; i < LAMP_COUNT; i++) {
+    for (uint8_t i = 0; i < LAMP_COUNT; i++) {
         setColorRGB(i, 0, 255, 0);
-        delay(50); // small delay for pretty effect
+        delay(50);
     }
-for (uint8_t i = 0; i < LAMP_COUNT; i++) {
+    for (uint8_t i = 0; i < LAMP_COUNT; i++) {
         setColorRGB(i, 0, 0, 255);
-        delay(50); // small delay for pretty effect
+        delay(50);
     }
-        
 
-
-    Debug::println(2, "[LC][begin] Initialization complete");
+    Debug::println(2, "[LC][INFO] Initialization complete");
 }
 
 /**

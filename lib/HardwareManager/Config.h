@@ -3,17 +3,41 @@
 
 
 // Pin definitions
+// SPI for CC2500
 const uint8_t LC_CS = 5;
 const uint8_t LC_SCK = 18;
 const uint8_t LC_MISO = 19;
 const uint8_t LC_MOSI = 23;
 const uint8_t LC_GDO2 = 22;
 
+// 433.92MHz RF 
 const uint8_t RF_RX = 33;
 const uint8_t RF_TX = 26;
 
+// 38kHz Infra Red
 const uint8_t IR_RX = 35;
 const uint8_t IR_TX = 25;
+
+const uint8_t AUDIO_ADC_PIN = 32;
+const uint8_t AUDIO_LED_PIN = 12; 
+
+// =========================
+const uint8_t ACTIVE_LED_PIN = 2; // also LED on board
+const uint8_t HEARTBEAT_LED_PIN = 21;
+
+
+
+// =========================
+// Audio Configuration (MAX9814)
+// =========================
+#define AUDIO_ADC_RESOLUTION       12          // bits
+#define AUDIO_SAMPLE_RATE          10000       // Hz (10 kHz)
+#define AUDIO_WINDOW_SIZE          512         // samples (~51ms per analysis)
+#define AUDIO_DC_OFFSET_MV         1250        // 1.25V bias
+#define AUDIO_SILENCE_THRESHOLD_MV 1400        // Above = audio present
+#define AUDIO_BEAT_MULTIPLIER      1.5         // Beat = avg * 1.5
+#define AUDIO_BEAT_DEBOUNCE_MS     200
+#define AUDIO_SILENCE_TIMEOUT_MS   500         // Silence confirmed after 500ms quiet
 
 
 
