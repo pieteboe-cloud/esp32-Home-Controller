@@ -7,7 +7,10 @@
 class Storage {
 public:
     // Initialize the file system
-    static bool init();
+    static bool begin();
+    
+    // Check if filesystem is mounted
+    static bool isMounted();
     
     // Check if file exists
     static bool exists(const String& path);
@@ -42,6 +45,7 @@ public:
     
 private:
     static StorageCallback _callback;
+    static bool isInitialized;
     
     // Helper function to trigger callbacks
     static void triggerCallback(const String& event, const String& details = "");

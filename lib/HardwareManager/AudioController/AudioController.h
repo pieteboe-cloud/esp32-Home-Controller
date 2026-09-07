@@ -1,14 +1,19 @@
 #pragma once
 
+#include "../../Debug/Debug.h"
 #include <cstdint>
 #include <functional>
+#include <vector>
+#include <Arduino.h>
+#include <cmath>
+#include "../Config.h"
 
 // ============================================================================
 //  AudioController.h - Audio input and beat/silence detection.
 //
 //  Uses MAX9814 electret microphone amplifier on GPIO32 (ADC1_CH4).
 //  Performs RMS-based beat detection and silence detection.
-//  Events published to EventBus for integration with scenes/scripts.
+//  Outputs simple "beat" and "silence" commands for integration with scenes/scripts.
 // ============================================================================
 
 // Callback types
@@ -44,6 +49,9 @@ public:
     // Get current silence state
     bool isSilent() const;
 
+    // Get current BPM estimate
+    float getCurrentBPM() const;
+
 private:
     // ADC configuration
     uint8_t _adcPin;
@@ -64,6 +72,13 @@ private:
     float _beatMultiplier;          // threshold = average * multiplier
     uint32_t _lastBeatTime;         // Debounce timer
     uint32_t _beatDebounceMs;
+    
+    // BPM tracking
+    std::vector<uint32_t> _beatTimestamps;  // History of beat timestamps for BPM calculation
+    const uint8_t _maxBeatHistory = 8;       // Maximum number of beats to keep for BPM calculation
+    float _currentBPM;                       // Current BPM estimate
+    uint32_t _lastBPMUpdateTime;             // Last time BPM was updated
+    const uint32_t _bpmUpdateInterval = 1000; // Update BPM every second
 
     // Silence detection
     SilenceCallback _silenceCallback;
@@ -71,6 +86,12 @@ private:
     bool _audioPresent;             // Current silence state
     uint32_t _silenceStartTime;     // When quiet period started
     uint32_t _silenceTimeoutMs;     // How long to confirm silence
+    bool _silenceEventFired;        // Latch: silence event fired until audio resumes
+    
+    // Beat-based silence detection
+    uint32_t _expectedBeatTime;     // When next beat is expected based on BPM
+    uint8_t _missedBeatCount;      // Count of consecutive missed beats
+    const uint8_t _missedBeatThreshold = 2; // Number of missed beats before triggering silence
 
     // Non-blocking LED initialization
     bool _audioInitialized;         // Flag to track initialization completion
@@ -79,8 +100,11 @@ private:
     bool _ledState;                 // Current LED state
     bool _ledPulseActive;           // Non-blocking LED pulse in progress
     uint32_t _ledPulseStart;        // When the LED pulse started
-    bool _silenceEventFired;        // Latch: silence event fired until audio resumes
 
     // Helper methods
-    float calculateRMS();  // Calculate RMS energy from buffer
+    float calculateRMS();           // Calculate RMS energy from buffer
+    void updateBPM();                // Update BPM calculation
+    void outputBeat();              // Output beat command with timestamp
+    void outputSilence();           // Output silence command with timestamp
+    void outputAudioResumed();       // Output audio resumed command with timestamp
 };

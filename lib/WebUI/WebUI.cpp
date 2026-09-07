@@ -146,6 +146,21 @@ void WebUI::setupRoutes()
         Debug::println(3, "[WEBUI][POST /api/set-time] clock synchronized with browser timezone offset " + String(timezoneOffsetMinutes) + " minutes");
         request->send(200, "application/json", "{\"success\":true}"); }));
 
+    // Audio test page
+    server.on("/audio_test.html", HTTP_GET, [this](AsyncWebServerRequest *request)
+              {
+        if (!isClientAuthenticated(request)) {
+            request->send(401, "text/html", "<html><body><h1>Authentication Required</h1></body></html>");
+            return;
+        }
+        authenticateClient(request);
+        if (!LittleFS.exists("/audio_test.html")) {
+            request->send(404, "text/plain", "audio_test.html missing from filesystem");
+            return;
+        }
+        request->send(LittleFS, "/audio_test.html", "text/html");
+    });
+
     server.on("/api/logs", HTTP_GET, [](AsyncWebServerRequest *request)
               { request->send(200, "text/html", Debug::getWebLogs()); });
 

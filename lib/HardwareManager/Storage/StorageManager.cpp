@@ -2,8 +2,12 @@
 
 // Storage callback instance
 Storage::StorageCallback Storage::_callback = nullptr;
+bool Storage::isInitialized = false;
 
-bool Storage::init() {
+bool Storage::begin() {
+    if (isInitialized) {
+        return true;
+    }
     // LittleFS is the persistent storage layer for the web UI, config files, and action definitions.
 #if DEBUG_LEVEL >= 2
     Debug::println(2, "[STORAGE][INIT] Initializing storage system");
@@ -44,7 +48,7 @@ bool Storage::init() {
     triggerCallback("mounted", "LittleFS mounted successfully");
     Debug::println(2, "[STORAGE][INIT] Storage initialization complete; root directory has been inspected");
     return true;
-}
+} 
 
 bool Storage::exists(const String& path) {
 #if DEBUG_LEVEL >= 2
@@ -322,4 +326,8 @@ void Storage::triggerCallback(const String& event, const String& details) {
         Debug::println("[STORAGE][triggerCallback] Event triggered: " + event + (details.length() > 0 ? " - " + details : ""));
     #endif
     #endif
+}
+
+bool Storage::isMounted() {
+    return isInitialized;
 }

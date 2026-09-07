@@ -42,7 +42,6 @@ void IRController::onCommand(IRCallback callback) {
 // ----------------------------------------------------------------------------
 void IRController::update()
 {
-   // Debug::println("[IR][DEBUG] Calling IRController::update()");
     if (IrReceiver.decode())
     {
         unsigned long value = IrReceiver.decodedIRData.decodedRawData;
@@ -123,9 +122,10 @@ void IRController::send(const IRCommand& cmd)
                        " bits=" + String(cmd.bits));
     #endif
 #endif
-
-    Debug::println("[IR][DEBUG] Disabling IR receiver for transmission");
     // Pause the receiver so it does not pick up our own transmission.
+    #if DEBUG_LEVEL >= 3
+        Debug::println("[IR][send] Disabling IR receiver for transmission");
+    #endif
     disableReceive();
 
     if (cmd.hasRaw && cmd.rawCodeLength > 0) {
@@ -154,7 +154,9 @@ void IRController::send(const IRCommand& cmd)
 // ----------------------------------------------------------------------------
 void IRController::enableReceive()
 {
-    Debug::println("[IR][DEBUG] Enabling IR receiver");
+    #if DEBUG_LEVEL >= 3
+      Debug::println("[IR][enableReceive] Enabling IR receiver");
+    #endif
     IrReceiver.start();
 }
 
@@ -164,7 +166,9 @@ void IRController::enableReceive()
 // ----------------------------------------------------------------------------
 void IRController::disableReceive()
 {
-    Debug::println("[IR][DEBUG] Disabling IR receiver");
+    #if DEBUG_LEVEL >= 3
+        Debug::println("[IR][disableReceive] Disabling IR receiver");
+    #endif
     IrReceiver.stop();
 }
 

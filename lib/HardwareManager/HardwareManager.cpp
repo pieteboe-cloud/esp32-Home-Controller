@@ -20,7 +20,7 @@ void HardwareManager::init() {
 #if DEBUG_LEVEL >= 2
     Debug::println(2, "[HW][INIT] Initializing storage manager");
 #endif
-    if (_storage.init()) {
+    if (_storage.begin()) {
 #if DEBUG_LEVEL >= 2
         Debug::println(2, "[HW][INFO] Storage initialized successfully");
 #endif
@@ -188,11 +188,15 @@ void HardwareManager::handleAudioBeat() {
     SystemEvent evt;
     evt.source = "AUDIO";
     evt.identifier = "BEAT";
-    evt.rawData = String(_audio.getCurrentEnergy(), 2);  // Include energy level for debugging
+    evt.rawData = String(_audio.getCurrentEnergy(), 2) + "," + String(_audio.getCurrentBPM(), 1);  // Include energy and BPM for debugging
 
     // LED flashed in AudioController
 
     EventBus::getInstance().publish(evt);
+    
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[HW][AUDIO] Beat detected - Energy: " + String(_audio.getCurrentEnergy(), 2) + ", BPM: " + String(_audio.getCurrentBPM(), 1));
+#endif
 }
 
 void HardwareManager::handleAudioSilence(bool isSilent) {
@@ -202,6 +206,13 @@ void HardwareManager::handleAudioSilence(bool isSilent) {
     evt.identifier = isSilent ? "SILENCE_START" : "SILENCE_END";
     evt.rawData = isSilent ? "silent" : "audio_resumed";
 
-
     EventBus::getInstance().publish(evt);
+    
+#if DEBUG_LEVEL >= 2
+    if (isSilent) {
+        Debug::println(2, "[HW][AUDIO] Silence detected");
+    } else {
+        Debug::println(2, "[HW][AUDIO] Audio resumed");
+    }
+#endif
 }

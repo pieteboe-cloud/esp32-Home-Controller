@@ -30,7 +30,7 @@ void Core::init() {
     // The hardware layer owns RF/IR/storage and publishes device events to the bus.
 
     // Initialize filesystem first
-    if (!FileSystemManager::begin()) {
+    if (!Storage::begin()) {
         Debug::println(1, "[CORE][ERROR] Failed to initialize filesystem");
         return;
     }
@@ -93,8 +93,19 @@ void Core::handleKaku(const RFCommand& cmd) {
  */
 void Core::handleSystemEvent(const SystemEvent& evt) {
     // Action execution is owned by ScriptManager. Core only logs the event,
+#if DEBUG_LEVEL >= 3
+    if (evt.source == "AUDIO") {
+        Debug::println(3, "[CORE][AUDIO] " + evt.identifier + " | " + evt.rawData);
+    } else {
+        Debug::println(3, "[CORE][EVENT] " + evt.source + " -> " + evt.identifier);
+    }
+#endif
+    
 #if DEBUG_LEVEL >= 2
-    //Debug::println(2, "[CORE][EVENT] " + evt.source + " -> " + evt.identifier);
+    // Only log non-audio events at level 2 to avoid flooding
+    if (evt.source != "AUDIO") {
+        Debug::println(2, "[CORE][EVENT] " + evt.source + " -> " + evt.identifier);
+    }
 #endif
 }
 

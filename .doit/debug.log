@@ -20,3 +20,4 @@
 [17:43:40.806] INFO  [lifecycle] Fresh start — no saved session
 [17:43:43.873] INFO  [auth] starting M365 device-code flow
 [17:58:45.625] ERROR [auth] M365 sign-in failed: device_code_expired: Device code is expired.
+[12:02:53.511] INFO  [lifecycle] Abort requested

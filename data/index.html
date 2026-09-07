@@ -338,6 +338,7 @@
                     <button class="system-btn" id="save-log-btn">Save log</button>
                     <button class="system-btn" id="open-editor-btn">Editor</button>
                     <button class="system-btn secondary" id="pause-toggle-btn">Pause log</button>
+                    <button class="system-btn" id="audio-test-btn">Audio Test</button>
                 </div>
             </section>
         </div>
@@ -576,6 +577,10 @@
 
         document.getElementById('open-editor-btn').addEventListener('click', () => {
             window.open('/action_scripts.html', '_blank');
+        });
+
+        document.getElementById('audio-test-btn').addEventListener('click', () => {
+            window.open('/audio_test.html', '_blank');
         });
 
         document.getElementById('refresh-scenes').addEventListener('click', loadScenes);
