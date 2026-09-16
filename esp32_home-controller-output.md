@@ -3,8 +3,8 @@
 ## 📊 Project Information
 
 - **Project Name**: `esp32_home-controller`
-- **Generated On**: 2026-09-15 20:42:08 (Europe/Amsterdam / GMT+02:00)
-- **Total Files Processed**: 215
+- **Generated On**: 2026-09-16 08:56:56 (Europe/Amsterdam / GMT+02:00)
+- **Total Files Processed**: 204
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
 
@@ -28,7 +28,7 @@
 │   ├── 📄 action_scripts.html (22.38 KB)
 │   ├── 📄 index.html (26.92 KB)
 │   ├── 📄 scenes.json (202 B)
-│   └── 📄 scripts.json (438 B)
+│   └── 📄 scripts.json (341 B)
 ├── 📁 HelperRGB/
 │   ├── 📄 Just Color Codes 126.json (7.68 KB)
 │   ├── 📄 RGB Color Codes.png (44.55 KB)
@@ -44,8 +44,8 @@
 │   └── 📄 Trimlight-Codes-reds-to-yellows.webp (36.21 KB)
 ├── 📁 lib/
 │   ├── 📁 Core/
-│   │   ├── 📄 Core.cpp (19.18 KB)
-│   │   ├── 📄 Core.h (4.67 KB)
+│   │   ├── 📄 Core.cpp (19.14 KB)
+│   │   ├── 📄 Core.h (4.71 KB)
 │   │   └── 📄 EventBus.h (2.03 KB)
 │   ├── 📁 Debug/
 │   │   ├── 📄 Debug.cpp (10.12 KB)
@@ -73,11 +73,11 @@
 │   │   │   ├── 📄 RFController.cpp (6.45 KB)
 │   │   │   └── 📄 RFController.h (2.75 KB)
 │   │   ├── 📁 Storage/
-│   │   │   ├── 📄 StorageManager.cpp (10.06 KB)
+│   │   │   ├── 📄 StorageManager.cpp (9.99 KB)
 │   │   │   └── 📄 StorageManager.h (1.32 KB)
 │   │   ├── 📄 Config.h (1.97 KB)
-│   │   ├── 📄 HardwareManager.cpp (7.08 KB)
-│   │   └── 📄 HardwareManager.h (2.2 KB)
+│   │   ├── 📄 HardwareManager.cpp (4.64 KB)
+│   │   └── 📄 HardwareManager.h (2.06 KB)
 │   ├── 📁 SceneManager/
 │   │   ├── 📄 SceneManager.cpp (14.83 KB)
 │   │   └── 📄 SceneManager.h (2.31 KB)
@@ -282,20 +282,6 @@
 │       └── 📄 WebUI.h (1.82 KB)
 ├── 📁 src/
 │   └── 📄 main.cpp (2.56 KB)
-├── 📁 unpacked_fs/
-│   ├── 📁 config/
-│   │   ├── 📄 devices.json (2 B)
-│   │   ├── 📄 mappings.json (2 B)
-│   │   ├── 📄 schedules.json (2 B)
-│   │   └── 📄 settings.json (2 B)
-│   ├── 📁 ir_db/
-│   │   ├── 📄 RGB_24KEY-R1.json (2.53 KB)
-│   │   ├── 📄 RGB_44KEY-R1.json (5.13 KB)
-│   │   └── 📄 RGB_44KEY-R2.json (3.45 KB)
-│   ├── 📄 action_scripts.html (22.38 KB)
-│   ├── 📄 index.html (26.92 KB)
-│   ├── 📄 scenes.json (202 B)
-│   └── 📄 scripts.json (345 B)
 ├── 📄 issues.md (6.42 KB)
 ├── 📄 LivingColors Remote.png (197.23 KB)
 ├── 📄 platformio.ini (698 B)
@@ -418,17 +404,6 @@
 - [📄 lib/WebUI/WebUI.cpp](#📄-lib-webui-webui-cpp)
 - [📄 lib/WebUI/WebUI.h](#📄-lib-webui-webui-h)
 - [📄 src/main.cpp](#📄-src-main-cpp)
-- [📄 unpacked_fs/config/devices.json](#📄-unpacked-fs-config-devices-json)
-- [📄 unpacked_fs/config/mappings.json](#📄-unpacked-fs-config-mappings-json)
-- [📄 unpacked_fs/config/schedules.json](#📄-unpacked-fs-config-schedules-json)
-- [📄 unpacked_fs/config/settings.json](#📄-unpacked-fs-config-settings-json)
-- [📄 unpacked_fs/ir_db/RGB_24KEY-R1.json](#📄-unpacked-fs-ir-db-rgb-24key-r1-json)
-- [📄 unpacked_fs/ir_db/RGB_44KEY-R1.json](#📄-unpacked-fs-ir-db-rgb-44key-r1-json)
-- [📄 unpacked_fs/ir_db/RGB_44KEY-R2.json](#📄-unpacked-fs-ir-db-rgb-44key-r2-json)
-- [📄 unpacked_fs/action_scripts.html](#📄-unpacked-fs-action-scripts-html)
-- [📄 unpacked_fs/index.html](#📄-unpacked-fs-index-html)
-- [📄 unpacked_fs/scenes.json](#📄-unpacked-fs-scenes-json)
-- [📄 unpacked_fs/scripts.json](#📄-unpacked-fs-scripts-json)
 - [📄 issues.md](#📄-issues-md)
 - [📄 platformio.ini](#📄-platformio-ini)
 - [📄 repomix-output.xml](#📄-repomix-output-xml)
@@ -441,11 +416,11 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Files | 215 |
-| Total Directories | 67 |
-| Text Files | 126 |
+| Total Files | 204 |
+| Total Directories | 64 |
+| Text Files | 115 |
 | Binary Files | 89 |
-| Total Size | 5.9 MB |
+| Total Size | 5.84 MB |
 
 ### 📄 File Types Distribution
 
@@ -454,14 +429,14 @@
 | `.h` | 60 |
 | `.ino` | 38 |
 | `.hpp` | 31 |
-| `.json` | 22 |
 | `.cpp` | 19 |
+| `.json` | 13 |
 | `.md` | 8 |
 | `.jpg` | 7 |
 | `.log` | 6 |
 | `.png` | 5 |
 | `.webp` | 5 |
-| `.html` | 4 |
+| `.html` | 2 |
 | `no extension` | 2 |
 | `.txt` | 2 |
 | `.properties` | 2 |
@@ -2363,9 +2338,9 @@ function escapeHtml(value){
 - **Location**: `data/scenes.json`
 - **Relative Path**: `data`
 - **Created**: 2026-09-07 20:37:28 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 04:56:50 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `71a3c78381adb7631ed03e243e57559d`
-- **SHA256**: `bb24fba86b7c46ffebe32ed8c29693f3ba814d42effdd97299e3f9fec2bdb245`
+- **Modified**: 2026-09-16 08:32:48 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `7cfa79e8730050221ac41d0843df396b`
+- **SHA256**: `313e0d720e49dce50793e7f4b7655f3c9d8baf99ed6b93643239f3c90cdf2e1f`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -2380,7 +2355,7 @@ function escapeHtml(value){
     "script": "Movie Start",
     "kaku": {
       "house": "D",
-      "button": 2
+      "button": 4
     }
   }
 ]
@@ -2391,15 +2366,15 @@ function escapeHtml(value){
 ### <a id="📄-data-scripts-json"></a>📄 `data/scripts.json`
 
 **File Info:**
-- **Size**: 438 B
+- **Size**: 341 B
 - **Extension**: `.json`
 - **Language**: `json`
 - **Location**: `data/scripts.json`
 - **Relative Path**: `data`
 - **Created**: 2026-09-07 20:55:00 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 21:01:11 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `07a880c48d91fc8672e0d1dba994113b`
-- **SHA256**: `4e026b0df58e49c4a20001f0c186a901015e7a4d83f18f884a6576f0f014b390`
+- **Modified**: 2026-09-16 08:32:32 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `34bd440d6bbe9430e92bcc6c72f54d42`
+- **SHA256**: `d9e828a58196fda5ae7166e9f00a252c21c415b77f8a65e6d29d325a534b9b1c`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -2419,12 +2394,6 @@ function escapeHtml(value){
       "living 6 rgb 205 155 200",
       "living 7 rgb 0 100 255"
     ]
-  },
-  {
-    "id": 2,
-    "name": "lalalablablabla",
-    "aliases": [],
-    "commands": []
   }
 ]
 ```
@@ -2809,22 +2778,21 @@ The following files were not included in the text content:
 ### <a id="📄-lib-core-core-cpp"></a>📄 `lib/Core/Core.cpp`
 
 **File Info:**
-- **Size**: 19.18 KB
+- **Size**: 19.14 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/Core/Core.cpp`
 - **Relative Path**: `lib/Core`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 05:33:02 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `3b32a9dabd18ca398ba38bc16bb961f8`
-- **SHA256**: `fc5ce1eb513806a23e55f220468ec556d9cd767b1397470cbeb045cbf380fa06`
+- **Modified**: 2026-09-16 08:33:00 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `2965d83f883990a15af4228b3e7dab40`
+- **SHA256**: `df5f4bc0cf7b611385b7ea59be796fdec8b113d966e4d42e8e0c7a9919593b5b`
 - **Encoding**: UTF-8
 
 **File code content:**
 
 ```cpp
 #include "Core.h"
-#include "../Translator/Translator.h"
 #include <stdlib.h>
 #include <time.h>
 
@@ -3680,15 +3648,15 @@ String Core::generateSecurePassword()
 ### <a id="📄-lib-core-core-h"></a>📄 `lib/Core/Core.h`
 
 **File Info:**
-- **Size**: 4.67 KB
+- **Size**: 4.71 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/Core/Core.h`
 - **Relative Path**: `lib/Core`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 03:20:47 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `70d02909fe25b9787ba8299bc3bf396d`
-- **SHA256**: `a6be4d1465016454d10564c1df21260ca33adbf798d471abd44ac2b655649f09`
+- **Modified**: 2026-09-16 08:56:55 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `121aab1e3f39910770df4ac1c8c665d1`
+- **SHA256**: `db697c11ddba037a31340d3b0e6ec5f7f3bf230211b548b1275d56c77ff649ee`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -3697,6 +3665,7 @@ String Core::generateSecurePassword()
 #pragma once
 
 #include <Arduino.h>
+#include "../Translator/Translator.h"
 
 #include "../HardwareManager/HardwareManager.h"
 #include "../ScriptManager/ScriptManager.h"
@@ -7011,15 +6980,15 @@ private:
 ### <a id="📄-lib-hardwaremanager-storage-storagemanager-cpp"></a>📄 `lib/HardwareManager/Storage/StorageManager.cpp`
 
 **File Info:**
-- **Size**: 10.06 KB
+- **Size**: 9.99 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/Storage/StorageManager.cpp`
 - **Relative Path**: `lib/HardwareManager/Storage`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-04 23:16:26 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `b8d8ea4765394dc462656523927b461b`
-- **SHA256**: `065daf7c54496a3cab481f79ad7e6c4410ffef4b5d2ee0e04dff5b8be038d712`
+- **Modified**: 2026-09-16 08:31:21 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `2aced9d1af5c0377fec0c544833cc546`
+- **SHA256**: `6bf6a348f284894b88c37994e3db14da84ed9cb965bedd67e123b8d6f4b08696`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7257,7 +7226,7 @@ bool Storage::initializeStandardFiles() {
     }
 
     // Initialize standard files
-    String files[] = {"/config/settings.json", "/config/devices.json", "/config/mappings.json", "/config/schedules.json"};
+    String files[] = {"/scripts.json", "/scenes.json" };
     String defaultContent[] = {
         "{}",  // Empty JSON for settings
         "[]",  // Empty array for devices
@@ -7349,7 +7318,7 @@ void Storage::triggerCallback(const String& event, const String& details) {
     }
 
     #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
+    #if DEBUG_LEVEL >= 2
         Debug::println("[STORAGE][triggerCallback] Event triggered: " + event + (details.length() > 0 ? " - " + details : ""));
     #endif
     #endif
@@ -7524,56 +7493,38 @@ static const uint8_t LAMP_ADDRESSES[LAMP_COUNT][9] = {
 ### <a id="📄-lib-hardwaremanager-hardwaremanager-cpp"></a>📄 `lib/HardwareManager/HardwareManager.cpp`
 
 **File Info:**
-- **Size**: 7.08 KB
+- **Size**: 4.64 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/HardwareManager.cpp`
 - **Relative Path**: `lib/HardwareManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-04 23:04:58 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `173692fad9f75a1f5beadb62b2a7e01e`
-- **SHA256**: `b28f4a7f23fccf6a50acb6a70c7d495c82065fcf85a79503369d216431c3bf8c`
+- **Modified**: 2026-09-16 08:56:09 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `ec2622d47f1d90c318912da4f3e8d431`
+- **SHA256**: `a6e39c23a5dbcd82814c488c46f4de094839f8520be3281caa9ce2b781812cb9`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```cpp
 #include "HardwareManager.h"
-#include "EventBus.h" // 1. Include the new EventBus
-
-// pin definitions are from /HardwareManager/Config.h
+// Pins definitions map exactly to your project definitions
 HardwareManager::HardwareManager()
     : _living(LC_CS, LC_SCK, LC_MISO, LC_MOSI, LC_GDO2),
       _rf(RF_RX, RF_TX),
       _kaku(),
       _ir(IR_RX, IR_TX),
-      _audio(AUDIO_ADC_PIN)
+      _audio(AUDIO_ADC_PIN),
+      _kakuCb(nullptr), 
+      _rfCb(nullptr), 
+      _irCb(nullptr)
+      
 {
 }
 
 void HardwareManager::init() {
 #if DEBUG_LEVEL >= 2
     Debug::println(2, "[HW][INIT] Initializing hardware components");
-#endif
-
-    // Storage is initialized first because the web UI and config files depend on it.
-#if DEBUG_LEVEL >= 2
-    Debug::println(2, "[HW][INIT] Initializing storage manager");
-#endif
-    if (_storage.begin()) {
-#if DEBUG_LEVEL >= 2
-        Debug::println(2, "[HW][INFO] Storage initialized successfully");
-#endif
-        _storage.setCallback([this](const String& event, const String& details) {
-            this->handleStorageEvent(event, details);
-        });
-    } else {
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[HW][ERROR] Storage initialization failed");
-#endif
-    }
-
-#if DEBUG_LEVEL >= 2
     Debug::println(2, "[HW][INIT] Starting LivingColors controller");
 #endif
     _living.begin();
@@ -7583,27 +7534,17 @@ void HardwareManager::init() {
 #endif
     _rf.init();
 
-    // RF Callback -> Publish Event
+    // Map RF signals into the local callback system and Kaku decoder
     _rf.onCommand([this](const RFSignal& signal) {
+#if DEBUG_LEVEL >= 3
         Debug::println(3, "[HW][RF] Incoming RF command callback registered");
+#endif
         this->handleRFDecoded(signal);
-        // Pass to Kaku decoder (Kaku is a specific protocol of RF)
-        _kaku.onRawData(signal.value, signal.bits, signal.protocol, signal.pulse);
     });
 
-    // Kaku Callback -> Publish Event
+    // Map Kaku outputs into the system EventBus
     _kaku.onCommand([this](const RFCommand& cmd) {
-        // Emit Kaku event to EventBus with format "house_button" ie. "A_1"
-        SystemEvent evt;
-        evt.source = "KAKU";
-        evt.identifier = String(cmd.house) + "_" + String(cmd.button);
-        evt.rawData = "house=" + String(cmd.house) + ",button=" + String(cmd.button);
-
-        Debug::println(3, "[HW][KAKU] Decoded Kaku event: " + evt.identifier);
-        EventBus::getInstance().publish(evt);
-
-        // Legacy callback support
-        if (_kakuCb) _kakuCb(cmd);
+        this->handleKakuDecoded(cmd);
     });
 
 #if DEBUG_LEVEL >= 2
@@ -7611,9 +7552,10 @@ void HardwareManager::init() {
 #endif
     _ir.init();
 
-    // IR Callback -> Publish Event
     _ir.onCommand([this](const IRCommand& cmd) {
+#if DEBUG_LEVEL >= 3
         Debug::println(3, "[HW][IR] Incoming IR command callback registered");
+#endif
         this->handleIRDecoded(cmd);
     });
 
@@ -7622,7 +7564,6 @@ void HardwareManager::init() {
 #endif
     _audio.init();
 
-    // Audio Callbacks -> Publish Events
     _audio.onBeat([this]() {
         this->handleAudioBeat();
     });
@@ -7637,100 +7578,71 @@ void HardwareManager::init() {
 }
 
 void HardwareManager::update() {
-    // RF and IR updates must be polled regularly so raw packets are decoded in time.
     _rf.update();
     _ir.update();
-    // Audio update must also be polled for beat/silence detection.
     _audio.update();
 }
 
-// --- Callback Setters (Kept for compatibility, but mostly unused now) ---
-void HardwareManager::onRFCommand(RFCallback callback) { _rfCb = callback; }
-void HardwareManager::onIRCommand(IRCallback callback) { _irCb = callback; }
-void HardwareManager::onKakuCommand(KakuCallback callback) { _kakuCb = callback; }
-void HardwareManager::onStorageEvent(Storage::StorageCallback callback) {
-    _storage.setCallback([this, callback](const String& event, const String& details) {
-        callback(event, details);
-    });
-}
-
 void HardwareManager::handleRFDecoded(const RFSignal& signal) {
-    Debug::println(4,"[HW][DEBUG] Received RF signal: 0x" + String(signal.value, HEX));
+#if DEBUG_LEVEL >= 4
+    Debug::println(4, "[HW][DEBUG] Received RF signal: 0x" + String(signal.value, HEX));
+#endif
 
-    // 1. Create the Event using RAW data (House/Button unknown here)
     SystemEvent evt;
     evt.source = "RF";
-    // Use Raw Value as identifier.
-    // Example: "RF_RAW_123456"
+    evt.sourceType = EventSource::RF;
     evt.identifier = "RF_RAW_" + String(signal.value, HEX);
     evt.rawData = String(signal.value, HEX);
 
-    // 2. Publish to Core/Translator
-    #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println(4,"[HW][handleRFDecoder] Publishing RF event to EventBus...");
-        #endif
-    #endif
     EventBus::getInstance().publish(evt);
 
-    // 3. IMPORTANT: Still pass raw data to KakuDecoder so it can decode House/Button
-    // The KakuDecoder will then trigger its OWN callback/event with the detailed info.
+    // Pass the raw data packet straight to the Kaku decoder sub-routine
     _kaku.onRawData(signal.value, signal.bits, signal.protocol, signal.pulse);
+    
+    if (_rfCb) _rfCb(signal);
 }
 
 void HardwareManager::handleIRDecoded(const IRCommand& cmd) {
     String codeHex = String(cmd.code, HEX);
     codeHex.toLowerCase();
-    while (codeHex.length() < 8) codeHex = "0" + codeHex; // left-pad to 8 hex digits
+    while (codeHex.length() < 8) codeHex = "0" + codeHex; 
     if (codeHex.length() > 8) codeHex = codeHex.substring(codeHex.length() - 8);
 
-    Debug::println(4,"[HW][DEBUG] Received IR code: 0x" + codeHex);
+#if DEBUG_LEVEL >= 4
+    Debug::println(4, "[HW][DEBUG] Received IR code: 0x" + codeHex);
+#endif
 
-    // 1. Create the Event
     SystemEvent evt;
     evt.source = "IR";
-    evt.identifier = "IR_RAW_" + codeHex; // Translator will look this up
+    evt.sourceType = EventSource::IR;
+    evt.identifier = "IR_RAW_" + codeHex;
     evt.rawData = "0x" + codeHex;
 
-    // 2. Publish to Core/Translator
-    #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[HW][handleIRDecoded] Publishing IR event to EventBus...");
-        #endif
-    #endif
+    EventBus::getInstance().publish(evt);
+    if (_irCb) _irCb(cmd);
+}
+
+void HardwareManager::handleKakuDecoded(const RFCommand& cmd) {
+    SystemEvent evt;
+    evt.source = "KAKU";
+    evt.sourceType = EventSource::Kaku;
+    evt.identifier = String(cmd.house) + "_" + String(cmd.button);
+    evt.rawData = "house=" + String(cmd.house) + ",button=" + String(cmd.button);
+
+#if DEBUG_LEVEL >= 3
+    Debug::println(3, "[HW][KAKU] Decoded Kaku event: " + evt.identifier);
+#endif
 
     EventBus::getInstance().publish(evt);
 
-    // 3. (Optional) Keep old callback
-    // if (_irCb) _irCb(cmd);
+    if (_kakuCb) _kakuCb(cmd);
 }
 
-void HardwareManager::handleStorageEvent(const String& event, const String& details) {
-    #if DEBUG_LEVEL >= 2
-        Debug::println(3,"[HW][INFO] Storage event: " + event);
-    #endif
-
-    // Publish storage events too (e.g., "CONFIG_SAVED")
-    SystemEvent evt;
-    evt.source = "STORAGE";
-    evt.identifier = event;
-    evt.rawData = details;
-    #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 2
-            Debug::println("[HW][handleStorageEvent] Publishing storage event to EventBus...");
-        #endif
-    #endif
-
-    EventBus::getInstance().publish(evt); // Publish to Core/Translator
-}
 void HardwareManager::handleAudioBeat() {
-    // Beat detected: publish event to EventBus
     SystemEvent evt;
     evt.source = "AUDIO";
     evt.identifier = "BEAT";
-    evt.rawData = String(_audio.getCurrentEnergy(), 2) + "," + String(_audio.getCurrentBPM(), 1);  // Include energy and BPM for debugging
-
-    // LED flashed in AudioController
+    evt.rawData = String(_audio.getCurrentEnergy(), 2) + "," + String(_audio.getCurrentBPM(), 1);
 
     EventBus::getInstance().publish(evt);
     
@@ -7740,7 +7652,6 @@ void HardwareManager::handleAudioBeat() {
 }
 
 void HardwareManager::handleAudioSilence(bool isSilent) {
-    // Silence state changed: publish event to EventBus
     SystemEvent evt;
     evt.source = "AUDIO";
     evt.identifier = isSilent ? "SILENCE_START" : "SILENCE_END";
@@ -7757,6 +7668,10 @@ void HardwareManager::handleAudioSilence(bool isSilent) {
 #endif
 }
 
+void HardwareManager::onRFCommand(RFCallback callback) { _rfCb = callback; }
+void HardwareManager::onIRCommand(IRCallback callback) { _irCb = callback; }
+void HardwareManager::onKakuCommand(KakuCallback callback) { _kakuCb = callback; }
+
 ```
 
 ---
@@ -7764,15 +7679,15 @@ void HardwareManager::handleAudioSilence(bool isSilent) {
 ### <a id="📄-lib-hardwaremanager-hardwaremanager-h"></a>📄 `lib/HardwareManager/HardwareManager.h`
 
 **File Info:**
-- **Size**: 2.2 KB
+- **Size**: 2.06 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/HardwareManager/HardwareManager.h`
 - **Relative Path**: `lib/HardwareManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-02 13:48:26 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `223863ef0bf2ea87f948859124a68618`
-- **SHA256**: `a3fe45f716075ab75e1d6a5dbd34d0ee7573c7d1a98ee2eccba58f88996a50d3`
+- **Modified**: 2026-09-16 08:56:55 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `c60e30d95afa3860314da6538323a45e`
+- **SHA256**: `3aa637e97d9690ce689ca3884380f154b50f126ffbc6927db3371d7de82eede3`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7783,67 +7698,71 @@ void HardwareManager::handleAudioSilence(bool isSilent) {
 #include "Config.h"
 #include <functional>
 #include "Debug.h"
+#include "../HardwareManager/Storage/StorageManager.h"
+
 #include "LivingColors/LivingColors.h"
 #include "RF/RFController.h"
 #include "KakuDecoder/KakuDecoder.h"
 #include "IR/IRController.h"
-#include "Storage/StorageManager.h"
 #include "AudioController/AudioController.h"
 
-// HardwareManager owns the physical device layer and the filesystem-backed storage
-// that feeds the rest of the system. This class is the single owner of RF, IR,
-// Kaku, LivingColors, and storage initialization.
+#include "../Core/EventBus.h"
+
+
+
+// Restore precise legacy types
+typedef std::function<void(const RFSignal&)> RFCallback;
+typedef std::function<void(const IRCommand&)> IRCallback;
+typedef std::function<void(const RFCommand&)> KakuCallback;
+
 class HardwareManager {
 public:
     HardwareManager();
 
     /**
-     * Initializes every hardware component and subscribes the callbacks that publish
-     * device events into the EventBus.
+     * Initializes every physical hardware component.
+     * Storage initialization is omitted here since it is now centralized in Core::init().
      */
     void init();
 
     /**
-     * Polls the RF and IR devices so decoded events keep flowing into the system.
+     * Polls the active RF, IR, and Audio controllers inside the main loop.
      */
     void update();
 
     /**
-     * Accessors for the low-level device controllers.
+     * Controlled low-level accessors for physical peripherals.
      */
     LivingColors& living() { return _living; }
     RFController& rf() { return _rf; }
     KakuDecoder& kaku() { return _kaku; }
     IRController& ir() { return _ir; }
-    Storage& storage() { return _storage; }
     AudioController& audio() { return _audio; }
 
     /**
-     * Registers external callbacks for incoming RF/IR/Kaku/storage events.
+     * Callbacks kept for legacy implementation compatibility.
      */
     void onRFCommand(RFCallback callback);
     void onIRCommand(IRCallback callback);
     void onKakuCommand(KakuCallback callback);
-    void onStorageEvent(Storage::StorageCallback callback);
 
 private:
-    // Physical hardware and storage owners. No other subsystem should initialize these.
+    // Low-level hardware drivers (No Storage instance owned here anymore)
     LivingColors _living;
     RFController _rf;
     KakuDecoder  _kaku;
     IRController _ir;
-    Storage _storage;
     AudioController _audio;
 
-    // Preserved compatibility callbacks for legacy listeners.
+    // Backwards compatibility legacy callbacks
     KakuCallback _kakuCb;
     RFCallback   _rfCb;
     IRCallback   _irCb;
 
-    // Event handlers convert low-level device frames into EventBus messages.
+    // Event handlers mapping frames into EventBus messages
     void handleRFDecoded(const RFSignal& signal);
     void handleIRDecoded(const IRCommand& cmd);
-    void handleStorageEvent(const String& event, const String& details);
+    void handleKakuDecoded(const RFCommand& cmd);
     void handleAudioBeat();
     void handleAudioSilence(bool isSilent);
 };
@@ -32764,2053 +32683,6 @@ void loop() {
     app.update();
 }
 
-```
-
----
-
-### <a id="📄-unpacked-fs-config-devices-json"></a>📄 `unpacked_fs/config/devices.json`
-
-**File Info:**
-- **Size**: 2 B
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `unpacked_fs/config/devices.json`
-- **Relative Path**: `unpacked_fs/config`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `d751713988987e9331980363e24189ce`
-- **SHA256**: `4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-[]
-```
-
----
-
-### <a id="📄-unpacked-fs-config-mappings-json"></a>📄 `unpacked_fs/config/mappings.json`
-
-**File Info:**
-- **Size**: 2 B
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `unpacked_fs/config/mappings.json`
-- **Relative Path**: `unpacked_fs/config`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `99914b932bd37a50b983c5e7c90ae93b`
-- **SHA256**: `44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-{}
-```
-
----
-
-### <a id="📄-unpacked-fs-config-schedules-json"></a>📄 `unpacked_fs/config/schedules.json`
-
-**File Info:**
-- **Size**: 2 B
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `unpacked_fs/config/schedules.json`
-- **Relative Path**: `unpacked_fs/config`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `d751713988987e9331980363e24189ce`
-- **SHA256**: `4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-[]
-```
-
----
-
-### <a id="📄-unpacked-fs-config-settings-json"></a>📄 `unpacked_fs/config/settings.json`
-
-**File Info:**
-- **Size**: 2 B
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `unpacked_fs/config/settings.json`
-- **Relative Path**: `unpacked_fs/config`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `99914b932bd37a50b983c5e7c90ae93b`
-- **SHA256**: `44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-{}
-```
-
----
-
-### <a id="📄-unpacked-fs-ir-db-rgb-24key-r1-json"></a>📄 `unpacked_fs/ir_db/RGB_24KEY-R1.json`
-
-**File Info:**
-- **Size**: 2.53 KB
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `unpacked_fs/ir_db/RGB_24KEY-R1.json`
-- **Relative Path**: `unpacked_fs/ir_db`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `592e7d45700501cfc123c5f87ec2e98c`
-- **SHA256**: `6b031738e945603b1fc465c5c4a19819f634f17cfd3be6156565284cf974a1f3`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-{
-  "id": "RGB_24KEY-R1",
-  "name": "24-Key Remote Unit 1",
-  "buttons": [
-   {
-  "name": "BRIGHTER",
-  "code": "0xf700ff00",
-  "virtual_color": ""
-},
-{
-  "name": "DARKER",
-  "code": "0xf7807f00",
-  "virtual_color": ""
-},
-{
-  "name": "OFF",
-  "code": "0xf740bf00",
-  "virtual_color": ""
-},
-{
-  "name": "ON",
-  "code": "0xf7c03f00",
-  "virtual_color": ""
-},
-{
-  "name": "RED",
-  "code": "0xfb04ef00",
-  "virtual_color": "VC_RED",
-  "nominal_color": "#FF0000"
-},
-{
-  "name": "GREEN",
-  "code": "0xfa05ef00",
-  "virtual_color": "VC_GREEN",
-  "nominal_color": "#00FF00"
-},
-{
-  "name": "BLUE",
-  "code": "0xf906ef00",
-  "virtual_color": "VC_BLUE",
-  "nominal_color": "#0000FF"
-},
-{
-  "name": "WHITE",
-  "code": "0xf807ef00",
-  "virtual_color": "VC_WHITE",
-  "nominal_color": "#FFFFFF"
-},
-{
-  "name": "ORANGE",
-  "code": "0xf708ef00",
-  "virtual_color": "VC_ORANGE",
-  "nominal_color": "#FF8000"
-},
-{
-  "name": "LIGHT_GREEN",
-  "code": "0xf609ef00",
-  "virtual_color": "VC_LIGHT_GREEN",
-  "nominal_color": "#90EE90"
-},
-{
-  "name": "DARK_CYAN",
-  "code": "0xf50aef00",
-  "virtual_color": "VC_DARK_CYAN",
-  "nominal_color": "#008B8B"
-},
-{
-  "name": "FLASH",
-  "code": "0xf40bef00",
-  "virtual_color": ""
-},
-{
-  "name": "LIGHT_ORANGE",
-  "code": "0xf30cef00",
-  "virtual_color": "VC_LIGHT_ORANGE",
-  "nominal_color": "#FFB347"
-},
-{
-  "name": "CYAN",
-  "code": "0xf20def00",
-  "virtual_color": "VC_CYAN",
-  "nominal_color": "#00FFFF"
-},
-{
-  "name": "DARK_PURPLE",
-  "code": "0xf10eef00",
-  "virtual_color": "VC_DARK_PURPLE",
-  "nominal_color": "#4B0082"
-},
-{
-  "name": "STROBE",
-  "code": "0xf00fef00",
-  "virtual_color": ""
-},
-{
-  "name": "YELLOW_ORANGE",
-  "code": "0xef10ef00",
-  "virtual_color": "VC_YELLOW_ORANGE",
-  "nominal_color": "#FFA500"
-},
-{
-  "name": "LIGHT_BLUE",
-  "code": "0xee11ef00",
-  "virtual_color": "VC_LIGHT_BLUE",
-  "nominal_color": "#ADD8E6"
-},
-{
-  "name": "PURPLE",
-  "code": "0xed12ef00",
-  "virtual_color": "VC_PURPLE",
-  "nominal_color": "#800080"
-},
-{
-  "name": "FADE",
-  "code": "0xec13ef00",
-  "virtual_color": ""
-},
-{
-  "name": "YELLOW",
-  "code": "0xeb14ef00",
-  "virtual_color": "VC_YELLOW",
-  "nominal_color": "#FFFF00"
-},
-{
-  "name": "TEAL",
-  "code": "0xea15ef00",
-  "virtual_color": "VC_TEAL",
-  "nominal_color": "#008080"
-},
-{
-  "name": "MAGENTA",
-  "code": "0xe916ef00",
-  "virtual_color": "VC_MAGENTA",
-  "nominal_color": "#FF00FF"
-},
-{
-  "name": "SMOOTH",
-  "code": "0xe817ef00",
-  "virtual_color": ""
-}   
-  ]
-}   
-
-
-
-```
-
----
-
-### <a id="📄-unpacked-fs-ir-db-rgb-44key-r1-json"></a>📄 `unpacked_fs/ir_db/RGB_44KEY-R1.json`
-
-**File Info:**
-- **Size**: 5.13 KB
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `unpacked_fs/ir_db/RGB_44KEY-R1.json`
-- **Relative Path**: `unpacked_fs/ir_db`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `c7182da89c0f96dd12af269407cd6a95`
-- **SHA256**: `ef55f08c5254745faa9334d40af426b15496ab877792d371ce1b1cd3f02b0cf2`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-{
-  "id": "RGB_44KEY-R1",
-  "name": "44-Key Remote Unit 1",
-  "buttons": [
-    {
-      "name": "BRIGHTER",
-      "code": "0x00ff3ac5",
-      "virtual_color": ""
-    },
-    {
-      "name": "DARKER",
-      "code": "0x00ffba45",
-      "virtual_color": ""
-    },
-    {
-      "name": "PLAY_PAUSE",
-      "code": "0x00ff827d",
-      "virtual_color": ""
-    },
-    {
-      "name": "POWER",
-      "code": "0x00ff02fd",
-      "virtual_color": ""
-    },
-
-    {
-      "name": "RED",
-      "code": "0x00ff1ae5",
-      "virtual_color": "VC_RED",
-      "nominal_color": "#FF0000"
-    },
-    {
-      "name": "GREEN",
-      "code": "0x00ff9a65",
-      "virtual_color": "VC_GREEN",
-      "nominal_color": "#00FF00"
-    },
-    {
-      "name": "BLUE",
-      "code": "0x00ffa25d",
-      "virtual_color": "VC_BLUE",
-      "nominal_color": "#0000FF"
-    },
-    {
-      "name": "WHITE",
-      "code": "0x00ff22dd",
-      "virtual_color": "VC_WHITE",
-      "nominal_color": "#FFFFFF"
-    },
-
-    {
-      "name": "ORANGE",
-      "code": "0x00ff2ad5",
-      "virtual_color": "VC_ORANGE",
-      "nominal_color": "#FF8000"
-    },
-    {
-      "name": "TEAL",
-      "code": "0x00ffaa55",
-      "virtual_color": "VC_TEAL",
-      "nominal_color": "#008080"
-    },
-    {
-      "name": "PURPLE",
-      "code": "0x00ff926d",
-      "virtual_color": "VC_PURPLE",
-      "nominal_color": "#800080"
-    },
-    {
-      "name": "PINK",
-      "code": "0x00ff12ed",
-      "virtual_color": "VC_PINK",
-      "nominal_color": "#FF69B4"
-    },
-
-    {
-      "name": "YELLOW_ORANGE",
-      "code": "0x00ff0af5",
-      "virtual_color": "VC_YELLOW_ORANGE",
-      "nominal_color": "#FFA500"
-    },
-    {
-      "name": "AQUA",
-      "code": "0x00ff8a75",
-      "virtual_color": "VC_AQUA",
-      "nominal_color": "#00FFFF"
-    },
-    {
-      "name": "MAGENTA",
-      "code": "0x00ffb24d",
-      "virtual_color": "VC_MAGENTA",
-      "nominal_color": "#FF00FF"
-    },
-    {
-      "name": "LIGHT_PINK",
-      "code": "0x00ff32cd",
-      "virtual_color": "VC_LIGHT_PINK",
-      "nominal_color": "#FFB6C1"
-    },
-
-    {
-      "name": "YELLOW",
-      "code": "0x00ff38c7",
-      "virtual_color": "VC_YELLOW",
-      "nominal_color": "#FFFF00"
-    },
-    {
-      "name": "CYAN",
-      "code": "0x00ffb847",
-      "virtual_color": "VC_CYAN",
-      "nominal_color": "#00FFFF"
-    },
-    {
-      "name": "VIOLET",
-      "code": "0x00ff7887",
-      "virtual_color": "VC_VIOLET",
-      "nominal_color": "#8F00FF"
-    },
-    {
-      "name": "SKY_BLUE",
-      "code": "0x00fff807",
-      "virtual_color": "VC_SKY_BLUE",
-      "nominal_color": "#87CEEB"
-    },
-
-    {
-      "name": "LIGHT_YELLOW",
-      "code": "0x00ff18e7",
-      "virtual_color": "VC_LIGHT_YELLOW",
-      "nominal_color": "#FFFFD0"
-    },
-    {
-      "name": "LIGHT_CYAN",
-      "code": "0x00ff9867",
-      "virtual_color": "VC_LIGHT_CYAN",
-      "nominal_color": "#E0FFFF"
-    },
-    {
-      "name": "LIGHT_MAGENTA",
-      "code": "0x00ff58a7",
-      "virtual_color": "VC_LIGHT_MAGENTA",
-      "nominal_color": "#FF80FF"
-    },
-    {
-      "name": "LIGHT_SKY_BLUE",
-      "code": "0x00ffd827",
-      "virtual_color": "VC_LIGHT_SKY_BLUE",
-      "nominal_color": "#87CEFF"
-    },
-
-    {
-      "name": "RED_UP",
-      "code": "0x00ff28d7",
-      "virtual_color": ""
-    },
-    {
-      "name": "GREEN_UP",
-      "code": "0x00ffa857",
-      "virtual_color": ""
-    },
-    {
-      "name": "BLUE_UP",
-      "code": "0x00ff6897",
-      "virtual_color": ""
-    },
-    {
-      "name": "QUICK",
-      "code": "0x00ffe817",
-      "virtual_color": ""
-    },
-
-    {
-      "name": "RED_DOWN",
-      "code": "0x00ff08f7",
-      "virtual_color": ""
-    },
-    {
-      "name": "GREEN_DOWN",
-      "code": "0x00ff8877",
-      "virtual_color": ""
-    },
-    {
-      "name": "BLUE_DOWN",
-      "code": "0x00ff48b7",
-      "virtual_color": ""
-    },
-    {
-      "name": "SLOW",
-      "code": "0x00ffc837",
-      "virtual_color": ""
-    },
-
-    {
-      "name": "DIY1",
-      "code": "0x00ff30cf",
-      "virtual_color": ""
-    },
-    {
-      "name": "DIY2",
-      "code": "0x00ffb04f",
-      "virtual_color": ""
-    },
-    {
-      "name": "DIY3",
-      "code": "0x00ff708f",
-      "virtual_color": ""
-    },
-    {
-      "name": "AUTO",
-      "code": "0x00fff00f",
-      "virtual_color": ""
-    },
-
-    {
-      "name": "DIY4",
-      "code": "0x00ff10ef",
-      "virtual_color": ""
-    },
-    {
-      "name": "DIY5",
-      "code": "0x00ff906f",
-      "virtual_color": ""
-    },
-    {
-      "name": "DIY6",
-      "code": "0x00ff50af",
-      "virtual_color": ""
-    },
-    {
-      "name": "FLASH",
-      "code": "0x00ffd02f",
-      "virtual_color": ""
-    },
-
-    {
-      "name": "JUMP3",
-      "code": "0x00ff20df",
-      "virtual_color": ""
-    },
-    {
-      "name": "JUMP7",
-      "code": "0x00ffa05f",
-      "virtual_color": ""
-    },
-    {
-      "name": "FADE3",
-      "code": "0x00ff609f",
-      "virtual_color": ""
-    },
-    {
-      "name": "FADE7",
-      "code": "0x00ffe01f",
-      "virtual_color": ""
-    }
-  ]
-} 
-
-```
-
----
-
-### <a id="📄-unpacked-fs-ir-db-rgb-44key-r2-json"></a>📄 `unpacked_fs/ir_db/RGB_44KEY-R2.json`
-
-**File Info:**
-- **Size**: 3.45 KB
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `unpacked_fs/ir_db/RGB_44KEY-R2.json`
-- **Relative Path**: `unpacked_fs/ir_db`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `f62a75d53885e11f4fe7efcfa688bc6d`
-- **SHA256**: `68bb58a27af546e358a0452c5a81597340615a4f35db53b536bfb1d2b0972013`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-{
-  "id": "RGB_44KEY-R2",
-  "name": "44-Key Remote Unit 2",
-  "buttons": [
-    {"name": "BRIGHTER",      "code": "0xFF3AC5", "virtual_color": ""},
-    {"name": "DARKER",        "code": "0xFFBA45", "virtual_color": ""},
-    {"name": "PLAY_PAUSE",    "code": "0xFF827D", "virtual_color": ""},
-    {"name": "POWER",         "code": "0xFF02FD", "virtual_color": ""},
-
-    {"name": "RED",           "code": "0xFF1AE5", "virtual_color": "VC_RED"},
-    {"name": "GREEN",         "code": "0xFF9A65", "virtual_color": "VC_GREEN"},
-    {"name": "BLUE",          "code": "0xFFA25D", "virtual_color": "VC_BLUE"},
-    {"name": "WHITE",         "code": "0xFF22DD", "virtual_color": "VC_WHITE"},
-
-    {"name": "ORANGE",        "code": "0xFF2AD5", "virtual_color": "VC_ORANGE"},
-    {"name": "TEAL",          "code": "0xFFAA55", "virtual_color": "VC_TEAL"},
-    {"name": "PURPLE",        "code": "0xFF926D", "virtual_color": "VC_PURPLE"},
-    {"name": "PINK",          "code": "0xFF12ED", "virtual_color": "VC_PINK"},
-
-    {"name": "YELLOW_ORANGE", "code": "0xFF0AF5", "virtual_color": "VC_YELLOW_ORANGE"},
-    {"name": "AQUA",          "code": "0xFF8A75", "virtual_color": "VC_AQUA"},
-    {"name": "MAGENTA",       "code": "0xFFB24D", "virtual_color": "VC_MAGENTA"},
-    {"name": "LIGHT_PINK",    "code": "0xFF32CD", "virtual_color": "VC_LIGHT_PINK"},
-
-    {"name": "YELLOW",        "code": "0xFF38C7", "virtual_color": "VC_YELLOW"},
-    {"name": "CYAN",          "code": "0xFFB847", "virtual_color": "VC_CYAN"},
-    {"name": "VIOLET",        "code": "0xFF7887", "virtual_color": "VC_VIOLET"},
-    {"name": "SKY_BLUE",      "code": "0xFFF807", "virtual_color": "VC_SKY_BLUE"},
-
-    {"name": "LIGHT_YELLOW",  "code": "0xFF18E7", "virtual_color": "VC_LIGHT_YELLOW"},
-    {"name": "LIGHT_CYAN",    "code": "0xFF9867", "virtual_color": "VC_LIGHT_CYAN"},
-    {"name": "LIGHT_MAGENTA", "code": "0xFF58A7", "virtual_color": "VC_LIGHT_MAGENTA"},
-    {"name": "LIGHT_SKY_BLUE","code": "0xFFD827", "virtual_color": "VC_LIGHT_SKY_BLUE"},
-
-    {"name": "RED_UP",        "code": "0xFF28D7", "virtual_color": ""},
-    {"name": "GREEN_UP",      "code": "0xFFA857", "virtual_color": ""},
-    {"name": "BLUE_UP",       "code": "0xFF6897", "virtual_color": ""},
-    {"name": "QUICK",         "code": "0xFFE817", "virtual_color": ""},
-
-    {"name": "RED_DOWN",      "code": "0xFF08F7", "virtual_color": ""},
-    {"name": "GREEN_DOWN",    "code": "0xFF8877", "virtual_color": ""},
-    {"name": "BLUE_DOWN",     "code": "0xFF48B7", "virtual_color": ""},
-    {"name": "SLOW",          "code": "0xFFC837", "virtual_color": ""},
-
-    {"name": "DIY1",          "code": "0xFF30CF", "virtual_color": ""},
-    {"name": "DIY2",          "code": "0xFFB04F", "virtual_color": ""},
-    {"name": "DIY3",          "code": "0xFF708F", "virtual_color": ""},
-    {"name": "AUTO",          "code": "0xFFF00F", "virtual_color": ""},
-
-    {"name": "DIY4",          "code": "0xFF10EF", "virtual_color": ""},
-    {"name": "DIY5",          "code": "0xFF906F", "virtual_color": ""},
-    {"name": "DIY6",          "code": "0xFF50AF", "virtual_color": ""},
-    {"name": "FLASH",         "code": "0xFFD02F", "virtual_color": ""},
-          
-    {"name": "JUMP3",         "code": "0xFF20DF", "virtual_color": ""},
-    {"name": "JUMP7",         "code": "0xFFA05F", "virtual_color": ""},
-    {"name": "FADE3",         "code": "0xFF609F", "virtual_color": ""},
-    {"name": "FADE7",         "code": "0xFFE01F", "virtual_color": ""}
-  ]
-}
-
-```
-
----
-
-### <a id="📄-unpacked-fs-action-scripts-html"></a>📄 `unpacked_fs/action_scripts.html`
-
-**File Info:**
-- **Size**: 22.38 KB
-- **Extension**: `.html`
-- **Language**: `html`
-- **Location**: `unpacked_fs/action_scripts.html`
-- **Relative Path**: `unpacked_fs`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `dd91080ed86455960504ed45c1b485b7`
-- **SHA256**: `5f0ab6f80852f7bbf7cd29db7d8bab42e18f8d96502f843d1547885cab8cd492`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Action Scripts</title>
-<style>
-:root{
-  --bg:#101416;--panel:#181d20;--panel2:#20272b;--line:#30393e;
-  --text:#e8eeee;--muted:#98a5aa;--accent:#35c7c0;--accent2:#1e8f8a;
-  --danger:#d95c5c;--ok:#58c98b;--shadow:0 8px 30px rgba(0,0,0,.28);
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:14px Arial,Helvetica,sans-serif}
-button,input,select{font:inherit}
-button{border:1px solid var(--line);background:#252d31;color:var(--text);border-radius:6px;padding:9px 13px;cursor:pointer}
-button:hover{background:#303a3f}
-button.primary{background:var(--accent2);border-color:var(--accent);color:#fff}
-button.primary:hover{background:#249f99}
-button.danger{border-color:#743f43;color:#ffaaaa}
-button.small{padding:5px 8px;font-size:12px}
-button.icon{width:34px;padding:7px 0}
-input,select{width:100%;background:#0e1214;color:var(--text);border:1px solid var(--line);border-radius:6px;padding:9px 10px;outline:none}
-input:focus,select:focus{border-color:var(--accent)}
-.app{display:grid;grid-template-columns:280px 1fr;min-height:100vh}
-.sidebar{border-right:1px solid var(--line);background:#151a1d;padding:18px;display:flex;flex-direction:column;gap:12px}
-.logo{font-size:21px;font-weight:700;color:#8ce7e2;margin-bottom:4px}
-.subtitle{color:var(--muted);font-size:12px;margin-bottom:8px}
-.list{display:flex;flex-direction:column;gap:5px;overflow:auto;min-height:100px}
-.script-item{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid transparent;border-radius:7px;cursor:pointer}
-.script-item:hover{background:#20272b}
-.script-item.active{background:#263338;border-color:#3d5559}
-.script-item .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.script-item .id{color:var(--muted);font-size:11px}
-.empty{color:var(--muted);padding:15px 8px;text-align:center}
-.main{padding:24px;max-width:1250px;width:100%;margin:0 auto}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}
-h1{font-size:25px;margin:0}
-h2{font-size:17px;margin:0 0 13px}
-h3{font-size:14px;margin:0 0 10px;color:#b9c4c7}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap}
-.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,430px);gap:18px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;box-shadow:var(--shadow);margin-bottom:18px}
-.field{margin-bottom:13px}
-label{display:block;color:#b9c4c7;font-size:12px;margin-bottom:6px}
-.row{display:flex;gap:9px;align-items:center}
-.row>*{flex:1}
-.aliases{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
-.alias{display:inline-flex;align-items:center;gap:6px;background:#263237;border:1px solid #3b4b50;border-radius:20px;padding:5px 9px}
-.alias button{border:0;background:none;padding:0;color:#aebcc0}
-.builder{display:grid;gap:15px}
-.lamps{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
-.lamp{position:relative}
-.lamp input{position:absolute;opacity:0;pointer-events:none}
-.lamp span{display:flex;align-items:center;justify-content:center;height:36px;border:1px solid var(--line);border-radius:5px;background:#111719;cursor:pointer}
-.lamp input:checked+span{border-color:var(--accent);background:#193c3c;color:#9ff2ee}
-.color-row{display:grid;grid-template-columns:65px 1fr 105px;gap:9px;align-items:center}
-.color-input{width:65px;height:40px;padding:2px;cursor:pointer}
-.hex{font-family:monospace;letter-spacing:.3px}
-.preview{height:34px;border-radius:6px;border:1px solid var(--line)}
-.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.help{font-size:11px;color:var(--muted);line-height:1.45}
-.script-commands{display:flex;flex-direction:column;gap:7px}
-.command{display:grid;grid-template-columns:38px 1fr auto;gap:8px;align-items:center;background:#121719;border:1px solid var(--line);border-radius:7px;padding:8px}
-.command-num{color:var(--muted);text-align:center;font-size:12px}
-.command-text{font-family:Consolas,monospace;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.command button{padding:5px 8px}
-.status{min-height:20px;color:var(--muted);font-size:12px}
-.status.ok{color:var(--ok)}
-.status.error{color:#ff8f8f}
-.dirty{color:#f4c86a;font-size:12px}
-.badge{font-size:11px;color:#9de8e4;border:1px solid #31595a;border-radius:12px;padding:3px 7px}
-.strip-colors{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-height:290px;overflow:auto;padding-right:2px}
-.strip-color{position:relative}
-.strip-color input{position:absolute;opacity:0;pointer-events:none}
-.strip-color label{display:flex;align-items:center;gap:7px;margin:0;padding:7px;border:1px solid var(--line);border-radius:6px;background:#121719;cursor:pointer}
-.strip-color input:checked+label{border-color:var(--accent);background:#193c3c}
-.swatch{width:22px;height:22px;border-radius:4px;border:1px solid rgba(255,255,255,.25);flex:none}
-.footer{color:#68757a;font-size:11px;margin-top:8px}
-@media(max-width:900px){
-  .app{grid-template-columns:1fr}.sidebar{border-right:0;border-bottom:1px solid var(--line)}.grid{grid-template-columns:1fr}
-}
-</style>
-</head>
-<body>
-<div class="app">
-  <aside class="sidebar">
-    <div>
-      <div class="logo">ACTION SCRIPTS</div>
-      <div class="subtitle">Macros / ordered canonical commands</div>
-    </div>
-    <button class="primary" onclick="newScript()">＋ New script</button>
-    <div id="scriptList" class="list"><div class="empty">Loading…</div></div>
-    <button onclick="location.href='/'">← Dashboard</button>
-  </aside>
-
-  <main class="main">
-    <div class="topbar">
-      <div>
-        <h1 id="pageTitle">New script</h1>
-        <div id="dirty" class="dirty"></div>
-      </div>
-      <div class="toolbar">
-        <button onclick="runCurrentScript()">▶ Run script</button>
-        <button class="primary" onclick="saveScript()">Save</button>
-        <button class="danger" onclick="deleteCurrentScript()">Delete</button>
-      </div>
-    </div>
-
-    <div class="grid">
-      <section>
-        <div class="card">
-          <h2>Script</h2>
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" placeholder="Movie Start" oninput="markDirty()">
-          </div>
-          <div class="field">
-            <label for="aliasInput">Aliases</label>
-            <div class="row">
-              <input id="aliasInput" placeholder="movie" onkeydown="if(event.key==='Enter'){event.preventDefault();addAlias();}">
-              <button onclick="addAlias()">＋ Add</button>
-            </div>
-            <div id="aliases" class="aliases"></div>
-            <div class="help">Aliases are case-insensitive. They are for convenient script lookup.</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>LivingColors</h2>
-          <div class="field">
-            <label>Select lamps</label>
-            <div id="lamps" class="lamps"></div>
-          </div>
-          <div class="color-row">
-            <input id="livingColor" class="color-input" type="color" value="#FF6414" oninput="updateLivingPreview()">
-            <div>
-              <div class="hex" id="livingHex">#FF6414</div>
-              <div class="help">One colour can be applied to all selected lamps.</div>
-            </div>
-            <div class="actions">
-              <button onclick="testLiving()">Test</button>
-              <button class="primary" onclick="addLiving()">＋ Add</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>RGB LED strip</h2>
-          <div class="field">
-            <label for="remote">Remote</label>
-            <select id="remote" onchange="renderStripColors()"></select>
-          </div>
-          <div class="field">
-            <label>Colour</label>
-            <div id="stripColors" class="strip-colors"></div>
-          </div>
-          <div class="actions">
-            <button onclick="testStrip()">Test</button>
-            <button class="primary" onclick="addStrip()">＋ Add</button>
-          </div>
-          <div class="help" style="margin-top:9px">
-            The editor uses the nominal colour from the remote database. IR codes remain hidden from the script.
-          </div>
-        </div>
-      </section>
-
-      <aside>
-        <div class="card">
-          <h2>Script contents</h2>
-          <div id="commands" class="script-commands">
-            <div class="empty">No commands yet.</div>
-          </div>
-          <div class="footer">Commands execute from top to bottom.</div>
-        </div>
-
-        <div class="card">
-          <h2>Current script</h2>
-          <div id="scriptSummary" class="help">No script selected.</div>
-          <div id="status" class="status"></div>
-        </div>
-      </aside>
-    </div>
-  </main>
-</div>
-
-<script>
-/*
- * Action Scripts editor
- *
- * Current backend endpoints:
- *   GET    /api/action-scripts
- *   POST   /api/action-scripts
- *   DELETE /api/action-scripts?id=<id>
- *   POST   /api/execute-script
- *
- * RGB strip database discovery is not yet exposed by the current WebUI,
- * so the three currently known remotes/colors are used as a temporary
- * client-side catalogue. Once /api/ir-remotes exists, loadRemoteDatabase()
- * can consume it without changing the editor UI.
- */
-
-const fallbackRemotes = {
-  "RGB_24KEY-R1": [
-    ["RED","#FF0000"],["GREEN","#00FF00"],["BLUE","#0000FF"],["WHITE","#FFFFFF"]
-  ],
-  "RGB_44KEY-R1": [
-    ["RED","#FF0000"],["GREEN","#00FF00"],["BLUE","#0000FF"],["WHITE","#FFFFFF"],
-    ["ORANGE","#FF8000"],["TEAL","#008080"],["PURPLE","#800080"],["PINK","#FF69B4"],
-    ["YELLOW_ORANGE","#FFA500"],["AQUA","#00FFFF"],["MAGENTA","#FF00FF"],["LIGHT_PINK","#FFB6C1"],
-    ["YELLOW","#FFFF00"],["CYAN","#00FFFF"],["VIOLET","#8F00FF"],["SKY_BLUE","#87CEEB"],
-    ["LIGHT_YELLOW","#FFFFD0"],["LIGHT_CYAN","#E0FFFF"],["LIGHT_MAGENTA","#FF80FF"],["LIGHT_SKY_BLUE","#87CEFF"]
-  ],
-  "RGB_44KEY-R2": [
-    ["RED","#FF0000"],["GREEN","#00FF00"],["BLUE","#0000FF"],["WHITE","#FFFFFF"],
-    ["ORANGE","#FF8000"],["TEAL","#008080"],["PURPLE","#800080"],["PINK","#FF69B4"],
-    ["YELLOW_ORANGE","#FFA500"],["AQUA","#00FFFF"],["MAGENTA","#FF00FF"],["LIGHT_PINK","#FFB6C1"],
-    ["YELLOW","#FFFF00"],["CYAN","#00FFFF"],["VIOLET","#8F00FF"],["SKY_BLUE","#87CEEB"],
-    ["LIGHT_YELLOW","#FFFFD0"],["LIGHT_CYAN","#E0FFFF"],["LIGHT_MAGENTA","#FF80FF"],["LIGHT_SKY_BLUE","#87CEFF"]
-  ]
-};
-
-let scripts = [];
-let current = null;
-let dirty = false;
-let aliases = [];
-
-function $(id){ return document.getElementById(id); }
-
-document.addEventListener("DOMContentLoaded", async () => {
-  console.log("[WEBUI][SCRIPTS_EDITOR] Initializing editor");
-  buildLamps();
-  loadRemoteDatabase();
-  await loadScripts();
-  newScript();
-  console.log("[WEBUI][SCRIPTS_EDITOR] Editor initialization complete");
-});
-
-function buildLamps(){
-  $("lamps").innerHTML = "";
-  for(let i=1;i<=12;i++){
-    const d=document.createElement("label");
-    d.className="lamp";
-    d.innerHTML=`<input type="checkbox" value="${i}"><span>${i}</span>`;
-    $("lamps").appendChild(d);
-  }
-}
-
-async function loadScripts(){
-  console.log("[WEBUI][SCRIPTS_EDITOR] Loading scripts from server");
-  try{
-    const r=await fetch("/api/action-scripts");
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    const data=await r.json();
-    scripts=Array.isArray(data)?data:(data.scripts||[]);
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Loaded ${scripts.length} scripts`);
-    renderScriptList();
-  }catch(e){
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Error loading scripts: ${e.message}`);
-    scripts=[];
-    renderScriptList();
-    setStatus("Could not load scripts: "+e.message,true);
-  }
-}
-
-function renderScriptList(){
-  const list=$("scriptList");
-  list.innerHTML="";
-  if(!scripts.length){
-    list.innerHTML='<div class="empty">No saved scripts.</div>';
-    return;
-  }
-  scripts.forEach(s=>{
-    const el=document.createElement("div");
-    el.className="script-item"+(current && current.id===s.id?" active":"");
-    el.onclick=()=>selectScript(s.id);
-    el.innerHTML=`<div class="name">${escapeHtml(s.name||"Unnamed")}</div>
-                  <div class="id">${s.id??""}</div>`;
-    list.appendChild(el);
-  });
-}
-
-function selectScript(id){
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Selecting script with ID: ${id}`);
-  const found=scripts.find(s=>String(s.id)===String(id));
-  if(!found) {
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Script not found with ID: ${id}`);
-    return;
-  }
-  current=deepCopy(found);
-  aliases=normaliseAliases(current.aliases);
-  $("name").value=current.name||"";
-  renderAliases();
-  renderCommands();
-  clearLampSelection();
-  $("pageTitle").textContent=current.name||"Script";
-  dirty=false;
-  updateDirty();
-  renderScriptList();
-  updateSummary();
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Selected script: ${current.name} with ${current.commands?.length || 0} commands`);
-}
-
-function newScript(){
-  console.log("[WEBUI][SCRIPTS_EDITOR] Creating new script");
-  current={id:null,name:"",aliases:[],commands:[]};
-  aliases=[];
-  $("name").value="";
-  renderAliases();
-  renderCommands();
-  clearLampSelection();
-  $("pageTitle").textContent="New script";
-  dirty=false;
-  updateDirty();
-  renderScriptList();
-  updateSummary();
-  setStatus("");
-  $("name").focus();
-}
-
-function normaliseAliases(value){
-  if(Array.isArray(value)) return value.map(String).filter(Boolean);
-  if(typeof value==="string"){
-    try{
-      const parsed=JSON.parse(value);
-      if(Array.isArray(parsed)) return parsed.map(String).filter(Boolean);
-    }catch(_){}
-    return value.split(",").map(x=>x.trim()).filter(Boolean);
-  }
-  return [];
-}
-
-function addAlias(){
-  const input=$("aliasInput");
-  const alias=input.value.trim();
-  if(!alias) return;
-  if(aliases.some(a=>a.toLowerCase()===alias.toLowerCase())){
-    setStatus("That alias already exists.",true); return;
-  }
-  if(alias.toLowerCase()===(($("name").value||"").trim().toLowerCase())){
-    setStatus("Alias is the same as the script name.",true); return;
-  }
-  aliases.push(alias);
-  input.value="";
-  renderAliases();
-  markDirty();
-}
-
-function removeAlias(index){
-  aliases.splice(index,1);
-  renderAliases();
-  markDirty();
-}
-
-function renderAliases(){
-  $("aliases").innerHTML=aliases.map((a,i)=>
-    `<span class="alias">${escapeHtml(a)} <button onclick="removeAlias(${i})" title="Remove">×</button></span>`
-  ).join("");
-}
-
-function clearLampSelection(){
-  document.querySelectorAll("#lamps input").forEach(x=>x.checked=false);
-}
-
-function selectedLamps(){
-  return [...document.querySelectorAll("#lamps input:checked")].map(x=>Number(x.value));
-}
-
-function updateLivingPreview(){
-  $("livingHex").textContent=$("livingColor").value.toUpperCase();
-}
-
-function addLiving(){
-  const lamps=selectedLamps();
-  if(!lamps.length){setStatus("Select at least one LivingColors lamp.",true);return;}
-  const hex=$("livingColor").value.toUpperCase();
-  const {r,g,b}=hexToRgb(hex);
-  lamps.forEach(lamp=>{
-    current.commands.push(`living ${lamp} rgb ${r} ${g} ${b}`);
-  });
-  renderCommands(); markDirty();
-}
-
-async function testLiving(){
-  const lamps=selectedLamps();
-  if(!lamps.length){setStatus("Select at least one LivingColors lamp.",true);return;}
-  const hex=$("livingColor").value.toUpperCase();
-  const {r,g,b}=hexToRgb(hex);
-  const commands=lamps.map(lamp=>`living ${lamp} rgb ${r} ${g} ${b}`);
-  await executeTemporary(commands,"LivingColors test");
-}
-
-function loadRemoteDatabase(){
-  const select=$("remote");
-  select.innerHTML="";
-  Object.keys(fallbackRemotes).forEach(id=>{
-    const o=document.createElement("option");
-    o.value=id;o.textContent=id;select.appendChild(o);
-  });
-  renderStripColors();
-}
-
-function renderStripColors(){
-  const remote=$("remote").value;
-  const colours=fallbackRemotes[remote]||[];
-  const box=$("stripColors");
-  box.innerHTML="";
-  colours.forEach((c,i)=>{
-    const id="stripColour_"+i;
-    const d=document.createElement("div");
-    d.className="strip-color";
-    d.innerHTML=`<input type="radio" name="stripColour" id="${id}" value="${c[1]}" data-name="${c[0]}" ${i===0?"checked":""}>
-      <label for="${id}"><span class="swatch" style="background:${c[1]}"></span><span>${escapeHtml(c[0])}</span></label>`;
-    box.appendChild(d);
-  });
-}
-
-function selectedStripColour(){
-  const input=document.querySelector('input[name="stripColour"]:checked');
-  if(!input) return null;
-  return {name:input.dataset.name,hex:input.value.toUpperCase()};
-}
-
-function addStrip(){
-  const remote=$("remote").value;
-  const colour=selectedStripColour();
-  if(!remote||!colour){setStatus("Select a remote and colour.",true);return;}
-  current.commands.push(`rgbstrip ${remote} ${colour.hex}`);
-  renderCommands(); markDirty();
-}
-
-async function testStrip(){
-  const remote=$("remote").value;
-  const colour=selectedStripColour();
-  if(!remote||!colour){setStatus("Select a remote and colour.",true);return;}
-  await executeTemporary([`rgbstrip ${remote} ${colour.hex}`],"RGB strip test");
-}
-
-function renderCommands(){
-  const box=$("commands");
-  box.innerHTML="";
-  const commands=current?.commands||[];
-  if(!commands.length){
-    box.innerHTML='<div class="empty">No commands yet.</div>';
-    updateSummary(); return;
-  }
-  commands.forEach((cmd,i)=>{
-    const row=document.createElement("div");
-    row.className="command";
-    row.innerHTML=`<div class="command-num">${i+1}</div>
-      <div class="command-text" title="${escapeHtml(cmd)}">${escapeHtml(cmd)}</div>
-      <div class="actions">
-        <button class="small" onclick="moveCommand(${i},-1)" ${i===0?"disabled":""}>↑</button>
-        <button class="small" onclick="moveCommand(${i},1)" ${i===commands.length-1?"disabled":""}>↓</button>
-        <button class="small danger" onclick="deleteCommand(${i})">×</button>
-      </div>`;
-    box.appendChild(row);
-  });
-  updateSummary();
-}
-
-function moveCommand(index,direction){
-  const to=index+direction;
-  if(to<0||to>=current.commands.length)return;
-  [current.commands[index],current.commands[to]]=[current.commands[to],current.commands[index]];
-  renderCommands(); markDirty();
-}
-
-function deleteCommand(index){
-  current.commands.splice(index,1);
-  renderCommands(); markDirty();
-}
-
-async function saveScript(){
-  const name=$("name").value.trim();
-  if(!name){setStatus("Script name is required.",true);$("name").focus();return;}
-  if(!current) newScript();
-
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Saving script: ${name}`);
-  const payload={
-    id:current.id,
-    name:name,
-    aliases:[...aliases],
-    commands:[...current.commands]
-  };
-  if(payload.id===null || payload.id===undefined) delete payload.id;
-
-  try{
-    setStatus("Saving…");
-    const r=await fetch("/api/action-scripts",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(payload)
-    });
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    const response=await r.json().catch(()=>null);
-
-    // Backend may return the saved object, an object containing it, or no body.
-    const saved=response?.script || response;
-    if(saved && typeof saved==="object" && !Array.isArray(saved) && saved.name){
-      console.log(`[WEBUI][SCRIPTS_EDITOR] Script saved with ID: ${saved.id}`);
-      current=deepCopy(saved);
-    }else{
-      console.log("[WEBUI][SCRIPTS_EDITOR] Script saved but no ID returned");
-      current={...payload};
-      if(current.id==null && response?.id!=null) current.id=response.id;
-    }
-
-    await loadScripts();
-    if(current.id!=null) selectScript(current.id);
-    else{
-      dirty=false; updateDirty();
-      $("pageTitle").textContent=current.name;
-    }
-    setStatus("Saved.",false,true);
-  }catch(e){
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Save failed: ${e.message}`);
-    setStatus("Save failed: "+e.message,true);
-  }
-}
-
-async function deleteCurrentScript(){
-  if(!current?.id){newScript();return;}
-  if(!confirm(`Delete "${current.name||"this script"}"?`)) return;
-
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Deleting script: ${current.name} (ID: ${current.id})`);
-  try{
-    const r=await fetch("/api/action-scripts?id="+encodeURIComponent(current.id),{method:"DELETE"});
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    await loadScripts();
-    newScript();
-    setStatus("Deleted.",false,true);
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Script deleted successfully`);
-  }catch(e){
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Delete failed: ${e.message}`);
-    setStatus("Delete failed: "+e.message,true);
-  }
-}
-
-async function runCurrentScript(){
-  if(!current){return;}
-  if(!current.commands?.length){setStatus("The script has no commands.",true);return;}
-
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Executing script: ${current.name} with ${current.commands.length} commands`);
-  await executeTemporary(current.commands,"Script");
-}
-
-async function executeTemporary(commands,label){
-  const temp={
-    name:"__EDITOR_TEST__",
-    aliases:[],
-    commands:[...commands]
-  };
-
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Executing ${label} with ${commands.length} commands`);
-  try{
-    setStatus(label+"…");
-    const r=await fetch("/api/execute-script",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({script:JSON.stringify(temp)})
-    });
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    const data=await r.json().catch(()=>null);
-    if(data && data.success===false) throw new Error(data.message||"Command failed");
-    console.log(`[WEBUI][SCRIPTS_EDITOR] ${label} executed successfully`);
-    setStatus(label+" sent.",false,true);
-  }catch(e){
-    console.log(`[WEBUI][SCRIPTS_EDITOR] ${label} execution failed: ${e.message}`);
-    setStatus(label+" failed: "+e.message,true);
-  }
-}
-
-function markDirty(){
-  dirty=true;
-  updateDirty();
-  $("pageTitle").textContent=$("name").value.trim()||"New script";
-  updateSummary();
-}
-
-function updateDirty(){
-  $("dirty").textContent=dirty?"● Unsaved changes":"";
-}
-
-function updateSummary(){
-  const name=$("name").value.trim()||"Unnamed";
-  const commands=current?.commands?.length||0;
-  $("scriptSummary").innerHTML=
-    `<strong>${escapeHtml(name)}</strong><br>`+
-    `${commands} command${commands===1?"":"s"}<br>`+
-    `${aliases.length} alias${aliases.length===1?"":"es"}`;
-}
-
-function setStatus(message,error=false,ok=false){
-  const el=$("status");
-  el.textContent=message||"";
-  el.className="status"+(error?" error":ok?" ok":"");
-}
-
-function hexToRgb(hex){
-  const h=hex.replace("#","");
-  return {
-    r:parseInt(h.substring(0,2),16),
-    g:parseInt(h.substring(2,4),16),
-    b:parseInt(h.substring(4,6),16)
-  };
-}
-
-function deepCopy(obj){return JSON.parse(JSON.stringify(obj));}
-function escapeHtml(value){
-  return String(value??"").replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[c]));
-}
-</script>
-</body>
-</html>
-```
-
----
-
-### <a id="📄-unpacked-fs-index-html"></a>📄 `unpacked_fs/index.html`
-
-**File Info:**
-- **Size**: 26.92 KB
-- **Extension**: `.html`
-- **Language**: `html`
-- **Location**: `unpacked_fs/index.html`
-- **Relative Path**: `unpacked_fs`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `543df4367109c942b442c18001e3ef41`
-- **SHA256**: `5a9f201b95ceeee70ab8265748b4ae169ef4d7a22481b20ffa06430f98fe32ad`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ESP32 Controller</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        :root {
-            --bg: #0b1020;
-            --bg-2: #111827;
-            --panel: rgba(19, 26, 40, 0.9);
-            --panel-strong: #141d31;
-            --panel-soft: #1b2740;
-            --line: rgba(148, 163, 184, 0.22);
-            --line-strong: rgba(124, 156, 255, 0.32);
-            --text: #edf7ff;
-            --muted: #a9b8d1;
-            --primary: #7c9cff;
-            --primary-2: #5a7dff;
-            --green: #22c55e;
-            --amber: #f59e0b;
-            --red: #ef4444;
-            --cyan: #38bdf8;
-            --shadow: 0 22px 48px rgba(0,0,0,.38);
-        }
-
-        * { box-sizing: border-box; }
-
-        html, body {
-            margin: 0;
-            background:
-                radial-gradient(circle at top, rgba(75, 104, 205, 0.22), transparent 30%),
-                linear-gradient(180deg, #0d1424 0%, #0b1020 100%);
-            color: var(--text);
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            min-height: 100vh;
-        }
-
-        body {
-            padding: 18px;
-        }
-
-        .page-shell {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .topbar {
-            position: sticky;
-            top: 0;
-            z-index: 30;
-            background: linear-gradient(180deg, rgba(17,25,41,.9), rgba(12,18,31,.82));
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 14px 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 18px;
-            box-shadow: var(--shadow);
-        }
-
-        .brand {
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: 0.04em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .brand-mark {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: linear-gradient(180deg, #39f3a2, #1dbf72);
-            box-shadow: 0 0 14px rgba(34, 197, 94, 0.8);
-        }
-
-        .toolbar {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .heartbeat-wrap {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid var(--line-strong);
-            padding: 8px 12px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.9);
-        }
-
-        #time-display {
-            min-width: 110px;
-            text-align: center;
-            font-weight: 700;
-            color: #9ad3ff;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        }
-
-        .led {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: #555;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,.4);
-            transition: background-color .15s ease, box-shadow .15s ease;
-        }
-        .led.on { background: var(--green); box-shadow: 0 0 12px rgba(34,197,94,.8); }
-        .led.error { background: var(--red); box-shadow: 0 0 12px rgba(239,68,68,.8); }
-
-        .status-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 14px;
-            margin: 18px 0;
-        }
-
-        .status-card {
-            background: linear-gradient(180deg, rgba(24,33,52,.98), rgba(14,21,33,.98));
-            border: 1px solid var(--line);
-            border-radius: 16px;
-            padding: 16px 18px;
-            box-shadow: var(--shadow);
-        }
-
-        .status-card .label {
-            font-size: .72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-
-        .status-card .value {
-            margin-top: 10px;
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-            font-weight: 800;
-            color: #a9d7ff;
-        }
-
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: 1.4fr 1.1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-
-        .panel {
-            position: relative;
-            background: linear-gradient(180deg, rgba(24,32,48,.94), rgba(15,20,31,.92));
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-            padding: 18px;
-            overflow: hidden;
-        }
-
-        .panel::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 3px;
-            background: linear-gradient(180deg, #7c9cff, #38bdf8, #22c55e);
-        }
-
-        .panel.wide {
-            margin-bottom: 16px;
-        }
-
-        .panel-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-            margin-bottom: 14px;
-        }
-
-        .panel-header h3 {
-            margin: 0;
-            font-size: 1.05rem;
-        }
-
-        .scene-grid, .action-grid, .effect-grid,
-        .system-grid {
-            display: grid;
-            gap: 10px;
-        }
-
-        .scene-grid, .action-grid {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        }
-
-        .effect-grid, .system-grid {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-        }
-
-        .scene-btn, .action-btn, .effect-btn, .system-btn, button {
-            border: 1px solid rgba(255,255,255,.06);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: transform .15s ease, filter .15s ease, border-color .15s ease;
-            color: var(--text);
-        }
-
-        .scene-btn, .action-btn, .effect-btn, .system-btn {
-            padding: 12px 10px;
-            background: linear-gradient(180deg, rgba(68,83,118,.9), rgba(31,42,63,.9));
-            font-weight: 600;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 18px rgba(8,12,22,.18);
-        }
-
-        .scene-btn:hover, .action-btn:hover, .effect-btn:hover, .system-btn:hover, button:hover {
-            transform: translateY(-1px);
-            filter: brightness(1.08);
-            border-color: var(--line-strong);
-        }
-
-        .scene-btn.active, .action-btn.active {
-            background: linear-gradient(180deg, rgba(28, 118, 89, 1), rgba(21, 85, 75, 1));
-            border-color: rgba(34,197,94,.8);
-            box-shadow: inset 0 0 0 1px rgba(34,197,94,.2);
-        }
-
-        .effect-btn.primary { background: linear-gradient(180deg, rgba(52, 104, 181, 1), rgba(33, 76, 160, 1)); }
-        .effect-btn.warn { background: linear-gradient(180deg, rgba(188, 112, 24, 1), rgba(124, 77, 13, 1)); }
-        .effect-btn.safe { background: linear-gradient(180deg, rgba(23, 128, 92, 1), rgba(17, 93, 67, 1)); }
-        .effect-btn.danger { background: linear-gradient(180deg, rgba(149, 38, 38, 1), rgba(97, 20, 20, 1)); }
-
-        button {
-            background: linear-gradient(180deg, rgba(86, 114, 195, 1), rgba(52, 72, 126, 1));
-            padding: 9px 12px;
-            font-weight: 700;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 18px rgba(5,8,16,.18);
-        }
-
-        button.secondary {
-            background: linear-gradient(180deg, rgba(90, 96, 110, 1), rgba(58, 64, 76, 1));
-        }
-
-        button.ghost {
-            background: rgba(255,255,255,.04);
-            border: 1px solid var(--line);
-        }
-
-        select {
-            background: rgba(11, 20, 30, 1);
-            color: var(--text);
-            border: 1px solid var(--line);
-            border-radius: 10px;
-            padding: 9px 10px;
-            min-width: 110px;
-        }
-
-        #log-window {
-            min-height: 260px;
-            max-height: 44vh;
-            overflow-y: auto;
-            padding: 14px;
-            background: rgba(8, 12, 20, 0.9);
-            border: 1px solid var(--line);
-            border-radius: 16px;
-            font-family: "SFMono-Regular", Consolas, monospace;
-            font-size: 0.82rem;
-            line-height: 1.5;
-            white-space: pre-wrap;
-            word-break: break-word;
-            color: #dfefff;
-        }
-
-        .log-line { margin: 3px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
-        .error-log { color: #ff9a9a; }
-        .highlight { color: #fef08a; font-weight: 700; }
-        .debug-buttons { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
-        .debug-btn.active { background: linear-gradient(180deg, rgba(28, 118, 89, 1), rgba(21, 85, 75, 1)); border-color: rgba(34,197,94,.8); box-shadow: inset 0 0 0 1px rgba(34,197,94,.2); }
-
-        @media (max-width: 980px) {
-            .dashboard-grid { grid-template-columns: 1fr; }
-        }
-    </style>
-</head>
-<body>
-    <div class="page-shell">
-        <header class="topbar">
-            <div class="brand"><span class="brand-mark"></span> Home Controller</div>
-            <div class="toolbar">
-                <div class="heartbeat-wrap">
-                    <span id="time-display">--:--:--</span>
-                    <span>Heartbeat</span>
-                    <div id="heartbeat-led" class="led"></div>
-                    <span id="connection-status" style="font-size:0.8rem;color: var(--muted);">Connecting...</span>
-                </div>
-            </div>
-        </header>
-
-        <div class="status-grid">
-            <div class="status-card"><div class="label">Uptime</div><div id="uptime-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">Free Heap</div><div id="heap-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">CPU Load</div><div id="cpu-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">WiFi IP</div><div id="ip-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">Mode</div><div id="mode-value" class="value">--</div></div>
-        </div>
-
-        <div class="dashboard-grid">
-            <section class="panel">
-                <div class="panel-header">
-                    <h3>Saved scenes</h3>
-                    <button class="ghost" id="refresh-scenes">Refresh</button>
-                </div>
-                <div class="scene-grid" id="scenes-grid">
-                    <div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">Loading scenes...</div>
-                </div>
-            </section>
-
-            <section class="panel">
-                <div class="panel-header">
-                    <h3>Effects</h3>
-                </div>
-                <div class="effect-grid">
-                    <button class="effect-btn primary" data-effect="rainbow">Rainbow</button>
-                    <button class="effect-btn primary" data-effect="chase">Chase</button>
-                    <button class="effect-btn warn" data-effect="pulse">Pulse</button>
-                    <button class="effect-btn safe" data-effect="night">Night</button>
-                    <button class="effect-btn safe" data-effect="party">Party</button>
-                    <button class="effect-btn danger" data-effect="off">Off</button>
-                </div>
-            </section>
-
-            <section class="panel">
-                <div class="panel-header">
-                    <h3>System</h3>
-                </div>
-                <div class="system-grid">
-                    <button class="system-btn" id="reboot-btn">Reboot</button>
-                    <button class="system-btn" id="sync-time-btn">Sync time</button>
-                    <button class="system-btn" id="open-editor-btn">Editor</button>
-                    <button class="system-btn" id="audio-test-btn">Audio Test</button>
-                </div>
-            </section>
-        </div>
-
-        <section class="panel wide">
-            <div class="panel-header">
-                <h3>Debug log</h3>
-            </div>
-            <div class="debug-buttons">
-                <button class="system-btn secondary" id="clear-log-btn">Clear log</button>
-                <button class="system-btn" id="save-log-btn">Save log</button>
-                <button class="system-btn secondary" id="pause-toggle-btn">Pause log</button>
-                <button class="system-btn" id="debug-btn-1">[1]</button>
-                <button class="system-btn" id="debug-btn-2">[2]</button>
-                <button class="system-btn" id="debug-btn-3">[3]</button>
-            </div>
-            <div id="log-window">Waiting for logs...</div>
-        </section>
-    </div>
-
-    <script>
-        let lastBeatTime = 0;
-        let shouldAutoScroll = true;
-        let liveLogEnabled = true;
-        let currentDebugLevel = 2; // Default to match platformio.ini
-
-        const led = document.getElementById('heartbeat-led');
-        const statusText = document.getElementById('connection-status');
-        const logWindow = document.getElementById('log-window');
-        const timeDisplay = document.getElementById('time-display');
-        const pauseToggleBtn = document.getElementById('pause-toggle-btn');
-        const clearLogBtn = document.getElementById('clear-log-btn');
-        const saveLogBtn = document.getElementById('save-log-btn');
-        const debugBtn1 = document.getElementById('debug-btn-1');
-        const debugBtn2 = document.getElementById('debug-btn-2');
-        const debugBtn3 = document.getElementById('debug-btn-3');
-        const syncTimeBtn = document.getElementById('sync-time-btn');
-
-        logWindow.addEventListener('scroll', () => {
-            const distanceFromBottom = logWindow.scrollHeight - logWindow.scrollTop - logWindow.clientHeight;
-            shouldAutoScroll = distanceFromBottom < 40;
-        });
-        
-        // Debug level management
-        function setDebugLevel(level) {
-            currentDebugLevel = level;
-            
-            // Update button states
-            [debugBtn1, debugBtn2, debugBtn3].forEach(btn => btn.classList.remove('active'));
-            
-            if (level === 1) debugBtn1.classList.add('active');
-            if (level === 2) debugBtn2.classList.add('active');
-            if (level === 3) debugBtn3.classList.add('active');
-            
-            // Send request to ESP32 to update debug level
-            fetch('/api/set-debug-level', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ level: level })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    console.log(`Debug level set to ${level}`);
-                } else {
-                    console.error(`Failed to set debug level: ${data.message}`);
-                }
-            })
-            .catch(error => {
-                console.error('Error setting debug level:', error);
-            });
-        }
-        
-        // Set initial debug level
-        setDebugLevel(currentDebugLevel);
-        
-        // Add click handlers to debug buttons
-        debugBtn1.addEventListener('click', () => setDebugLevel(1));
-        debugBtn2.addEventListener('click', () => setDebugLevel(2));
-        debugBtn3.addEventListener('click', () => setDebugLevel(3));
-
-        function filterLogHtml(rawHtml) {
-            const chosen = 'ALL';
-            if (chosen === 'ALL') return rawHtml;
-
-            const lines = String(rawHtml || '').split('\n').filter(line => line.trim().length > 0);
-            const filtered = lines.filter(line => {
-                const plain = line.replace(/<[^>]*>/g, '').toLowerCase();
-                if (chosen === 'INFO') {
-                    return plain.includes('info') || plain.includes('startup') || plain.includes('ready') || plain.includes('initialized') || plain.includes('loading');
-                }
-                if (chosen === 'WARN') {
-                    return plain.includes('warn') || plain.includes('warning') || plain.includes('sync') || plain.includes('not synchronized');
-                }
-                if (chosen === 'ERROR') {
-                    return plain.includes('error') || plain.includes('failed') || plain.includes('fatal');
-                }
-                if (chosen === 'DEBUG') {
-                    return plain.includes('debug') || plain.includes('core') || plain.includes('webui') || plain.includes('script') || plain.includes('storage') || plain.includes('rf') || plain.includes('ir');
-                }
-                return true;
-            });
-
-            return filtered.join('\n');
-        }
-
-        // The connection label is transport-only. Endpoint successes and errors
-        // are reported by the firmware and appear in the debug log below.
-        function setLiveLogState(enabled) {
-            liveLogEnabled = enabled;
-            pauseToggleBtn.textContent = enabled ? 'Pause log' : 'Resume log';
-            pauseToggleBtn.classList.toggle('secondary', !enabled);
-        }
-
-        function updateClock() {
-            const d = new Date();
-            timeDisplay.textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        }
-
-        function formatUptime(ms) {
-            const totalSeconds = Math.floor(ms / 1000);
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-            return `${hours}h ${minutes}m ${seconds}s`;
-        }
-
-        // Send time in the same form-encoded `body` field used by the other
-        // POST routes. The firmware logs accepted and rejected sync attempts.
-        function syncTime() {
-            const now = Math.floor(Date.now() / 1000);
-            const timezoneOffsetMinutes = -new Date().getTimezoneOffset();
-            syncTimeBtn.disabled = true;
-            fetch('/api/set-time', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'body=' + encodeURIComponent(JSON.stringify({ time: now, timezoneOffsetMinutes }))
-            })
-                .then(response => response.ok ? response.json() : Promise.reject())
-                .then(() => {})
-                .catch(() => {
-                    syncTimeBtn.disabled = false;
-                })
-                .finally(() => {
-                    syncTimeBtn.disabled = false;
-                });
-        }
-
-        function updateStatusCards(data) {
-            const uptimeEl = document.getElementById('uptime-value');
-            const heapEl = document.getElementById('heap-value');
-            const cpuEl = document.getElementById('cpu-value');
-            const ipEl = document.getElementById('ip-value');
-            const modeEl = document.getElementById('mode-value');
-
-            if (data) {
-                uptimeEl.textContent = formatUptime(data.uptimeMs || 0);
-                heapEl.textContent = `${Math.round((data.freeHeap || 0) / 1024)} KB`;
-                cpuEl.textContent = `${data.cpuLoadPercent ?? '--'}%`;
-                ipEl.textContent = data.ip || '--';
-                modeEl.textContent = data.mode || '--';
-            }
-        }
-
-        function loadScenes() {
-            // Refreshing the scene list is a read operation; the firmware logs
-            // the request while the response remains independent of connectivity.
-            fetch('/api/action-scripts')
-                .then(res => res.ok ? res.json() : null)
-                .then(data => {
-                    const grid = document.getElementById('scenes-grid');
-                    if (!Array.isArray(data)) {
-                        grid.innerHTML = '<div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">No scenes available.</div>';
-                        return;
-                    }
-
-                    grid.innerHTML = '';
-                    if (data.length === 0) {
-                        grid.innerHTML = '<div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">No scenes yet.</div>';
-                        return;
-                    }
-
-                    data.forEach(scene => {
-                        const btn = document.createElement('button');
-                        btn.className = 'scene-btn';
-                        btn.textContent = scene.name || 'Unnamed scene';
-                        btn.onclick = () => executeScript(scene.id, btn);
-                        grid.appendChild(btn);
-                    });
-                })
-                .catch(() => {});
-        }
-
-        function executeScript(scriptId, btn) {
-            // The execution result is recorded by /api/execute-script. Do not
-            // replace the connection state with a one-off action message.
-            fetch('/api/execute-script', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'body=' + encodeURIComponent(JSON.stringify({ id: scriptId }))
-            })
-            .then(res => res.ok ? res.json() : Promise.reject())
-            .then(data => {
-                if (data && data.success) {
-                    btn.classList.add('active');
-                    setTimeout(() => btn.classList.remove('active'), 300);
-                }
-            })
-            .catch(() => {});
-        }
-
-        function applyScene(sceneId, btn) {
-            fetch('/api/scenes/apply', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: sceneId })
-            })
-            .then(res => res.ok ? res.json() : null)
-            .then(data => {
-                if (data && data.success) {
-                    btn.classList.add('active');
-                    setTimeout(() => btn.classList.remove('active'), 300);
-                }
-            })
-            .catch(() => {});
-        }
-
-        function sendEffect(effect) {
-            const payload = { effect };
-            fetch('/api/effect', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            })
-            .then(res => res.ok ? res.json() : null)
-            .then(data => {
-                if (data && data.success) {
-                }
-            })
-            .catch(() => {});
-        }
-
-        function fetchStatus() {
-            // Status is a heartbeat poll, not an action log event.
-            fetch('/api/status')
-                .then(res => res.ok ? res.json() : null)
-                .then(data => {
-                    if (data) {
-                        updateStatusCards(data);
-                        lastBeatTime = Date.now();
-                        led.className = data.heartbeat ? 'led on' : 'led';
-                    }
-                })
-                .catch(() => {});
-        }
-
-        function startPolling() {
-            setInterval(fetchLogs, 500);
-        }
-
-        function fetchLogs() {
-            if (!liveLogEnabled) return;
-
-            // This label is reserved for transport state; action results belong in the debug log.
-            fetch('/api/logs')
-                .then(response => response.text())
-                .then(text => {
-                    statusText.innerText = 'Connected';
-                    statusText.style.color = '#8df0b5';
-                    lastBeatTime = Date.now();
-
-                    logWindow.innerHTML = filterLogHtml(text);
-                    if (shouldAutoScroll) {
-                        logWindow.scrollTop = logWindow.scrollHeight;
-                    }
-
-                })
-                .catch(() => {
-                    statusText.innerText = 'Disconnected';
-                    statusText.style.color = '#fca5a5';
-                    if (Date.now() - lastBeatTime > 2000) {
-                        led.className = 'led error';
-                    }
-                });
-        }
-
-        document.getElementById('open-editor-btn').addEventListener('click', () => {
-            window.open('/action_scripts.html', '_blank');
-        });
-
-        document.getElementById('audio-test-btn').addEventListener('click', () => {
-            window.open('/audio_test.html', '_blank');
-        });
-
-        document.getElementById('refresh-scenes').addEventListener('click', loadScenes);
-
-        document.getElementById('reboot-btn').addEventListener('click', () => {
-            // Unsupported controls still reach an explicit firmware route so
-            // the debug log explains why the request was rejected.
-            fetch('/api/reboot', { method: 'POST' }).catch(() => {});
-        });
-
-        // Manual retry for browsers that opened before the clock was ready or
-        // whose first synchronization request was interrupted.
-        syncTimeBtn.addEventListener('click', syncTime);
-
-        clearLogBtn.addEventListener('click', () => {
-            fetch('/api/logs/clear', { method: 'POST' })
-                .then(() => {
-                    logWindow.innerHTML = 'Log cleared';
-                    logWindow.scrollTop = logWindow.scrollHeight;
-                })
-                .catch(() => {});
-        });
-
-        saveLogBtn.addEventListener('click', () => {
-            fetch('/api/logs/save', { method: 'POST' })
-                .catch(() => {});
-        });
-
-        pauseToggleBtn.addEventListener('click', () => {
-            setLiveLogState(!liveLogEnabled);
-            if (liveLogEnabled) {
-                logWindow.scrollTop = logWindow.scrollHeight;
-            }
-        });
-
-        document.querySelectorAll('[data-effect]').forEach(button => {
-            button.addEventListener('click', () => sendEffect(button.dataset.effect));
-        });
-
-        window.onload = function() {
-            updateClock();
-            setInterval(updateClock, 1000);
-            setLiveLogState(true);
-            fetchStatus();
-            setInterval(fetchStatus, 500);
-            loadScenes();
-            setInterval(loadScenes, 5000);
-
-            syncTime();
-            startPolling();
-        };
-
-        setInterval(() => {
-            if (Date.now() - lastBeatTime > 2500) {
-                led.className = 'led error';
-                statusText.innerText = 'Disconnected';
-                statusText.style.color = '#fca5a5';
-            }
-        }, 1000);
-    </script>
-</body>
-</html>
-
-```
-
----
-
-### <a id="📄-unpacked-fs-scenes-json"></a>📄 `unpacked_fs/scenes.json`
-
-**File Info:**
-- **Size**: 202 B
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `unpacked_fs/scenes.json`
-- **Relative Path**: `unpacked_fs`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `71a3c78381adb7631ed03e243e57559d`
-- **SHA256**: `bb24fba86b7c46ffebe32ed8c29693f3ba814d42effdd97299e3f9fec2bdb245`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Movie",
-    "aliases": ["movie", "cinema"],
-    "type": "static",
-    "script": "Movie Start",
-    "kaku": {
-      "house": "D",
-      "button": 2
-    }
-  }
-]
-```
-
----
-
-### <a id="📄-unpacked-fs-scripts-json"></a>📄 `unpacked_fs/scripts.json`
-
-**File Info:**
-- **Size**: 345 B
-- **Extension**: `.json`
-- **Language**: `json`
-- **Location**: `unpacked_fs/scripts.json`
-- **Relative Path**: `unpacked_fs`
-- **Created**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 20:37:07 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `bf077862ad63ed4db36dc613aa03d7b6`
-- **SHA256**: `9df319d60ddaa19b10b8959a05ffad5a77a2709c4abdec671a775d88ba153a5c`
-- **Encoding**: ASCII
-
-**File code content:**
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Movie Start",
-    "aliases": [
-      "movie",
-      "film"
-    ],
-    "commands": [
-      "ir TV POWER",
-      "delay 1000",
-      "living 1 rgb 255 100 20",
-      "living 2 rgb 255 100 20"
-    ]
-  },
-  {
-    "id": 2,
-    "name": "lalalablablabla",
-    "aliases": [],
-    "commands": []
-  }
-]
 ```
 
 ---

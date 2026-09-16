@@ -230,7 +230,7 @@ bool Storage::initializeStandardFiles() {
     }
 
     // Initialize standard files
-    String files[] = {"/config/settings.json", "/config/devices.json", "/config/mappings.json", "/config/schedules.json"};
+    String files[] = {"/scripts.json", "/scenes.json" };
     String defaultContent[] = {
         "{}",  // Empty JSON for settings
         "[]",  // Empty array for devices
@@ -322,7 +322,7 @@ void Storage::triggerCallback(const String& event, const String& details) {
     }
 
     #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
+    #if DEBUG_LEVEL >= 2
         Debug::println("[STORAGE][triggerCallback] Event triggered: " + event + (details.length() > 0 ? " - " + details : ""));
     #endif
     #endif

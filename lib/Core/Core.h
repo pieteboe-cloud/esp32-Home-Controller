@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
+#include "../Translator/Translator.h"
 
 #include "../HardwareManager/HardwareManager.h"
 #include "../ScriptManager/ScriptManager.h"

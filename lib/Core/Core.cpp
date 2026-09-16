@@ -1,5 +1,4 @@
 #include "Core.h"
-#include "../Translator/Translator.h"
 #include <stdlib.h>
 #include <time.h>
 
