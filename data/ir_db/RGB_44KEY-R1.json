@@ -26,106 +26,126 @@
     {
       "name": "RED",
       "code": "0x00ff1ae5",
-      "virtual_color": "VC_RED"
+      "virtual_color": "VC_RED",
+      "nominal_color": "#FF0000"
     },
     {
       "name": "GREEN",
       "code": "0x00ff9a65",
-      "virtual_color": "VC_GREEN"
+      "virtual_color": "VC_GREEN",
+      "nominal_color": "#00FF00"
     },
     {
       "name": "BLUE",
       "code": "0x00ffa25d",
-      "virtual_color": "VC_BLUE"
+      "virtual_color": "VC_BLUE",
+      "nominal_color": "#0000FF"
     },
     {
       "name": "WHITE",
       "code": "0x00ff22dd",
-      "virtual_color": "VC_WHITE"
+      "virtual_color": "VC_WHITE",
+      "nominal_color": "#FFFFFF"
     },
 
     {
       "name": "ORANGE",
       "code": "0x00ff2ad5",
-      "virtual_color": "VC_ORANGE"
+      "virtual_color": "VC_ORANGE",
+      "nominal_color": "#FF8000"
     },
     {
       "name": "TEAL",
       "code": "0x00ffaa55",
-      "virtual_color": "VC_TEAL"
+      "virtual_color": "VC_TEAL",
+      "nominal_color": "#008080"
     },
     {
       "name": "PURPLE",
       "code": "0x00ff926d",
-      "virtual_color": "VC_PURPLE"
+      "virtual_color": "VC_PURPLE",
+      "nominal_color": "#800080"
     },
     {
       "name": "PINK",
       "code": "0x00ff12ed",
-      "virtual_color": "VC_PINK"
+      "virtual_color": "VC_PINK",
+      "nominal_color": "#FF69B4"
     },
 
     {
       "name": "YELLOW_ORANGE",
       "code": "0x00ff0af5",
-      "virtual_color": "VC_YELLOW_ORANGE"
+      "virtual_color": "VC_YELLOW_ORANGE",
+      "nominal_color": "#FFA500"
     },
     {
       "name": "AQUA",
       "code": "0x00ff8a75",
-      "virtual_color": "VC_AQUA"
+      "virtual_color": "VC_AQUA",
+      "nominal_color": "#00FFFF"
     },
     {
       "name": "MAGENTA",
       "code": "0x00ffb24d",
-      "virtual_color": "VC_MAGENTA"
+      "virtual_color": "VC_MAGENTA",
+      "nominal_color": "#FF00FF"
     },
     {
       "name": "LIGHT_PINK",
       "code": "0x00ff32cd",
-      "virtual_color": "VC_LIGHT_PINK"
+      "virtual_color": "VC_LIGHT_PINK",
+      "nominal_color": "#FFB6C1"
     },
 
     {
       "name": "YELLOW",
       "code": "0x00ff38c7",
-      "virtual_color": "VC_YELLOW"
+      "virtual_color": "VC_YELLOW",
+      "nominal_color": "#FFFF00"
     },
     {
       "name": "CYAN",
       "code": "0x00ffb847",
-      "virtual_color": "VC_CYAN"
+      "virtual_color": "VC_CYAN",
+      "nominal_color": "#00FFFF"
     },
     {
       "name": "VIOLET",
       "code": "0x00ff7887",
-      "virtual_color": "VC_VIOLET"
+      "virtual_color": "VC_VIOLET",
+      "nominal_color": "#8F00FF"
     },
     {
       "name": "SKY_BLUE",
       "code": "0x00fff807",
-      "virtual_color": "VC_SKY_BLUE"
+      "virtual_color": "VC_SKY_BLUE",
+      "nominal_color": "#87CEEB"
     },
 
     {
       "name": "LIGHT_YELLOW",
       "code": "0x00ff18e7",
-      "virtual_color": "VC_LIGHT_YELLOW"
+      "virtual_color": "VC_LIGHT_YELLOW",
+      "nominal_color": "#FFFFD0"
     },
     {
       "name": "LIGHT_CYAN",
       "code": "0x00ff9867",
-      "virtual_color": "VC_LIGHT_CYAN"
+      "virtual_color": "VC_LIGHT_CYAN",
+      "nominal_color": "#E0FFFF"
     },
     {
       "name": "LIGHT_MAGENTA",
       "code": "0x00ff58a7",
-      "virtual_color": "VC_LIGHT_MAGENTA"
+      "virtual_color": "VC_LIGHT_MAGENTA",
+      "nominal_color": "#FF80FF"
     },
     {
       "name": "LIGHT_SKY_BLUE",
       "code": "0x00ffd827",
-      "virtual_color": "VC_LIGHT_SKY_BLUE"
+      "virtual_color": "VC_LIGHT_SKY_BLUE",
+      "nominal_color": "#87CEFF"
     },
 
     {
@@ -233,4 +253,4 @@
       "virtual_color": ""
     }
   ]
-}
+} 

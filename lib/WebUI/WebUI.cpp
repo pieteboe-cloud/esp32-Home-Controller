@@ -1,500 +1,1227 @@
 #include "WebUI.h"
+#include "Debug.h"
+#include <WiFi.h>
 #include <LittleFS.h>
 #include <ArduinoJson.h>
-#include <vector>
+#include <algorithm>
 
-WebUI::WebUI(HardwareManager &hw, SceneManager &sceneManager)
-    : server(80), scriptManager(hw), sceneManagerRef(sceneManager) {}
+WebUI::WebUI(
+    ScriptManager &scriptManager,
+    SceneManager &sceneManager
+)
+    : server(80),
+      scriptManagerRef(scriptManager),
+      sceneManagerRef(sceneManager)
+{
+}
 
-// Initialize managers after the network/filesystem are available. ScriptManager
-// receives the scene manager reference so learned triggers can resolve scenes.
+// ============================================================
+// BEGIN
+// ============================================================
+
 void WebUI::begin()
 {
+    Debug::println(
+        2,
+        "[WEBUI][INIT] Starting WebUI initialization"
+    );
+    
     beginAP();
-    scriptManager.begin();
-    // Wire scene manager into script manager for Kaku→Scene lookup
-    scriptManager.setSceneManager(&sceneManagerRef);
+
+    /*
+     * Managers are initialized by Core.
+     *
+     * WebUI deliberately does not call ScriptManager::begin()
+     * or SceneManager::begin().
+     *
+     * Core owns the initialization order.
+     */
+    
+    Debug::println(
+        2,
+        "[WEBUI][INIT] WebUI initialization complete"
+    );
 }
+
+// ============================================================
+// ACCESS POINT
+// ============================================================
 
 void WebUI::beginAP()
 {
-    Debug::println(2, "[WEBUI][INIT] Initializing WebUI in Access Point mode");
+    Debug::println(
+        2,
+        "[WEBUI][INIT] Initializing WebUI in Access Point mode"
+    );
+
     WiFi.mode(WIFI_AP);
-    IPAddress localIP(192, 168, 4, 1), gateway(192, 168, 4, 1), subnet(255, 255, 255, 0);
-    WiFi.softAPConfig(localIP, gateway, subnet);
-    if (!WiFi.softAP("HomeController", apPassword.c_str()))
+
+    IPAddress localIP(192, 168, 4, 1);
+    IPAddress gateway(192, 168, 4, 1);
+    IPAddress subnet(255, 255, 255, 0);
+
+    WiFi.softAPConfig(
+        localIP,
+        gateway,
+        subnet
+    );
+
+    if (!WiFi.softAP(
+        "HomeController",
+        apPassword.c_str()
+    ))
     {
-        Debug::println(1, "[WEBUI][ERROR] Failed to start Access Point");
+        Debug::println(
+            1,
+            "[WEBUI][ERROR] Failed to start Access Point with password: " + apPassword
+        );
+
         return;
     }
-    Debug::println(3, "[WEBUI][INIT] Access Point started with SSID=HomeController");
-    Debug::println(3, "[WEBUI][INIT] Access Point IP: " + WiFi.softAPIP().toString());
-    if (!LittleFS.begin())
-    {
-        Debug::println(1, "[WEBUI][ERROR] LittleFS mount failed");
-        return;
-    }
+
+    Debug::println(
+        3,
+        "[WEBUI][INIT] Access Point started with SSID=HomeController"
+    );
+
+    Debug::println(
+        3,
+        "[WEBUI][INIT] Access Point IP: " +
+        WiFi.softAPIP().toString()
+    );
+
+    // if (!LittleFS.begin())
+    // {
+    //     Debug::println(
+    //         1,
+    //         "[WEBUI][ERROR] LittleFS mount failed - filesystem may be corrupted or missing"
+    //     );
+
+    //     return;
+    // }
+    
+    // Debug::println(
+    //     3,
+    //     "[WEBUI][INIT] LittleFS mounted successfully"
+    // );
+
     setupRoutes();
+
     server.begin();
-    Debug::println(3, "[WEBUI][INIT] Web server started on port 80");
+
+    Debug::println(
+        3,
+        "[WEBUI][INIT] Web server started on port 80"
+    );
 }
 
-static bool getPostBody(AsyncWebServerRequest *request, String &body)
+// ============================================================
+// POST BODY HELPER
+// ============================================================
+
+bool WebUI::getPostBody(AsyncWebServerRequest *request, String &body)
 {
-    // The browser sends form-encoded `body`, while direct API clients may send
-    // a raw request body. Accept both formats to keep the API easy to inspect.
-    if (request->hasParam("body", true))
-    {
+    if (request->hasParam("body", true)) {
         body = request->getParam("body", true)->value();
     }
-    else
-    {
+    else if (request->_tempObject) {
+        body = String((char *)request->_tempObject);
+    }
+    else {
         body = request->arg("plain");
     }
-    return body.length() > 0;
+
+    if (body.length() > 0) {
+        Debug::println(3, "[WEBUI][POST] Parsed body: " + body);
+        return true;
+    }
+
+    Debug::println(1, "[WEBUI][ERROR] Empty POST body");
+    return false;
 }
+
+// ============================================================
+// capturePostBody
+// ============================================================
+
+static void capturePostBody(
+    AsyncWebServerRequest *request,
+    uint8_t *data,
+    size_t len,
+    size_t index,
+    size_t total)
+{
+    if (index == 0) {
+        char *body = (char *)malloc(total + 1);
+        if (!body) {
+            Debug::println(1, "[WEBUI][ERROR] Failed to allocate POST body");
+            return;
+        }
+
+        request->_tempObject = body;
+        body[0] = '\0';
+
+        Debug::println(3, "[WEBUI][POST] Receiving body, size=" + String(total));
+    }
+
+    if (request->_tempObject) {
+        char *body = (char *)request->_tempObject;
+        memcpy(body + index, data, len);
+        body[index + len] = '\0';
+
+        if (index + len == total) {
+            Debug::println(3, "[WEBUI][POST] Body received: " + String(body));
+        }
+    }
+}
+
+// ============================================================
+// ROUTES
+// ============================================================
 
 void WebUI::setupRoutes()
 {
-    // Dashboard pages: these requests should stay quiet after the page is served;
-    // API activity below is what matters when diagnosing a user interaction.
-    server.on("/", HTTP_GET, [this](AsyncWebServerRequest *request)
-              {
-        Debug::println(3, "[WEBUI][GET /] serving dashboard");
-        if (!isClientAuthenticated(request)) {
-            request->send(401, "text/html", "<html><body><h1>Authentication Required</h1><form method='POST' action='/login'><input type='password' name='password'><input type='submit' value='Login'></form></body></html>");
-            return;
-        }
-        authenticateClient(request);
-        request->send(LittleFS, "/index.html", "text/html"); });
+    // --------------------------------------------------------
+    // DASHBOARD
+    // --------------------------------------------------------
 
-    // Static page for the script editor (linked from the dashboard).
-    server.on("/action_scripts.html", HTTP_GET, [this](AsyncWebServerRequest *request)
-              {
-        if (!isClientAuthenticated(request)) {
-            request->send(401, "text/html", "<html><body><h1>Authentication Required</h1></body></html>");
-            return;
-        }
-        authenticateClient(request);
-        if (!LittleFS.exists("/action_scripts.html")) {
-            request->send(404, "text/plain", "action_scripts.html missing from filesystem");
-            return;
-        }
-        request->send(LittleFS, "/action_scripts.html", "text/html"); });
-
-    server.on("/login", HTTP_POST, [this](AsyncWebServerRequest *request)
-              {
-        String password;
-        if (request->hasParam("password", true)) {
-            password = request->getParam("password", true)->value();
-        } else {
-            password = request->arg("password");
-        }
-
-        if (password == adminPassword) {
-            authenticateClient(request);
-            request->send(302, "text/plain", "Login successful");
-            request->redirect("/");
-        } else {
-            Debug::println(2, "[WEBUI][LOGIN] Failed login attempt from " + request->client()->remoteIP().toString());
-            request->send(401, "text/html", "<html><body><h1>Authentication Failed</h1><form method='POST' action='/login'><input type='password' name='password'><input type='submit' value='Login'></form></body></html>");
-        } });
-
-    // Authentication guard applied to API routes via withAuth()
-    auto withAuth = [this](std::function<void(AsyncWebServerRequest *)> handler)
-    {
-        return [this, handler](AsyncWebServerRequest *request)
+    server.on(
+        "/",
+        HTTP_GET,
+        [this](AsyncWebServerRequest *request)
         {
             if (!isClientAuthenticated(request))
             {
-                request->send(401, "application/json", "{\"success\":false,\"message\":\"Authentication required\"}");
+                request->send(
+                    401,
+                    "text/html",
+                    "<html><body>"
+                    "<h1>Authentication Required</h1>"
+                    "<form method='POST' action='/login'>"
+                    "<input type='password' name='password'>"
+                    "<input type='submit' value='Login'>"
+                    "</form>"
+                    "</body></html>"
+                );
+
                 return;
             }
+
             authenticateClient(request);
-            handler(request);
+
+            request->send(
+                LittleFS,
+                "/index.html",
+                "text/html"
+            );
+        }
+    );
+
+    // --------------------------------------------------------
+    // SCRIPT EDITOR
+    // --------------------------------------------------------
+
+    server.on(
+        "/action_scripts.html",
+        HTTP_GET,
+        [this](AsyncWebServerRequest *request)
+        {
+            if (!isClientAuthenticated(request))
+            {
+                request->send(
+                    401,
+                    "text/html",
+                    "<html><body>"
+                    "<h1>Authentication Required</h1>"
+                    "</body></html>"
+                );
+
+                return;
+            }
+
+            authenticateClient(request);
+
+            if (!LittleFS.exists("/action_scripts.html"))
+            {
+                request->send(
+                    404,
+                    "text/plain",
+                    "action_scripts.html missing from filesystem"
+                );
+
+                return;
+            }
+
+            request->send(
+                LittleFS,
+                "/action_scripts.html",
+                "text/html"
+            );
+        }
+    );
+
+    // --------------------------------------------------------
+    // AUDIO TEST PAGE
+    // --------------------------------------------------------
+
+    server.on(
+        "/audio_test.html",
+        HTTP_GET,
+        [this](AsyncWebServerRequest *request)
+        {
+            if (!isClientAuthenticated(request))
+            {
+                request->send(
+                    401,
+                    "text/html",
+                    "<html><body>"
+                    "<h1>Authentication Required</h1>"
+                    "</body></html>"
+                );
+
+                return;
+            }
+
+            authenticateClient(request);
+
+            if (!LittleFS.exists("/audio_test.html"))
+            {
+                request->send(
+                    404,
+                    "text/plain",
+                    "audio_test.html missing from filesystem"
+                );
+
+                return;
+            }
+
+            request->send(
+                LittleFS,
+                "/audio_test.html",
+                "text/html"
+            );
+        }
+    );
+
+    // --------------------------------------------------------
+    // LOGIN
+    // --------------------------------------------------------
+
+    server.on(
+        "/login",
+        HTTP_POST,
+        [this](AsyncWebServerRequest *request)
+        {
+            String password;
+
+            if (request->hasParam("password", true))
+            {
+                password =
+                    request->getParam(
+                        "password",
+                        true
+                    )->value();
+            }
+            else
+            {
+                password =
+                    request->arg("password");
+            }
+
+            if (password == adminPassword)
+            {
+                authenticateClient(request);
+                request->redirect("/");
+
+                return;
+            }
+
+            Debug::println(
+                2,
+                "[WEBUI][LOGIN] Failed login attempt from " +
+                request->client()->remoteIP().toString()
+            );
+
+            request->send(
+                401,
+                "text/html",
+                "<html><body>"
+                "<h1>Authentication Failed</h1>"
+                "<form method='POST' action='/login'>"
+                "<input type='password' name='password'>"
+                "<input type='submit' value='Login'>"
+                "</form>"
+                "</body></html>"
+            );
+        }
+    );
+
+    // --------------------------------------------------------
+    // AUTH WRAPPER
+    // --------------------------------------------------------
+
+    auto withAuth =
+        [this](
+            std::function<void(AsyncWebServerRequest *)> handler
+        )
+        {
+            return [this, handler](
+                AsyncWebServerRequest *request
+            )
+            {
+                if (!isClientAuthenticated(request))
+                {
+                    request->send(
+                        401,
+                        "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Authentication required\"}"
+                    );
+
+                    return;
+                }
+
+                authenticateClient(request);
+
+                handler(request);
+            };
         };
-    };
 
-    server.on("/api/set-time", HTTP_POST, withAuth([this](AsyncWebServerRequest *request)
-                                                   {
-        Debug::println(3, "[WEBUI][POST /api/set-time] request received");
-        String body;
-        if (request->hasParam("body", true)) {
-            body = request->getParam("body", true)->value();
-        } else {
-            body = request->arg("plain");
-        }
+    // ========================================================
+    // TIME
+    // ========================================================
 
-        if (body.length() == 0) {
-            Debug::println(1, "[WEBUI][POST /api/set-time] missing payload");
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Missing time payload\"}");
-            return;
-        }
+    server.on(
+        "/api/set-time",
+        HTTP_POST,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                String body;
 
-        DynamicJsonDocument doc(256);
-        DeserializationError err = deserializeJson(doc, body);
-        if (err || !doc["time"].is<unsigned long>()) {
-            Debug::println(1, "[WEBUI][POST /api/set-time] invalid time payload");
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Invalid time payload\"}");
-            return;
-        }
+                if (!getPostBody(request, body))
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Missing time payload\"}"
+                    );
 
-        unsigned long unixTime = doc["time"].as<unsigned long>();
-        int timezoneOffsetMinutes = doc["timezoneOffsetMinutes"] | 0;
-        Debug::setTimezoneOffsetMinutes(timezoneOffsetMinutes);
-        Debug::setDeviceTime(unixTime);
-        Debug::println(3, "[WEBUI][POST /api/set-time] clock synchronized with browser timezone offset " + String(timezoneOffsetMinutes) + " minutes");
-        request->send(200, "application/json", "{\"success\":true}"); }));
+                    return;
+                }
 
-    // Audio test page
-    server.on("/audio_test.html", HTTP_GET, [this](AsyncWebServerRequest *request)
-              {
-        if (!isClientAuthenticated(request)) {
-            request->send(401, "text/html", "<html><body><h1>Authentication Required</h1></body></html>");
-            return;
-        }
-        authenticateClient(request);
-        if (!LittleFS.exists("/audio_test.html")) {
-            request->send(404, "text/plain", "audio_test.html missing from filesystem");
-            return;
-        }
-        request->send(LittleFS, "/audio_test.html", "text/html");
-    });
+                DynamicJsonDocument doc(512);
 
-    server.on("/api/logs", HTTP_GET, [](AsyncWebServerRequest *request)
-              { request->send(200, "text/html", Debug::getWebLogs()); });
+                DeserializationError err =
+                    deserializeJson(doc, body);
 
-    // Log maintenance is deliberately logged before clearing because clearing
-    // the buffer removes the diagnostic line that would otherwise describe it.
-    server.on("/api/logs/clear", HTTP_POST, [](AsyncWebServerRequest *request)
-              {
-        Debug::println(3, "[WEBUI][POST /api/logs/clear] clearing web log buffer");
-        Debug::clearLogs();
-        request->send(200, "application/json", "{\"success\":true}"); });
+                if (
+                    err ||
+                    !doc["time"].is<unsigned long>()
+                )
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Invalid time payload\"}"
+                    );
 
-    server.on("/api/status", HTTP_GET, [this](AsyncWebServerRequest *request)
-              {
-        // Status is polled twice per second, so it provides data only and does
-        // not create a log line for every heartbeat request.
-        DynamicJsonDocument doc(512);
-        // FreeRTOS tracks idle time for each core. Invert and average both idle
-        // percentages to show total processor activity without adding a task.
-        int core0Busy = 100 - (int)ulTaskGetIdleRunTimePercentForCore(0);
-        int core1Busy = 100 - (int)ulTaskGetIdleRunTimePercentForCore(1);
-        doc["uptimeMs"] = millis();
-        doc["freeHeap"] = ESP.getFreeHeap();
-        doc["cpuLoadPercent"] = (core0Busy + core1Busy) / 2;
-        doc["ssid"] = "HomeController";
-        doc["ip"] = WiFi.softAPIP().toString();
-        doc["mode"] = "AP";
-        doc["timestampMode"] = (Debug::getTimestamp().length() > 0) ? "wall-clock" : "uptime";
-        doc["heartbeat"] = heartbeatState;
-        String json;
-        serializeJson(doc, json);
-        request->send(200, "application/json", json); });
+                    return;
+                }
 
-    // These controls are present in the dashboard, but no effect engine,
-    // reboot policy, or persistent log export exists in this firmware yet.
-    // Return explicit errors and record them instead of allowing silent 404s.
-    server.on("/api/effect", HTTP_POST, [](AsyncWebServerRequest *request)
-              {
-        Debug::println(2, "[WEBUI][POST /api/effect] effect request rejected: no effect engine is configured");
-        request->send(501, "application/json", "{\"success\":false,\"message\":\"Effects are not implemented in this build\"}"); });
+                unsigned long unixTime =
+                    doc["time"].as<unsigned long>();
 
-    server.on("/api/reboot", HTTP_POST, [](AsyncWebServerRequest *request)
-              {
-        Debug::println(2, "[WEBUI][POST /api/reboot] reboot request rejected: reboot endpoint is not implemented");
-        request->send(501, "application/json", "{\"success\":false,\"message\":\"Reboot is not implemented in this build\"}"); });
+                int timezoneOffsetMinutes =
+                    doc["timezoneOffsetMinutes"] | 0;
 
-    server.on("/api/logs/save", HTTP_POST, [](AsyncWebServerRequest *request)
-              {
-        Debug::println(2, "[WEBUI][POST /api/logs/save] save request rejected: logs are RAM-only");
-        request->send(501, "application/json", "{\"success\":false,\"message\":\"Persistent log saving is not implemented\"}"); });
+                Debug::setTimezoneOffsetMinutes(
+                    timezoneOffsetMinutes
+                );
 
-    // Action-script CRUD and execution routes. Log payload sizes and outcomes,
-    // but leave detailed action semantics to ScriptManager.
-    server.on("/api/action-scripts", HTTP_GET, withAuth([this](AsyncWebServerRequest *request)
-                                                        {
-        String json = scriptManager.getScriptsAsJson();
-        if (DEBUG_LEVEL >= 3) {
-            Debug::println(4, "[WEBUI][GET /api/action-scripts] returning " + String(json.length()) + " bytes");
-        }
-        request->send(200, "application/json", json); }));
+                Debug::setDeviceTime(unixTime);
 
-    server.on("/api/action-scripts/raw", HTTP_GET, [this](AsyncWebServerRequest *request)
-              {
-        String raw = scriptManager.getRawScriptsFile();
-        Debug::println(4, "[WEBUI][ACTION-SCRIPTS][RAW] returning " + String(raw.length()) + " bytes");
-        if (raw.length() == 0) {
-            Debug::println(1, "[WEBUI][ACTION-SCRIPTS][RAW] scripts file unavailable");
-            request->send(404, "text/plain", "Scripts file is empty or unavailable.");
-            return;
-        }
-        request->send(200, "application/json", raw); });
-
-    server.on("/api/action-scripts", HTTP_POST, withAuth([this](AsyncWebServerRequest *request)
-                                                         {
-        String body;
-        if (!getPostBody(request, body)) {
-            Debug::println(2, "[WEBUI][ACTION-SCRIPTS][POST] missing body param");
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Send form field 'body' containing JSON\"}");
-            return;
-        }
-        Debug::println(2, "[WEBUI][ACTION-SCRIPTS][POST] payload length=" + String(body.length()) + " body=" + body);
-        DynamicJsonDocument doc(16384);
-        DeserializationError err = deserializeJson(doc, body);
-        if (err) {
-            Debug::println(1, "[WEBUI][ACTION-SCRIPTS][POST] invalid JSON");
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Invalid JSON payload\"}");
-            return;
-        }
-
-            String script;
-            if (doc["script"].is<String>()) {
-                // Wrapped format: {"script": "<json>"}
-                script = doc["script"].as<String>();
-            } else if (doc.is<JsonObject>()) {
-                // Direct format: the script object itself (used by action_scripts.html)
-                serializeJson(doc, script);
-            } else {
-                Debug::println(1, "[WEBUI][ACTION-SCRIPTS][POST] missing script field");
-                request->send(400, "application/json", "{\"success\":false,\"message\":\"Missing 'script' field\"}");
-                return;
+                request->send(
+                    200,
+                    "application/json",
+                    "{\"success\":true}"
+                );
             }
-            bool success = saveOrUpdateScript(script);
-            if (success) {
-                Debug::println(2, "[WEBUI][ACTION-SCRIPTS][POST] scripts updated");
-                request->send(200, "application/json", "{\"success\":true}");
-            } else {
-                Debug::println(1, "[WEBUI][ACTION-SCRIPTS][POST] scripts update failed");
-                request->send(500, "application/json", "{\"success\":false,\"message\":\"Failed to update scripts\"}");
-            } }));
+        )
+    );
 
-    server.on("/api/action-scripts", HTTP_DELETE, withAuth([this](AsyncWebServerRequest *request)
-                                                           {
-            if (!request->hasParam("id")) {
-                request->send(400, "application/json", "{\"success\":false,\"message\":\"Missing id\"}");
-                return;
+    // ========================================================
+    // STATUS
+    // ========================================================
+
+    server.on(
+        "/api/status",
+        HTTP_GET,
+        [this](AsyncWebServerRequest *request)
+        {
+            DynamicJsonDocument doc(512);
+
+            int core0Busy =
+                100 -
+                (int)ulTaskGetIdleRunTimePercentForCore(0);
+
+            int core1Busy =
+                100 -
+                (int)ulTaskGetIdleRunTimePercentForCore(1);
+
+            doc["uptimeMs"] = millis();
+            doc["freeHeap"] = ESP.getFreeHeap();
+            doc["cpuLoadPercent"] =
+                (core0Busy + core1Busy) / 2;
+
+            doc["ssid"] = "HomeController";
+            doc["ip"] =
+                WiFi.softAPIP().toString();
+
+            doc["mode"] = "AP";
+
+            doc["timestampMode"] =
+                (Debug::getTimestamp().length() > 0)
+                    ? "wall-clock"
+                    : "uptime";
+
+            doc["heartbeat"] =
+                heartbeatState;
+
+            String json;
+
+            serializeJson(
+                doc,
+                json
+            );
+
+            request->send(
+                200,
+                "application/json",
+                json
+            );
+        }
+    );
+
+    // ========================================================
+    // LOGS
+    // ========================================================
+
+    server.on(
+        "/api/logs",
+        HTTP_GET,
+        [](AsyncWebServerRequest *request)
+        {
+            request->send(
+                200,
+                "text/html",
+                Debug::getWebLogs()
+            );
+        }
+    );
+
+    server.on(
+        "/api/logs/clear",
+        HTTP_POST,
+        [](AsyncWebServerRequest *request)
+        {
+            Debug::println(
+                3,
+                "[WEBUI][POST /api/logs/clear] clearing log buffer"
+            );
+
+            Debug::clearLogs();
+
+            request->send(
+                200,
+                "application/json",
+                "{\"success\":true}"
+            );
+        }
+    );
+
+    // ========================================================
+    // SCRIPTS - LIST
+    // ========================================================
+
+    server.on(
+        "/api/action-scripts",
+        HTTP_GET,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                String json =
+                    scriptManagerRef.getScriptsAsJson();
+
+                request->send(
+                    200,
+                    "application/json",
+                    json
+                );
             }
-            int scriptId = request->getParam("id")->value().toInt();
-            bool success = scriptManager.deleteScript(scriptId);
-            Debug::println(2, String("[WEBUI][ACTION-SCRIPTS][DELETE] id=") + scriptId + " -> " + (success ? "ok" : "not found"));
-            request->send(success ? 200 : 404, "application/json",
-                          success ? "{\"success\":true}" : "{\"success\":false,\"message\":\"Script not found\"}"); }));
+        )
+    );
 
-    server.on("/api/action-scripts/apply", HTTP_POST, withAuth([this](AsyncWebServerRequest *request)
-                                                               {
+    // ========================================================
+    // SCRIPTS - ADD / UPDATE
+    // ========================================================
+
+server.on("/api/action-scripts", HTTP_POST,
+    withAuth([this](AsyncWebServerRequest *request) {
         String body;
+
         if (!getPostBody(request, body)) {
-            Debug::println(2, "[WEBUI][ACTION-SCRIPTS][POST] missing body param");
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Send form field 'body' containing JSON\"}");
-            return;
-        }
-        Debug::println(2, "[WEBUI][ACTION-SCRIPTS][POST] payload length=" + String(body.length()) + " body=" + body);
-        DynamicJsonDocument doc(16384);
-        DeserializationError err = deserializeJson(doc, body);
-        if (err) {
-            Debug::println(1, "[WEBUI][ACTION-SCRIPTS][POST] invalid JSON");
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Invalid JSON payload\"}");
+            request->send(400, "application/json",
+                          "{\"success\":false,\"message\":\"Missing body\"}");
             return;
         }
 
-        if (!doc["script"].is<String>()) {
-            Debug::println(1, "[WEBUI][ACTION-SCRIPTS][POST] missing script field");
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Missing 'script' field\"}");
-            return;
-        }
+        Debug::println(2, "[WEBUI][SCRIPTS] Save request received");
 
-        String script = doc["script"].as<String>();
-        bool success = saveOrUpdateScript(script);
-        if (success) {
-            Debug::println(2, "[WEBUI][ACTION-SCRIPTS][APPLY] scripts updated and applied");
-            request->send(200, "application/json", "{\"success\":true}");
+        if (saveOrUpdateScript(body)) {
+            Debug::println(2, "[WEBUI][SCRIPTS] Save successful");
+            request->send(200, "application/json",
+                          "{\"success\":true}");
         } else {
-            Debug::println(1, "[WEBUI][ACTION-SCRIPTS][APPLY] scripts update failed");
-            request->send(500, "application/json", "{\"success\":false,\"message\":\"Failed to update scripts\"}");
-        } }));
-
-    server.on("/api/execute-script", HTTP_POST, withAuth([this](AsyncWebServerRequest *request)
-                                                         {
-        String body;
-        if (!getPostBody(request, body)) {
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Missing body\"}");
-            return;
+            Debug::println(1, "[WEBUI][SCRIPTS][ERROR] Save failed");
+            request->send(500, "application/json",
+                          "{\"success\":false,\"message\":\"Save failed\"}");
         }
-        DynamicJsonDocument doc(256);
-        if (deserializeJson(doc, body) != DeserializationError::Ok || !doc["id"].is<int>()) {
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Missing 'id' field\"}");
-            return;
+    }),
+    nullptr,
+    capturePostBody);
+
+    // ========================================================
+    // SCRIPTS - DELETE
+    // ========================================================
+
+    server.on(
+        "/api/action-scripts",
+        HTTP_DELETE,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                if (!request->hasParam("id"))
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Missing id\"}"
+                    );
+
+                    return;
+                }
+
+                int scriptId =
+                    request->getParam(
+                        "id"
+                    )->value().toInt();
+
+                bool success =
+                    scriptManagerRef.deleteScript(
+                        scriptId
+                    );
+
+                request->send(
+                    success ? 200 : 404,
+                    "application/json",
+                    success
+                        ? "{\"success\":true}"
+                        : "{\"success\":false,"
+                          "\"message\":\"Script not found\"}"
+                );
+            }
+        )
+    );
+
+    // ========================================================
+    // SCRIPTS - APPLY
+    //
+    // Kept as an alias for the existing UI.
+    // There is no separate "apply to hardware" concept anymore.
+    // Saving the script is enough.
+    // ========================================================
+
+    server.on(
+        "/api/action-scripts/apply",
+        HTTP_POST,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                String body;
+
+                if (!getPostBody(request, body))
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Missing body\"}"
+                    );
+
+                    return;
+                }
+
+                if (!saveOrUpdateScript(body))
+                {
+                    request->send(
+                        500,
+                        "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Failed to save script\"}"
+                    );
+
+                    return;
+                }
+
+                request->send(
+                    200,
+                    "application/json",
+                    "{\"success\":true}"
+                );
+            }
+        ),
+        nullptr,
+        capturePostBody);
+
+    // ========================================================
+    // EXECUTE SCRIPT
+    //
+    // This is a macro invocation.
+    //
+    // ScriptManager -> CommandSink -> Core -> HardwareManager
+    //
+    // WebUI never sees the hardware.
+    // ========================================================
+
+    server.on(
+        "/api/execute-script",
+        HTTP_POST,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                String body;
+
+                if (!getPostBody(request, body))
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Missing body\"}"
+                    );
+
+                    return;
+                }
+
+                DynamicJsonDocument doc(512);
+
+                if (
+                    deserializeJson(doc, body) !=
+                    DeserializationError::Ok
+                )
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Invalid JSON\"}"
+                    );
+
+                    return;
+                }
+
+                bool success = false;
+
+                if (doc["id"].is<int>())
+                {
+                    success =
+                        scriptManagerRef.runScript(
+                            doc["id"].as<int>()
+                        );
+                }
+                else if (doc["name"].is<String>())
+                {
+                    success =
+                        scriptManagerRef.runScript(
+                            doc["name"].as<String>()
+                        );
+                }
+                else if (doc["script"].is<String>())
+                {
+                    success =
+                        scriptManagerRef.runScript(
+                            doc["script"].as<String>()
+                        );
+                }
+
+                request->send(
+                    success ? 200 : 404,
+                    "application/json",
+                    success
+                        ? "{\"success\":true}"
+                        : "{\"success\":false,"
+                          "\"message\":\"Script not found or failed\"}"
+                );
+            }
+        ),
+        nullptr,
+        capturePostBody);
+
+    // ========================================================
+    // SCENES - LIST
+    // ========================================================
+
+    server.on(
+        "/api/scenes",
+        HTTP_GET,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                String json =
+                    sceneManagerRef.getScenesAsJson();
+
+                request->send(
+                    200,
+                    "application/json",
+                    json
+                );
+            }
+        )
+    );
+
+    // ========================================================
+    // ACTIVATE SCENE
+    //
+    // WebUI is one of the two allowed scene triggers:
+    //
+    // WebUI -> SceneManager -> ScriptManager -> Core
+    //
+    // ========================================================
+
+    server.on(
+        "/api/scenes/apply",
+        HTTP_POST,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                String body;
+
+                if (!getPostBody(request, body))
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Missing body\"}"
+                    );
+
+                    return;
+                }
+
+                DynamicJsonDocument doc(512);
+
+                if (
+                    deserializeJson(doc, body) !=
+                    DeserializationError::Ok
+                )
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Invalid JSON\"}"
+                    );
+
+                    return;
+                }
+
+                bool success = false;
+
+                if (doc["id"].is<int>())
+                {
+                    success =
+                        sceneManagerRef.activateScene(
+                            doc["id"].as<int>()
+                        );
+                }
+                else if (doc["name"].is<String>())
+                {
+                    success =
+                        sceneManagerRef.activateScene(
+                            doc["name"].as<String>()
+                        );
+                }
+                else if (doc["scene"].is<String>())
+                {
+                    success =
+                        sceneManagerRef.activateScene(
+                            doc["scene"].as<String>()
+                        );
+                }
+
+                request->send(
+                    success ? 200 : 404,
+                    "application/json",
+                    success
+                        ? "{\"success\":true}"
+                        : "{\"success\":false,"
+                          "\"message\":\"Scene not found or failed\"}"
+                );
+            }
+        )
+    );
+
+    // ========================================================
+    // SCENE EXPORT
+    // ========================================================
+
+    server.on(
+        "/api/export-scenes",
+        HTTP_GET,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                String json =
+                    sceneManagerRef.getScenesAsJson();
+
+                request->send(
+                    200,
+                    "application/json",
+                    json
+                );
+            }
+        )
+    );
+
+    // ========================================================
+    // EFFECT
+    //
+    // Temporary endpoint.
+    //
+    // Once EffectManager exists, this should become:
+    //
+    // WebUI -> Core -> EffectManager
+    //
+    // It must NOT become:
+    //
+    // WebUI -> HardwareManager
+    // ========================================================
+
+    server.on(
+        "/api/effect",
+        HTTP_POST,
+        withAuth(
+            [](AsyncWebServerRequest *request)
+            {
+                request->send(
+                    501,
+                    "application/json",
+                    "{\"success\":false,"
+                    "\"message\":\"Effects are not implemented yet\"}"
+                );
+            }
+        )
+    );
+
+    // ========================================================
+    // REBOOT
+    // ========================================================
+
+    server.on(
+        "/api/reboot",
+        HTTP_POST,
+        withAuth(
+            [](AsyncWebServerRequest *request)
+            {
+                request->send(
+                    501,
+                    "application/json",
+                    "{\"success\":false,"
+                    "\"message\":\"Reboot is not implemented\"}"
+                );
+            }
+        )
+    );
+
+    // ========================================================
+    // LOG SAVE
+    // ========================================================
+
+    server.on(
+        "/api/logs/save",
+        HTTP_POST,
+        withAuth(
+            [](AsyncWebServerRequest *request)
+            {
+                request->send(
+                    501,
+                    "application/json",
+                    "{\"success\":false,"
+                    "\"message\":\"Persistent log saving is not implemented\"}"
+                );
+            }
+        )
+    );
+
+    // ========================================================
+    // NOT FOUND
+    // ========================================================
+
+    server.onNotFound(
+        [](AsyncWebServerRequest *request)
+        {
+            String clientIP = request->client()->remoteIP().toString();
+            String path = request->url();
+            
+            Debug::println(
+                2,
+                "[WEBUI][NOTFOUND] Client: " + clientIP + " requested path: " + path
+            );
+            
+            request->send(
+                404,
+                "text/plain",
+                "Not found"
+            );
         }
-        int scriptId = doc["id"].as<int>();
-        bool success = scriptManager.executeScript(scriptId);
-        Debug::println(2, String("[WEBUI][EXECUTE-SCRIPT] id=") + scriptId + " -> " + (success ? "ok" : "failed"));
-        request->send(success ? 200 : 404, "application/json",
-                      success ? "{\"success\":true}" : "{\"success\":false,\"message\":\"Script not found\"}"); }));
-
-    // Test a single action (used by the editor's Test/Preview buttons).
-    server.on("/api/test-action", HTTP_POST, withAuth([this](AsyncWebServerRequest *request)
-                                                      {
-        String body;
-        if (!getPostBody(request, body)) {
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Missing body\"}");
-            return;
-        }
-        bool success = scriptManager.executeAction(body);
-        Debug::println(2, String("[WEBUI][TEST-ACTION] ") + (success ? "ok" : "failed"));
-        request->send(success ? 200 : 400, "application/json",
-                      success ? "{\"success\":true}" : "{\"success\":false,\"message\":\"Action execution failed\"}"); }));
-
-    // IR/RF trigger learning. POST starts capture (?filter=IR|RF|KAKU|ANY),
-    // GET polls the capture status until an event has been captured.
-    server.on("/api/learn", HTTP_POST, withAuth([this](AsyncWebServerRequest *request)
-                                                {
-        String filter = request->hasParam("filter") ? request->getParam("filter")->value() : String("ANY");
-        scriptManager.startCapture(filter);
-        Debug::println(2, "[WEBUI][LEARN] capture started, filter=" + filter);
-        request->send(200, "application/json", "{\"success\":true,\"waiting\":true}"); }));
-
-    server.on("/api/learn", HTTP_GET, withAuth([this](AsyncWebServerRequest *request)
-                                               {
-        String status = scriptManager.getCaptureStatus();
-        request->send(200, "application/json", status); }));
-
-    server.on("/api/scenes", HTTP_GET, withAuth([this](AsyncWebServerRequest *request)
-                                                {
-        String json = sceneManagerRef.getScenesAsJson();
-        if (DEBUG_LEVEL >= 3) {
-            Debug::println(4, "[WEBUI][GET /api/scenes] returning " + String(json.length()) + " bytes");
-        }
-        request->send(200, "application/json", json); }));
-
-    server.on("/api/scenes/apply", HTTP_POST, withAuth([this](AsyncWebServerRequest *request)
-                                                       {
-        String body;
-        if (!getPostBody(request, body)) {
-            Debug::println(2, "[WEBUI][SCENES][POST] missing body param");
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Send form field 'body' containing JSON\"}");
-            return;
-        }
-        Debug::println(2, "[WEBUI][SCENES][POST] payload length=" + String(body.length()) + " body=" + body);
-        DynamicJsonDocument doc(2048);
-        DeserializationError err = deserializeJson(doc, body);
-        if (err) {
-            Debug::println(1, "[WEBUI][SCENES][POST] invalid JSON");
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Invalid JSON payload\"}");
-            return;
-        }
-
-        if (!doc["scene"].is<String>()) {
-            Debug::println(1, "[WEBUI][SCENES][POST] missing scene field");
-            request->send(400, "application/json", "{\"success\":false,\"message\":\"Missing 'scene' field\"}");
-            return;
-        }
-
-        int sceneId = doc["scene"].as<int>();
-        bool success = sceneManagerRef.applyScene(sceneId);
-        if (success) {
-            Debug::println(2, "[WEBUI][SCENES][POST] scene applied: " + String(sceneId));
-            request->send(200, "application/json", "{\"success\":true}");
-        } else {
-            Debug::println(1, "[WEBUI][SCENES][POST] scene apply failed: " + String(sceneId));
-            request->send(500, "application/json", "{\"success\":false,\"message\":\"Failed to apply scene\"}");
-        } }));
-
-    server.on("/api/export-scenes", HTTP_GET, withAuth([this](AsyncWebServerRequest *request)
-                                                       {
-        String json = sceneManagerRef.getScenesAsJson();
-        if (DEBUG_LEVEL >= 3) {
-            Debug::println(4, "[WEBUI][GET /api/export-scenes] returning " + String(json.length()) + " bytes");
-        }
-        request->send(200, "application/json", json); }));
-
-    // Fallback route for any unhandled path that doesn't match above.
-    // This prevents the server from returning 404 for valid API endpoints
-    // that are not explicitly configured above.
-    server.onNotFound([this](AsyncWebServerRequest *request)
-                      {
-        Debug::println(2, "[WEBUI][404] path not found: " + request->url());
-        request->send(404, "text/plain", "Not found"); });
+    );
 }
 
-// Legacy loop hook kept for compatibility; runtime traffic is event-driven
-// and most work happens in callbacks and route handlers.
+// ============================================================
+// LOOP
+// ============================================================
+
 void WebUI::loop()
 {
-    // The ESP32 async web server handles all networking internally.
-    // This loop is kept only for compatibility with existing code.
+    /*
+     * AsyncWebServer does not need a polling loop.
+     *
+     * Kept for compatibility with App/Core.
+     */
 }
 
-void WebUI::setAuthentication(bool enabled, const String &password)
+// ============================================================
+// HEARTBEAT
+// ============================================================
+
+void WebUI::setHeartbeatState(bool state)
 {
+    heartbeatState = state;
+}
+
+// ============================================================
+// AUTHENTICATION
+// ============================================================
+
+void WebUI::setAuthentication(
+    bool enabled,
+    const String &password
+)
+{
+    bool wasEnabled = authenticationEnabled;
     authenticationEnabled = enabled;
+
     if (password.length() > 0)
     {
         adminPassword = password;
+        Debug::println(
+            3,
+            "[WEBUI][AUTH] Admin password updated"
+        );
     }
-    Debug::println(2, "[WEBUI][AUTH] Authentication " + String(enabled ? "enabled" : "disabled"));
+
+    Debug::println(
+        2,
+        "[WEBUI][AUTH] Authentication " +
+        String(enabled ? "enabled" : "disabled") +
+        (wasEnabled != enabled ? " (status changed)" : " (status unchanged)")
+    );
 }
 
 void WebUI::setAPPassword(const String &password)
 {
     apPassword = password;
-    // If the AP is already running with an old password, restart it with the new one.
+
     if (WiFi.getMode() & WIFI_AP)
     {
-        WiFi.softAP("HomeController", apPassword.c_str());
-        Debug::println(2, "[WEBUI][AUTH] AP password updated and AP restarted");
-    }
-    else
-    {
-        Debug::println(2, "[WEBUI][AUTH] AP password updated");
+        bool success = WiFi.softAP(
+            "HomeController",
+            apPassword.c_str()
+        );
+        
+        Debug::println(
+            2,
+            "[WEBUI][AUTH] AP password " + 
+            String(success ? "updated successfully" : "update failed")
+        );
     }
 }
 
 void WebUI::setFixedPassword(const String &password)
 {
     adminPassword = password;
-    Debug::println(2, "[WEBUI][AUTH] Fixed password set to: " + password);
+
+    Debug::println(
+        2,
+        "[WEBUI][AUTH] Fixed password updated"
+    );
 }
 
-bool WebUI::saveOrUpdateScript(const String &scriptJson)
+// ============================================================
+// SCRIPT SAVE / UPDATE
+// ============================================================
+
+bool WebUI::saveOrUpdateScript(
+    const String &scriptJson
+)
 {
-    // Extract the id the payload claims (if any), then decide update vs add.
-    // Doc must be generous: editor payloads run several hundred bytes with
-    // nested arrays, and ArduinoJson needs headroom beyond the raw length.
-    DynamicJsonDocument doc(4096);
-    if (deserializeJson(doc, scriptJson) != DeserializationError::Ok)
+    DynamicJsonDocument doc(8192);
+
+    if (
+        deserializeJson(doc, scriptJson) !=
+        DeserializationError::Ok
+    )
     {
-        Debug::println(1, "[WEBUI][SCRIPTS] payload is not valid JSON");
+        Debug::println(
+            1,
+            "[WEBUI][SCRIPTS] Invalid JSON: " + scriptJson.substring(0, min((unsigned int)scriptJson.length(), (unsigned int)100)) + 
+            (scriptJson.length() > 100 ? "..." : "")
+        );
+
         return false;
     }
-    int id = doc["id"] | 0;
-    if (id > 0 && scriptManager.getScriptById(id).length() > 0)
+
+    /*
+     * Accept both:
+     *
+     * {
+     * "script": "{...}"
+     * }
+     *
+     * and:
+     *
+     * {
+     * "id": 1,
+     * "name": "...",
+     * ...
+     * }
+     *
+     * This keeps the existing editor working while the
+     * frontend is being simplified.
+     */
+
+    String script;
+
+    if (doc["script"].is<String>())
     {
-        return scriptManager.updateScript(id, scriptJson);
+        script =
+            doc["script"].as<String>();
     }
-    return scriptManager.addScript(scriptJson);
+    else if (doc.is<JsonObject>())
+    {
+        serializeJson(
+            doc,
+            script
+        );
+    }
+    else
+    {
+        return false;
+    }
+
+    DynamicJsonDocument scriptDoc(8192);
+
+    if (
+        deserializeJson(scriptDoc, script) !=
+        DeserializationError::Ok
+    )
+    {
+        return false;
+    }
+
+    int id =
+        scriptDoc["id"] | 0;
+
+    if (
+        id > 0 &&
+        scriptManagerRef.getScriptById(id).length() > 0
+    )
+    {
+        return scriptManagerRef.updateScript(
+            id,
+            script
+        );
+    }
+
+    return scriptManagerRef.addScript(
+        script
+    );
 }
 
-bool WebUI::isClientAuthenticated(AsyncWebServerRequest *request)
+// ============================================================
+// AUTH CLIENT TRACKING
+// ============================================================
+
+bool WebUI::isClientAuthenticated(
+    AsyncWebServerRequest *request
+)
 {
     if (!authenticationEnabled)
     {
         return true;
     }
-    return std::find(authenticatedClients.begin(), authenticatedClients.end(), request->client()->remoteIP().toString()) != authenticatedClients.end();
+
+    String clientIP =
+        request->client()->remoteIP().toString();
+
+    return std::find(
+        authenticatedClients.begin(),
+        authenticatedClients.end(),
+        clientIP
+    ) != authenticatedClients.end();
 }
 
-void WebUI::authenticateClient(AsyncWebServerRequest *request)
+void WebUI::authenticateClient(
+    AsyncWebServerRequest *request
+)
 {
     if (!authenticationEnabled)
     {
         return;
     }
-    String clientIP = request->client()->remoteIP().toString();
-    if (std::find(authenticatedClients.begin(), authenticatedClients.end(), clientIP) == authenticatedClients.end())
+
+    String clientIP =
+        request->client()->remoteIP().toString();
+
+    if (
+        std::find(
+            authenticatedClients.begin(),
+            authenticatedClients.end(),
+            clientIP
+        ) == authenticatedClients.end()
+    )
     {
-        authenticatedClients.push_back(clientIP);
-        Debug::println(2, "[WEBUI][AUTH] Client authenticated: " + clientIP);
+        authenticatedClients.push_back(
+            clientIP
+        );
+
+        Debug::println(
+            2,
+            "[WEBUI][AUTH] Client authenticated: " +
+            clientIP + " (total authenticated clients: " + String(authenticatedClients.size()) + ")"
+        );
+    }
+    else
+    {
+        Debug::println(
+            3,
+            "[WEBUI][AUTH] Client already authenticated: " +
+            clientIP
+        );
     }
 }
+

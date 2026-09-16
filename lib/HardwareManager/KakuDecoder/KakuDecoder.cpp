@@ -104,15 +104,11 @@ void KakuDecoder::processValue(unsigned long value) {
   cmd.button = (sliderPos - 1) * 8 + (rowPos - 1) * 2 + (isOn ? 1 : 2);
   cmd.timestamp = millis();
 
-  SystemEvent evt;
-  evt.source = "KAKU";
-  // Create a readable ID like "KAKU_C_2"
-  evt.identifier = "KAKU_" + String(houseChar) + "_" + String(cmd.button);
-  evt.rawData = String(value, HEX);
+  // All SystemEvent code has been removed to ensure events are only published through HardwareManager
   
-  EventBus::getInstance().publish(evt);
+
   #if DEBUG_LEVEL >= 2
-    Debug::println("[KAKU][processValue] Published Event: " + evt.identifier + " Raw: " + evt.rawData);
+    Debug::println("[KAKU][processValue] Decoded House " + String(houseChar) + " Button " + String(cmd.button) + " - Event published via HardwareManager callback");
   #endif
   // ------------------------------
 

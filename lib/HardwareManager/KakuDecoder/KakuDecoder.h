@@ -1,6 +1,5 @@
 #pragma once
 #include <Arduino.h>
-#include "EventBus.h" 
 #include "Debug.h"
 #include <functional>
 

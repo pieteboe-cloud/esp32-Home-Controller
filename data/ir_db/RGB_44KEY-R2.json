@@ -1,5 +1,5 @@
 {
-  "id": "RGB_44KEY-R3",
+  "id": "RGB_44KEY-R2",
   "name": "44-Key Remote Unit 2",
   "buttons": [
     {"name": "BRIGHTER",      "code": "0xFF3AC5", "virtual_color": ""},

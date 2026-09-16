@@ -2,30 +2,142 @@
   "id": "RGB_24KEY-R1",
   "name": "24-Key Remote Unit 1",
   "buttons": [
-    {"name": "BRIGHTER",      "code": "0xf700ff00", "virtual_color": ""},
-    {"name": "DARKER",        "code": "0xf7807f00", "virtual_color": ""},
-    {"name": "OFF",           "code": "0xf740bf00", "virtual_color": ""},
-    {"name": "ON",            "code": "0xf7c03f00", "virtual_color": ""},
-    {"name": "RED",           "code": "0xfb04ef00", "virtual_color": "VC_RED"},
-    {"name": "GREEN",         "code": "0xfa05ef00", "virtual_color": "VC_GREEN"},
-    {"name": "BLUE",          "code": "0xf906ef00", "virtual_color": "VC_BLUE"},
-    {"name": "WHITE",         "code": "0xf807ef00", "virtual_color": "VC_WHITE"},
-    {"name": "ORANGE",        "code": "0xf708ef00", "virtual_color": "VC_ORANGE"},
-    {"name": "LIGHT_GREEN",   "code": "0xf609ef00", "virtual_color": "VC_LIGHT_GREEN"},
-    {"name": "DARK_CYAN",     "code": "0xf50aef00", "virtual_color": "VC_DARK_CYAN"},
-    {"name": "FLASH",         "code": "0xf40bef00", "virtual_color": ""},
-    {"name": "LIGHT_ORANGE",  "code": "0xf30cef00", "virtual_color": "VC_LIGHT_ORANGE"},
-    {"name": "CYAN",          "code": "0xf20def00", "virtual_color": "VC_CYAN"},
-    {"name": "DARK_PURPLE",   "code": "0xf10eef00", "virtual_color": "VC_DARK_PURPLE"},
-    {"name": "STROBE",        "code": "0xf00fef00", "virtual_color": ""},
-    {"name": "YELLOW_ORANGE", "code": "0xef10ef00", "virtual_color": "VC_YELLOW_ORANGE"},
-    {"name": "LIGHT_BLUE",    "code": "0xee11ef00", "virtual_color": "VC_LIGHT_BLUE"},
-    {"name": "PURPLE",        "code": "0xed12ef00", "virtual_color": "VC_PURPLE"},
-    {"name": "FADE",          "code": "0xec13ef00", "virtual_color": ""},
-    {"name": "YELLOW",        "code": "0xeb14ef00", "virtual_color": "VC_YELLOW"},
-    {"name": "TEAL",          "code": "0xea15ef00", "virtual_color": "VC_TEAL"},
-    {"name": "MAGENTA",       "code": "0xe916ef00", "virtual_color": "VC_MAGENTA"},
-    {"name": "SMOOTH",        "code": "0xe817ef00", "virtual_color": ""}
+   {
+  "name": "BRIGHTER",
+  "code": "0xf700ff00",
+  "virtual_color": ""
+},
+{
+  "name": "DARKER",
+  "code": "0xf7807f00",
+  "virtual_color": ""
+},
+{
+  "name": "OFF",
+  "code": "0xf740bf00",
+  "virtual_color": ""
+},
+{
+  "name": "ON",
+  "code": "0xf7c03f00",
+  "virtual_color": ""
+},
+{
+  "name": "RED",
+  "code": "0xfb04ef00",
+  "virtual_color": "VC_RED",
+  "nominal_color": "#FF0000"
+},
+{
+  "name": "GREEN",
+  "code": "0xfa05ef00",
+  "virtual_color": "VC_GREEN",
+  "nominal_color": "#00FF00"
+},
+{
+  "name": "BLUE",
+  "code": "0xf906ef00",
+  "virtual_color": "VC_BLUE",
+  "nominal_color": "#0000FF"
+},
+{
+  "name": "WHITE",
+  "code": "0xf807ef00",
+  "virtual_color": "VC_WHITE",
+  "nominal_color": "#FFFFFF"
+},
+{
+  "name": "ORANGE",
+  "code": "0xf708ef00",
+  "virtual_color": "VC_ORANGE",
+  "nominal_color": "#FF8000"
+},
+{
+  "name": "LIGHT_GREEN",
+  "code": "0xf609ef00",
+  "virtual_color": "VC_LIGHT_GREEN",
+  "nominal_color": "#90EE90"
+},
+{
+  "name": "DARK_CYAN",
+  "code": "0xf50aef00",
+  "virtual_color": "VC_DARK_CYAN",
+  "nominal_color": "#008B8B"
+},
+{
+  "name": "FLASH",
+  "code": "0xf40bef00",
+  "virtual_color": ""
+},
+{
+  "name": "LIGHT_ORANGE",
+  "code": "0xf30cef00",
+  "virtual_color": "VC_LIGHT_ORANGE",
+  "nominal_color": "#FFB347"
+},
+{
+  "name": "CYAN",
+  "code": "0xf20def00",
+  "virtual_color": "VC_CYAN",
+  "nominal_color": "#00FFFF"
+},
+{
+  "name": "DARK_PURPLE",
+  "code": "0xf10eef00",
+  "virtual_color": "VC_DARK_PURPLE",
+  "nominal_color": "#4B0082"
+},
+{
+  "name": "STROBE",
+  "code": "0xf00fef00",
+  "virtual_color": ""
+},
+{
+  "name": "YELLOW_ORANGE",
+  "code": "0xef10ef00",
+  "virtual_color": "VC_YELLOW_ORANGE",
+  "nominal_color": "#FFA500"
+},
+{
+  "name": "LIGHT_BLUE",
+  "code": "0xee11ef00",
+  "virtual_color": "VC_LIGHT_BLUE",
+  "nominal_color": "#ADD8E6"
+},
+{
+  "name": "PURPLE",
+  "code": "0xed12ef00",
+  "virtual_color": "VC_PURPLE",
+  "nominal_color": "#800080"
+},
+{
+  "name": "FADE",
+  "code": "0xec13ef00",
+  "virtual_color": ""
+},
+{
+  "name": "YELLOW",
+  "code": "0xeb14ef00",
+  "virtual_color": "VC_YELLOW",
+  "nominal_color": "#FFFF00"
+},
+{
+  "name": "TEAL",
+  "code": "0xea15ef00",
+  "virtual_color": "VC_TEAL",
+  "nominal_color": "#008080"
+},
+{
+  "name": "MAGENTA",
+  "code": "0xe916ef00",
+  "virtual_color": "VC_MAGENTA",
+  "nominal_color": "#FF00FF"
+},
+{
+  "name": "SMOOTH",
+  "code": "0xe817ef00",
+  "virtual_color": ""
+}   
   ]
 }   
 
