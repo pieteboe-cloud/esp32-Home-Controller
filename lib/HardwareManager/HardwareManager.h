@@ -5,6 +5,9 @@
 #include "Debug.h"
 #include "../HardwareManager/Storage/StorageManager.h"
 
+// Forward declaration for Storage class
+class Storage;
+
 #include "LivingColors/LivingColors.h"
 #include "RF/RFController.h"
 #include "KakuDecoder/KakuDecoder.h"

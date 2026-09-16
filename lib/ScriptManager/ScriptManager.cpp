@@ -73,7 +73,7 @@ bool ScriptManager::loadScripts()
         "[ScriptManager] Loading scripts..."
     );
 
-    if (LittleFS.exists(SCRIPT_FILE))
+    if (Storage::exists(SCRIPT_FILE))
     {
         Debug::println(
             2,
@@ -99,7 +99,7 @@ bool ScriptManager::loadScripts()
         );
     }
 
-    if (LittleFS.exists(SCRIPT_BACKUP_FILE))
+    if (Storage::exists(SCRIPT_BACKUP_FILE))
     {
         Debug::println(
             2,
@@ -136,13 +136,10 @@ bool ScriptManager::loadScriptsFromFile(
         String(path)
     );
 
-    File file =
-        LittleFS.open(
-            path,
-            "r"
-        );
+    // Read file using Storage class
+    String fileContent = Storage::read(path);
 
-    if (!file)
+    if (fileContent.isEmpty())
     {
         Debug::println(
             1,
@@ -156,7 +153,7 @@ bool ScriptManager::loadScriptsFromFile(
     Debug::println(
         2,
         "[ScriptManager] File size: " +
-        String(file.size()) +
+        String(fileContent.length()) +
         " bytes"
     );
 
@@ -167,10 +164,8 @@ bool ScriptManager::loadScriptsFromFile(
     DeserializationError error =
         deserializeJson(
             doc,
-            file
+            fileContent
         );
-
-    file.close();
 
     if (error)
     {
@@ -842,49 +837,8 @@ bool ScriptManager::saveScriptsToFile(
     const String& json
 )
 {
-    String pathString =
-        path;
-
-    int slash =
-        pathString.lastIndexOf('/');
-
-    if (slash > 0)
-    {
-        String directory =
-            pathString.substring(
-                0,
-                slash
-            );
-
-        if (!LittleFS.exists(directory))
-        {
-            LittleFS.mkdir(directory);
-        }
-    }
-
-    File file =
-        LittleFS.open(
-            path,
-            "w"
-        );
-
-    if (!file)
-    {
-        Debug::println(
-            1,
-            "[ScriptManager] Failed to write " +
-            String(path)
-        );
-
-        return false;
-    }
-
-    size_t written =
-        file.print(json);
-
-    file.close();
-
-    return written == json.length();
+    // Write file using Storage class
+    return Storage::write(path, json);
 }
 
 
@@ -1121,7 +1075,7 @@ String ScriptManager::getScriptsAsJson()
 
     String output;
 
-    serializeJson(
+    serializeJsonPretty(
         doc,
         output
     );
@@ -1188,7 +1142,7 @@ String ScriptManager::getScriptById(
 
     String output;
 
-    serializeJson(
+    serializeJsonPretty(
         doc,
         output
     );

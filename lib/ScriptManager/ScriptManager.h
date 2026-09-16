@@ -3,6 +3,7 @@
 #include <Arduino.h>
 #include <LittleFS.h>
 #include <ArduinoJson.h>
+#include "../HardwareManager/Storage/StorageManager.h"
 
 /*
  * ScriptManager

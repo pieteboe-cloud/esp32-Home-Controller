@@ -1123,7 +1123,7 @@ bool WebUI::saveOrUpdateScript(
     }
     else if (doc.is<JsonObject>())
     {
-        serializeJson(
+        serializeJsonPretty(
             doc,
             script
         );

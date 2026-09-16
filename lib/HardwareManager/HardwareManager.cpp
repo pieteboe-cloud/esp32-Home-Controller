@@ -16,6 +16,17 @@ HardwareManager::HardwareManager()
 void HardwareManager::init() {
 #if DEBUG_LEVEL >= 2
     Debug::println(2, "[HW][INIT] Initializing hardware components");
+    Debug::println(2, "[HW][INIT] Initializing storage system");
+#endif
+    
+    // Initialize storage first - this will mount LittleFS and create standard config files
+    if (!Storage::begin()) {
+#if DEBUG_LEVEL >= 1
+        Debug::println(1, "[HW][ERROR] Storage initialization failed");
+#endif
+    }
+
+#if DEBUG_LEVEL >= 2
     Debug::println(2, "[HW][INIT] Starting LivingColors controller");
 #endif
     _living.begin();

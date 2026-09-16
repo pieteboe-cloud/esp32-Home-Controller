@@ -45,7 +45,7 @@ void SceneManager::begin()
 
 bool SceneManager::loadScenes()
 {
-    if (!LittleFS.exists(SCENE_FILE))
+    if (!Storage::exists(SCENE_FILE))
     {
         sceneCount = 0;
 
@@ -67,10 +67,10 @@ bool SceneManager::loadScenesFromFile(
     const char* path
 )
 {
-    File file =
-        LittleFS.open(path, "r");
+    // Read file using Storage class
+    String fileContent = Storage::read(path);
 
-    if (!file)
+    if (fileContent.isEmpty())
         return false;
 
     DynamicJsonDocument doc(
@@ -80,10 +80,8 @@ bool SceneManager::loadScenesFromFile(
     DeserializationError error =
         deserializeJson(
             doc,
-            file
+            fileContent
         );
-
-    file.close();
 
     if (error)
     {
@@ -683,18 +681,8 @@ bool SceneManager::saveScenesToFile(
     const String& json
 )
 {
-    File file =
-        LittleFS.open(path, "w");
-
-    if (!file)
-        return false;
-
-    size_t written =
-        file.print(json);
-
-    file.close();
-
-    return written == json.length();
+    // Write file using Storage class
+    return Storage::write(path, json);
 }
 
 

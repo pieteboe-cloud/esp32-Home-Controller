@@ -1,4 +1,5 @@
 #include "StorageManager.h"
+#include <functional>
 
 // Storage callback instance
 Storage::StorageCallback Storage::_callback = nullptr;
@@ -6,6 +7,9 @@ bool Storage::isInitialized = false;
 
 bool Storage::begin() {
     if (isInitialized) {
+        #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+            Debug::println(2, "[STORAGE] Already initialized");
+        #endif
         return true;
     }
     // LittleFS is the persistent storage layer for the web UI, config files, and action definitions.
@@ -45,6 +49,7 @@ bool Storage::begin() {
     getFSInfo();
     listDir("/");
 
+    isInitialized = true;
     triggerCallback("mounted", "LittleFS mounted successfully");
     Debug::println(2, "[STORAGE][INIT] Storage initialization complete; root directory has been inspected");
     return true;
@@ -165,91 +170,77 @@ bool Storage::write(const String& path, const String& data) {
 
 void Storage::listDir(const String& path) {
     // This is useful when debugging filesystem structure or checking that the web pages were written correctly.
-#if DEBUG_LEVEL >= 2
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
     Debug::println(2, "[STORAGE][LIST] Listing directory: " + path);
 #endif
 
     File root = LittleFS.open(path);
     if (!root || !root.isDirectory()) {
         #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][listDir] Not a directory or missing: " + path);
+            Debug::println(1, "[STORAGE][listDir] Not a directory or missing: " + path);
         #endif
         triggerCallback("list_failed", "Not a directory: " + path);
         return;
     }
 
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][listDir] Directory contents:");
-    #endif
+    #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+        Debug::println(2, "[STORAGE][listDir] Directory contents:");
     #endif
 
     File file = root.openNextFile();
     while (file) {
         if (!file.isDirectory()) {
             String fileInfo = String(file.name()) + " (" + String(file.size()) + " bytes)";
-            #ifdef DEBUG_LEVEL
-            #if DEBUG_LEVEL >= 2
-                Debug::println("  " + fileInfo);
-            #endif
+            #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+                Debug::println(2, "  " + fileInfo);
             #endif
         }
         file.close();
         file = root.openNextFile();
     }
     root.close();
-    Debug::println("[STORAGE][listDir] Directory scan complete: " + path);
+    #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+        Debug::println(2, "[STORAGE][listDir] Directory scan complete: " + path);
+    #endif
     triggerCallback("listed", path);
 }
 
 bool Storage::initializeStandardFiles() {
     // These files are the default config scaffolding for settings, devices, mappings, and schedules.
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][initializeStandardFiles] Initializing standard configuration files...");
-    #endif
+    #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+        Debug::println(2, "[STORAGE][initializeStandardFiles] Initializing standard configuration files...");
     #endif
 
     bool success = true;
 
-    // Create config directory if it doesn't exist
-    if (!exists("/config")) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 2
-            Debug::println("[STORAGE][initializeStandardFiles] Creating config directory...");
+    // Create ir_db directory if it doesn't exist
+    if (!exists("/ir_db")) {
+        #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+            Debug::println(2, "[STORAGE][initializeStandardFiles] Creating ir_db directory...");
         #endif
-        #endif
-        if (!mkdir("/config")) {
-            #ifdef DEBUG_LEVEL
-            #if DEBUG_LEVEL >= 1
-                Debug::println("[STORAGE][initializeStandardFiles] Failed to create config directory");
-            #endif
+        if (!mkdir("/ir_db")) {
+            #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
+                Debug::println(1, "[STORAGE][initializeStandardFiles] Failed to create ir_db directory");
             #endif
             success = false;
         }
     }
 
     // Initialize standard files
-    String files[] = {"/scripts.json", "/scenes.json" };
+    String files[] = {"/scripts.json", "/scenes.json"};
     String defaultContent[] = {
-        "{}",  // Empty JSON for settings
-        "[]",  // Empty array for devices
-        "{}",  // Empty JSON for mappings
-        "[]"   // Empty array for schedules
+        "{}",  // Empty JSON for scripts
+        "[]"   // Empty array for scenes
     };
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 2; i++) {
         if (!exists(files[i])) {
-            #ifdef DEBUG_LEVEL
-            #if DEBUG_LEVEL >= 2
-                Debug::println("[STORAGE][initializeStandardFiles] Creating standard file: " + files[i]);
-            #endif
+            #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+                Debug::println(2, "[STORAGE][initializeStandardFiles] Creating standard file: " + files[i]);
             #endif
             if (!write(files[i], defaultContent[i])) {
-                #ifdef DEBUG_LEVEL
-                #if DEBUG_LEVEL >= 1
-                    Debug::println("[STORAGE][initializeStandardFiles] Failed to create: " + files[i]);
-                #endif
+                #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
+                    Debug::println(1, "[STORAGE][initializeStandardFiles] Failed to create: " + files[i]);
                 #endif
                 success = false;
             }

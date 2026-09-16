@@ -49,55 +49,64 @@ void Translator::loadIrDatabase() {
     // the internal mapping database with IR code to virtual color mappings
     Debug::println(2, "[TRANSLATOR] Loading IR databases from /ir_db/...");
 
-    // Open the directory
-    File root = LittleFS.open("/ir_db");
-    if (!root || !root.isDirectory()) {
+    // Check if the directory exists
+    if (!Storage::exists("/ir_db")) {
         Debug::println(1, "[TRANSLATOR][ERROR] /ir_db/ directory not found!");
         return;
     }
 
-    File file = root.openNextFile();
-    while (file) {
-        if (!file.isDirectory() && String(file.name()).endsWith(".json")) {
-            Debug::println(3, "[TRANSLATOR] Loading: " + String(file.name()));
+    // List all files in the ir_db directory
+    Storage::listDir("/ir_db");
+    
+    // Get all JSON files from ir_db directory
+    String files[] = {"RGB_24KEY-R1.json", "RGB_44KEY-R1.json", "RGB_44KEY-R2.json"};
+    
+    for (int i = 0; i < 3; i++) {
+        String filePath = "/ir_db/" + files[i];
+        Debug::println(3, "[TRANSLATOR] Loading: " + filePath);
 
-            // Parse JSON
-            DynamicJsonDocument doc(4096);
-            DeserializationError error = deserializeJson(doc, file);
+        // Read file using Storage class
+        String fileContent = Storage::read(filePath);
+        
+        if (fileContent.isEmpty()) {
+            Debug::println(1, "[TRANSLATOR][ERROR] Failed to read file: " + filePath);
+            continue;
+        }
+        
+        // Parse JSON
+        DynamicJsonDocument doc(4096);
+        DeserializationError error = deserializeJson(doc, fileContent);
 
-            if (error) {
-                Debug::println(1, "[TRANSLATOR][ERROR] Failed to parse " + String(file.name()));
-            } else {
-                String remoteId = doc["id"] | "UNKNOWN";
-                JsonArray buttons = doc["buttons"];
+        if (error) {
+            Debug::println(1, "[TRANSLATOR][ERROR] Failed to parse " + filePath);
+        } else {
+            String remoteId = doc["id"] | "UNKNOWN";
+            JsonArray buttons = doc["buttons"];
 
-                for (JsonObject btn : buttons) {
-                    IrButtonMap map;
-                    map.remoteId = remoteId;
-                    map.buttonName = btn["name"] | "";
+            for (JsonObject btn : buttons) {
+                IrButtonMap map;
+                map.remoteId = remoteId;
+                map.buttonName = btn["name"] | "";
 
-                    // Normalize codes to a canonical 32-bit hex representation to keep
-                    // all leading zero bytes intact and avoid mismatches like 0x00ff1ae5 vs 0xff1ae5.
-                    String rawCode = btn["code"] | "0x00000000";
-                    map.code = normalizeHex32(rawCode);
+                // Normalize codes to a canonical 32-bit hex representation to keep
+                // all leading zero bytes intact and avoid mismatches like 0x00ff1ae5 vs 0xff1ae5.
+                String rawCode = btn["code"] | "0x00000000";
+                map.code = normalizeHex32(rawCode);
 
-                    map.virtualColor = btn["virtual_color"] | "";
-                    map.virtualColor.trim();
+                map.virtualColor = btn["virtual_color"] | "";
+                map.virtualColor.trim();
 
-                    if (map.virtualColor != "") {
-                        _irMap.push_back(map);
-                        #if DEBUG_LEVEL >= 3
-                        Debug::println(2, "  Mapped: " + map.code + " -> " + map.virtualColor + " (" + map.remoteId + ")");
-                        #endif
-                    }
+                if (map.virtualColor != "") {
+                    _irMap.push_back(map);
+                    #if DEBUG_LEVEL >= 3
+                    Debug::println(2, "  Mapped: " + map.code + " -> " + map.virtualColor + " (" + map.remoteId + ")");
+                    #endif
                 }
             }
         }
-        file = root.openNextFile();
     }
 
     Debug::println(2, "[TRANSLATOR] Loaded " + String(_irMap.size()) + " IR button mappings.");
-    root.close();
 }
 
 String Translator::resolveIrCode(const String& rawCode, const String& sourceRemote) {

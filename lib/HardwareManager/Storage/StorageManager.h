@@ -2,6 +2,7 @@
 #include <Arduino.h>
 #include <FS.h>
 #include <LittleFS.h>
+#include <functional>
 #include "../Debug/Debug.h"
 
 class Storage {

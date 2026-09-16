@@ -3,8 +3,8 @@
 ## 📊 Project Information
 
 - **Project Name**: `esp32_home-controller`
-- **Generated On**: 2026-09-16 08:56:56 (Europe/Amsterdam / GMT+02:00)
-- **Total Files Processed**: 204
+- **Generated On**: 2026-09-16 12:20:39 (Europe/Amsterdam / GMT+02:00)
+- **Total Files Processed**: 212
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
 
@@ -28,7 +28,7 @@
 │   ├── 📄 action_scripts.html (22.38 KB)
 │   ├── 📄 index.html (26.92 KB)
 │   ├── 📄 scenes.json (202 B)
-│   └── 📄 scripts.json (341 B)
+│   └── 📄 scripts.json (426 B)
 ├── 📁 HelperRGB/
 │   ├── 📄 Just Color Codes 126.json (7.68 KB)
 │   ├── 📄 RGB Color Codes.png (44.55 KB)
@@ -73,19 +73,19 @@
 │   │   │   ├── 📄 RFController.cpp (6.45 KB)
 │   │   │   └── 📄 RFController.h (2.75 KB)
 │   │   ├── 📁 Storage/
-│   │   │   ├── 📄 StorageManager.cpp (9.99 KB)
-│   │   │   └── 📄 StorageManager.h (1.32 KB)
+│   │   │   ├── 📄 StorageManager.cpp (10.36 KB)
+│   │   │   └── 📄 StorageManager.h (1.4 KB)
 │   │   ├── 📄 Config.h (1.97 KB)
-│   │   ├── 📄 HardwareManager.cpp (4.64 KB)
-│   │   └── 📄 HardwareManager.h (2.06 KB)
+│   │   ├── 📄 HardwareManager.cpp (5.13 KB)
+│   │   └── 📄 HardwareManager.h (2.12 KB)
 │   ├── 📁 SceneManager/
-│   │   ├── 📄 SceneManager.cpp (14.83 KB)
-│   │   └── 📄 SceneManager.h (2.31 KB)
+│   │   ├── 📄 SceneManager.cpp (15.56 KB)
+│   │   └── 📄 SceneManager.h (2.48 KB)
 │   ├── 📁 ScriptManager/
-│   │   ├── 📄 ScriptManager.cpp (23.43 KB)
-│   │   └── 📄 ScriptManager.h (4.87 KB)
+│   │   ├── 📄 ScriptManager.cpp (23.96 KB)
+│   │   └── 📄 ScriptManager.h (5.14 KB)
 │   ├── 📁 Translator/
-│   │   ├── 📄 Translator.cpp (5.74 KB)
+│   │   ├── 📄 Translator.cpp (6.12 KB)
 │   │   └── 📄 Translator.h (2.51 KB)
 │   ├── 📁 vendor/
 │   │   ├── 📁 irremote/
@@ -278,14 +278,24 @@
 │   │       ├── 📄 RCSwitch.h (6.41 KB)
 │   │       └── 📄 README.md (1.42 KB)
 │   └── 📁 WebUI/
-│       ├── 📄 WebUI.cpp (31.47 KB)
+│       ├── 📄 WebUI.cpp (31.48 KB)
 │       └── 📄 WebUI.h (1.82 KB)
 ├── 📁 src/
 │   └── 📄 main.cpp (2.56 KB)
+├── 📁 unpacked_fs/
+│   ├── 📁 ir_db/
+│   │   ├── 📄 RGB_24KEY-R1.json (2.53 KB)
+│   │   ├── 📄 RGB_44KEY-R1.json (5.13 KB)
+│   │   └── 📄 RGB_44KEY-R2.json (3.45 KB)
+│   ├── 📄 action_scripts.html (22.38 KB)
+│   ├── 📄 index.html (26.92 KB)
+│   ├── 📄 scenes.json (202 B)
+│   └── 📄 scripts.json (426 B)
 ├── 📄 issues.md (6.42 KB)
 ├── 📄 LivingColors Remote.png (197.23 KB)
 ├── 📄 platformio.ini (698 B)
 ├── 📄 repomix-output.xml (1.24 MB)
+├── 📄 script_scene.md (4.05 KB)
 ├── 📄 todo.md (3.94 KB)
 └── 📄 updatefs_preserve.py (9.24 KB)
 ```
@@ -404,9 +414,17 @@
 - [📄 lib/WebUI/WebUI.cpp](#📄-lib-webui-webui-cpp)
 - [📄 lib/WebUI/WebUI.h](#📄-lib-webui-webui-h)
 - [📄 src/main.cpp](#📄-src-main-cpp)
+- [📄 unpacked_fs/ir_db/RGB_24KEY-R1.json](#📄-unpacked-fs-ir-db-rgb-24key-r1-json)
+- [📄 unpacked_fs/ir_db/RGB_44KEY-R1.json](#📄-unpacked-fs-ir-db-rgb-44key-r1-json)
+- [📄 unpacked_fs/ir_db/RGB_44KEY-R2.json](#📄-unpacked-fs-ir-db-rgb-44key-r2-json)
+- [📄 unpacked_fs/action_scripts.html](#📄-unpacked-fs-action-scripts-html)
+- [📄 unpacked_fs/index.html](#📄-unpacked-fs-index-html)
+- [📄 unpacked_fs/scenes.json](#📄-unpacked-fs-scenes-json)
+- [📄 unpacked_fs/scripts.json](#📄-unpacked-fs-scripts-json)
 - [📄 issues.md](#📄-issues-md)
 - [📄 platformio.ini](#📄-platformio-ini)
 - [📄 repomix-output.xml](#📄-repomix-output-xml)
+- [📄 script_scene.md](#📄-script-scene-md)
 - [📄 todo.md](#📄-todo-md)
 - [📄 updatefs_preserve.py](#📄-updatefs-preserve-py)
 
@@ -416,11 +434,11 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Files | 204 |
-| Total Directories | 64 |
-| Text Files | 115 |
+| Total Files | 212 |
+| Total Directories | 66 |
+| Text Files | 123 |
 | Binary Files | 89 |
-| Total Size | 5.84 MB |
+| Total Size | 5.91 MB |
 
 ### 📄 File Types Distribution
 
@@ -430,13 +448,13 @@
 | `.ino` | 38 |
 | `.hpp` | 31 |
 | `.cpp` | 19 |
-| `.json` | 13 |
-| `.md` | 8 |
+| `.json` | 18 |
+| `.md` | 9 |
 | `.jpg` | 7 |
 | `.log` | 6 |
 | `.png` | 5 |
 | `.webp` | 5 |
-| `.html` | 2 |
+| `.html` | 4 |
 | `no extension` | 2 |
 | `.txt` | 2 |
 | `.properties` | 2 |
@@ -2337,7 +2355,7 @@ function escapeHtml(value){
 - **Language**: `json`
 - **Location**: `data/scenes.json`
 - **Relative Path**: `data`
-- **Created**: 2026-09-07 20:37:28 (Europe/Amsterdam / GMT+02:00)
+- **Created**: 2026-09-16 10:13:50 (Europe/Amsterdam / GMT+02:00)
 - **Modified**: 2026-09-16 08:32:48 (Europe/Amsterdam / GMT+02:00)
 - **MD5**: `7cfa79e8730050221ac41d0843df396b`
 - **SHA256**: `313e0d720e49dce50793e7f4b7655f3c9d8baf99ed6b93643239f3c90cdf2e1f`
@@ -2366,15 +2384,15 @@ function escapeHtml(value){
 ### <a id="📄-data-scripts-json"></a>📄 `data/scripts.json`
 
 **File Info:**
-- **Size**: 341 B
+- **Size**: 426 B
 - **Extension**: `.json`
 - **Language**: `json`
 - **Location**: `data/scripts.json`
 - **Relative Path**: `data`
-- **Created**: 2026-09-07 20:55:00 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 08:32:32 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `34bd440d6bbe9430e92bcc6c72f54d42`
-- **SHA256**: `d9e828a58196fda5ae7166e9f00a252c21c415b77f8a65e6d29d325a534b9b1c`
+- **Created**: 2026-09-16 10:25:22 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `3358d1663975d40ee0c1f852630ac272`
+- **SHA256**: `183301549c6e305918a112e71f3eeb967fdd34722b8eb699522c515f8dbd4b00`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -2394,6 +2412,12 @@ function escapeHtml(value){
       "living 6 rgb 205 155 200",
       "living 7 rgb 0 100 255"
     ]
+  },
+  {
+    "id": 2,
+    "name": "new",
+    "aliases": [],
+    "commands": []
   }
 ]
 ```
@@ -6980,21 +7004,22 @@ private:
 ### <a id="📄-lib-hardwaremanager-storage-storagemanager-cpp"></a>📄 `lib/HardwareManager/Storage/StorageManager.cpp`
 
 **File Info:**
-- **Size**: 9.99 KB
+- **Size**: 10.36 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/Storage/StorageManager.cpp`
 - **Relative Path**: `lib/HardwareManager/Storage`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 08:31:21 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `2aced9d1af5c0377fec0c544833cc546`
-- **SHA256**: `6bf6a348f284894b88c37994e3db14da84ed9cb965bedd67e123b8d6f4b08696`
+- **Modified**: 2026-09-16 09:47:53 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `1444ef910d399cf586e49e44a9ae8a55`
+- **SHA256**: `47c6a1d02bf3e1bc7a8ba3046c970c7f3fa5837d595dc9ab22c1165ee0d70348`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```cpp
 #include "StorageManager.h"
+#include <functional>
 
 // Storage callback instance
 Storage::StorageCallback Storage::_callback = nullptr;
@@ -7002,6 +7027,9 @@ bool Storage::isInitialized = false;
 
 bool Storage::begin() {
     if (isInitialized) {
+        #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+            Debug::println(2, "[STORAGE] Already initialized");
+        #endif
         return true;
     }
     // LittleFS is the persistent storage layer for the web UI, config files, and action definitions.
@@ -7041,6 +7069,7 @@ bool Storage::begin() {
     getFSInfo();
     listDir("/");
 
+    isInitialized = true;
     triggerCallback("mounted", "LittleFS mounted successfully");
     Debug::println(2, "[STORAGE][INIT] Storage initialization complete; root directory has been inspected");
     return true;
@@ -7161,91 +7190,77 @@ bool Storage::write(const String& path, const String& data) {
 
 void Storage::listDir(const String& path) {
     // This is useful when debugging filesystem structure or checking that the web pages were written correctly.
-#if DEBUG_LEVEL >= 2
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
     Debug::println(2, "[STORAGE][LIST] Listing directory: " + path);
 #endif
 
     File root = LittleFS.open(path);
     if (!root || !root.isDirectory()) {
         #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][listDir] Not a directory or missing: " + path);
+            Debug::println(1, "[STORAGE][listDir] Not a directory or missing: " + path);
         #endif
         triggerCallback("list_failed", "Not a directory: " + path);
         return;
     }
 
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][listDir] Directory contents:");
-    #endif
+    #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+        Debug::println(2, "[STORAGE][listDir] Directory contents:");
     #endif
 
     File file = root.openNextFile();
     while (file) {
         if (!file.isDirectory()) {
             String fileInfo = String(file.name()) + " (" + String(file.size()) + " bytes)";
-            #ifdef DEBUG_LEVEL
-            #if DEBUG_LEVEL >= 2
-                Debug::println("  " + fileInfo);
-            #endif
+            #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+                Debug::println(2, "  " + fileInfo);
             #endif
         }
         file.close();
         file = root.openNextFile();
     }
     root.close();
-    Debug::println("[STORAGE][listDir] Directory scan complete: " + path);
+    #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+        Debug::println(2, "[STORAGE][listDir] Directory scan complete: " + path);
+    #endif
     triggerCallback("listed", path);
 }
 
 bool Storage::initializeStandardFiles() {
     // These files are the default config scaffolding for settings, devices, mappings, and schedules.
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][initializeStandardFiles] Initializing standard configuration files...");
-    #endif
+    #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+        Debug::println(2, "[STORAGE][initializeStandardFiles] Initializing standard configuration files...");
     #endif
 
     bool success = true;
 
-    // Create config directory if it doesn't exist
-    if (!exists("/config")) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 2
-            Debug::println("[STORAGE][initializeStandardFiles] Creating config directory...");
+    // Create ir_db directory if it doesn't exist
+    if (!exists("/ir_db")) {
+        #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+            Debug::println(2, "[STORAGE][initializeStandardFiles] Creating ir_db directory...");
         #endif
-        #endif
-        if (!mkdir("/config")) {
-            #ifdef DEBUG_LEVEL
-            #if DEBUG_LEVEL >= 1
-                Debug::println("[STORAGE][initializeStandardFiles] Failed to create config directory");
-            #endif
+        if (!mkdir("/ir_db")) {
+            #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
+                Debug::println(1, "[STORAGE][initializeStandardFiles] Failed to create ir_db directory");
             #endif
             success = false;
         }
     }
 
     // Initialize standard files
-    String files[] = {"/scripts.json", "/scenes.json" };
+    String files[] = {"/scripts.json", "/scenes.json"};
     String defaultContent[] = {
-        "{}",  // Empty JSON for settings
-        "[]",  // Empty array for devices
-        "{}",  // Empty JSON for mappings
-        "[]"   // Empty array for schedules
+        "{}",  // Empty JSON for scripts
+        "[]"   // Empty array for scenes
     };
 
-    for (int i = 0; i < 4; i++) {
+    for (int i = 0; i < 2; i++) {
         if (!exists(files[i])) {
-            #ifdef DEBUG_LEVEL
-            #if DEBUG_LEVEL >= 2
-                Debug::println("[STORAGE][initializeStandardFiles] Creating standard file: " + files[i]);
-            #endif
+            #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+                Debug::println(2, "[STORAGE][initializeStandardFiles] Creating standard file: " + files[i]);
             #endif
             if (!write(files[i], defaultContent[i])) {
-                #ifdef DEBUG_LEVEL
-                #if DEBUG_LEVEL >= 1
-                    Debug::println("[STORAGE][initializeStandardFiles] Failed to create: " + files[i]);
-                #endif
+                #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
+                    Debug::println(1, "[STORAGE][initializeStandardFiles] Failed to create: " + files[i]);
                 #endif
                 success = false;
             }
@@ -7335,15 +7350,15 @@ bool Storage::isMounted() {
 ### <a id="📄-lib-hardwaremanager-storage-storagemanager-h"></a>📄 `lib/HardwareManager/Storage/StorageManager.h`
 
 **File Info:**
-- **Size**: 1.32 KB
+- **Size**: 1.4 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/HardwareManager/Storage/StorageManager.h`
 - **Relative Path**: `lib/HardwareManager/Storage`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-04 23:02:38 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `1823dc23934af5116c1a4b12dd73d971`
-- **SHA256**: `1fc8381195c95c3d1ed839149e04033cf562f414d26e8f788f2c891b473b89bb`
+- **Modified**: 2026-09-16 09:47:19 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `0a0f55960bf6d215fd00b243a2982d06`
+- **SHA256**: `77e42c567d5ea1b9526f05340f29f9799ee8e44500f985a038f27044a4314865`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7353,6 +7368,7 @@ bool Storage::isMounted() {
 #include <Arduino.h>
 #include <FS.h>
 #include <LittleFS.h>
+#include <functional>
 #include "../Debug/Debug.h"
 
 class Storage {
@@ -7493,15 +7509,15 @@ static const uint8_t LAMP_ADDRESSES[LAMP_COUNT][9] = {
 ### <a id="📄-lib-hardwaremanager-hardwaremanager-cpp"></a>📄 `lib/HardwareManager/HardwareManager.cpp`
 
 **File Info:**
-- **Size**: 4.64 KB
+- **Size**: 5.13 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/HardwareManager.cpp`
 - **Relative Path**: `lib/HardwareManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 08:56:09 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `ec2622d47f1d90c318912da4f3e8d431`
-- **SHA256**: `a6e39c23a5dbcd82814c488c46f4de094839f8520be3281caa9ce2b781812cb9`
+- **Modified**: 2026-09-16 09:37:50 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `abf1bfe6baf793748a108eee5dc591ab`
+- **SHA256**: `d530fe422c800a33e07014bfef9a4dca9e47bd2fb5d39e4b848273cb3f16a517`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7525,6 +7541,17 @@ HardwareManager::HardwareManager()
 void HardwareManager::init() {
 #if DEBUG_LEVEL >= 2
     Debug::println(2, "[HW][INIT] Initializing hardware components");
+    Debug::println(2, "[HW][INIT] Initializing storage system");
+#endif
+    
+    // Initialize storage first - this will mount LittleFS and create standard config files
+    if (!Storage::begin()) {
+#if DEBUG_LEVEL >= 1
+        Debug::println(1, "[HW][ERROR] Storage initialization failed");
+#endif
+    }
+
+#if DEBUG_LEVEL >= 2
     Debug::println(2, "[HW][INIT] Starting LivingColors controller");
 #endif
     _living.begin();
@@ -7679,15 +7706,15 @@ void HardwareManager::onKakuCommand(KakuCallback callback) { _kakuCb = callback;
 ### <a id="📄-lib-hardwaremanager-hardwaremanager-h"></a>📄 `lib/HardwareManager/HardwareManager.h`
 
 **File Info:**
-- **Size**: 2.06 KB
+- **Size**: 2.12 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/HardwareManager/HardwareManager.h`
 - **Relative Path**: `lib/HardwareManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 08:56:55 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `c60e30d95afa3860314da6538323a45e`
-- **SHA256**: `3aa637e97d9690ce689ca3884380f154b50f126ffbc6927db3371d7de82eede3`
+- **Modified**: 2026-09-16 09:37:56 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `111f5fbd1d470ff10e2d58d4cbaee546`
+- **SHA256**: `92eeb24508ddefe29b4fb7c2f80995d27898afdb5474bd82ff7a6ce8766cde61`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7699,6 +7726,9 @@ void HardwareManager::onKakuCommand(KakuCallback callback) { _kakuCb = callback;
 #include <functional>
 #include "Debug.h"
 #include "../HardwareManager/Storage/StorageManager.h"
+
+// Forward declaration for Storage class
+class Storage;
 
 #include "LivingColors/LivingColors.h"
 #include "RF/RFController.h"
@@ -7774,15 +7804,15 @@ private:
 ### <a id="📄-lib-scenemanager-scenemanager-cpp"></a>📄 `lib/SceneManager/SceneManager.cpp`
 
 **File Info:**
-- **Size**: 14.83 KB
+- **Size**: 15.56 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/SceneManager/SceneManager.cpp`
 - **Relative Path**: `lib/SceneManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-15 20:42:06 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `4905bd8308dfa37ad332e8ee62046c03`
-- **SHA256**: `4beeaecbeb194b6c4361d702cf74c48afb7bafd6db88a5d3a2119ee271f3ec9a`
+- **Modified**: 2026-09-16 09:43:30 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `dc2ffd62bbed7b1182aa36df8a4f0d21`
+- **SHA256**: `d8057d8505cd38955c37ec3e795a917a4704a010252d70ae34401ad824af3c53`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7835,7 +7865,7 @@ void SceneManager::begin()
 
 bool SceneManager::loadScenes()
 {
-    if (!LittleFS.exists(SCENE_FILE))
+    if (!Storage::exists(SCENE_FILE))
     {
         sceneCount = 0;
 
@@ -7857,10 +7887,10 @@ bool SceneManager::loadScenesFromFile(
     const char* path
 )
 {
-    File file =
-        LittleFS.open(path, "r");
+    // Read file using Storage class
+    String fileContent = Storage::read(path);
 
-    if (!file)
+    if (fileContent.isEmpty())
         return false;
 
     DynamicJsonDocument doc(
@@ -7870,10 +7900,8 @@ bool SceneManager::loadScenesFromFile(
     DeserializationError error =
         deserializeJson(
             doc,
-            file
+            fileContent
         );
-
-    file.close();
 
     if (error)
     {
@@ -8473,18 +8501,8 @@ bool SceneManager::saveScenesToFile(
     const String& json
 )
 {
-    File file =
-        LittleFS.open(path, "w");
-
-    if (!file)
-        return false;
-
-    size_t written =
-        file.print(json);
-
-    file.close();
-
-    return written == json.length();
+    // Write file using Storage class
+    return Storage::write(path, json);
 }
 
 
@@ -8631,15 +8649,15 @@ String SceneManager::getSceneById(
 ### <a id="📄-lib-scenemanager-scenemanager-h"></a>📄 `lib/SceneManager/SceneManager.h`
 
 **File Info:**
-- **Size**: 2.31 KB
+- **Size**: 2.48 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/SceneManager/SceneManager.h`
 - **Relative Path**: `lib/SceneManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 02:47:25 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `8e1745014a3be82fd93883f812cef1d5`
-- **SHA256**: `2a567bdaae58d4eba1dbcc84acc3d9ea85c59ed5ca53edca1ec7a7d34bef7649`
+- **Modified**: 2026-09-16 09:44:48 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `4c40622b4376de6d79824fecb069d077`
+- **SHA256**: `f78c954eccc1483d06d327477111d6b7d5624ad746657ddcc09263922ad27920`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -8650,6 +8668,7 @@ String SceneManager::getSceneById(
 #include <Arduino.h>
 #include <LittleFS.h>
 #include <ArduinoJson.h>
+#include "../HardwareManager/Storage/StorageManager.h"
 
 class ScriptManager;
 
@@ -8773,15 +8792,15 @@ private:
 ### <a id="📄-lib-scriptmanager-scriptmanager-cpp"></a>📄 `lib/ScriptManager/ScriptManager.cpp`
 
 **File Info:**
-- **Size**: 23.43 KB
+- **Size**: 23.96 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/ScriptManager/ScriptManager.cpp`
 - **Relative Path**: `lib/ScriptManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-15 20:42:06 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `c91fec64c7e6170563b3444a78b06fdc`
-- **SHA256**: `a42477badf5ca8dedb8a832db1385f7d1acb7acdb61a69c40200d7f7afda89ae`
+- **Modified**: 2026-09-16 11:52:04 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `e642897a1496687d7b3e52e483e025d3`
+- **SHA256**: `bfe38dcf12b1787e5ceeed99b10079ffecf7bcde5ab24b183b8c4059f3303127`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -8862,7 +8881,7 @@ bool ScriptManager::loadScripts()
         "[ScriptManager] Loading scripts..."
     );
 
-    if (LittleFS.exists(SCRIPT_FILE))
+    if (Storage::exists(SCRIPT_FILE))
     {
         Debug::println(
             2,
@@ -8888,7 +8907,7 @@ bool ScriptManager::loadScripts()
         );
     }
 
-    if (LittleFS.exists(SCRIPT_BACKUP_FILE))
+    if (Storage::exists(SCRIPT_BACKUP_FILE))
     {
         Debug::println(
             2,
@@ -8925,13 +8944,10 @@ bool ScriptManager::loadScriptsFromFile(
         String(path)
     );
 
-    File file =
-        LittleFS.open(
-            path,
-            "r"
-        );
+    // Read file using Storage class
+    String fileContent = Storage::read(path);
 
-    if (!file)
+    if (fileContent.isEmpty())
     {
         Debug::println(
             1,
@@ -8945,7 +8961,7 @@ bool ScriptManager::loadScriptsFromFile(
     Debug::println(
         2,
         "[ScriptManager] File size: " +
-        String(file.size()) +
+        String(fileContent.length()) +
         " bytes"
     );
 
@@ -8956,10 +8972,8 @@ bool ScriptManager::loadScriptsFromFile(
     DeserializationError error =
         deserializeJson(
             doc,
-            file
+            fileContent
         );
-
-    file.close();
 
     if (error)
     {
@@ -9631,49 +9645,8 @@ bool ScriptManager::saveScriptsToFile(
     const String& json
 )
 {
-    String pathString =
-        path;
-
-    int slash =
-        pathString.lastIndexOf('/');
-
-    if (slash > 0)
-    {
-        String directory =
-            pathString.substring(
-                0,
-                slash
-            );
-
-        if (!LittleFS.exists(directory))
-        {
-            LittleFS.mkdir(directory);
-        }
-    }
-
-    File file =
-        LittleFS.open(
-            path,
-            "w"
-        );
-
-    if (!file)
-    {
-        Debug::println(
-            1,
-            "[ScriptManager] Failed to write " +
-            String(path)
-        );
-
-        return false;
-    }
-
-    size_t written =
-        file.print(json);
-
-    file.close();
-
-    return written == json.length();
+    // Write file using Storage class
+    return Storage::write(path, json);
 }
 
 
@@ -9910,7 +9883,7 @@ String ScriptManager::getScriptsAsJson()
 
     String output;
 
-    serializeJson(
+    serializeJsonPretty(
         doc,
         output
     );
@@ -9977,7 +9950,7 @@ String ScriptManager::getScriptById(
 
     String output;
 
-    serializeJson(
+    serializeJsonPretty(
         doc,
         output
     );
@@ -9991,15 +9964,15 @@ String ScriptManager::getScriptById(
 ### <a id="📄-lib-scriptmanager-scriptmanager-h"></a>📄 `lib/ScriptManager/ScriptManager.h`
 
 **File Info:**
-- **Size**: 4.87 KB
+- **Size**: 5.14 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/ScriptManager/ScriptManager.h`
 - **Relative Path**: `lib/ScriptManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 04:50:00 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `4c093896d3de89f440da75f47044b006`
-- **SHA256**: `c4e55fe76c96276fc7c86ff11957e187e139bde1d4d69498285ff4922ed6dc04`
+- **Modified**: 2026-09-16 09:44:37 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `fe679f959929724829a38dabdbd3b714`
+- **SHA256**: `67e6d664854d380fd0bfcd21e231162e693086fdb1f2fb9e7e040d6e9879963f`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -10010,6 +9983,7 @@ String ScriptManager::getScriptById(
 #include <Arduino.h>
 #include <LittleFS.h>
 #include <ArduinoJson.h>
+#include "../HardwareManager/Storage/StorageManager.h"
 
 /*
  * ScriptManager
@@ -10233,15 +10207,15 @@ private:
 ### <a id="📄-lib-translator-translator-cpp"></a>📄 `lib/Translator/Translator.cpp`
 
 **File Info:**
-- **Size**: 5.74 KB
+- **Size**: 6.12 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/Translator/Translator.cpp`
 - **Relative Path**: `lib/Translator`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-02 17:03:56 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `68aae0a1d67e0b348118cfcfb68fa877`
-- **SHA256**: `5fc3369e877271e71f609d94556b0f31971e435dfb7f8e8831a5ac49b0bb2ab6`
+- **Modified**: 2026-09-16 09:46:59 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `5151c96c231ebb1e20998f8ee3d1582d`
+- **SHA256**: `fa57931ffa565fca3d2f14aed8da8fc83005d1ee68f9cb2310c22fada0d8cad7`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -10298,55 +10272,64 @@ void Translator::loadIrDatabase() {
     // the internal mapping database with IR code to virtual color mappings
     Debug::println(2, "[TRANSLATOR] Loading IR databases from /ir_db/...");
 
-    // Open the directory
-    File root = LittleFS.open("/ir_db");
-    if (!root || !root.isDirectory()) {
+    // Check if the directory exists
+    if (!Storage::exists("/ir_db")) {
         Debug::println(1, "[TRANSLATOR][ERROR] /ir_db/ directory not found!");
         return;
     }
 
-    File file = root.openNextFile();
-    while (file) {
-        if (!file.isDirectory() && String(file.name()).endsWith(".json")) {
-            Debug::println(3, "[TRANSLATOR] Loading: " + String(file.name()));
+    // List all files in the ir_db directory
+    Storage::listDir("/ir_db");
+    
+    // Get all JSON files from ir_db directory
+    String files[] = {"RGB_24KEY-R1.json", "RGB_44KEY-R1.json", "RGB_44KEY-R2.json"};
+    
+    for (int i = 0; i < 3; i++) {
+        String filePath = "/ir_db/" + files[i];
+        Debug::println(3, "[TRANSLATOR] Loading: " + filePath);
 
-            // Parse JSON
-            DynamicJsonDocument doc(4096);
-            DeserializationError error = deserializeJson(doc, file);
+        // Read file using Storage class
+        String fileContent = Storage::read(filePath);
+        
+        if (fileContent.isEmpty()) {
+            Debug::println(1, "[TRANSLATOR][ERROR] Failed to read file: " + filePath);
+            continue;
+        }
+        
+        // Parse JSON
+        DynamicJsonDocument doc(4096);
+        DeserializationError error = deserializeJson(doc, fileContent);
 
-            if (error) {
-                Debug::println(1, "[TRANSLATOR][ERROR] Failed to parse " + String(file.name()));
-            } else {
-                String remoteId = doc["id"] | "UNKNOWN";
-                JsonArray buttons = doc["buttons"];
+        if (error) {
+            Debug::println(1, "[TRANSLATOR][ERROR] Failed to parse " + filePath);
+        } else {
+            String remoteId = doc["id"] | "UNKNOWN";
+            JsonArray buttons = doc["buttons"];
 
-                for (JsonObject btn : buttons) {
-                    IrButtonMap map;
-                    map.remoteId = remoteId;
-                    map.buttonName = btn["name"] | "";
+            for (JsonObject btn : buttons) {
+                IrButtonMap map;
+                map.remoteId = remoteId;
+                map.buttonName = btn["name"] | "";
 
-                    // Normalize codes to a canonical 32-bit hex representation to keep
-                    // all leading zero bytes intact and avoid mismatches like 0x00ff1ae5 vs 0xff1ae5.
-                    String rawCode = btn["code"] | "0x00000000";
-                    map.code = normalizeHex32(rawCode);
+                // Normalize codes to a canonical 32-bit hex representation to keep
+                // all leading zero bytes intact and avoid mismatches like 0x00ff1ae5 vs 0xff1ae5.
+                String rawCode = btn["code"] | "0x00000000";
+                map.code = normalizeHex32(rawCode);
 
-                    map.virtualColor = btn["virtual_color"] | "";
-                    map.virtualColor.trim();
+                map.virtualColor = btn["virtual_color"] | "";
+                map.virtualColor.trim();
 
-                    if (map.virtualColor != "") {
-                        _irMap.push_back(map);
-                        #if DEBUG_LEVEL >= 3
-                        Debug::println(2, "  Mapped: " + map.code + " -> " + map.virtualColor + " (" + map.remoteId + ")");
-                        #endif
-                    }
+                if (map.virtualColor != "") {
+                    _irMap.push_back(map);
+                    #if DEBUG_LEVEL >= 3
+                    Debug::println(2, "  Mapped: " + map.code + " -> " + map.virtualColor + " (" + map.remoteId + ")");
+                    #endif
                 }
             }
         }
-        file = root.openNextFile();
     }
 
     Debug::println(2, "[TRANSLATOR] Loaded " + String(_irMap.size()) + " IR button mappings.");
-    root.close();
 }
 
 String Translator::resolveIrCode(const String& rawCode, const String& sourceRemote) {
@@ -31242,15 +31225,15 @@ compile a sniffer tool and transmission commands.
 ### <a id="📄-lib-webui-webui-cpp"></a>📄 `lib/WebUI/WebUI.cpp`
 
 **File Info:**
-- **Size**: 31.47 KB
+- **Size**: 31.48 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/WebUI/WebUI.cpp`
 - **Relative Path**: `lib/WebUI`
 - **Created**: 2026-09-07 13:29:46 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-15 20:42:06 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `27f197afb57d77d842efaf95986f29fa`
-- **SHA256**: `25e1a5b35e4d5ef2873abd20538fdcf20b915060578939154c748cfb89fd66d9`
+- **Modified**: 2026-09-16 11:52:18 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `47ab94205a37b10ea3ab7f27f50c5d0d`
+- **SHA256**: `22d8a14ce3b3442242a978ce483639179fc3be3515f72b71ebe2c900d94f1c8e`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -32381,7 +32364,7 @@ bool WebUI::saveOrUpdateScript(
     }
     else if (doc.is<JsonObject>())
     {
-        serializeJson(
+        serializeJsonPretty(
             doc,
             script
         );
@@ -32683,6 +32666,1965 @@ void loop() {
     app.update();
 }
 
+```
+
+---
+
+### <a id="📄-unpacked-fs-ir-db-rgb-24key-r1-json"></a>📄 `unpacked_fs/ir_db/RGB_24KEY-R1.json`
+
+**File Info:**
+- **Size**: 2.53 KB
+- **Extension**: `.json`
+- **Language**: `json`
+- **Location**: `unpacked_fs/ir_db/RGB_24KEY-R1.json`
+- **Relative Path**: `unpacked_fs/ir_db`
+- **Created**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `592e7d45700501cfc123c5f87ec2e98c`
+- **SHA256**: `6b031738e945603b1fc465c5c4a19819f634f17cfd3be6156565284cf974a1f3`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```json
+{
+  "id": "RGB_24KEY-R1",
+  "name": "24-Key Remote Unit 1",
+  "buttons": [
+   {
+  "name": "BRIGHTER",
+  "code": "0xf700ff00",
+  "virtual_color": ""
+},
+{
+  "name": "DARKER",
+  "code": "0xf7807f00",
+  "virtual_color": ""
+},
+{
+  "name": "OFF",
+  "code": "0xf740bf00",
+  "virtual_color": ""
+},
+{
+  "name": "ON",
+  "code": "0xf7c03f00",
+  "virtual_color": ""
+},
+{
+  "name": "RED",
+  "code": "0xfb04ef00",
+  "virtual_color": "VC_RED",
+  "nominal_color": "#FF0000"
+},
+{
+  "name": "GREEN",
+  "code": "0xfa05ef00",
+  "virtual_color": "VC_GREEN",
+  "nominal_color": "#00FF00"
+},
+{
+  "name": "BLUE",
+  "code": "0xf906ef00",
+  "virtual_color": "VC_BLUE",
+  "nominal_color": "#0000FF"
+},
+{
+  "name": "WHITE",
+  "code": "0xf807ef00",
+  "virtual_color": "VC_WHITE",
+  "nominal_color": "#FFFFFF"
+},
+{
+  "name": "ORANGE",
+  "code": "0xf708ef00",
+  "virtual_color": "VC_ORANGE",
+  "nominal_color": "#FF8000"
+},
+{
+  "name": "LIGHT_GREEN",
+  "code": "0xf609ef00",
+  "virtual_color": "VC_LIGHT_GREEN",
+  "nominal_color": "#90EE90"
+},
+{
+  "name": "DARK_CYAN",
+  "code": "0xf50aef00",
+  "virtual_color": "VC_DARK_CYAN",
+  "nominal_color": "#008B8B"
+},
+{
+  "name": "FLASH",
+  "code": "0xf40bef00",
+  "virtual_color": ""
+},
+{
+  "name": "LIGHT_ORANGE",
+  "code": "0xf30cef00",
+  "virtual_color": "VC_LIGHT_ORANGE",
+  "nominal_color": "#FFB347"
+},
+{
+  "name": "CYAN",
+  "code": "0xf20def00",
+  "virtual_color": "VC_CYAN",
+  "nominal_color": "#00FFFF"
+},
+{
+  "name": "DARK_PURPLE",
+  "code": "0xf10eef00",
+  "virtual_color": "VC_DARK_PURPLE",
+  "nominal_color": "#4B0082"
+},
+{
+  "name": "STROBE",
+  "code": "0xf00fef00",
+  "virtual_color": ""
+},
+{
+  "name": "YELLOW_ORANGE",
+  "code": "0xef10ef00",
+  "virtual_color": "VC_YELLOW_ORANGE",
+  "nominal_color": "#FFA500"
+},
+{
+  "name": "LIGHT_BLUE",
+  "code": "0xee11ef00",
+  "virtual_color": "VC_LIGHT_BLUE",
+  "nominal_color": "#ADD8E6"
+},
+{
+  "name": "PURPLE",
+  "code": "0xed12ef00",
+  "virtual_color": "VC_PURPLE",
+  "nominal_color": "#800080"
+},
+{
+  "name": "FADE",
+  "code": "0xec13ef00",
+  "virtual_color": ""
+},
+{
+  "name": "YELLOW",
+  "code": "0xeb14ef00",
+  "virtual_color": "VC_YELLOW",
+  "nominal_color": "#FFFF00"
+},
+{
+  "name": "TEAL",
+  "code": "0xea15ef00",
+  "virtual_color": "VC_TEAL",
+  "nominal_color": "#008080"
+},
+{
+  "name": "MAGENTA",
+  "code": "0xe916ef00",
+  "virtual_color": "VC_MAGENTA",
+  "nominal_color": "#FF00FF"
+},
+{
+  "name": "SMOOTH",
+  "code": "0xe817ef00",
+  "virtual_color": ""
+}   
+  ]
+}   
+
+
+
+```
+
+---
+
+### <a id="📄-unpacked-fs-ir-db-rgb-44key-r1-json"></a>📄 `unpacked_fs/ir_db/RGB_44KEY-R1.json`
+
+**File Info:**
+- **Size**: 5.13 KB
+- **Extension**: `.json`
+- **Language**: `json`
+- **Location**: `unpacked_fs/ir_db/RGB_44KEY-R1.json`
+- **Relative Path**: `unpacked_fs/ir_db`
+- **Created**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `c7182da89c0f96dd12af269407cd6a95`
+- **SHA256**: `ef55f08c5254745faa9334d40af426b15496ab877792d371ce1b1cd3f02b0cf2`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```json
+{
+  "id": "RGB_44KEY-R1",
+  "name": "44-Key Remote Unit 1",
+  "buttons": [
+    {
+      "name": "BRIGHTER",
+      "code": "0x00ff3ac5",
+      "virtual_color": ""
+    },
+    {
+      "name": "DARKER",
+      "code": "0x00ffba45",
+      "virtual_color": ""
+    },
+    {
+      "name": "PLAY_PAUSE",
+      "code": "0x00ff827d",
+      "virtual_color": ""
+    },
+    {
+      "name": "POWER",
+      "code": "0x00ff02fd",
+      "virtual_color": ""
+    },
+
+    {
+      "name": "RED",
+      "code": "0x00ff1ae5",
+      "virtual_color": "VC_RED",
+      "nominal_color": "#FF0000"
+    },
+    {
+      "name": "GREEN",
+      "code": "0x00ff9a65",
+      "virtual_color": "VC_GREEN",
+      "nominal_color": "#00FF00"
+    },
+    {
+      "name": "BLUE",
+      "code": "0x00ffa25d",
+      "virtual_color": "VC_BLUE",
+      "nominal_color": "#0000FF"
+    },
+    {
+      "name": "WHITE",
+      "code": "0x00ff22dd",
+      "virtual_color": "VC_WHITE",
+      "nominal_color": "#FFFFFF"
+    },
+
+    {
+      "name": "ORANGE",
+      "code": "0x00ff2ad5",
+      "virtual_color": "VC_ORANGE",
+      "nominal_color": "#FF8000"
+    },
+    {
+      "name": "TEAL",
+      "code": "0x00ffaa55",
+      "virtual_color": "VC_TEAL",
+      "nominal_color": "#008080"
+    },
+    {
+      "name": "PURPLE",
+      "code": "0x00ff926d",
+      "virtual_color": "VC_PURPLE",
+      "nominal_color": "#800080"
+    },
+    {
+      "name": "PINK",
+      "code": "0x00ff12ed",
+      "virtual_color": "VC_PINK",
+      "nominal_color": "#FF69B4"
+    },
+
+    {
+      "name": "YELLOW_ORANGE",
+      "code": "0x00ff0af5",
+      "virtual_color": "VC_YELLOW_ORANGE",
+      "nominal_color": "#FFA500"
+    },
+    {
+      "name": "AQUA",
+      "code": "0x00ff8a75",
+      "virtual_color": "VC_AQUA",
+      "nominal_color": "#00FFFF"
+    },
+    {
+      "name": "MAGENTA",
+      "code": "0x00ffb24d",
+      "virtual_color": "VC_MAGENTA",
+      "nominal_color": "#FF00FF"
+    },
+    {
+      "name": "LIGHT_PINK",
+      "code": "0x00ff32cd",
+      "virtual_color": "VC_LIGHT_PINK",
+      "nominal_color": "#FFB6C1"
+    },
+
+    {
+      "name": "YELLOW",
+      "code": "0x00ff38c7",
+      "virtual_color": "VC_YELLOW",
+      "nominal_color": "#FFFF00"
+    },
+    {
+      "name": "CYAN",
+      "code": "0x00ffb847",
+      "virtual_color": "VC_CYAN",
+      "nominal_color": "#00FFFF"
+    },
+    {
+      "name": "VIOLET",
+      "code": "0x00ff7887",
+      "virtual_color": "VC_VIOLET",
+      "nominal_color": "#8F00FF"
+    },
+    {
+      "name": "SKY_BLUE",
+      "code": "0x00fff807",
+      "virtual_color": "VC_SKY_BLUE",
+      "nominal_color": "#87CEEB"
+    },
+
+    {
+      "name": "LIGHT_YELLOW",
+      "code": "0x00ff18e7",
+      "virtual_color": "VC_LIGHT_YELLOW",
+      "nominal_color": "#FFFFD0"
+    },
+    {
+      "name": "LIGHT_CYAN",
+      "code": "0x00ff9867",
+      "virtual_color": "VC_LIGHT_CYAN",
+      "nominal_color": "#E0FFFF"
+    },
+    {
+      "name": "LIGHT_MAGENTA",
+      "code": "0x00ff58a7",
+      "virtual_color": "VC_LIGHT_MAGENTA",
+      "nominal_color": "#FF80FF"
+    },
+    {
+      "name": "LIGHT_SKY_BLUE",
+      "code": "0x00ffd827",
+      "virtual_color": "VC_LIGHT_SKY_BLUE",
+      "nominal_color": "#87CEFF"
+    },
+
+    {
+      "name": "RED_UP",
+      "code": "0x00ff28d7",
+      "virtual_color": ""
+    },
+    {
+      "name": "GREEN_UP",
+      "code": "0x00ffa857",
+      "virtual_color": ""
+    },
+    {
+      "name": "BLUE_UP",
+      "code": "0x00ff6897",
+      "virtual_color": ""
+    },
+    {
+      "name": "QUICK",
+      "code": "0x00ffe817",
+      "virtual_color": ""
+    },
+
+    {
+      "name": "RED_DOWN",
+      "code": "0x00ff08f7",
+      "virtual_color": ""
+    },
+    {
+      "name": "GREEN_DOWN",
+      "code": "0x00ff8877",
+      "virtual_color": ""
+    },
+    {
+      "name": "BLUE_DOWN",
+      "code": "0x00ff48b7",
+      "virtual_color": ""
+    },
+    {
+      "name": "SLOW",
+      "code": "0x00ffc837",
+      "virtual_color": ""
+    },
+
+    {
+      "name": "DIY1",
+      "code": "0x00ff30cf",
+      "virtual_color": ""
+    },
+    {
+      "name": "DIY2",
+      "code": "0x00ffb04f",
+      "virtual_color": ""
+    },
+    {
+      "name": "DIY3",
+      "code": "0x00ff708f",
+      "virtual_color": ""
+    },
+    {
+      "name": "AUTO",
+      "code": "0x00fff00f",
+      "virtual_color": ""
+    },
+
+    {
+      "name": "DIY4",
+      "code": "0x00ff10ef",
+      "virtual_color": ""
+    },
+    {
+      "name": "DIY5",
+      "code": "0x00ff906f",
+      "virtual_color": ""
+    },
+    {
+      "name": "DIY6",
+      "code": "0x00ff50af",
+      "virtual_color": ""
+    },
+    {
+      "name": "FLASH",
+      "code": "0x00ffd02f",
+      "virtual_color": ""
+    },
+
+    {
+      "name": "JUMP3",
+      "code": "0x00ff20df",
+      "virtual_color": ""
+    },
+    {
+      "name": "JUMP7",
+      "code": "0x00ffa05f",
+      "virtual_color": ""
+    },
+    {
+      "name": "FADE3",
+      "code": "0x00ff609f",
+      "virtual_color": ""
+    },
+    {
+      "name": "FADE7",
+      "code": "0x00ffe01f",
+      "virtual_color": ""
+    }
+  ]
+} 
+
+```
+
+---
+
+### <a id="📄-unpacked-fs-ir-db-rgb-44key-r2-json"></a>📄 `unpacked_fs/ir_db/RGB_44KEY-R2.json`
+
+**File Info:**
+- **Size**: 3.45 KB
+- **Extension**: `.json`
+- **Language**: `json`
+- **Location**: `unpacked_fs/ir_db/RGB_44KEY-R2.json`
+- **Relative Path**: `unpacked_fs/ir_db`
+- **Created**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `f62a75d53885e11f4fe7efcfa688bc6d`
+- **SHA256**: `68bb58a27af546e358a0452c5a81597340615a4f35db53b536bfb1d2b0972013`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```json
+{
+  "id": "RGB_44KEY-R2",
+  "name": "44-Key Remote Unit 2",
+  "buttons": [
+    {"name": "BRIGHTER",      "code": "0xFF3AC5", "virtual_color": ""},
+    {"name": "DARKER",        "code": "0xFFBA45", "virtual_color": ""},
+    {"name": "PLAY_PAUSE",    "code": "0xFF827D", "virtual_color": ""},
+    {"name": "POWER",         "code": "0xFF02FD", "virtual_color": ""},
+
+    {"name": "RED",           "code": "0xFF1AE5", "virtual_color": "VC_RED"},
+    {"name": "GREEN",         "code": "0xFF9A65", "virtual_color": "VC_GREEN"},
+    {"name": "BLUE",          "code": "0xFFA25D", "virtual_color": "VC_BLUE"},
+    {"name": "WHITE",         "code": "0xFF22DD", "virtual_color": "VC_WHITE"},
+
+    {"name": "ORANGE",        "code": "0xFF2AD5", "virtual_color": "VC_ORANGE"},
+    {"name": "TEAL",          "code": "0xFFAA55", "virtual_color": "VC_TEAL"},
+    {"name": "PURPLE",        "code": "0xFF926D", "virtual_color": "VC_PURPLE"},
+    {"name": "PINK",          "code": "0xFF12ED", "virtual_color": "VC_PINK"},
+
+    {"name": "YELLOW_ORANGE", "code": "0xFF0AF5", "virtual_color": "VC_YELLOW_ORANGE"},
+    {"name": "AQUA",          "code": "0xFF8A75", "virtual_color": "VC_AQUA"},
+    {"name": "MAGENTA",       "code": "0xFFB24D", "virtual_color": "VC_MAGENTA"},
+    {"name": "LIGHT_PINK",    "code": "0xFF32CD", "virtual_color": "VC_LIGHT_PINK"},
+
+    {"name": "YELLOW",        "code": "0xFF38C7", "virtual_color": "VC_YELLOW"},
+    {"name": "CYAN",          "code": "0xFFB847", "virtual_color": "VC_CYAN"},
+    {"name": "VIOLET",        "code": "0xFF7887", "virtual_color": "VC_VIOLET"},
+    {"name": "SKY_BLUE",      "code": "0xFFF807", "virtual_color": "VC_SKY_BLUE"},
+
+    {"name": "LIGHT_YELLOW",  "code": "0xFF18E7", "virtual_color": "VC_LIGHT_YELLOW"},
+    {"name": "LIGHT_CYAN",    "code": "0xFF9867", "virtual_color": "VC_LIGHT_CYAN"},
+    {"name": "LIGHT_MAGENTA", "code": "0xFF58A7", "virtual_color": "VC_LIGHT_MAGENTA"},
+    {"name": "LIGHT_SKY_BLUE","code": "0xFFD827", "virtual_color": "VC_LIGHT_SKY_BLUE"},
+
+    {"name": "RED_UP",        "code": "0xFF28D7", "virtual_color": ""},
+    {"name": "GREEN_UP",      "code": "0xFFA857", "virtual_color": ""},
+    {"name": "BLUE_UP",       "code": "0xFF6897", "virtual_color": ""},
+    {"name": "QUICK",         "code": "0xFFE817", "virtual_color": ""},
+
+    {"name": "RED_DOWN",      "code": "0xFF08F7", "virtual_color": ""},
+    {"name": "GREEN_DOWN",    "code": "0xFF8877", "virtual_color": ""},
+    {"name": "BLUE_DOWN",     "code": "0xFF48B7", "virtual_color": ""},
+    {"name": "SLOW",          "code": "0xFFC837", "virtual_color": ""},
+
+    {"name": "DIY1",          "code": "0xFF30CF", "virtual_color": ""},
+    {"name": "DIY2",          "code": "0xFFB04F", "virtual_color": ""},
+    {"name": "DIY3",          "code": "0xFF708F", "virtual_color": ""},
+    {"name": "AUTO",          "code": "0xFFF00F", "virtual_color": ""},
+
+    {"name": "DIY4",          "code": "0xFF10EF", "virtual_color": ""},
+    {"name": "DIY5",          "code": "0xFF906F", "virtual_color": ""},
+    {"name": "DIY6",          "code": "0xFF50AF", "virtual_color": ""},
+    {"name": "FLASH",         "code": "0xFFD02F", "virtual_color": ""},
+          
+    {"name": "JUMP3",         "code": "0xFF20DF", "virtual_color": ""},
+    {"name": "JUMP7",         "code": "0xFFA05F", "virtual_color": ""},
+    {"name": "FADE3",         "code": "0xFF609F", "virtual_color": ""},
+    {"name": "FADE7",         "code": "0xFFE01F", "virtual_color": ""}
+  ]
+}
+
+```
+
+---
+
+### <a id="📄-unpacked-fs-action-scripts-html"></a>📄 `unpacked_fs/action_scripts.html`
+
+**File Info:**
+- **Size**: 22.38 KB
+- **Extension**: `.html`
+- **Language**: `html`
+- **Location**: `unpacked_fs/action_scripts.html`
+- **Relative Path**: `unpacked_fs`
+- **Created**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `dd91080ed86455960504ed45c1b485b7`
+- **SHA256**: `5f0ab6f80852f7bbf7cd29db7d8bab42e18f8d96502f843d1547885cab8cd492`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Action Scripts</title>
+<style>
+:root{
+  --bg:#101416;--panel:#181d20;--panel2:#20272b;--line:#30393e;
+  --text:#e8eeee;--muted:#98a5aa;--accent:#35c7c0;--accent2:#1e8f8a;
+  --danger:#d95c5c;--ok:#58c98b;--shadow:0 8px 30px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:14px Arial,Helvetica,sans-serif}
+button,input,select{font:inherit}
+button{border:1px solid var(--line);background:#252d31;color:var(--text);border-radius:6px;padding:9px 13px;cursor:pointer}
+button:hover{background:#303a3f}
+button.primary{background:var(--accent2);border-color:var(--accent);color:#fff}
+button.primary:hover{background:#249f99}
+button.danger{border-color:#743f43;color:#ffaaaa}
+button.small{padding:5px 8px;font-size:12px}
+button.icon{width:34px;padding:7px 0}
+input,select{width:100%;background:#0e1214;color:var(--text);border:1px solid var(--line);border-radius:6px;padding:9px 10px;outline:none}
+input:focus,select:focus{border-color:var(--accent)}
+.app{display:grid;grid-template-columns:280px 1fr;min-height:100vh}
+.sidebar{border-right:1px solid var(--line);background:#151a1d;padding:18px;display:flex;flex-direction:column;gap:12px}
+.logo{font-size:21px;font-weight:700;color:#8ce7e2;margin-bottom:4px}
+.subtitle{color:var(--muted);font-size:12px;margin-bottom:8px}
+.list{display:flex;flex-direction:column;gap:5px;overflow:auto;min-height:100px}
+.script-item{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid transparent;border-radius:7px;cursor:pointer}
+.script-item:hover{background:#20272b}
+.script-item.active{background:#263338;border-color:#3d5559}
+.script-item .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.script-item .id{color:var(--muted);font-size:11px}
+.empty{color:var(--muted);padding:15px 8px;text-align:center}
+.main{padding:24px;max-width:1250px;width:100%;margin:0 auto}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}
+h1{font-size:25px;margin:0}
+h2{font-size:17px;margin:0 0 13px}
+h3{font-size:14px;margin:0 0 10px;color:#b9c4c7}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,430px);gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;box-shadow:var(--shadow);margin-bottom:18px}
+.field{margin-bottom:13px}
+label{display:block;color:#b9c4c7;font-size:12px;margin-bottom:6px}
+.row{display:flex;gap:9px;align-items:center}
+.row>*{flex:1}
+.aliases{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
+.alias{display:inline-flex;align-items:center;gap:6px;background:#263237;border:1px solid #3b4b50;border-radius:20px;padding:5px 9px}
+.alias button{border:0;background:none;padding:0;color:#aebcc0}
+.builder{display:grid;gap:15px}
+.lamps{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.lamp{position:relative}
+.lamp input{position:absolute;opacity:0;pointer-events:none}
+.lamp span{display:flex;align-items:center;justify-content:center;height:36px;border:1px solid var(--line);border-radius:5px;background:#111719;cursor:pointer}
+.lamp input:checked+span{border-color:var(--accent);background:#193c3c;color:#9ff2ee}
+.color-row{display:grid;grid-template-columns:65px 1fr 105px;gap:9px;align-items:center}
+.color-input{width:65px;height:40px;padding:2px;cursor:pointer}
+.hex{font-family:monospace;letter-spacing:.3px}
+.preview{height:34px;border-radius:6px;border:1px solid var(--line)}
+.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.help{font-size:11px;color:var(--muted);line-height:1.45}
+.script-commands{display:flex;flex-direction:column;gap:7px}
+.command{display:grid;grid-template-columns:38px 1fr auto;gap:8px;align-items:center;background:#121719;border:1px solid var(--line);border-radius:7px;padding:8px}
+.command-num{color:var(--muted);text-align:center;font-size:12px}
+.command-text{font-family:Consolas,monospace;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.command button{padding:5px 8px}
+.status{min-height:20px;color:var(--muted);font-size:12px}
+.status.ok{color:var(--ok)}
+.status.error{color:#ff8f8f}
+.dirty{color:#f4c86a;font-size:12px}
+.badge{font-size:11px;color:#9de8e4;border:1px solid #31595a;border-radius:12px;padding:3px 7px}
+.strip-colors{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-height:290px;overflow:auto;padding-right:2px}
+.strip-color{position:relative}
+.strip-color input{position:absolute;opacity:0;pointer-events:none}
+.strip-color label{display:flex;align-items:center;gap:7px;margin:0;padding:7px;border:1px solid var(--line);border-radius:6px;background:#121719;cursor:pointer}
+.strip-color input:checked+label{border-color:var(--accent);background:#193c3c}
+.swatch{width:22px;height:22px;border-radius:4px;border:1px solid rgba(255,255,255,.25);flex:none}
+.footer{color:#68757a;font-size:11px;margin-top:8px}
+@media(max-width:900px){
+  .app{grid-template-columns:1fr}.sidebar{border-right:0;border-bottom:1px solid var(--line)}.grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div>
+      <div class="logo">ACTION SCRIPTS</div>
+      <div class="subtitle">Macros / ordered canonical commands</div>
+    </div>
+    <button class="primary" onclick="newScript()">＋ New script</button>
+    <div id="scriptList" class="list"><div class="empty">Loading…</div></div>
+    <button onclick="location.href='/'">← Dashboard</button>
+  </aside>
+
+  <main class="main">
+    <div class="topbar">
+      <div>
+        <h1 id="pageTitle">New script</h1>
+        <div id="dirty" class="dirty"></div>
+      </div>
+      <div class="toolbar">
+        <button onclick="runCurrentScript()">▶ Run script</button>
+        <button class="primary" onclick="saveScript()">Save</button>
+        <button class="danger" onclick="deleteCurrentScript()">Delete</button>
+      </div>
+    </div>
+
+    <div class="grid">
+      <section>
+        <div class="card">
+          <h2>Script</h2>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" placeholder="Movie Start" oninput="markDirty()">
+          </div>
+          <div class="field">
+            <label for="aliasInput">Aliases</label>
+            <div class="row">
+              <input id="aliasInput" placeholder="movie" onkeydown="if(event.key==='Enter'){event.preventDefault();addAlias();}">
+              <button onclick="addAlias()">＋ Add</button>
+            </div>
+            <div id="aliases" class="aliases"></div>
+            <div class="help">Aliases are case-insensitive. They are for convenient script lookup.</div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>LivingColors</h2>
+          <div class="field">
+            <label>Select lamps</label>
+            <div id="lamps" class="lamps"></div>
+          </div>
+          <div class="color-row">
+            <input id="livingColor" class="color-input" type="color" value="#FF6414" oninput="updateLivingPreview()">
+            <div>
+              <div class="hex" id="livingHex">#FF6414</div>
+              <div class="help">One colour can be applied to all selected lamps.</div>
+            </div>
+            <div class="actions">
+              <button onclick="testLiving()">Test</button>
+              <button class="primary" onclick="addLiving()">＋ Add</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>RGB LED strip</h2>
+          <div class="field">
+            <label for="remote">Remote</label>
+            <select id="remote" onchange="renderStripColors()"></select>
+          </div>
+          <div class="field">
+            <label>Colour</label>
+            <div id="stripColors" class="strip-colors"></div>
+          </div>
+          <div class="actions">
+            <button onclick="testStrip()">Test</button>
+            <button class="primary" onclick="addStrip()">＋ Add</button>
+          </div>
+          <div class="help" style="margin-top:9px">
+            The editor uses the nominal colour from the remote database. IR codes remain hidden from the script.
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h2>Script contents</h2>
+          <div id="commands" class="script-commands">
+            <div class="empty">No commands yet.</div>
+          </div>
+          <div class="footer">Commands execute from top to bottom.</div>
+        </div>
+
+        <div class="card">
+          <h2>Current script</h2>
+          <div id="scriptSummary" class="help">No script selected.</div>
+          <div id="status" class="status"></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+</div>
+
+<script>
+/*
+ * Action Scripts editor
+ *
+ * Current backend endpoints:
+ *   GET    /api/action-scripts
+ *   POST   /api/action-scripts
+ *   DELETE /api/action-scripts?id=<id>
+ *   POST   /api/execute-script
+ *
+ * RGB strip database discovery is not yet exposed by the current WebUI,
+ * so the three currently known remotes/colors are used as a temporary
+ * client-side catalogue. Once /api/ir-remotes exists, loadRemoteDatabase()
+ * can consume it without changing the editor UI.
+ */
+
+const fallbackRemotes = {
+  "RGB_24KEY-R1": [
+    ["RED","#FF0000"],["GREEN","#00FF00"],["BLUE","#0000FF"],["WHITE","#FFFFFF"]
+  ],
+  "RGB_44KEY-R1": [
+    ["RED","#FF0000"],["GREEN","#00FF00"],["BLUE","#0000FF"],["WHITE","#FFFFFF"],
+    ["ORANGE","#FF8000"],["TEAL","#008080"],["PURPLE","#800080"],["PINK","#FF69B4"],
+    ["YELLOW_ORANGE","#FFA500"],["AQUA","#00FFFF"],["MAGENTA","#FF00FF"],["LIGHT_PINK","#FFB6C1"],
+    ["YELLOW","#FFFF00"],["CYAN","#00FFFF"],["VIOLET","#8F00FF"],["SKY_BLUE","#87CEEB"],
+    ["LIGHT_YELLOW","#FFFFD0"],["LIGHT_CYAN","#E0FFFF"],["LIGHT_MAGENTA","#FF80FF"],["LIGHT_SKY_BLUE","#87CEFF"]
+  ],
+  "RGB_44KEY-R2": [
+    ["RED","#FF0000"],["GREEN","#00FF00"],["BLUE","#0000FF"],["WHITE","#FFFFFF"],
+    ["ORANGE","#FF8000"],["TEAL","#008080"],["PURPLE","#800080"],["PINK","#FF69B4"],
+    ["YELLOW_ORANGE","#FFA500"],["AQUA","#00FFFF"],["MAGENTA","#FF00FF"],["LIGHT_PINK","#FFB6C1"],
+    ["YELLOW","#FFFF00"],["CYAN","#00FFFF"],["VIOLET","#8F00FF"],["SKY_BLUE","#87CEEB"],
+    ["LIGHT_YELLOW","#FFFFD0"],["LIGHT_CYAN","#E0FFFF"],["LIGHT_MAGENTA","#FF80FF"],["LIGHT_SKY_BLUE","#87CEFF"]
+  ]
+};
+
+let scripts = [];
+let current = null;
+let dirty = false;
+let aliases = [];
+
+function $(id){ return document.getElementById(id); }
+
+document.addEventListener("DOMContentLoaded", async () => {
+  console.log("[WEBUI][SCRIPTS_EDITOR] Initializing editor");
+  buildLamps();
+  loadRemoteDatabase();
+  await loadScripts();
+  newScript();
+  console.log("[WEBUI][SCRIPTS_EDITOR] Editor initialization complete");
+});
+
+function buildLamps(){
+  $("lamps").innerHTML = "";
+  for(let i=1;i<=12;i++){
+    const d=document.createElement("label");
+    d.className="lamp";
+    d.innerHTML=`<input type="checkbox" value="${i}"><span>${i}</span>`;
+    $("lamps").appendChild(d);
+  }
+}
+
+async function loadScripts(){
+  console.log("[WEBUI][SCRIPTS_EDITOR] Loading scripts from server");
+  try{
+    const r=await fetch("/api/action-scripts");
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const data=await r.json();
+    scripts=Array.isArray(data)?data:(data.scripts||[]);
+    console.log(`[WEBUI][SCRIPTS_EDITOR] Loaded ${scripts.length} scripts`);
+    renderScriptList();
+  }catch(e){
+    console.log(`[WEBUI][SCRIPTS_EDITOR] Error loading scripts: ${e.message}`);
+    scripts=[];
+    renderScriptList();
+    setStatus("Could not load scripts: "+e.message,true);
+  }
+}
+
+function renderScriptList(){
+  const list=$("scriptList");
+  list.innerHTML="";
+  if(!scripts.length){
+    list.innerHTML='<div class="empty">No saved scripts.</div>';
+    return;
+  }
+  scripts.forEach(s=>{
+    const el=document.createElement("div");
+    el.className="script-item"+(current && current.id===s.id?" active":"");
+    el.onclick=()=>selectScript(s.id);
+    el.innerHTML=`<div class="name">${escapeHtml(s.name||"Unnamed")}</div>
+                  <div class="id">${s.id??""}</div>`;
+    list.appendChild(el);
+  });
+}
+
+function selectScript(id){
+  console.log(`[WEBUI][SCRIPTS_EDITOR] Selecting script with ID: ${id}`);
+  const found=scripts.find(s=>String(s.id)===String(id));
+  if(!found) {
+    console.log(`[WEBUI][SCRIPTS_EDITOR] Script not found with ID: ${id}`);
+    return;
+  }
+  current=deepCopy(found);
+  aliases=normaliseAliases(current.aliases);
+  $("name").value=current.name||"";
+  renderAliases();
+  renderCommands();
+  clearLampSelection();
+  $("pageTitle").textContent=current.name||"Script";
+  dirty=false;
+  updateDirty();
+  renderScriptList();
+  updateSummary();
+  console.log(`[WEBUI][SCRIPTS_EDITOR] Selected script: ${current.name} with ${current.commands?.length || 0} commands`);
+}
+
+function newScript(){
+  console.log("[WEBUI][SCRIPTS_EDITOR] Creating new script");
+  current={id:null,name:"",aliases:[],commands:[]};
+  aliases=[];
+  $("name").value="";
+  renderAliases();
+  renderCommands();
+  clearLampSelection();
+  $("pageTitle").textContent="New script";
+  dirty=false;
+  updateDirty();
+  renderScriptList();
+  updateSummary();
+  setStatus("");
+  $("name").focus();
+}
+
+function normaliseAliases(value){
+  if(Array.isArray(value)) return value.map(String).filter(Boolean);
+  if(typeof value==="string"){
+    try{
+      const parsed=JSON.parse(value);
+      if(Array.isArray(parsed)) return parsed.map(String).filter(Boolean);
+    }catch(_){}
+    return value.split(",").map(x=>x.trim()).filter(Boolean);
+  }
+  return [];
+}
+
+function addAlias(){
+  const input=$("aliasInput");
+  const alias=input.value.trim();
+  if(!alias) return;
+  if(aliases.some(a=>a.toLowerCase()===alias.toLowerCase())){
+    setStatus("That alias already exists.",true); return;
+  }
+  if(alias.toLowerCase()===(($("name").value||"").trim().toLowerCase())){
+    setStatus("Alias is the same as the script name.",true); return;
+  }
+  aliases.push(alias);
+  input.value="";
+  renderAliases();
+  markDirty();
+}
+
+function removeAlias(index){
+  aliases.splice(index,1);
+  renderAliases();
+  markDirty();
+}
+
+function renderAliases(){
+  $("aliases").innerHTML=aliases.map((a,i)=>
+    `<span class="alias">${escapeHtml(a)} <button onclick="removeAlias(${i})" title="Remove">×</button></span>`
+  ).join("");
+}
+
+function clearLampSelection(){
+  document.querySelectorAll("#lamps input").forEach(x=>x.checked=false);
+}
+
+function selectedLamps(){
+  return [...document.querySelectorAll("#lamps input:checked")].map(x=>Number(x.value));
+}
+
+function updateLivingPreview(){
+  $("livingHex").textContent=$("livingColor").value.toUpperCase();
+}
+
+function addLiving(){
+  const lamps=selectedLamps();
+  if(!lamps.length){setStatus("Select at least one LivingColors lamp.",true);return;}
+  const hex=$("livingColor").value.toUpperCase();
+  const {r,g,b}=hexToRgb(hex);
+  lamps.forEach(lamp=>{
+    current.commands.push(`living ${lamp} rgb ${r} ${g} ${b}`);
+  });
+  renderCommands(); markDirty();
+}
+
+async function testLiving(){
+  const lamps=selectedLamps();
+  if(!lamps.length){setStatus("Select at least one LivingColors lamp.",true);return;}
+  const hex=$("livingColor").value.toUpperCase();
+  const {r,g,b}=hexToRgb(hex);
+  const commands=lamps.map(lamp=>`living ${lamp} rgb ${r} ${g} ${b}`);
+  await executeTemporary(commands,"LivingColors test");
+}
+
+function loadRemoteDatabase(){
+  const select=$("remote");
+  select.innerHTML="";
+  Object.keys(fallbackRemotes).forEach(id=>{
+    const o=document.createElement("option");
+    o.value=id;o.textContent=id;select.appendChild(o);
+  });
+  renderStripColors();
+}
+
+function renderStripColors(){
+  const remote=$("remote").value;
+  const colours=fallbackRemotes[remote]||[];
+  const box=$("stripColors");
+  box.innerHTML="";
+  colours.forEach((c,i)=>{
+    const id="stripColour_"+i;
+    const d=document.createElement("div");
+    d.className="strip-color";
+    d.innerHTML=`<input type="radio" name="stripColour" id="${id}" value="${c[1]}" data-name="${c[0]}" ${i===0?"checked":""}>
+      <label for="${id}"><span class="swatch" style="background:${c[1]}"></span><span>${escapeHtml(c[0])}</span></label>`;
+    box.appendChild(d);
+  });
+}
+
+function selectedStripColour(){
+  const input=document.querySelector('input[name="stripColour"]:checked');
+  if(!input) return null;
+  return {name:input.dataset.name,hex:input.value.toUpperCase()};
+}
+
+function addStrip(){
+  const remote=$("remote").value;
+  const colour=selectedStripColour();
+  if(!remote||!colour){setStatus("Select a remote and colour.",true);return;}
+  current.commands.push(`rgbstrip ${remote} ${colour.hex}`);
+  renderCommands(); markDirty();
+}
+
+async function testStrip(){
+  const remote=$("remote").value;
+  const colour=selectedStripColour();
+  if(!remote||!colour){setStatus("Select a remote and colour.",true);return;}
+  await executeTemporary([`rgbstrip ${remote} ${colour.hex}`],"RGB strip test");
+}
+
+function renderCommands(){
+  const box=$("commands");
+  box.innerHTML="";
+  const commands=current?.commands||[];
+  if(!commands.length){
+    box.innerHTML='<div class="empty">No commands yet.</div>';
+    updateSummary(); return;
+  }
+  commands.forEach((cmd,i)=>{
+    const row=document.createElement("div");
+    row.className="command";
+    row.innerHTML=`<div class="command-num">${i+1}</div>
+      <div class="command-text" title="${escapeHtml(cmd)}">${escapeHtml(cmd)}</div>
+      <div class="actions">
+        <button class="small" onclick="moveCommand(${i},-1)" ${i===0?"disabled":""}>↑</button>
+        <button class="small" onclick="moveCommand(${i},1)" ${i===commands.length-1?"disabled":""}>↓</button>
+        <button class="small danger" onclick="deleteCommand(${i})">×</button>
+      </div>`;
+    box.appendChild(row);
+  });
+  updateSummary();
+}
+
+function moveCommand(index,direction){
+  const to=index+direction;
+  if(to<0||to>=current.commands.length)return;
+  [current.commands[index],current.commands[to]]=[current.commands[to],current.commands[index]];
+  renderCommands(); markDirty();
+}
+
+function deleteCommand(index){
+  current.commands.splice(index,1);
+  renderCommands(); markDirty();
+}
+
+async function saveScript(){
+  const name=$("name").value.trim();
+  if(!name){setStatus("Script name is required.",true);$("name").focus();return;}
+  if(!current) newScript();
+
+  console.log(`[WEBUI][SCRIPTS_EDITOR] Saving script: ${name}`);
+  const payload={
+    id:current.id,
+    name:name,
+    aliases:[...aliases],
+    commands:[...current.commands]
+  };
+  if(payload.id===null || payload.id===undefined) delete payload.id;
+
+  try{
+    setStatus("Saving…");
+    const r=await fetch("/api/action-scripts",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(payload)
+    });
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const response=await r.json().catch(()=>null);
+
+    // Backend may return the saved object, an object containing it, or no body.
+    const saved=response?.script || response;
+    if(saved && typeof saved==="object" && !Array.isArray(saved) && saved.name){
+      console.log(`[WEBUI][SCRIPTS_EDITOR] Script saved with ID: ${saved.id}`);
+      current=deepCopy(saved);
+    }else{
+      console.log("[WEBUI][SCRIPTS_EDITOR] Script saved but no ID returned");
+      current={...payload};
+      if(current.id==null && response?.id!=null) current.id=response.id;
+    }
+
+    await loadScripts();
+    if(current.id!=null) selectScript(current.id);
+    else{
+      dirty=false; updateDirty();
+      $("pageTitle").textContent=current.name;
+    }
+    setStatus("Saved.",false,true);
+  }catch(e){
+    console.log(`[WEBUI][SCRIPTS_EDITOR] Save failed: ${e.message}`);
+    setStatus("Save failed: "+e.message,true);
+  }
+}
+
+async function deleteCurrentScript(){
+  if(!current?.id){newScript();return;}
+  if(!confirm(`Delete "${current.name||"this script"}"?`)) return;
+
+  console.log(`[WEBUI][SCRIPTS_EDITOR] Deleting script: ${current.name} (ID: ${current.id})`);
+  try{
+    const r=await fetch("/api/action-scripts?id="+encodeURIComponent(current.id),{method:"DELETE"});
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    await loadScripts();
+    newScript();
+    setStatus("Deleted.",false,true);
+    console.log(`[WEBUI][SCRIPTS_EDITOR] Script deleted successfully`);
+  }catch(e){
+    console.log(`[WEBUI][SCRIPTS_EDITOR] Delete failed: ${e.message}`);
+    setStatus("Delete failed: "+e.message,true);
+  }
+}
+
+async function runCurrentScript(){
+  if(!current){return;}
+  if(!current.commands?.length){setStatus("The script has no commands.",true);return;}
+
+  console.log(`[WEBUI][SCRIPTS_EDITOR] Executing script: ${current.name} with ${current.commands.length} commands`);
+  await executeTemporary(current.commands,"Script");
+}
+
+async function executeTemporary(commands,label){
+  const temp={
+    name:"__EDITOR_TEST__",
+    aliases:[],
+    commands:[...commands]
+  };
+
+  console.log(`[WEBUI][SCRIPTS_EDITOR] Executing ${label} with ${commands.length} commands`);
+  try{
+    setStatus(label+"…");
+    const r=await fetch("/api/execute-script",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({script:JSON.stringify(temp)})
+    });
+    if(!r.ok) throw new Error("HTTP "+r.status);
+    const data=await r.json().catch(()=>null);
+    if(data && data.success===false) throw new Error(data.message||"Command failed");
+    console.log(`[WEBUI][SCRIPTS_EDITOR] ${label} executed successfully`);
+    setStatus(label+" sent.",false,true);
+  }catch(e){
+    console.log(`[WEBUI][SCRIPTS_EDITOR] ${label} execution failed: ${e.message}`);
+    setStatus(label+" failed: "+e.message,true);
+  }
+}
+
+function markDirty(){
+  dirty=true;
+  updateDirty();
+  $("pageTitle").textContent=$("name").value.trim()||"New script";
+  updateSummary();
+}
+
+function updateDirty(){
+  $("dirty").textContent=dirty?"● Unsaved changes":"";
+}
+
+function updateSummary(){
+  const name=$("name").value.trim()||"Unnamed";
+  const commands=current?.commands?.length||0;
+  $("scriptSummary").innerHTML=
+    `<strong>${escapeHtml(name)}</strong><br>`+
+    `${commands} command${commands===1?"":"s"}<br>`+
+    `${aliases.length} alias${aliases.length===1?"":"es"}`;
+}
+
+function setStatus(message,error=false,ok=false){
+  const el=$("status");
+  el.textContent=message||"";
+  el.className="status"+(error?" error":ok?" ok":"");
+}
+
+function hexToRgb(hex){
+  const h=hex.replace("#","");
+  return {
+    r:parseInt(h.substring(0,2),16),
+    g:parseInt(h.substring(2,4),16),
+    b:parseInt(h.substring(4,6),16)
+  };
+}
+
+function deepCopy(obj){return JSON.parse(JSON.stringify(obj));}
+function escapeHtml(value){
+  return String(value??"").replace(/[&<>"']/g,c=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[c]));
+}
+</script>
+</body>
+</html>
+```
+
+---
+
+### <a id="📄-unpacked-fs-index-html"></a>📄 `unpacked_fs/index.html`
+
+**File Info:**
+- **Size**: 26.92 KB
+- **Extension**: `.html`
+- **Language**: `html`
+- **Location**: `unpacked_fs/index.html`
+- **Relative Path**: `unpacked_fs`
+- **Created**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `543df4367109c942b442c18001e3ef41`
+- **SHA256**: `5a9f201b95ceeee70ab8265748b4ae169ef4d7a22481b20ffa06430f98fe32ad`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ESP32 Controller</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        :root {
+            --bg: #0b1020;
+            --bg-2: #111827;
+            --panel: rgba(19, 26, 40, 0.9);
+            --panel-strong: #141d31;
+            --panel-soft: #1b2740;
+            --line: rgba(148, 163, 184, 0.22);
+            --line-strong: rgba(124, 156, 255, 0.32);
+            --text: #edf7ff;
+            --muted: #a9b8d1;
+            --primary: #7c9cff;
+            --primary-2: #5a7dff;
+            --green: #22c55e;
+            --amber: #f59e0b;
+            --red: #ef4444;
+            --cyan: #38bdf8;
+            --shadow: 0 22px 48px rgba(0,0,0,.38);
+        }
+
+        * { box-sizing: border-box; }
+
+        html, body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top, rgba(75, 104, 205, 0.22), transparent 30%),
+                linear-gradient(180deg, #0d1424 0%, #0b1020 100%);
+            color: var(--text);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            min-height: 100vh;
+        }
+
+        body {
+            padding: 18px;
+        }
+
+        .page-shell {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 30;
+            background: linear-gradient(180deg, rgba(17,25,41,.9), rgba(12,18,31,.82));
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 14px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .brand {
+            font-size: 1.35rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .brand-mark {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: linear-gradient(180deg, #39f3a2, #1dbf72);
+            box-shadow: 0 0 14px rgba(34, 197, 94, 0.8);
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .heartbeat-wrap {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 1px solid var(--line-strong);
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.9);
+        }
+
+        #time-display {
+            min-width: 110px;
+            text-align: center;
+            font-weight: 700;
+            color: #9ad3ff;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+        }
+
+        .led {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #555;
+            box-shadow: inset 0 2px 8px rgba(0,0,0,.4);
+            transition: background-color .15s ease, box-shadow .15s ease;
+        }
+        .led.on { background: var(--green); box-shadow: 0 0 12px rgba(34,197,94,.8); }
+        .led.error { background: var(--red); box-shadow: 0 0 12px rgba(239,68,68,.8); }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 14px;
+            margin: 18px 0;
+        }
+
+        .status-card {
+            background: linear-gradient(180deg, rgba(24,33,52,.98), rgba(14,21,33,.98));
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 16px 18px;
+            box-shadow: var(--shadow);
+        }
+
+        .status-card .label {
+            font-size: .72rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .status-card .value {
+            margin-top: 10px;
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-weight: 800;
+            color: #a9d7ff;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1.4fr 1.1fr 1fr;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .panel {
+            position: relative;
+            background: linear-gradient(180deg, rgba(24,32,48,.94), rgba(15,20,31,.92));
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            padding: 18px;
+            overflow: hidden;
+        }
+
+        .panel::before {
+            content: "";
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 3px;
+            background: linear-gradient(180deg, #7c9cff, #38bdf8, #22c55e);
+        }
+
+        .panel.wide {
+            margin-bottom: 16px;
+        }
+
+        .panel-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 14px;
+        }
+
+        .panel-header h3 {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .scene-grid, .action-grid, .effect-grid,
+        .system-grid {
+            display: grid;
+            gap: 10px;
+        }
+
+        .scene-grid, .action-grid {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        }
+
+        .effect-grid, .system-grid {
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        }
+
+        .scene-btn, .action-btn, .effect-btn, .system-btn, button {
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform .15s ease, filter .15s ease, border-color .15s ease;
+            color: var(--text);
+        }
+
+        .scene-btn, .action-btn, .effect-btn, .system-btn {
+            padding: 12px 10px;
+            background: linear-gradient(180deg, rgba(68,83,118,.9), rgba(31,42,63,.9));
+            font-weight: 600;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 18px rgba(8,12,22,.18);
+        }
+
+        .scene-btn:hover, .action-btn:hover, .effect-btn:hover, .system-btn:hover, button:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.08);
+            border-color: var(--line-strong);
+        }
+
+        .scene-btn.active, .action-btn.active {
+            background: linear-gradient(180deg, rgba(28, 118, 89, 1), rgba(21, 85, 75, 1));
+            border-color: rgba(34,197,94,.8);
+            box-shadow: inset 0 0 0 1px rgba(34,197,94,.2);
+        }
+
+        .effect-btn.primary { background: linear-gradient(180deg, rgba(52, 104, 181, 1), rgba(33, 76, 160, 1)); }
+        .effect-btn.warn { background: linear-gradient(180deg, rgba(188, 112, 24, 1), rgba(124, 77, 13, 1)); }
+        .effect-btn.safe { background: linear-gradient(180deg, rgba(23, 128, 92, 1), rgba(17, 93, 67, 1)); }
+        .effect-btn.danger { background: linear-gradient(180deg, rgba(149, 38, 38, 1), rgba(97, 20, 20, 1)); }
+
+        button {
+            background: linear-gradient(180deg, rgba(86, 114, 195, 1), rgba(52, 72, 126, 1));
+            padding: 9px 12px;
+            font-weight: 700;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 18px rgba(5,8,16,.18);
+        }
+
+        button.secondary {
+            background: linear-gradient(180deg, rgba(90, 96, 110, 1), rgba(58, 64, 76, 1));
+        }
+
+        button.ghost {
+            background: rgba(255,255,255,.04);
+            border: 1px solid var(--line);
+        }
+
+        select {
+            background: rgba(11, 20, 30, 1);
+            color: var(--text);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+            padding: 9px 10px;
+            min-width: 110px;
+        }
+
+        #log-window {
+            min-height: 260px;
+            max-height: 44vh;
+            overflow-y: auto;
+            padding: 14px;
+            background: rgba(8, 12, 20, 0.9);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            font-family: "SFMono-Regular", Consolas, monospace;
+            font-size: 0.82rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: #dfefff;
+        }
+
+        .log-line { margin: 3px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
+        .error-log { color: #ff9a9a; }
+        .highlight { color: #fef08a; font-weight: 700; }
+        .debug-buttons { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+        .debug-btn.active { background: linear-gradient(180deg, rgba(28, 118, 89, 1), rgba(21, 85, 75, 1)); border-color: rgba(34,197,94,.8); box-shadow: inset 0 0 0 1px rgba(34,197,94,.2); }
+
+        @media (max-width: 980px) {
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-shell">
+        <header class="topbar">
+            <div class="brand"><span class="brand-mark"></span> Home Controller</div>
+            <div class="toolbar">
+                <div class="heartbeat-wrap">
+                    <span id="time-display">--:--:--</span>
+                    <span>Heartbeat</span>
+                    <div id="heartbeat-led" class="led"></div>
+                    <span id="connection-status" style="font-size:0.8rem;color: var(--muted);">Connecting...</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="status-grid">
+            <div class="status-card"><div class="label">Uptime</div><div id="uptime-value" class="value">--</div></div>
+            <div class="status-card"><div class="label">Free Heap</div><div id="heap-value" class="value">--</div></div>
+            <div class="status-card"><div class="label">CPU Load</div><div id="cpu-value" class="value">--</div></div>
+            <div class="status-card"><div class="label">WiFi IP</div><div id="ip-value" class="value">--</div></div>
+            <div class="status-card"><div class="label">Mode</div><div id="mode-value" class="value">--</div></div>
+        </div>
+
+        <div class="dashboard-grid">
+            <section class="panel">
+                <div class="panel-header">
+                    <h3>Saved scenes</h3>
+                    <button class="ghost" id="refresh-scenes">Refresh</button>
+                </div>
+                <div class="scene-grid" id="scenes-grid">
+                    <div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">Loading scenes...</div>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-header">
+                    <h3>Effects</h3>
+                </div>
+                <div class="effect-grid">
+                    <button class="effect-btn primary" data-effect="rainbow">Rainbow</button>
+                    <button class="effect-btn primary" data-effect="chase">Chase</button>
+                    <button class="effect-btn warn" data-effect="pulse">Pulse</button>
+                    <button class="effect-btn safe" data-effect="night">Night</button>
+                    <button class="effect-btn safe" data-effect="party">Party</button>
+                    <button class="effect-btn danger" data-effect="off">Off</button>
+                </div>
+            </section>
+
+            <section class="panel">
+                <div class="panel-header">
+                    <h3>System</h3>
+                </div>
+                <div class="system-grid">
+                    <button class="system-btn" id="reboot-btn">Reboot</button>
+                    <button class="system-btn" id="sync-time-btn">Sync time</button>
+                    <button class="system-btn" id="open-editor-btn">Editor</button>
+                    <button class="system-btn" id="audio-test-btn">Audio Test</button>
+                </div>
+            </section>
+        </div>
+
+        <section class="panel wide">
+            <div class="panel-header">
+                <h3>Debug log</h3>
+            </div>
+            <div class="debug-buttons">
+                <button class="system-btn secondary" id="clear-log-btn">Clear log</button>
+                <button class="system-btn" id="save-log-btn">Save log</button>
+                <button class="system-btn secondary" id="pause-toggle-btn">Pause log</button>
+                <button class="system-btn" id="debug-btn-1">[1]</button>
+                <button class="system-btn" id="debug-btn-2">[2]</button>
+                <button class="system-btn" id="debug-btn-3">[3]</button>
+            </div>
+            <div id="log-window">Waiting for logs...</div>
+        </section>
+    </div>
+
+    <script>
+        let lastBeatTime = 0;
+        let shouldAutoScroll = true;
+        let liveLogEnabled = true;
+        let currentDebugLevel = 2; // Default to match platformio.ini
+
+        const led = document.getElementById('heartbeat-led');
+        const statusText = document.getElementById('connection-status');
+        const logWindow = document.getElementById('log-window');
+        const timeDisplay = document.getElementById('time-display');
+        const pauseToggleBtn = document.getElementById('pause-toggle-btn');
+        const clearLogBtn = document.getElementById('clear-log-btn');
+        const saveLogBtn = document.getElementById('save-log-btn');
+        const debugBtn1 = document.getElementById('debug-btn-1');
+        const debugBtn2 = document.getElementById('debug-btn-2');
+        const debugBtn3 = document.getElementById('debug-btn-3');
+        const syncTimeBtn = document.getElementById('sync-time-btn');
+
+        logWindow.addEventListener('scroll', () => {
+            const distanceFromBottom = logWindow.scrollHeight - logWindow.scrollTop - logWindow.clientHeight;
+            shouldAutoScroll = distanceFromBottom < 40;
+        });
+        
+        // Debug level management
+        function setDebugLevel(level) {
+            currentDebugLevel = level;
+            
+            // Update button states
+            [debugBtn1, debugBtn2, debugBtn3].forEach(btn => btn.classList.remove('active'));
+            
+            if (level === 1) debugBtn1.classList.add('active');
+            if (level === 2) debugBtn2.classList.add('active');
+            if (level === 3) debugBtn3.classList.add('active');
+            
+            // Send request to ESP32 to update debug level
+            fetch('/api/set-debug-level', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ level: level })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log(`Debug level set to ${level}`);
+                } else {
+                    console.error(`Failed to set debug level: ${data.message}`);
+                }
+            })
+            .catch(error => {
+                console.error('Error setting debug level:', error);
+            });
+        }
+        
+        // Set initial debug level
+        setDebugLevel(currentDebugLevel);
+        
+        // Add click handlers to debug buttons
+        debugBtn1.addEventListener('click', () => setDebugLevel(1));
+        debugBtn2.addEventListener('click', () => setDebugLevel(2));
+        debugBtn3.addEventListener('click', () => setDebugLevel(3));
+
+        function filterLogHtml(rawHtml) {
+            const chosen = 'ALL';
+            if (chosen === 'ALL') return rawHtml;
+
+            const lines = String(rawHtml || '').split('\n').filter(line => line.trim().length > 0);
+            const filtered = lines.filter(line => {
+                const plain = line.replace(/<[^>]*>/g, '').toLowerCase();
+                if (chosen === 'INFO') {
+                    return plain.includes('info') || plain.includes('startup') || plain.includes('ready') || plain.includes('initialized') || plain.includes('loading');
+                }
+                if (chosen === 'WARN') {
+                    return plain.includes('warn') || plain.includes('warning') || plain.includes('sync') || plain.includes('not synchronized');
+                }
+                if (chosen === 'ERROR') {
+                    return plain.includes('error') || plain.includes('failed') || plain.includes('fatal');
+                }
+                if (chosen === 'DEBUG') {
+                    return plain.includes('debug') || plain.includes('core') || plain.includes('webui') || plain.includes('script') || plain.includes('storage') || plain.includes('rf') || plain.includes('ir');
+                }
+                return true;
+            });
+
+            return filtered.join('\n');
+        }
+
+        // The connection label is transport-only. Endpoint successes and errors
+        // are reported by the firmware and appear in the debug log below.
+        function setLiveLogState(enabled) {
+            liveLogEnabled = enabled;
+            pauseToggleBtn.textContent = enabled ? 'Pause log' : 'Resume log';
+            pauseToggleBtn.classList.toggle('secondary', !enabled);
+        }
+
+        function updateClock() {
+            const d = new Date();
+            timeDisplay.textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+
+        function formatUptime(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            return `${hours}h ${minutes}m ${seconds}s`;
+        }
+
+        // Send time in the same form-encoded `body` field used by the other
+        // POST routes. The firmware logs accepted and rejected sync attempts.
+        function syncTime() {
+            const now = Math.floor(Date.now() / 1000);
+            const timezoneOffsetMinutes = -new Date().getTimezoneOffset();
+            syncTimeBtn.disabled = true;
+            fetch('/api/set-time', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'body=' + encodeURIComponent(JSON.stringify({ time: now, timezoneOffsetMinutes }))
+            })
+                .then(response => response.ok ? response.json() : Promise.reject())
+                .then(() => {})
+                .catch(() => {
+                    syncTimeBtn.disabled = false;
+                })
+                .finally(() => {
+                    syncTimeBtn.disabled = false;
+                });
+        }
+
+        function updateStatusCards(data) {
+            const uptimeEl = document.getElementById('uptime-value');
+            const heapEl = document.getElementById('heap-value');
+            const cpuEl = document.getElementById('cpu-value');
+            const ipEl = document.getElementById('ip-value');
+            const modeEl = document.getElementById('mode-value');
+
+            if (data) {
+                uptimeEl.textContent = formatUptime(data.uptimeMs || 0);
+                heapEl.textContent = `${Math.round((data.freeHeap || 0) / 1024)} KB`;
+                cpuEl.textContent = `${data.cpuLoadPercent ?? '--'}%`;
+                ipEl.textContent = data.ip || '--';
+                modeEl.textContent = data.mode || '--';
+            }
+        }
+
+        function loadScenes() {
+            // Refreshing the scene list is a read operation; the firmware logs
+            // the request while the response remains independent of connectivity.
+            fetch('/api/action-scripts')
+                .then(res => res.ok ? res.json() : null)
+                .then(data => {
+                    const grid = document.getElementById('scenes-grid');
+                    if (!Array.isArray(data)) {
+                        grid.innerHTML = '<div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">No scenes available.</div>';
+                        return;
+                    }
+
+                    grid.innerHTML = '';
+                    if (data.length === 0) {
+                        grid.innerHTML = '<div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">No scenes yet.</div>';
+                        return;
+                    }
+
+                    data.forEach(scene => {
+                        const btn = document.createElement('button');
+                        btn.className = 'scene-btn';
+                        btn.textContent = scene.name || 'Unnamed scene';
+                        btn.onclick = () => executeScript(scene.id, btn);
+                        grid.appendChild(btn);
+                    });
+                })
+                .catch(() => {});
+        }
+
+        function executeScript(scriptId, btn) {
+            // The execution result is recorded by /api/execute-script. Do not
+            // replace the connection state with a one-off action message.
+            fetch('/api/execute-script', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'body=' + encodeURIComponent(JSON.stringify({ id: scriptId }))
+            })
+            .then(res => res.ok ? res.json() : Promise.reject())
+            .then(data => {
+                if (data && data.success) {
+                    btn.classList.add('active');
+                    setTimeout(() => btn.classList.remove('active'), 300);
+                }
+            })
+            .catch(() => {});
+        }
+
+        function applyScene(sceneId, btn) {
+            fetch('/api/scenes/apply', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: sceneId })
+            })
+            .then(res => res.ok ? res.json() : null)
+            .then(data => {
+                if (data && data.success) {
+                    btn.classList.add('active');
+                    setTimeout(() => btn.classList.remove('active'), 300);
+                }
+            })
+            .catch(() => {});
+        }
+
+        function sendEffect(effect) {
+            const payload = { effect };
+            fetch('/api/effect', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.ok ? res.json() : null)
+            .then(data => {
+                if (data && data.success) {
+                }
+            })
+            .catch(() => {});
+        }
+
+        function fetchStatus() {
+            // Status is a heartbeat poll, not an action log event.
+            fetch('/api/status')
+                .then(res => res.ok ? res.json() : null)
+                .then(data => {
+                    if (data) {
+                        updateStatusCards(data);
+                        lastBeatTime = Date.now();
+                        led.className = data.heartbeat ? 'led on' : 'led';
+                    }
+                })
+                .catch(() => {});
+        }
+
+        function startPolling() {
+            setInterval(fetchLogs, 500);
+        }
+
+        function fetchLogs() {
+            if (!liveLogEnabled) return;
+
+            // This label is reserved for transport state; action results belong in the debug log.
+            fetch('/api/logs')
+                .then(response => response.text())
+                .then(text => {
+                    statusText.innerText = 'Connected';
+                    statusText.style.color = '#8df0b5';
+                    lastBeatTime = Date.now();
+
+                    logWindow.innerHTML = filterLogHtml(text);
+                    if (shouldAutoScroll) {
+                        logWindow.scrollTop = logWindow.scrollHeight;
+                    }
+
+                })
+                .catch(() => {
+                    statusText.innerText = 'Disconnected';
+                    statusText.style.color = '#fca5a5';
+                    if (Date.now() - lastBeatTime > 2000) {
+                        led.className = 'led error';
+                    }
+                });
+        }
+
+        document.getElementById('open-editor-btn').addEventListener('click', () => {
+            window.open('/action_scripts.html', '_blank');
+        });
+
+        document.getElementById('audio-test-btn').addEventListener('click', () => {
+            window.open('/audio_test.html', '_blank');
+        });
+
+        document.getElementById('refresh-scenes').addEventListener('click', loadScenes);
+
+        document.getElementById('reboot-btn').addEventListener('click', () => {
+            // Unsupported controls still reach an explicit firmware route so
+            // the debug log explains why the request was rejected.
+            fetch('/api/reboot', { method: 'POST' }).catch(() => {});
+        });
+
+        // Manual retry for browsers that opened before the clock was ready or
+        // whose first synchronization request was interrupted.
+        syncTimeBtn.addEventListener('click', syncTime);
+
+        clearLogBtn.addEventListener('click', () => {
+            fetch('/api/logs/clear', { method: 'POST' })
+                .then(() => {
+                    logWindow.innerHTML = 'Log cleared';
+                    logWindow.scrollTop = logWindow.scrollHeight;
+                })
+                .catch(() => {});
+        });
+
+        saveLogBtn.addEventListener('click', () => {
+            fetch('/api/logs/save', { method: 'POST' })
+                .catch(() => {});
+        });
+
+        pauseToggleBtn.addEventListener('click', () => {
+            setLiveLogState(!liveLogEnabled);
+            if (liveLogEnabled) {
+                logWindow.scrollTop = logWindow.scrollHeight;
+            }
+        });
+
+        document.querySelectorAll('[data-effect]').forEach(button => {
+            button.addEventListener('click', () => sendEffect(button.dataset.effect));
+        });
+
+        window.onload = function() {
+            updateClock();
+            setInterval(updateClock, 1000);
+            setLiveLogState(true);
+            fetchStatus();
+            setInterval(fetchStatus, 500);
+            loadScenes();
+            setInterval(loadScenes, 5000);
+
+            syncTime();
+            startPolling();
+        };
+
+        setInterval(() => {
+            if (Date.now() - lastBeatTime > 2500) {
+                led.className = 'led error';
+                statusText.innerText = 'Disconnected';
+                statusText.style.color = '#fca5a5';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+
+```
+
+---
+
+### <a id="📄-unpacked-fs-scenes-json"></a>📄 `unpacked_fs/scenes.json`
+
+**File Info:**
+- **Size**: 202 B
+- **Extension**: `.json`
+- **Language**: `json`
+- **Location**: `unpacked_fs/scenes.json`
+- **Relative Path**: `unpacked_fs`
+- **Created**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `7cfa79e8730050221ac41d0843df396b`
+- **SHA256**: `313e0d720e49dce50793e7f4b7655f3c9d8baf99ed6b93643239f3c90cdf2e1f`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Movie",
+    "aliases": ["movie", "cinema"],
+    "type": "static",
+    "script": "Movie Start",
+    "kaku": {
+      "house": "D",
+      "button": 4
+    }
+  }
+]
+```
+
+---
+
+### <a id="📄-unpacked-fs-scripts-json"></a>📄 `unpacked_fs/scripts.json`
+
+**File Info:**
+- **Size**: 426 B
+- **Extension**: `.json`
+- **Language**: `json`
+- **Location**: `unpacked_fs/scripts.json`
+- **Relative Path**: `unpacked_fs`
+- **Created**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `3358d1663975d40ee0c1f852630ac272`
+- **SHA256**: `183301549c6e305918a112e71f3eeb967fdd34722b8eb699522c515f8dbd4b00`
+- **Encoding**: ASCII
+
+**File code content:**
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Movie Start",
+    "aliases": [],
+    "commands": [
+      "living 1 rgb 255 100 20",
+      "living 2 rgb 255 255 20",
+      "living 3 rgb 255 100 220",
+      "living 4 rgb 255 200 20",
+      "living 5 rgb 155 100 255",
+      "living 6 rgb 205 155 200",
+      "living 7 rgb 0 100 255"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "new",
+    "aliases": [],
+    "commands": []
+  }
+]
 ```
 
 ---
@@ -33015,6 +34957,155 @@ lib_deps =
 
 
 ```
+
+---
+
+### <a id="📄-script-scene-md"></a>📄 `script_scene.md`
+
+**File Info:**
+- **Size**: 4.05 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `script_scene.md`
+- **Relative Path**: `root`
+- **Created**: 2026-09-16 12:09:48 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 12:09:48 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `219e9dfff489e39d5bb7b7a521d17087`
+- **SHA256**: `bfe55ae3520221738b55781a4bebd7cdcc7b5320d545a53dbd63c760fe720305`
+- **Encoding**: ASCII
+
+**File code content:**
+
+````markdown
+# Script Manager and Scene Manager
+
+## Overview
+This document explains the purpose and functionality of the Script Manager and Scene Manager in the ESP32 Home Controller system.
+
+---
+
+## Script Manager
+
+### Purpose
+The Script Manager is responsible for managing custom automation scripts in your home controller system. Scripts allow you to create sequences of commands that can be executed with a single trigger, making it easy to automate complex routines.
+
+### Key Features
+- **Script Storage**: Stores scripts in JSON format on the filesystem
+- **Script Execution**: Executes scripts by sending commands to connected devices
+- **Script Management**: Provides methods to add, update, delete, and list scripts
+- **Command Parsing**: Parses and validates script commands before execution
+
+### Script Structure
+Each script contains:
+- **ID**: Unique identifier for the script
+- **Name**: Human-readable name for the script
+- **Aliases**: Alternative names that can trigger the script
+- **Commands**: Array of commands to execute when the script is triggered
+
+### Example Script
+~~~~json
+[
+  {
+    "id": 1,
+    "name": "Movie Start",
+    "aliases": [],
+    "commands": [
+      "living 1 rgb 255 100 20",
+      "living 2 rgb 255 255 20",
+      "living 3 rgb 255 100 220"
+    ]
+  }
+]
+~~~~
+
+### Common Commands
+- `living <id> rgb <r> <g> <b>`: Set LivingColors light color
+- `delay <ms>`: Pause execution for specified milliseconds
+- `audio <command>`: Control audio playback
+
+---
+
+## Scene Manager
+
+### Purpose
+The Scene Manager manages predefined scenes in your home controller system. Scenes are named configurations that can be activated to instantly change the state of multiple devices, creating specific atmospheres or moods.
+
+### Key Features
+- **Scene Storage**: Stores scenes in JSON format on the filesystem
+- **Scene Activation**: Activates scenes by sending device commands
+- **Scene Management**: Provides methods to add, update, delete, and list scenes
+- **Preset Configurations**: Stores predefined device settings for each scene
+
+### Scene Structure
+Each scene contains:
+- **ID**: Unique identifier for the scene
+- **Name**: Human-readable name for the scene
+- **Type**: Category of the scene (e.g., "lighting", "mood", "activity")
+- **Devices**: Array of device configurations for the scene
+
+### Example Scene
+~~~~json
+[
+  {
+    "id": 1,
+    "name": "Movie Night",
+    "type": "activity",
+    "devices": [
+      {
+        "id": 1,
+        "type": "light",
+        "value": 50
+      },
+      {
+        "id": 2,
+        "type": "light",
+        "value": 20
+      }
+    ]
+  }
+]
+~~~~
+
+### Common Scene Types
+- **Lighting**: Control brightness and colors of lights
+- **Mood**: Create atmospheric settings
+- **Activity**: Set up for specific activities (movie, dinner, etc.)
+- **Security**: Configure alarm and surveillance settings
+
+---
+
+## Integration
+
+### How They Work Together
+While Scripts and Scenes serve different purposes, they can be used together:
+
+1. **Scripts can activate scenes**: A script can include commands to activate specific scenes
+2. **Scenes can be triggered by scripts**: Scenes can be part of larger automation scripts
+3. **Web Interface**: Both can be controlled through the WebUI
+4. **Event System**: Both can be triggered by system events
+
+### Use Cases
+- **Script Example**: "Good Morning" script that turns on lights, sets thermostat, and plays news
+- **Scene Example**: "Movie Night" scene that dims lights and closes blinds
+
+---
+
+## File Locations
+- Scripts: `/scripts.json`
+- Scenes: `/scenes.json`
+
+---
+
+## API Endpoints
+- Scripts: `/api/action-scripts` (GET for listing, POST for adding/updating)
+- Scenes: `/api/scenes` (GET for listing, POST for adding/updating)
+
+---
+
+## Conclusion
+The Script Manager and Scene Manager provide powerful automation capabilities for your home controller system. Scripts are ideal for complex sequences of actions, while scenes are perfect for instant atmosphere changes. Together, they create a flexible and user-friendly home automation system.
+
+````
 
 ---
 
