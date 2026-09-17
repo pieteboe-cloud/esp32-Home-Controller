@@ -26,7 +26,7 @@
 //   ir TV POWER
 //   living 1 rgb 255 0 0
 //   living 1 hsv 120 255 255
-//   delay 1000
+// 
 //
 // The exact command vocabulary belongs to Core/the translator layer.
 // -----------------------------------------------------------------------------

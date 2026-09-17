@@ -1,6 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
+#include "Debug.h"
 #include <LittleFS.h>
 #include <ArduinoJson.h>
 #include "../HardwareManager/Storage/StorageManager.h"
@@ -128,8 +129,7 @@ private:
     const char* SCRIPT_FILE =
         "/scripts.json";
 
-    const char* SCRIPT_BACKUP_FILE =
-        "/backup/scripts.json";
+   
 
 
     // ------------------------------------------------------------------------
@@ -154,7 +154,7 @@ private:
          *
          * [
          *   "ir TV POWER",
-         *   "delay 1000",
+         *   
          *   "living 1 rgb 255 100 20"
          * ]
          */

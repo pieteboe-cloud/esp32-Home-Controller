@@ -23,7 +23,7 @@ Core::Core()
     : hardware(),
       scriptManager(*this),
       sceneManager(scriptManager),
-      webui(scriptManager, sceneManager)
+      webui (scriptManager, sceneManager, *this)
 {
 }
 

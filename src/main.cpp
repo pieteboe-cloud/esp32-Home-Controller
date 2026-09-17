@@ -1,10 +1,7 @@
 #include <Arduino.h>
-#include "../lib/Core/Core.h"
-#include "../lib/Debug/Debug.h"
+#include "Debug.h"
+#include "Core.h"
 
-namespace {
-constexpr unsigned long kSerialBaudRate = 115200;
-}
 
 // Read this first when debugging:
 // -----------------------------------------------------------------------------
@@ -37,22 +34,21 @@ public:
      * then delegates all intelligent startup coordination to Core::init().
      */
     void begin() {
-        // Serial debug is the main observability tool during bring-up and runtime debugging.
-        Debug::begin(kSerialBaudRate);
-        Debug::logStartupBanner("HomeController", "ESP32");
+        Debug::begin(115200, Debug::INFO);
 
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[MAIN] Boot sequence started");
-        Debug::println(1, "[MAIN] Starting application");
-#endif
+        #ifdef DEBUG_LEVEL
+            if (Debug::getDebugLevel() >=  0) {
+                Debug::println(1, "[MAIN] Debug level set to " + String(Debug::getDebugLevel()));
+            }
+        #endif
+
+        
+
+        Debug::logStartupBanner("HomeController", "ESP32");
 
         // Core owns the startup sequence and the single status log for the system lifecycle.
         core.init();
 
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[MAIN] Core startup complete, application is running");
-        Debug::println(1, "[MAIN] Application started");
-#endif
     }
 
     /**

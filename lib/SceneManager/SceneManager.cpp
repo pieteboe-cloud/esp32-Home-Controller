@@ -73,9 +73,7 @@ bool SceneManager::loadScenesFromFile(
     if (fileContent.isEmpty())
         return false;
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -382,7 +380,7 @@ bool SceneManager::aliasesContain(
     const String& value
 ) const
 {
-    DynamicJsonDocument doc(1024);
+    JsonDocument doc;
 
     if (deserializeJson(
             doc,
@@ -421,9 +419,7 @@ bool SceneManager::addScene(
     if (sceneCount >= MAX_SCENES)
         return false;
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     if (deserializeJson(doc, json))
         return false;
@@ -502,9 +498,7 @@ bool SceneManager::updateScene(
     if (index < 0)
         return false;
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     if (deserializeJson(doc, json))
         return false;
@@ -607,9 +601,7 @@ int SceneManager::nextSceneId() const
 
 bool SceneManager::saveScenes()
 {
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc ;
 
     JsonArray array =
         doc.to<JsonArray>();
@@ -618,9 +610,8 @@ bool SceneManager::saveScenes()
     {
         Scene& scene =
             scenes[i];
-
         JsonObject obj =
-            array.createNestedObject();
+            array.add<JsonObject>();
 
         obj["id"] =
             scene.id;
@@ -635,7 +626,7 @@ bool SceneManager::saveScenes()
             scene.script;
 
         // aliases
-        DynamicJsonDocument aliasDoc(1024);
+        JsonDocument aliasDoc;
 
         if (!deserializeJson(
                 aliasDoc,
@@ -648,8 +639,7 @@ bool SceneManager::saveScenes()
         // Kaku
         if (scene.kakuHouse != 0)
         {
-            JsonObject kaku =
-                obj.createNestedObject("kaku");
+            JsonObject kaku = obj["kaku"].to<JsonObject>();
 
             String house;
             house += scene.kakuHouse;
@@ -681,7 +671,6 @@ bool SceneManager::saveScenesToFile(
     const String& json
 )
 {
-    // Write file using Storage class
     return Storage::write(path, json);
 }
 
@@ -692,9 +681,7 @@ bool SceneManager::saveScenesToFile(
 
 String SceneManager::getScenesAsJson()
 {
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     JsonArray array =
         doc.to<JsonArray>();
@@ -705,7 +692,7 @@ String SceneManager::getScenesAsJson()
             scenes[i];
 
         JsonObject obj =
-            array.createNestedObject();
+            array.add<JsonObject>();
 
         obj["id"] =
             scene.id;
@@ -719,7 +706,7 @@ String SceneManager::getScenesAsJson()
         obj["script"] =
             scene.script;
 
-        DynamicJsonDocument aliasDoc(1024);
+        JsonDocument aliasDoc;
 
         if (!deserializeJson(
                 aliasDoc,
@@ -732,7 +719,7 @@ String SceneManager::getScenesAsJson()
         if (scene.kakuHouse != 0)
         {
             JsonObject kaku =
-                obj.createNestedObject("kaku");
+                obj["kaku"].to<JsonObject>();
 
             String house;
             house += scene.kakuHouse;
@@ -743,8 +730,7 @@ String SceneManager::getScenesAsJson()
             kaku["button"] =
                 scene.kakuButton;
         }
-    }
-
+    }   
     String output;
 
     serializeJson(
@@ -766,9 +752,7 @@ String SceneManager::getSceneById(
     if (index < 0)
         return "{}";
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     Scene& scene =
         scenes[index];
@@ -788,7 +772,7 @@ String SceneManager::getSceneById(
     obj["script"] =
         scene.script;
 
-    DynamicJsonDocument aliasDoc(1024);
+    JsonDocument aliasDoc;
 
     if (!deserializeJson(
             aliasDoc,
@@ -801,7 +785,7 @@ String SceneManager::getSceneById(
     if (scene.kakuHouse != 0)
     {
         JsonObject kaku =
-            obj.createNestedObject("kaku");
+                obj["kaku"].to<JsonObject>();
 
         String house;
         house += scene.kakuHouse;

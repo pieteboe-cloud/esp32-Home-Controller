@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "name": "Movie Start",
+    "name": "Set some livingcolors",
     "aliases": [],
     "commands": [
       "living 1 rgb 255 100 20",
@@ -10,13 +10,24 @@
       "living 4 rgb 255 200 20",
       "living 5 rgb 155 100 255",
       "living 6 rgb 205 155 200",
-      "living 7 rgb 0 100 255"
+      "living 7 rgb 0 100 255",
+      "living 8 rgb 255 255 255",
+      "living 9 rgb 255 0 255",
+      "living 10 rgb 0 255 0",
+      "living 11 rgb 255 255 0",
+      "living 12 rgb 0 0 255"
     ]
   },
   {
     "id": 2,
     "name": "new",
-    "aliases": [],
-    "commands": []
+    "aliases": ["test new"],
+    "commands": [
+      "living 1 rgb 255 100 20",
+      "living 2 rgb 255 255 20",
+      "living 3 rgb 255 100 220",
+      "living 4 rgb 255 200 20",
+      "living 5 rgb 155 100 255"
+    ]
   }
 ]

@@ -74,7 +74,7 @@ void Translator::loadIrDatabase() {
         }
         
         // Parse JSON
-        DynamicJsonDocument doc(4096);
+        JsonDocument doc;
         DeserializationError error = deserializeJson(doc, fileContent);
 
         if (error) {

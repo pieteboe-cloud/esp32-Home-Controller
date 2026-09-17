@@ -353,6 +353,8 @@
                 <button class="system-btn" id="debug-btn-1">[1]</button>
                 <button class="system-btn" id="debug-btn-2">[2]</button>
                 <button class="system-btn" id="debug-btn-3">[3]</button>
+                <button class="system-btn" id="debug-btn-4">[4]</button>
+                <button class="system-btn" id="debug-btn-5">[5]</button>
             </div>
             <div id="log-window">Waiting for logs...</div>
         </section>
@@ -362,7 +364,7 @@
         let lastBeatTime = 0;
         let shouldAutoScroll = true;
         let liveLogEnabled = true;
-        let currentDebugLevel = 2; // Default to match platformio.ini
+        let currentDebugLevel = 3; // Default to INFO level
 
         const led = document.getElementById('heartbeat-led');
         const statusText = document.getElementById('connection-status');
@@ -374,6 +376,8 @@
         const debugBtn1 = document.getElementById('debug-btn-1');
         const debugBtn2 = document.getElementById('debug-btn-2');
         const debugBtn3 = document.getElementById('debug-btn-3');
+        const debugBtn4 = document.getElementById('debug-btn-4');
+        const debugBtn5 = document.getElementById('debug-btn-5');
         const syncTimeBtn = document.getElementById('sync-time-btn');
 
         logWindow.addEventListener('scroll', () => {
@@ -386,11 +390,13 @@
             currentDebugLevel = level;
             
             // Update button states
-            [debugBtn1, debugBtn2, debugBtn3].forEach(btn => btn.classList.remove('active'));
+            [debugBtn1, debugBtn2, debugBtn3, debugBtn4, debugBtn5].forEach(btn => btn.classList.remove('active'));
             
             if (level === 1) debugBtn1.classList.add('active');
             if (level === 2) debugBtn2.classList.add('active');
             if (level === 3) debugBtn3.classList.add('active');
+            if (level === 4) debugBtn4.classList.add('active');
+            if (level === 5) debugBtn5.classList.add('active');
             
             // Send request to ESP32 to update debug level
             fetch('/api/set-debug-level', {
@@ -420,6 +426,8 @@
         debugBtn1.addEventListener('click', () => setDebugLevel(1));
         debugBtn2.addEventListener('click', () => setDebugLevel(2));
         debugBtn3.addEventListener('click', () => setDebugLevel(3));
+        debugBtn4.addEventListener('click', () => setDebugLevel(4));
+        debugBtn5.addEventListener('click', () => setDebugLevel(5));
 
         function filterLogHtml(rawHtml) {
             const chosen = 'ALL';

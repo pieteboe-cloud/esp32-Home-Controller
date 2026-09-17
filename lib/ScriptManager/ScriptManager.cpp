@@ -1,6 +1,5 @@
 #include "ScriptManager.h"
 
-#include "../Debug/Debug.h"
 
 
 // ============================================================================
@@ -86,37 +85,34 @@ bool ScriptManager::loadScripts()
             return true;
         }
 
-        Debug::println(
-            1,
-            "[ScriptManager] Primary script file failed."
-        );
-    }
-    else
-    {
-        Debug::println(
-            2,
-            "[ScriptManager] Primary script file not found."
-        );
-    }
+    //     Debug::println(
+    //         1,
+    //         "[ScriptManager] Primary script file failed."
+    //     );
+    // }
+    // else
+    // {
+    //     Debug::println(
+    //         2,
+    //         "[ScriptManager] Primary script file not found."
+    //     );
+    // }
 
-    if (Storage::exists(SCRIPT_BACKUP_FILE))
-    {
-        Debug::println(
-            2,
-            "[ScriptManager] Loading backup script file."
-        );
+    // if (Storage::exists(SCRIPT_BACKUP_FILE))
+    // {
+    //     Debug::println(
+    //         2,
+    //         "[ScriptManager] Loading backup script file."
+    //     );
 
-        return loadScriptsFromFile(
-            SCRIPT_BACKUP_FILE
-        );
-    }
+    //     return loadScriptsFromFile(
+    //         SCRIPT_BACKUP_FILE
+    //     );
+     }
 
     scriptCount = 0;
 
-    Debug::println(
-        2,
-        "[ScriptManager] No scripts file found."
-    );
+    Debug::println(2, "[ScriptManager] No scripts file found." );
 
     return false;
 }
@@ -157,9 +153,7 @@ bool ScriptManager::loadScriptsFromFile(
         " bytes"
     );
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -244,9 +238,7 @@ bool ScriptManager::loadScriptsFromFile(
         }
         else if (obj["alias"].is<const char*>())
         {
-            DynamicJsonDocument aliasDoc(
-                512
-            );
+            JsonDocument aliasDoc ; 
 
             JsonArray aliases =
                 aliasDoc.to<JsonArray>();
@@ -310,11 +302,12 @@ bool ScriptManager::loadScriptsFromFile(
             script.aliases
         );
 
-        Debug::println(
-            2,
-            "[ScriptManager] Commands JSON: " +
-            script.commands
-        );
+        #ifdef DEBUG_LEVEL 
+            if (Debug::getDebugLevel() >= 3) {
+                Debug::println(5, "[ScriptManager] Commands JSON: " +  script.commands );
+            }
+        #endif
+        
 
         scriptCount++;
     }
@@ -415,9 +408,7 @@ bool ScriptManager::aliasesContain(
     const String& value
 )
 {
-    DynamicJsonDocument doc(
-        1024
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -583,9 +574,7 @@ bool ScriptManager::executeScriptAtIndex(
     // Parse command array
     // ------------------------------------------------------------------------
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -750,83 +739,36 @@ bool ScriptManager::executeScriptAtIndex(
 
 bool ScriptManager::saveScripts()
 {
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
-
-    JsonArray array =
-        doc.to<JsonArray>();
+    JsonDocument doc;
+    JsonArray array = doc.to<JsonArray>();
 
     for (int i = 0; i < scriptCount; i++)
     {
-        Script& script =
-            scripts[i];
+        Script& s = scripts[i];
+        JsonObject obj = array.add<JsonObject>();
 
-        JsonObject obj =
-            array.createNestedObject();
+        obj["id"]   = s.id;
+        obj["name"] = s.name;
 
-        obj["id"] =
-            script.id;
-
-        obj["name"] =
-            script.name;
-
-        // --------------------------------------------------------------------
-        // aliases
-        // --------------------------------------------------------------------
-
-        DynamicJsonDocument aliasDoc(
-            1024
-        );
-
-        DeserializationError aliasError =
-            deserializeJson(
-                aliasDoc,
-                script.aliases
-            );
-
-        if (!aliasError &&
-            aliasDoc.is<JsonArray>())
+        JsonDocument aliasDoc;
+        if (deserializeJson(aliasDoc, s.aliases) == DeserializationError::Ok
+            && aliasDoc.is<JsonArray>())
         {
-            obj["aliases"] =
-                aliasDoc.as<JsonArray>();
+            obj["aliases"] = aliasDoc.as<JsonArray>();
         }
 
-        // --------------------------------------------------------------------
-        // commands
-        // --------------------------------------------------------------------
-
-        DynamicJsonDocument commandDoc(
-            4096
-        );
-
-        DeserializationError commandError =
-            deserializeJson(
-                commandDoc,
-                script.commands
-            );
-
-        if (!commandError &&
-            commandDoc.is<JsonArray>())
+        JsonDocument cmdDoc;
+        if (deserializeJson(cmdDoc, s.commands) == DeserializationError::Ok
+            && cmdDoc.is<JsonArray>())
         {
-            obj["commands"] =
-                commandDoc.as<JsonArray>();
+            obj["commands"] = cmdDoc.as<JsonArray>();
         }
     }
 
     String json;
-
-    serializeJsonPretty(
-        doc,
-        json
-    );
-
-    return saveScriptsToFile(
-        SCRIPT_FILE,
-        json
-    );
-}
-
+    serializeJsonPretty(doc, json);
+    return saveScriptsToFile(SCRIPT_FILE, json);
+}   
 
 // ============================================================================
 // Save to file
@@ -853,9 +795,7 @@ bool ScriptManager::addScript(
     if (scriptCount >= MAX_SCRIPTS)
         return false;
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -924,9 +864,7 @@ bool ScriptManager::updateScript(
     if (index < 0)
         return false;
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -1018,134 +956,68 @@ int ScriptManager::nextScriptId() const
     return maxId + 1;
 }
 
-
-// ============================================================================
-// JSON output
-// ============================================================================
-
 String ScriptManager::getScriptsAsJson()
 {
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
+    JsonArray array = doc.to<JsonArray>();
 
-    JsonArray array =
-        doc.to<JsonArray>();
-
-    for (int i = 0;
-         i < scriptCount;
-         i++)
+    for (int i = 0; i < scriptCount; i++)
     {
-        Script& script =
-            scripts[i];
+        Script& s = scripts[i];
+        JsonObject obj = array.add<JsonObject>();
 
-        JsonObject obj =
-            array.createNestedObject();
+        obj["id"]   = s.id;
+        obj["name"] = s.name;
 
-        obj["id"] =
-            script.id;
-
-        obj["name"] =
-            script.name;
-
-        DynamicJsonDocument aliasDoc(
-            1024
-        );
-
-        if (!deserializeJson(
-                aliasDoc,
-                script.aliases))
+        JsonDocument aliasDoc;
+        if (deserializeJson(aliasDoc, s.aliases) == DeserializationError::Ok
+            && aliasDoc.is<JsonArray>())
         {
-            obj["aliases"] =
-                aliasDoc.as<JsonArray>();
+            obj["aliases"] = aliasDoc.as<JsonArray>();
         }
 
-        DynamicJsonDocument commandDoc(
-            4096
-        );
-
-        if (!deserializeJson(
-                commandDoc,
-                script.commands))
+        JsonDocument cmdDoc;
+        if (deserializeJson(cmdDoc, s.commands) == DeserializationError::Ok
+            && cmdDoc.is<JsonArray>())
         {
-            obj["commands"] =
-                commandDoc.as<JsonArray>();
+            obj["commands"] = cmdDoc.as<JsonArray>();
         }
     }
 
     String output;
-
-    serializeJsonPretty(
-        doc,
-        output
-    );
-
+    serializeJsonPretty(doc, output);
     return output;
 }
 
 
-// ============================================================================
-// Get script by ID
-// ============================================================================
-
-String ScriptManager::getScriptById(
-    int scriptId
-)
+String ScriptManager::getScriptById(int scriptId)
 {
-    int index =
-        findScriptIndex(
-            scriptId
-        );
+    int index = findScriptIndex(scriptId);
+    if (index < 0) return "{}";
 
-    if (index < 0)
-        return "{}";
+    Script& s = scripts[index];
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
+    JsonObject obj = doc.to<JsonObject>();
 
-    Script& script =
-        scripts[index];
+    obj["id"]   = s.id;
+    obj["name"] = s.name;
 
-    JsonObject obj =
-        doc.to<JsonObject>();
-
-    obj["id"] =
-        script.id;
-
-    obj["name"] =
-        script.name;
-
-    DynamicJsonDocument aliasDoc(
-        1024
-    );
-
-    if (!deserializeJson(
-            aliasDoc,
-            script.aliases))
+    JsonDocument aliasDoc;
+    if (deserializeJson(aliasDoc, s.aliases) == DeserializationError::Ok
+        && aliasDoc.is<JsonArray>())
     {
-        obj["aliases"] =
-            aliasDoc.as<JsonArray>();
+        obj["aliases"] = aliasDoc.as<JsonArray>();
     }
 
-    DynamicJsonDocument commandDoc(
-        4096
-    );
-
-    if (!deserializeJson(
-            commandDoc,
-            script.commands))
+    JsonDocument cmdDoc;
+    if (deserializeJson(cmdDoc, s.commands) == DeserializationError::Ok
+        && cmdDoc.is<JsonArray>())
     {
-        obj["commands"] =
-            commandDoc.as<JsonArray>();
+        obj["commands"] = cmdDoc.as<JsonArray>();
     }
 
     String output;
-
-    serializeJsonPretty(
-        doc,
-        output
-    );
-
+    serializeJsonPretty(doc, output);
     return output;
-}
+}   

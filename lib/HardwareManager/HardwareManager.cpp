@@ -110,9 +110,16 @@ void HardwareManager::handleIRDecoded(const IRCommand& cmd) {
     while (codeHex.length() < 8) codeHex = "0" + codeHex; 
     if (codeHex.length() > 8) codeHex = codeHex.substring(codeHex.length() - 8);
 
-#if DEBUG_LEVEL >= 4
+#ifdef DEBUG_LEVEL
+
+if (Debug::getDebugLevel () == 6) {
     Debug::println(4, "[HW][DEBUG] Received IR code: 0x" + codeHex);
+}
+
 #endif
+
+
+
 
     SystemEvent evt;
     evt.source = "IR";

@@ -1,7 +1,12 @@
 #pragma once
 
 #include <Arduino.h>
+#include "Debug.h"
+#include <WiFi.h>
 #include <ESPAsyncWebServer.h>
+#include <LittleFS.h>
+#include <ArduinoJson.h>
+#include <algorithm>
 #include <vector>
 #include <map>
 
@@ -11,7 +16,7 @@
 class WebUI
 {
 public:
-    WebUI(ScriptManager &scriptManager, SceneManager &sceneManager);
+    WebUI(ScriptManager &scriptManager, SceneManager &sceneManager, CommandSink &commandSink);
 
     void begin();
     void beginAP();
@@ -33,10 +38,11 @@ private:
 
     ScriptManager &scriptManagerRef;
     SceneManager &sceneManagerRef;
+    CommandSink &commandSinkRef;
 
     volatile bool heartbeatState = false;
 
-    bool authenticationEnabled = true;
+    bool authenticationEnabled = false;  // Disabled for automatic access
 
     String adminPassword = "defaultadmin";
     String apPassword = "password123";

@@ -104,7 +104,7 @@ Current behavior reaches Core but returns failure.
 - Transmit through HardwareManager.
 - Script reports success when transmission succeeds.
 
-### ISSUE-008 — `/api/set-debug-level` is requested but not found
+### ISSUE-008 — `/api/set-debug-level` is requested but not found ✅ RESOLVED
 **Priority:** Low
 
 The log currently shows requests to:
@@ -114,6 +114,12 @@ The log currently shows requests to:
 ```
 
 which return NOTFOUND.
+
+**Resolution:** Implemented both POST and GET endpoints in WebUI.cpp:
+
+1. `/api/set-debug-level` (POST): Accepts a JSON body with a `level` field (1-5) and calls `Debug::setDebugLevel()` to update the debug level at runtime.
+
+2. `/api/debug-level` (GET): Returns the current debug level in JSON format.
 
 **Acceptance criteria**
 - Either implement it using the existing Debug system, or remove the frontend request if obsolete.

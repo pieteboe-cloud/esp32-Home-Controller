@@ -3,8 +3,8 @@
 ## 📊 Project Information
 
 - **Project Name**: `esp32_home-controller`
-- **Generated On**: 2026-09-16 12:20:39 (Europe/Amsterdam / GMT+02:00)
-- **Total Files Processed**: 212
+- **Generated On**: 2026-09-17 15:26:37 (Europe/Amsterdam / GMT+02:00)
+- **Total Files Processed**: 222
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
 
@@ -26,9 +26,24 @@
 │   │   ├── 📄 RGB_44KEY-R1.json (5.13 KB)
 │   │   └── 📄 RGB_44KEY-R2.json (3.45 KB)
 │   ├── 📄 action_scripts.html (22.38 KB)
-│   ├── 📄 index.html (26.92 KB)
+│   ├── 📄 index.html (27.47 KB)
 │   ├── 📄 scenes.json (202 B)
-│   └── 📄 scripts.json (426 B)
+│   └── 📄 scripts.json (789 B)
+├── 📁 Docs/
+│   ├── 📄 action_scripts_execution.md (2.97 KB)
+│   ├── 📄 colormatching.md (4.32 KB)
+│   ├── 📄 Debug_Helper_Macros.md (6.88 KB)
+│   ├── 📄 Debug_System_Guide.md (5.24 KB)
+│   ├── 📄 Debug_Usage_Example.md (2.07 KB)
+│   ├── 📄 Implementation_Gaps.md (3.32 KB)
+│   ├── 📄 IRController_relationships.md (2.81 KB)
+│   ├── 📄 issues.md (6.99 KB)
+│   ├── 📄 LivingColors Remote.png (197.23 KB)
+│   ├── 📄 log_smoothing.md (3.33 KB)
+│   ├── 📄 plan.md (7.92 KB)
+│   ├── 📄 script_scene.md (4.05 KB)
+│   ├── 📄 System_Architecture.md (4.68 KB)
+│   └── 📄 todo.md (4.12 KB)
 ├── 📁 HelperRGB/
 │   ├── 📄 Just Color Codes 126.json (7.68 KB)
 │   ├── 📄 RGB Color Codes.png (44.55 KB)
@@ -44,12 +59,12 @@
 │   └── 📄 Trimlight-Codes-reds-to-yellows.webp (36.21 KB)
 ├── 📁 lib/
 │   ├── 📁 Core/
-│   │   ├── 📄 Core.cpp (19.14 KB)
-│   │   ├── 📄 Core.h (4.71 KB)
+│   │   ├── 📄 Core.cpp (19.98 KB)
+│   │   ├── 📄 Core.h (4.7 KB)
 │   │   └── 📄 EventBus.h (2.03 KB)
 │   ├── 📁 Debug/
-│   │   ├── 📄 Debug.cpp (10.12 KB)
-│   │   └── 📄 Debug.h (7.3 KB)
+│   │   ├── 📄 Debug.cpp (10.82 KB)
+│   │   └── 📄 Debug.h (8.62 KB)
 │   ├── 📁 HardwareManager/
 │   │   ├── 📁 AudioController/
 │   │   │   ├── 📄 AudioController.cpp (15.89 KB)
@@ -76,16 +91,16 @@
 │   │   │   ├── 📄 StorageManager.cpp (10.36 KB)
 │   │   │   └── 📄 StorageManager.h (1.4 KB)
 │   │   ├── 📄 Config.h (1.97 KB)
-│   │   ├── 📄 HardwareManager.cpp (5.13 KB)
+│   │   ├── 📄 HardwareManager.cpp (5.18 KB)
 │   │   └── 📄 HardwareManager.h (2.12 KB)
 │   ├── 📁 SceneManager/
-│   │   ├── 📄 SceneManager.cpp (15.56 KB)
+│   │   ├── 📄 SceneManager.cpp (15.22 KB)
 │   │   └── 📄 SceneManager.h (2.48 KB)
 │   ├── 📁 ScriptManager/
-│   │   ├── 📄 ScriptManager.cpp (23.96 KB)
-│   │   └── 📄 ScriptManager.h (5.14 KB)
+│   │   ├── 📄 ScriptManager.cpp (22.19 KB)
+│   │   └── 📄 ScriptManager.h (5.08 KB)
 │   ├── 📁 Translator/
-│   │   ├── 📄 Translator.cpp (6.12 KB)
+│   │   ├── 📄 Translator.cpp (6.11 KB)
 │   │   └── 📄 Translator.h (2.51 KB)
 │   ├── 📁 vendor/
 │   │   ├── 📁 irremote/
@@ -278,10 +293,10 @@
 │   │       ├── 📄 RCSwitch.h (6.41 KB)
 │   │       └── 📄 README.md (1.42 KB)
 │   └── 📁 WebUI/
-│       ├── 📄 WebUI.cpp (31.48 KB)
-│       └── 📄 WebUI.h (1.82 KB)
+│       ├── 📄 WebUI.cpp (39.57 KB)
+│       └── 📄 WebUI.h (2.09 KB)
 ├── 📁 src/
-│   └── 📄 main.cpp (2.56 KB)
+│   └── 📄 main.cpp (2.36 KB)
 ├── 📁 unpacked_fs/
 │   ├── 📁 ir_db/
 │   │   ├── 📄 RGB_24KEY-R1.json (2.53 KB)
@@ -291,12 +306,8 @@
 │   ├── 📄 index.html (26.92 KB)
 │   ├── 📄 scenes.json (202 B)
 │   └── 📄 scripts.json (426 B)
-├── 📄 issues.md (6.42 KB)
-├── 📄 LivingColors Remote.png (197.23 KB)
-├── 📄 platformio.ini (698 B)
+├── 📄 platformio.ini (791 B)
 ├── 📄 repomix-output.xml (1.24 MB)
-├── 📄 script_scene.md (4.05 KB)
-├── 📄 todo.md (3.94 KB)
 └── 📄 updatefs_preserve.py (9.24 KB)
 ```
 
@@ -311,6 +322,19 @@
 - [📄 data/index.html](#📄-data-index-html)
 - [📄 data/scenes.json](#📄-data-scenes-json)
 - [📄 data/scripts.json](#📄-data-scripts-json)
+- [📄 Docs/action_scripts_execution.md](#📄-docs-action-scripts-execution-md)
+- [📄 Docs/colormatching.md](#📄-docs-colormatching-md)
+- [📄 Docs/Debug_Helper_Macros.md](#📄-docs-debug-helper-macros-md)
+- [📄 Docs/Debug_System_Guide.md](#📄-docs-debug-system-guide-md)
+- [📄 Docs/Debug_Usage_Example.md](#📄-docs-debug-usage-example-md)
+- [📄 Docs/Implementation_Gaps.md](#📄-docs-implementation-gaps-md)
+- [📄 Docs/IRController_relationships.md](#📄-docs-ircontroller-relationships-md)
+- [📄 Docs/issues.md](#📄-docs-issues-md)
+- [📄 Docs/log_smoothing.md](#📄-docs-log-smoothing-md)
+- [📄 Docs/plan.md](#📄-docs-plan-md)
+- [📄 Docs/script_scene.md](#📄-docs-script-scene-md)
+- [📄 Docs/System_Architecture.md](#📄-docs-system-architecture-md)
+- [📄 Docs/todo.md](#📄-docs-todo-md)
 - [📄 HelperRGB/Just Color Codes 126.json](#📄-helperrgb-just-color-codes-126-json)
 - [📄 HelperRGB/Trimlight-Codes-blues-to-purples.json](#📄-helperrgb-trimlight-codes-blues-to-purples-json)
 - [📄 HelperRGB/Trimlight-Codes-browns-to-whites.json](#📄-helperrgb-trimlight-codes-browns-to-whites-json)
@@ -421,11 +445,8 @@
 - [📄 unpacked_fs/index.html](#📄-unpacked-fs-index-html)
 - [📄 unpacked_fs/scenes.json](#📄-unpacked-fs-scenes-json)
 - [📄 unpacked_fs/scripts.json](#📄-unpacked-fs-scripts-json)
-- [📄 issues.md](#📄-issues-md)
 - [📄 platformio.ini](#📄-platformio-ini)
 - [📄 repomix-output.xml](#📄-repomix-output-xml)
-- [📄 script_scene.md](#📄-script-scene-md)
-- [📄 todo.md](#📄-todo-md)
 - [📄 updatefs_preserve.py](#📄-updatefs-preserve-py)
 
 ---
@@ -434,11 +455,11 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Files | 212 |
-| Total Directories | 66 |
-| Text Files | 123 |
+| Total Files | 222 |
+| Total Directories | 67 |
+| Text Files | 133 |
 | Binary Files | 89 |
-| Total Size | 5.91 MB |
+| Total Size | 5.96 MB |
 
 ### 📄 File Types Distribution
 
@@ -447,9 +468,9 @@
 | `.h` | 60 |
 | `.ino` | 38 |
 | `.hpp` | 31 |
+| `.md` | 19 |
 | `.cpp` | 19 |
 | `.json` | 18 |
-| `.md` | 9 |
 | `.jpg` | 7 |
 | `.log` | 6 |
 | `.png` | 5 |
@@ -1632,15 +1653,15 @@ function escapeHtml(value){
 ### <a id="📄-data-index-html"></a>📄 `data/index.html`
 
 **File Info:**
-- **Size**: 26.92 KB
+- **Size**: 27.47 KB
 - **Extension**: `.html`
 - **Language**: `html`
 - **Location**: `data/index.html`
 - **Relative Path**: `data`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 12:01:18 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `543df4367109c942b442c18001e3ef41`
-- **SHA256**: `5a9f201b95ceeee70ab8265748b4ae169ef4d7a22481b20ffa06430f98fe32ad`
+- **Modified**: 2026-09-16 21:30:49 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `101c176150165ad0f2fd600b09bbec61`
+- **SHA256**: `2ba29700c2aac18a49d9cd96306b6054f325b0dbf358140865af493ca4e39148`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -2001,6 +2022,8 @@ function escapeHtml(value){
                 <button class="system-btn" id="debug-btn-1">[1]</button>
                 <button class="system-btn" id="debug-btn-2">[2]</button>
                 <button class="system-btn" id="debug-btn-3">[3]</button>
+                <button class="system-btn" id="debug-btn-4">[4]</button>
+                <button class="system-btn" id="debug-btn-5">[5]</button>
             </div>
             <div id="log-window">Waiting for logs...</div>
         </section>
@@ -2010,7 +2033,7 @@ function escapeHtml(value){
         let lastBeatTime = 0;
         let shouldAutoScroll = true;
         let liveLogEnabled = true;
-        let currentDebugLevel = 2; // Default to match platformio.ini
+        let currentDebugLevel = 3; // Default to INFO level
 
         const led = document.getElementById('heartbeat-led');
         const statusText = document.getElementById('connection-status');
@@ -2022,6 +2045,8 @@ function escapeHtml(value){
         const debugBtn1 = document.getElementById('debug-btn-1');
         const debugBtn2 = document.getElementById('debug-btn-2');
         const debugBtn3 = document.getElementById('debug-btn-3');
+        const debugBtn4 = document.getElementById('debug-btn-4');
+        const debugBtn5 = document.getElementById('debug-btn-5');
         const syncTimeBtn = document.getElementById('sync-time-btn');
 
         logWindow.addEventListener('scroll', () => {
@@ -2034,11 +2059,13 @@ function escapeHtml(value){
             currentDebugLevel = level;
             
             // Update button states
-            [debugBtn1, debugBtn2, debugBtn3].forEach(btn => btn.classList.remove('active'));
+            [debugBtn1, debugBtn2, debugBtn3, debugBtn4, debugBtn5].forEach(btn => btn.classList.remove('active'));
             
             if (level === 1) debugBtn1.classList.add('active');
             if (level === 2) debugBtn2.classList.add('active');
             if (level === 3) debugBtn3.classList.add('active');
+            if (level === 4) debugBtn4.classList.add('active');
+            if (level === 5) debugBtn5.classList.add('active');
             
             // Send request to ESP32 to update debug level
             fetch('/api/set-debug-level', {
@@ -2068,6 +2095,8 @@ function escapeHtml(value){
         debugBtn1.addEventListener('click', () => setDebugLevel(1));
         debugBtn2.addEventListener('click', () => setDebugLevel(2));
         debugBtn3.addEventListener('click', () => setDebugLevel(3));
+        debugBtn4.addEventListener('click', () => setDebugLevel(4));
+        debugBtn5.addEventListener('click', () => setDebugLevel(5));
 
         function filterLogHtml(rawHtml) {
             const chosen = 'ALL';
@@ -2384,15 +2413,15 @@ function escapeHtml(value){
 ### <a id="📄-data-scripts-json"></a>📄 `data/scripts.json`
 
 **File Info:**
-- **Size**: 426 B
+- **Size**: 789 B
 - **Extension**: `.json`
 - **Language**: `json`
 - **Location**: `data/scripts.json`
 - **Relative Path**: `data`
 - **Created**: 2026-09-16 10:25:22 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 10:13:30 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `3358d1663975d40ee0c1f852630ac272`
-- **SHA256**: `183301549c6e305918a112e71f3eeb967fdd34722b8eb699522c515f8dbd4b00`
+- **Modified**: 2026-09-16 22:03:12 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `79ac775bcd63675b00ef690c3eac12c3`
+- **SHA256**: `dc6d53f0937d6db97a11df8d402a1e4d9621e52d4ebaa2ccda089f9e077e754d`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -2401,7 +2430,7 @@ function escapeHtml(value){
 [
   {
     "id": 1,
-    "name": "Movie Start",
+    "name": "Set some livingcolors",
     "aliases": [],
     "commands": [
       "living 1 rgb 255 100 20",
@@ -2410,19 +2439,2135 @@ function escapeHtml(value){
       "living 4 rgb 255 200 20",
       "living 5 rgb 155 100 255",
       "living 6 rgb 205 155 200",
-      "living 7 rgb 0 100 255"
+      "living 7 rgb 0 100 255",
+      "living 8 rgb 255 255 255",
+      "living 9 rgb 255 0 255",
+      "living 10 rgb 0 255 0",
+      "living 11 rgb 255 255 0",
+      "living 12 rgb 0 0 255"
     ]
   },
   {
     "id": 2,
     "name": "new",
-    "aliases": [],
-    "commands": []
+    "aliases": ["test new"],
+    "commands": [
+      "living 1 rgb 255 100 20",
+      "living 2 rgb 255 255 20",
+      "living 3 rgb 255 100 220",
+      "living 4 rgb 255 200 20",
+      "living 5 rgb 155 100 255"
+    ]
   }
 ]
 ```
 
 ---
+
+### <a id="📄-docs-action-scripts-execution-md"></a>📄 `Docs/action_scripts_execution.md`
+
+**File Info:**
+- **Size**: 2.97 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/action_scripts_execution.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 17:36:14 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 17:36:14 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `66a74cc05096ef6cf24c67101dd4d377`
+- **SHA256**: `8e7e7f1bb0a4fc4874d0579297527bfa639183a3b495229622e0aba2c28b2178`
+- **Encoding**: ASCII
+
+**File code content:**
+
+````markdown
+# Action Scripts HTML - Hardware Command Execution
+
+## Can action_scripts.html Execute Hardware Commands?
+
+**Yes, but indirectly.** The action_scripts.html file is a web interface that creates and manages scripts, but it doesn't directly execute hardware commands. Instead, it sends commands to the backend system which then executes them.
+
+## How Hardware Commands Are Executed
+
+### 1. Command Creation in the WebUI
+Users can create hardware commands through the web interface:
+
+#### LivingColors Commands:
+- Created via: `addLiving()` function (line 373)
+- Format: `living <lamp> rgb <r> <g> <b>`
+- Example: `living 1 rgb 255 100 20`
+
+#### RGB LED Strip Commands:
+- Created via: `addStrip()` function (line 424)
+- Format: `rgbstrip <remote> <hex>`
+- Example: `rgbstrip RGB_24KEY-R1 #FF6414`
+
+### 2. Command Execution Flow
+
+#### Test Commands:
+- Triggered by: `testLiving()` (line 384) and `testStrip()` (line 432)
+- Process: `executeTemporary()` function (line 548)
+- API Endpoint: `/api/execute-script`
+- Method: POST request with script JSON
+
+#### Script Execution:
+- Triggered by: `runCurrentScript()` function (line 540)
+- Process: `executeTemporary()` function (line 548)
+- API Endpoint: `/api/execute-script`
+- Method: POST request with script JSON
+
+### 3. Backend Processing
+The web interface sends commands to the backend via these API endpoints:
+
+- `POST /api/execute-script` - Executes a script
+- `POST /api/action-scripts` - Saves a script
+- `GET /api/action-scripts` - Loads scripts
+- `DELETE /api/action-scripts?id=<id>` - Deletes a script
+
+### 4. Command Execution Architecture
+1. **WebUI** creates commands and sends them to the backend
+2. **Backend** receives commands via API endpoints
+3. **ScriptManager** processes the script
+4. **Translator** converts commands to hardware-specific formats
+5. **Hardware Controllers** (IRController, LivingColorsController, etc.) execute the commands
+
+### 5. Key Functions for Command Execution
+
+#### executeTemporary() (line 548)
+- Creates a temporary script object
+- Sends it to the backend via `/api/execute-script`
+- Handles success/error responses
+
+#### runCurrentScript() (line 540)
+- Executes the currently selected script
+- Calls `executeTemporary()` with the script's commands
+
+#### testLiving() / testStrip() (line 384/432)
+- Test individual commands before adding to a script
+- Call `executeTemporary()` with a single command
+
+## Summary
+
+The action_scripts.html file is a user interface for creating and managing scripts that control hardware. It doesn't directly control hardware but rather:
+
+1. Provides a UI for users to create commands
+2. Sends these commands to the backend via API calls
+3. The backend processes these commands through the ScriptManager and Translator
+4. Hardware controllers then execute the actual hardware commands
+
+This separation allows for:
+- A clean user interface
+- Secure command execution
+- Centralized command processing
+- Support for multiple hardware types
+
+````
+
+---
+
+### <a id="📄-docs-colormatching-md"></a>📄 `Docs/colormatching.md`
+
+**File Info:**
+- **Size**: 4.32 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/colormatching.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 15:43:52 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 15:43:52 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `2919e2af95baa05c5f08827dd7b71060`
+- **SHA256**: `aec97671defa5b7f1e45036fbfbc6f844331147cc69a9f3450c604ee2bcd0cff`
+- **Encoding**: UTF-8
+
+**File code content:**
+
+````markdown
+# Color Matching System
+
+## Overview
+The color matching system is a fundamental part of the ESP32 Home Controller's unified lighting architecture. It provides a hardware-agnostic way to control colors across different types of lighting devices through the use of virtual colors.
+
+---
+
+## Color System Architecture
+
+### 1. Virtual Colors (VC_) - The Universal Language
+Virtual colors are semantic identifiers that represent color concepts rather than hardware-specific details.
+
+#### Key Features:
+- Used in scripts and scenes
+- Can be renamed (e.g., `VC_RED` → `VC_SALON_TABLE_RED`)
+- Hardware-agnostic
+- Map to hex values (nominal colors)
+- Work across all device types
+
+#### Examples:
+- `VC_RED`
+- `VC_MAGENTA`
+- `VC_TEAL`
+- `VC_LIGHT_BLUE`
+- `VC_DARK_PURPLE`
+- `VC_SALON_TABLE_RED`
+- `VC_TV_AMBIENT_BLUE`
+
+### 2. Nominal Colors (Hex)
+Every virtual color has an associated nominal hex value that represents the actual color.
+
+#### Examples:
+- `VC_MAGENTA` → `#FF00FF`
+- `VC_TEAL` → `#008080`
+- `VC_LIGHT_BLUE` → `#ADD8E6`
+- `VC_DARK_PURPLE` → `#4B0082`
+
+#### Hardware Usage:
+- **LivingColors**: Hex values are converted to RGB
+- **NeoPixel-style ICs**: Hex values are converted to RGB
+- **RGB-IR Strips**: Hex values are converted to IR codes
+
+### 3. Hardware Mapping
+Different hardware types consume color data in different ways:
+
+#### LivingColors (CC2500 RF)
+- Takes RGB values
+- Example: `living 3 rgb 138 43 226`
+
+#### RGB-IR Strips
+- Take IR codes, but the Translator maps:
+- Example: `VC_MAGENTA` → `#FF00FF` → IR code `0xe916ef00`
+
+#### NeoPixel-style ICs
+- Take RGB values (same as LivingColors)
+- Example: `neopixel 12 rgb 138 43 226`
+
+---
+
+## Data Sources
+
+### 1. IR Database (data/ir_db/*.json)
+Contains IR remote configurations with:
+- Button name (physical label)
+- IR code
+- Virtual color (VC_*)
+- Nominal color (hex)
+
+#### Example:
+~~~~json
+{
+  "name": "MAGENTA",
+  "code": "0xe916ef00",
+  "virtual_color": "VC_MAGENTA",
+  "nominal_color": "#FF00FF"
+}
+~~~~
+
+### 2. HelperRGB (HelperRGB/*.json)
+Reference color tables with:
+- Human-friendly names
+- RGB values
+- Hex values
+
+#### Example:
+~~~~json
+{
+  "name": "Blue Violet",
+  "rgb": [138, 43, 226],
+  "hex": "#8A2BE2"
+}
+~~~~
+
+---
+
+## How Color Matching Works
+
+### The Translator Component
+The Translator is the most important component, converting virtual colors to hardware-specific actions:
+
+#### RGB-IR Strip Conversion:
+~~~~
+VC_MAGENTA → #FF00FF → IR code 0xe916ef00
+~~~~
+
+#### LivingColors Conversion:
+~~~~
+VC_MAGENTA → #FF00FF → rgb(255,0,255) → CC2500 packet
+~~~~
+
+#### NeoPixel-style IC Conversion:
+~~~~
+VC_MAGENTA → #FF00FF → rgb(255,0,255) → WS2812 frame
+~~~~
+
+### Typical Workflow:
+1. A script or scene references a virtual color
+2. The Translator looks up the virtual color's nominal hex value
+3. The Translator converts the hex to the appropriate format for the target hardware
+4. The hardware-specific command is executed
+
+---
+
+## Benefits of Virtual Colors
+
+1. **Flexibility**: Colors can be renamed later without changing scripts
+2. **Consistency**: The same color can be applied to multiple hardware types
+3. **Hardware Agnosticism**: Scripts remain independent of specific hardware details
+4. **Future-Proof**: New devices can be added without changing the script language
+5. **Abstraction**: Avoids using hex codes, IR codes, or RGB values directly in scripts
+
+---
+
+## Usage Examples
+
+### Script Example:
+~~~~
+living 1 VC_SALON_TABLE_RED
+rgbstrip RGB_24KEY-R1 VC_MAGENTA
+neopixel 12 VC_TV_AMBIENT_BLUE
+~~~~
+
+### Scene Example:
+~~~~
+KAKU D-4 → Scene "Purple Madness" → Script "Purple Madness"
+~~~~
+
+---
+
+## WebUI Integration
+
+### Script Editor:
+- LivingColors section with RGB picker
+- RGB-IR Strips section with remote selector and virtual color selector
+- Commands generated: `living <lamp> rgb <r> <g> <b>` and `rgbstrip <remoteId> <virtual_color>`
+
+### Scene Editor:
+- Maps triggers (e.g., KAKU RF buttons) to scripts
+- Example: Trigger: KAKU D-4 → Script: Purple Madness
+
+---
+
+## Future Expansion
+
+The virtual color system allows for easy expansion with:
+- New IR remotes
+- New RGB strips
+- New LivingColors lamps
+- New NeoPixel chains
+- New RF devices
+- New scenes
+- New scripts
+
+All without changing the underlying script language.
+
+````
+
+---
+
+### <a id="📄-docs-debug-helper-macros-md"></a>📄 `Docs/Debug_Helper_Macros.md`
+
+**File Info:**
+- **Size**: 6.88 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/Debug_Helper_Macros.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 19:07:42 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 19:07:42 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `c4559ebd20f3c16e5b5cd041dac5f9d1`
+- **SHA256**: `540336a0d9fbca22754dbe53e72524148ca8141dd638ba59053022170846b4e8`
+- **Encoding**: ASCII
+
+**File code content:**
+
+````markdown
+# Debug Helper Macros Implementation
+
+## Combining Current Style with Helper Macros
+
+We can enhance your current debug system with helper macros while maintaining your existing style. Here's how to implement it:
+
+### 1. Create a Debug Helper Header
+
+First, create a dedicated header file for debug helpers:
+
+~~~~cpp
+// lib/Core/DebugHelper.h
+#ifndef DEBUG_HELPER_H
+#define DEBUG_HELPER_H
+
+#include <Arduino.h>
+#include "Debug.h" // Your existing Debug class
+
+// Define module name for each file
+// Should be defined in each source file before including DebugHelper.h
+#ifndef __MODULE__
+#define __MODULE__ "UNKNOWN"
+#endif
+
+// Debug level definitions (matching your existing system)
+#define DEBUG_LEVEL_ERROR     1
+#define DEBUG_LEVEL_WARN      2
+#define DEBUG_LEVEL_INFO      3
+#define DEBUG_LEVEL_DEBUG     4
+
+// Debug helper macros that match your current style
+// Each macro automatically includes the module name and proper conditional compilation
+
+// Error messages (Level 1)
+#if defined(DEBUG_LEVEL) && (DEBUG_LEVEL >= DEBUG_LEVEL_ERROR)
+#define DEBUG_ERROR(msg)     do {         Debug::println(1, String("[") + __MODULE__ + "][ERROR] " + msg);     } while(0)
+#else
+#define DEBUG_ERROR(msg) do { } while(0)
+#endif
+
+// Warning/Important messages (Level 2)
+#if defined(DEBUG_LEVEL) && (DEBUG_LEVEL >= DEBUG_LEVEL_WARN)
+#define DEBUG_WARN(msg)     do {         Debug::println(2, String("[") + __MODULE__ + "][WARN] " + msg);     } while(0)
+#else
+#define DEBUG_WARN(msg) do { } while(0)
+#endif
+
+// Info/Runtime messages (Level 3)
+#if defined(DEBUG_LEVEL) && (DEBUG_LEVEL >= DEBUG_LEVEL_INFO)
+#define DEBUG_INFO(msg)     do {         Debug::println(3, String("[") + __MODULE__ + "][INFO] " + msg);     } while(0)
+#else
+#define DEBUG_INFO(msg) do { } while(0)
+#endif
+
+// Debug/Verbose messages (Level 4)
+#if defined(DEBUG_LEVEL) && (DEBUG_LEVEL >= DEBUG_LEVEL_DEBUG)
+#define DEBUG_DEBUG(msg)     do {         Debug::println(4, String("[") + __MODULE__ + "][DEBUG] " + msg);     } while(0)
+#else
+#define DEBUG_DEBUG(msg) do { } while(0)
+#endif
+
+// Special macros for function entry/exit (useful for Level 4 tracing)
+#if defined(DEBUG_LEVEL) && (DEBUG_LEVEL >= DEBUG_LEVEL_DEBUG)
+#define DEBUG_FUNCTION_ENTRY()     do {         Debug::println(4, String("[") + __MODULE__ + "][ENTER] " + __FUNCTION__);     } while(0)
+
+#define DEBUG_FUNCTION_EXIT()     do {         Debug::println(4, String("[") + __MODULE__ + "][EXIT] " + __FUNCTION__);     } while(0)
+#else
+#define DEBUG_FUNCTION_ENTRY() do { } while(0)
+#define DEBUG_FUNCTION_EXIT() do { } while(0)
+#endif
+
+// For temporary debugging (always shows when enabled)
+#ifdef TEMP_DEBUG
+#define DEBUG_TEMP(msg)     do {         Debug::println(3, String("[") + __MODULE__ + "][TEMP] " + msg);     } while(0)
+#else
+#define DEBUG_TEMP(msg) do { } while(0)
+#endif
+
+#endif // DEBUG_HELPER_H
+~~~~
+
+### 2. Update Source Files to Use the Macros
+
+Here's how to update your existing code to use these macros:
+
+#### Before (Current Style):
+~~~~cpp
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][listDir] Directory contents:");
+#endif
+~~~~
+
+#### After (With Helper Macros):
+~~~~cpp
+#define __MODULE__ "STORAGE"  // Define module name at the top of the file
+
+#include "DebugHelper.h"
+
+// In your functions:
+void StorageManager::listDir(const String& path) {
+    DEBUG_FUNCTION_ENTRY();  // Optional: for Level 4 tracing
+
+    // Your code here...
+
+    #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][listDir] Directory contents:");
+    #endif
+
+    // Using the new macro:
+    DEBUG_INFO("Directory contents:");
+
+    DEBUG_FUNCTION_EXIT();  // Optional: for Level 4 tracing
+}
+~~~~
+
+### 3. Migration Strategy
+
+#### Step 1: Add Module Definitions
+Start by adding the module definition to each source file:
+~~~~cpp
+#define __MODULE__ "STORAGE"  // At the top of StorageManager.cpp
+#define __MODULE__ "IR"       // At the top of IRController.cpp
+#define __MODULE__ "CORE"     // At the top of Core.cpp
+// etc.
+~~~~
+
+#### Step 2: Include DebugHelper.h
+Add the include directive after the module definition:
+~~~~cpp
+#include "DebugHelper.h"
+~~~~
+
+#### Step 3: Replace Debug Statements
+Replace existing debug statements with the appropriate macro:
+~~~~cpp
+// Old:
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+    Debug::println(2, "[STORAGE][listDir] Directory contents:");
+#endif
+
+// New:
+DEBUG_INFO("Directory contents:");
+~~~~
+
+#### Step 4: Add Function Entry/Exit (Optional)
+For better tracing in Level 4, add function entry/exit markers:
+~~~~cpp
+void StorageManager::listDir(const String& path) {
+    DEBUG_FUNCTION_ENTRY();
+    // ... function code ...
+    DEBUG_FUNCTION_EXIT();
+}
+~~~~
+
+### 4. Benefits of This Approach
+
+1. **Consistency**: All debug statements follow the same format
+2. **Less Typing**: No need to write the full `[MODULE][FUNCTION]` prefix each time
+3. **Safety**: Macros prevent common mistakes like missing conditional compilation
+4. **Readability**: Code is cleaner with `DEBUG_INFO("message")` instead of verbose debug statements
+5. **Maintainability**: Easy to change debug format in one place (the header file)
+6. **Performance**: Zero overhead when debug is disabled at compile time
+7. **Flexibility**: Can add special features like function tracing
+
+### 5. Example Usage
+
+~~~~cpp
+// In IRController.cpp
+#define __MODULE__ "IR"
+#include "DebugHelper.h"
+
+void IRController::update() {
+    DEBUG_FUNCTION_ENTRY();
+
+    if (IrReceiver.decode()) {
+        unsigned long value = IrReceiver.decodedIRData.decodedRawData;
+
+        // Error case
+        if (value == 0) {
+            DEBUG_ERROR("Invalid IR decode detected");
+            return;
+        }
+
+        // Info case
+        DEBUG_INFO("Received IR code: 0x" + String(value, HEX));
+
+        // Verbose case
+        DEBUG_DEBUG("Processing IR signal with " + 
+                   String(IrReceiver.decodedIRData.numberOfBits) + " bits");
+    }
+
+    DEBUG_FUNCTION_EXIT();
+}
+~~~~
+
+### 6. WebUI Integration
+
+The macros maintain compatibility with your existing WebUI color scheme:
+- `DEBUG_ERROR()` → Level 1 → Red
+- `DEBUG_WARN()` → Level 2 → Yellow
+- `DEBUG_INFO()` → Level 3 → Blue
+- `DEBUG_DEBUG()` → Level 4 → Grey
+
+### 7. Special Considerations
+
+1. **String Concatenation**: The macros use `String` objects which can be memory-intensive on Arduino. For memory-constrained environments, consider using `F()` macro for flash strings:
+   ~~~~cpp
+   DEBUG_ERROR(F("Out of memory error"));
+   ~~~~
+
+2. **Performance**: The macros are designed to have zero runtime overhead when debug is disabled.
+
+3. **Module Naming**: Choose consistent module names that match your file structure or component names.
+
+4. **Conditional Debugging**: The `TEMP_DEBUG` flag can be used for temporary debugging that's always visible when enabled, regardless of the DEBUG_LEVEL setting.
+
+````
+
+---
+
+### <a id="📄-docs-debug-system-guide-md"></a>📄 `Docs/Debug_System_Guide.md`
+
+**File Info:**
+- **Size**: 5.24 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/Debug_System_Guide.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 18:44:47 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 18:44:47 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `f78cd863899b1a52dabe21aa8f696c97`
+- **SHA256**: `2cf809699c03c600cd49dcd827d4429244e4b7c2679f55f977cdf7f569a1c077`
+- **Encoding**: ASCII
+
+**File code content:**
+
+````markdown
+# Debug System Guide
+
+## Current Debug System Overview
+
+### Debug Levels
+Your system uses a 4-level debug hierarchy:
+
+1. **Level 1** (Red) - Errors only
+   - Critical failures that need immediate attention
+   - System-level problems that affect functionality
+   - Example: `Debug::println(1, "[MODULE][ERROR] Failed to initialize hardware");`
+
+2. **Level 2** (Yellow) - Warnings and important startup info
+   - Configuration issues and warnings
+   - Important system state changes
+   - Startup/shutdown sequences
+   - Example: `Debug::println(2, "[MODULE][INIT] Initializing with config X");`
+
+3. **Level 3** (Blue) - Debug / normal runtime trace
+   - Normal operation tracking
+   - Key state transitions
+   - User-triggered actions
+   - Example: `Debug::println(3, "[MODULE][EVENT] User pressed button");`
+
+4. **Level 4** (Grey) - Verbose / very noisy internals
+   - Detailed internal state
+   - Function entry/exit points
+   - Low-level data dumps
+   - Example: `Debug::println(4, "[MODULE][INTERNAL] Processing data packet with size: 42");`
+
+### Current Implementation Issues
+
+1. **Inconsistent Usage**: Some code uses `Debug::println(level, message)` while others use just `Debug::println(message)`
+2. **Missing Conditional Compilation**: Not all debug statements are properly wrapped with `#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= X`
+3. **Inconsistent Module Prefixes**: Format varies between `[MODULE][FUNCTION]` and other patterns
+4. **WebUI Color Mapping**: The level-to-color mapping isn't consistently applied
+
+### Recommended Implementation
+
+#### 1. Consistent Debug Statement Format
+
+~~~~cpp
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+Debug::println(2, "[STORAGE][listDir] Directory contents:");
+#endif
+~~~~
+
+**Why this format:**
+- Conditional compilation ensures no performance impact when debug is disabled
+- Explicit level parameter enables proper color coding in WebUI
+- Module and function prefixes make logs easy to filter and understand
+
+#### 2. Standardized Prefix Convention
+
+Use this format: `[MODULE][FUNCTION] Message`
+
+Examples:
+~~~~cpp
+// Error
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
+Debug::println(1, "[STORAGE][load] Failed to open configuration file");
+#endif
+
+// Warning/Important Info
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+Debug::println(2, [STORAGE][init] Using fallback configuration");
+#endif
+
+// Debug/Trace
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
+Debug::println(3, "[STORAGE][listDir] Found 7 files in directory");
+#endif
+
+// Verbose
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 4
+Debug::println(4, "[STORAGE][listDir] Processing file: config.json with size: 1024 bytes");
+#endif
+~~~~
+
+#### 3. Debug Helper Macros (Optional)
+
+For even more consistency, consider adding helper macros:
+
+~~~~cpp
+// In a common header file
+#define DEBUG_ERROR(msg)     do {         if (defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1)             Debug::println(1, String("[") + __MODULE__ + "][ERROR] " + msg);     } while(0)
+
+#define DEBUG_WARN(msg)     do {         if (defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2)             Debug::println(2, String("[") + __MODULE__ + "][WARN] " + msg);     } while(0)
+
+#define DEBUG_INFO(msg)     do {         if (defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3)             Debug::println(3, String("[") + __MODULE__ + "][INFO] " + msg);     } while(0)
+
+#define DEBUG_DEBUG(msg)     do {         if (defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 4)             Debug::println(4, String("[") + __MODULE__ + "][DEBUG] " + msg);     } while(0)
+~~~~
+
+Usage:
+~~~~cpp
+#define __MODULE__ "STORAGE"
+DEBUG_ERROR("Failed to open file");
+DEBUG_WARN("Using fallback configuration");
+DEBUG_INFO("File loaded successfully");
+DEBUG_DEBUG("Processing file with size: 1024 bytes");
+~~~~
+
+#### 4. WebUI Integration
+
+Ensure your WebUI properly maps debug levels to colors:
+- Level 1 → Red (errors)
+- Level 2 → Yellow (warnings)
+- Level 3 → Blue (debug/info)
+- Level 4 → Grey (verbose)
+
+### Migration Plan
+
+1. **Phase 1: Standardize Existing Debug Statements**
+   - Update all existing `Debug::println` calls to use the consistent format
+   - Add proper conditional compilation
+   - Ensure module prefixes are consistent
+
+2. **Phase 2: Add Missing Debug Statements**
+   - Identify key operations that need better logging
+   - Add appropriate debug statements at the right level
+   - Focus on error handling and state transitions first
+
+3. **Phase 3: Implement Helper Macros (Optional)**
+   - Add the debug helper macros to a common header
+   - Update modules to use the macros
+   - This provides compile-time safety and reduces boilerplate
+
+4. **Phase 4: WebUI Enhancements**
+   - Ensure WebUI properly filters and colors debug messages
+   - Consider adding a debug level selector in the WebUI
+   - Group messages by module for better organization
+
+### Benefits of This Approach
+
+1. **Consistency**: All debug messages follow the same format
+2. **Performance**: Conditional compilation ensures zero runtime overhead when debug is disabled
+3. **Readability**: Clear prefixes make it easy to identify the source of messages
+4. **Filtering**: Easy to filter by module or log level in both serial and WebUI
+5. **Maintainability**: Clear structure makes it easier to add and modify debug statements
+
+````
+
+---
+
+### <a id="📄-docs-debug-usage-example-md"></a>📄 `Docs/Debug_Usage_Example.md`
+
+**File Info:**
+- **Size**: 2.07 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/Debug_Usage_Example.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 19:35:13 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 19:35:13 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `731182eb34d86173d4974624577a8faa`
+- **SHA256**: `db742596ee85dd90ce48a0ca416ac19be3ef771f10bf7f755d9bba5aaa68bcde`
+- **Encoding**: ASCII
+
+**File code content:**
+
+````markdown
+# Debug System Usage Guide
+
+This guide explains how to use the updated debug system in your project.
+
+## Overview
+
+The debug system now supports two main usage patterns:
+
+1. **Preprocessor Directive Pattern** (Recommended for performance):
+   ~~~~cpp
+   #define DEBUG_LEVEL 3
+
+   #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
+   Debug::println("[STORAGE][ERROR] Failed to open configuration file");
+   #endif
+
+   #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+   Debug::println("[STORAGE][WARN] Configuration file is empty");
+   #endif
+
+   #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
+   Debug::println("[STORAGE][INFO] Loading configuration with default values");
+   #endif
+   ~~~~
+
+2. **Runtime Pattern** (For dynamic debug levels):
+   ~~~~cpp
+   // Set debug level at runtime
+   Debug::setDebugLevel(Debug::INFO);  // Level 3
+
+   // Direct calls without preprocessor checks
+   Debug::println("[STORAGE][ERROR] Failed to open configuration file");
+   Debug::println("[STORAGE][INFO] Configuration loaded successfully");
+   ~~~~
+
+## Debug Levels
+
+The system supports four debug levels:
+
+- `Debug::ERROR` (1) - Critical errors (red)
+- `Debug::WARN` (2) - Warnings and important info (yellow)
+- `Debug::INFO` (3) - Normal runtime trace (blue)
+- `Debug::VERBOSE` (4) - Verbose details (grey)
+
+## Initialization
+
+Initialize the debug system in your setup:
+
+~~~~cpp
+void setup() {
+    // Initialize with default debug level (INFO)
+    Debug::begin(115200, Debug::INFO);
+
+    // Or specify a different level
+    // Debug::begin(115200, Debug::WARN);
+}
+~~~~
+
+## Changing Debug Level at Runtime
+
+You can change the debug level during execution:
+
+~~~~cpp
+// Change debug level to ERROR only
+Debug::setDebugLevel(Debug::ERROR);
+
+// Get current debug level
+int currentLevel = Debug::getDebugLevel();
+~~~~
+
+## Best Practices
+
+1. Use preprocessor directives for performance-critical code paths
+2. Use meaningful prefixes in your log messages (e.g., `[STORAGE]`, `[NETWORK]`)
+3. Use appropriate debug levels for your messages
+4. Avoid logging sensitive information
+
+````
+
+---
+
+### <a id="📄-docs-implementation-gaps-md"></a>📄 `Docs/Implementation_Gaps.md`
+
+**File Info:**
+- **Size**: 3.32 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/Implementation_Gaps.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 17:40:08 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 17:40:08 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `db03bdab2ac7795c6b0a8de1de9eb794`
+- **SHA256**: `84bdf43275a0a524ea025056e718403a5b914411110bd884ddd111e5d26a38b2`
+- **Encoding**: UTF-8
+
+**File code content:**
+
+````markdown
+# Implementation Gaps: Next Steps
+
+## Current Understanding
+
+| Component | Known Function |
+|----------|---------------|
+| HardwareManager | Physical hardware boundary; publishes system events |
+| IRController | Receives/sends IR; no color semantics |
+| Translator | Current proven role: IR raw code → VC_* |
+| SceneManager | D-4 demonstrably selects scene |
+| ScriptManager | D-4 demonstrably executes script commands |
+| action_scripts.html | Builds/sends script commands through HTTP API |
+| fallbackRemotes | Browser-side RGB-strip catalogue |
+
+## Implementation Gaps to Address
+
+### 1. rgbstrip backend handling
+**Status**: Unknown  
+**Question**: How are RGB strip commands processed on the backend?
+
+**Investigation needed**:
+- Search for `rgbstrip` command processing in the codebase
+- Look for handlers that process commands starting with "rgbstrip"
+- Identify the component that translates RGB strip commands to IR codes
+
+**Expected findings**:
+- A handler function that processes `rgbstrip <remote> <hex>` commands
+- Translation from hex color to IR codes for specific remotes
+- Integration with the IRController for sending commands
+
+### 2. VC_* consumer
+**Status**: Unknown  
+**Question**: Which components consume virtual colors (VC_*)?
+
+**Investigation needed**:
+- Search for references to "VC_" in the codebase
+- Identify components that use virtual color system
+- Understand how virtual colors are converted to hardware commands
+
+**Expected findings**:
+- Components that translate VC_* to hardware-specific commands
+- The relationship between Translator and other color consumers
+- How the virtual color system integrates with the script execution
+
+### 3. IRController::send() caller
+**Status**: Unknown  
+**Question**: Which components call IRController::send() to transmit IR commands?
+
+**Investigation needed**:
+- Search for calls to IRController::send() or equivalent methods
+- Identify the components responsible for sending IR commands
+- Understand the flow from script commands to IR transmission
+
+**Expected findings**:
+- The component that initiates IR transmission
+- How script commands are converted to IR commands
+- The relationship between ScriptManager/Translator and IRController
+
+## Investigation Plan
+
+### For rgbstrip backend handling:
+1. Search the codebase for "rgbstrip" command handlers
+2. Look for HTTP API endpoints that process RGB strip commands
+3. Trace the execution flow from command reception to IR transmission
+
+### For VC_* consumer:
+1. Search the codebase for "VC_" references
+2. Identify components that use the virtual color system
+3. Trace how virtual colors are converted to hardware commands
+
+### For IRController::send() caller:
+1. Search for calls to IRController::send() method
+2. Identify the component that initiates IR transmission
+3. Understand the flow from script commands to IR commands
+
+## Expected Outcomes
+
+After addressing these gaps, we should have a complete understanding of:
+
+1. How RGB strip commands are processed from web interface to IR transmission
+2. Which components use the virtual color system and how they integrate with other components
+3. The complete flow from script creation to hardware command execution
+
+This will provide a comprehensive view of the system architecture and help identify any remaining implementation gaps.
+
+````
+
+---
+
+### <a id="📄-docs-ircontroller-relationships-md"></a>📄 `Docs/IRController_relationships.md`
+
+**File Info:**
+- **Size**: 2.81 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/IRController_relationships.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 17:18:15 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 17:18:15 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `48ec401dbe1652cb40e36e6b1fa66219`
+- **SHA256**: `87c3a465f32f29f453066137fe73a3e8dd229d0cb416b5323114c8f44d990918`
+- **Encoding**: ASCII
+
+**File code content:**
+
+````markdown
+# IRController Component Relationships
+
+## Object Creation
+- **Created by**: HardwareManager or similar system component
+- **Constructor parameters**: `rxPin` (receiver pin) and `txPin` (transmitter pin)
+- **Purpose**: To handle all IR communication (receiving and transmitting)
+
+## Initialization
+- **Called by**: System initialization code (likely in HardwareManager or main setup)
+- **Method**: `init()` 
+- **Actions**:
+  - Initializes the IR receiver with LED feedback
+  - Initializes the IR transmitter without LED feedback
+  - Logs initialization at debug level 2 or higher
+
+## Update Loop
+- **Called by**: Main system loop (likely via HardwareManager's update loop)
+- **Method**: `update()`
+- **Purpose**: Polls the IR receiver for incoming signals
+- **Frequency**: Must be called regularly from the main loop
+
+## Callback Registration
+- **Registered by**: System components that need to handle IR commands (e.g., SceneManager, Translator)
+- **Method**: `onCommand(IRCallback callback)`
+- **Purpose**: Sets up a callback function to be invoked when an IR command is received
+
+## Event Flow
+
+### IR Reception Flow:
+1. **IR Controller** receives IR signal
+2. **IR Controller** processes and validates the signal
+3. **IR Controller** calls the registered callback with an IRCommand structure
+4. **Callback** (e.g., SceneManager/Translator) processes the command
+
+### IR Transmission Flow:
+1. **System component** calls `IRController::send()` with an IRCommand
+2. **IR Controller** transmits the signal
+3. **IR Controller** temporarily disables reception during transmission
+4. **IR Controller** re-enables reception after transmission
+
+## Data Structures
+- **IRCommand**: Contains:
+  - `code`: Decoded IR value
+  - `bits`: Number of bits in the signal
+  - `protocol`: Protocol type
+  - `timestamp`: When the signal was received
+  - `rawCode[]`: Raw waveform data
+  - `rawCodeLength`: Length of raw data
+  - `hasRaw`: Whether raw data is available
+
+## Debug Output
+- **Level 2**: Shows initialization and received codes
+- **Level 3**: Shows receiver enable/disable operations
+- **Transmission**: Shows sending mode and code details
+
+## Key Interactions
+1. **With IR Hardware**: Direct control via IRremote library
+2. **With System Components**: Via callback functions
+3. **With Debug System**: Via Debug::println calls
+4. **With Event System**: Likely through the callback mechanism
+
+## Debouncing
+- **Purpose**: Prevents button-hold from flooding events
+- **Implementation**: Ignores repeated codes within 300ms window
+- **Managed by**: `_lastCodeValue` and `_lastCodeTime` tracking
+
+## Raw Waveform Support
+- **Purpose**: Bit-exact replay of received signals
+- **Implementation**: Captures raw timing data during reception
+- **Usage**: When sending, can replay exact waveform instead of decoded value
+
+````
+
+---
+
+### <a id="📄-docs-issues-md"></a>📄 `Docs/issues.md`
+
+**File Info:**
+- **Size**: 6.99 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/issues.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-07 23:12:46 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 21:40:45 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `c5f24128d5ac4226ddaec91b2e7d8017`
+- **SHA256**: `889353b41a1b49c8a7b70b6901f0a269e2d2cc13fea3d9b58e1a0ea571d90f56`
+- **Encoding**: UTF-8
+
+**File code content:**
+
+````markdown
+# ESP32 Home Controller — Issues
+
+## Active
+
+### ISSUE-001 — Duplicate LittleFS initialization
+**Priority:** High
+
+LittleFS appears to be initialized/mounted in multiple components.
+
+**Goal:** Core owns filesystem initialization; other components only access the mounted filesystem.
+
+**Acceptance criteria**
+- Only one application `LittleFS.begin()`.
+- Translator reads `/ir_db/`.
+- ScriptManager reads/writes `/scripts.json`.
+- SceneManager reads/writes `/scenes.json`.
+- WebUI serves files normally.
+- Boot remains stable.
+
+### ISSUE-002 — Script commands JSON corruption
+**Priority:** High
+
+Saved commands can become:
+
+~~~~text
+[]["living 2 rgb 255 100 20","rgbstrip RGB_44KEY-R1 #00FF00"]
+~~~~
+
+Expected:
+
+~~~~json
+[
+  "living 2 rgb 255 100 20",
+  "rgbstrip RGB_44KEY-R1 #00FF00"
+]
+~~~~
+
+**Acceptance criteria**
+- New and updated scripts contain valid command arrays.
+- Commands reload correctly after reboot.
+- `runScript(ID)` reports the correct command count.
+
+### ISSUE-003 — Temporary editor Test calls `runScript()` incorrectly
+**Priority:** High
+
+The editor currently causes a call resembling:
+
+~~~~text
+runScript(name): {"name":"__EDITOR_TEST__","aliases":[],"commands":[...]}
+~~~~
+
+The entire JSON object is being treated as the script name.
+
+**Acceptance criteria**
+- Test does not create a permanent script.
+- Test executes the selected commands through CommandSink/Core.
+- WebUI does not access HardwareManager directly.
+
+### ISSUE-004 — Hardcoded `fallbackRemotes` in action_scripts.html
+**Priority:** High
+
+The editor contains a duplicate JavaScript database of remotes/colors even though IR JSON files and Translator are intended to be the source of truth.
+
+**Acceptance criteria**
+- Remove `fallbackRemotes`.
+- No hardcoded remote/color list in the editor.
+- Editor obtains available data from ESP32/Translator.
+- Adding a new IR JSON automatically makes it available.
+
+### ISSUE-005 — Translator does not expose all IR buttons
+**Priority:** Medium
+
+Current Translator loading only adds mappings when `virtual_color` is non-empty. Normal buttons such as `POWER` and `PLAY_PAUSE` therefore do not use the same mapping structure.
+
+**Acceptance criteria**
+- Define a clean representation for normal IR buttons.
+- Support `ir TV POWER`.
+- Preserve color/nominal-color support.
+
+### ISSUE-006 — `rgbstrip` command is not implemented end-to-end
+**Priority:** High
+
+The editor generates commands such as:
+
+~~~~text
+rgbstrip RGB_44KEY-R1 #00FF00
+~~~~
+
+but the complete Core → IR → HardwareManager path is not finished.
+
+**Acceptance criteria**
+- Resolve remote from IR database.
+- Resolve nominal color to the correct button/code.
+- Transmit the actual IR code.
+- Different remotes may use different codes for the same nominal color.
+
+### ISSUE-007 — `ir TV POWER` currently fails in Core
+**Priority:** High
+
+Current behavior reaches Core but returns failure.
+
+**Acceptance criteria**
+- Resolve remote/button.
+- Transmit through HardwareManager.
+- Script reports success when transmission succeeds.
+
+### ISSUE-008 — `/api/set-debug-level` is requested but not found ✅ RESOLVED
+**Priority:** Low
+
+The log currently shows requests to:
+
+~~~~text
+/api/set-debug-level
+~~~~
+
+which return NOTFOUND.
+
+**Resolution:** Implemented both POST and GET endpoints in WebUI.cpp:
+
+1. `/api/set-debug-level` (POST): Accepts a JSON body with a `level` field (1-5) and calls `Debug::setDebugLevel()` to update the debug level at runtime.
+
+2. `/api/debug-level` (GET): Returns the current debug level in JSON format.
+
+**Acceptance criteria**
+- Either implement it using the existing Debug system, or remove the frontend request if obsolete.
+
+### ISSUE-009 — WebUI contains obsolete/duplicate code
+**Priority:** Medium
+
+WebUI has accumulated old routes and APIs during the architecture changes.
+
+**Acceptance criteria**
+- Remove unsupported calls and obsolete routes.
+- Do not add methods to ScriptManager/SceneManager merely to satisfy old WebUI code.
+- Keep WebUI as the HTTP/UI layer.
+
+### ISSUE-010 — SceneManager architecture cleanup
+**Priority:** Medium
+
+SceneManager should not duplicate ScriptManager's macro engine.
+
+**Target responsibilities**
+- Scene definitions.
+- Static/animated scene state.
+- Kaku scene activation.
+- WebUI scene activation.
+- Calling ScriptManager when a scene references a script.
+
+**Acceptance criteria**
+- No HardwareManager access.
+- No duplicated script engine.
+- Scenes remain in `/scenes.json`.
+
+### ISSUE-011 — Audio/automation ownership
+**Priority:** Medium
+
+Audio beat detection and automation need to use the Core command path.
+
+**Acceptance criteria**
+- Audio provides beat/timing information.
+- Animated scene speed/timing can use beat information.
+- Hardware actions still go through Core.
+
+### ISSUE-012 — Direct HardwareManager access outside Core
+**Priority:** High
+
+Core should be the only higher-level component that knows about and accesses HardwareManager.
+
+**Acceptance criteria**
+- Search the entire project for HardwareManager references.
+- Remove unnecessary higher-level access.
+
+### ISSUE-013 — Hardcoded IR data outside `/data/ir_db/`
+**Priority:** Medium
+
+IR codes, remote definitions, and color mappings should not be duplicated in HTML or application code.
+
+**Acceptance criteria**
+- IR JSON is the source of truth.
+- No duplicated IR codes in WebUI/editor.
+- No duplicated remote/color tables in JavaScript.
+
+## Closed / verified
+
+### ISSUE-014 — Runtime filesystem preservation
+**Status:** Closed
+
+The Python filesystem update process now preserves:
+
+~~~~text
+/scripts.json
+/scenes.json
+~~~~
+
+`backup/` and `config/` are no longer used.
+
+Verified after rebuild/upload:
+- `scripts.json` survives.
+- `scenes.json` survives.
+
+### ISSUE-015 — WebUI raw JSON POST body
+**Status:** Closed
+
+WebUI raw JSON POST handling was corrected.
+
+Verified by:
+
+~~~~text
+[WEBUI][SCRIPTS] Save request received
+[WEBUI][SCRIPTS] Save successful
+~~~~
+
+### ISSUE-016 — LivingColors canonical command path
+**Status:** Closed
+
+Working path:
+
+~~~~text
+ScriptManager
+    ↓
+CommandSink
+    ↓
+Core
+    ↓
+HardwareManager
+    ↓
+LivingColors
+~~~~
+
+Verified commands include:
+
+~~~~text
+living 1 rgb 255 100 20
+living 2 rgb 255 100 20
+~~~~
+
+## Architecture target
+
+~~~~text
+WEB / KAKU / IR / AUDIO
+          ↓
+       Translator
+          ↓
+         Core
+       /  |    Scenes Scripts Effects
+       \  |  /
+      Core commands
+          ↓
+   HardwareManager
+~~~~
+
+### Ownership rules
+
+- Core owns hardware access.
+- HardwareManager owns physical devices.
+- Translator translates external/device representations into canonical forms.
+- ScriptManager owns scripts/macros.
+- SceneManager owns scenes and scene activation.
+- WebUI owns HTTP/UI interaction.
+- LittleFS is initialized once.
+- `/scripts.json` is the runtime script store.
+- `/scenes.json` is the runtime scene store.
+- `/data/ir_db/*.json` is the IR database source of truth.
+
+````
+
+---
+
+### <a id="📄-docs-log-smoothing-md"></a>📄 `Docs/log_smoothing.md`
+
+**File Info:**
+- **Size**: 3.33 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/log_smoothing.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 15:51:00 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 15:51:00 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `18c3fc645b832226fa1d9dafbb3608bf`
+- **SHA256**: `5fd2d5274186bac0f80276fbd07682c8251f61a4db462738bab0f54ba920076c`
+- **Encoding**: UTF-8
+
+**File code content:**
+
+````markdown
+# Log Smoothing for KAKU Button Press
+
+## Current Log Output
+When a KAKU button is pressed, the system logs every step of the process. This is useful for debugging but can be verbose for normal operation.
+
+### Example Current Log:
+~~~~
+[17:49:04] [RF][receive] Received code: 0x44014 / 24 bits / protocol=1 / pulse=366us
+[17:49:04] [CORE][EVENT] RF -> RF_RAW_44014
+[17:49:04] [KAKU][processValue] Decoded House D Button 4 - Event published via HardwareManager callback
+[17:49:04] [CORE][EVENT] KAKU -> D_4
+[17:49:04] [CORE][KAKU] House D Button 4
+[17:49:04] [SceneManager] Kaku D4 → Scene 1
+[17:49:04] [SceneManager] Activating scene: Movie
+[17:49:04] [ScriptManager] runScript(name): Movie Start
+[17:49:04] [ScriptManager] Looking for script: Movie Start
+[17:49:04] [ScriptManager] Name match: Movie Start
+[17:49:04] ================================================
+[17:49:04] [ScriptManager] Running script: Movie Start
+[17:49:04] [ScriptManager] Script ID: 1
+[17:49:04] [ScriptManager] Commands JSON: ["living 1 rgb 255 100 20",...]
+[17:49:04] [ScriptManager] Command count: 7
+[17:49:04] [ScriptManager] Processing command #0
+[17:49:04] [ScriptManager] Command #0: living 1 rgb 255 100 20
+[17:49:04] [ScriptManager] → CommandSink
+[17:49:04] [CORE][LIVING] Lamp 1 -> index 0 RGB 255 100 20
+[17:49:04] [ScriptManager] ← CommandSink result: SUCCESS
+[17:49:04] [ScriptManager] Processing command #1
+[17:49:04] [ScriptManager] Command #1: living 2 rgb 255 255 20
+[17:49:04] [ScriptManager] → CommandSink
+[17:49:04] [CORE][LIVING] Lamp 2 -> index 1 RGB 255 255 20
+[17:49:04] [ScriptManager] ← CommandSink result: SUCCESS
+... (repeats for all 7 commands)
+[17:49:05] [ScriptManager] Script completed: Movie Start
+[17:49:05] [ScriptManager] Overall result: SUCCESS
+[17:49:05] ================================================
+~~~~
+
+## Proposed Smoother Log Output
+To reduce log verbosity while maintaining essential information, we can implement a logging level system and group related messages.
+
+### Example Optimized Log:
+~~~~
+[17:49:04] [KAKU] House D Button 4 pressed
+[17:49:04] [SCENE] Activating "Movie" scene → "Movie Start" script
+[17:49:04] [SCRIPT] Executing "Movie Start" (7 commands)
+[17:49:05] [SCRIPT] "Movie Start" completed successfully
+~~~~
+
+## Implementation Options
+
+### Option 1: Debug Level Filtering
+Implement different debug levels:
+- Level 1: Errors only
+- Level 2: Warnings and errors
+- Level 3: Normal operation (scene/script changes)
+- Level 4: Detailed (current default)
+
+### Option 2: Grouped Logging
+Group related log messages:
+~~~~
+[KAKU] House D Button 4 → [SCENE] Movie → [SCRIPT] Movie Start (7 commands, SUCCESS)
+~~~~
+
+### Option 3: Event-Based Summary
+Log only key events:
+~~~~
+[EVENT] KAKU D-4 → Scene "Movie" → Script "Movie Start" (SUCCESS)
+~~~~
+
+## Benefits of Smoother Logging
+1. **Reduced Log Volume**: Less clutter in the output
+2. **Faster Reading**: Easier to identify important events
+3. **Better Debugging**: Still able to enable detailed logs when needed
+4. **Improved Performance**: Less logging overhead
+
+## Recommendation
+A combination of Option 1 (debug levels) and Option 2 (grouped logging) would provide the best balance:
+- Default to level 3 for normal operation
+- Allow users to increase detail level when needed
+- Group related messages for better readability
+
+````
+
+---
+
+### <a id="📄-docs-plan-md"></a>📄 `Docs/plan.md`
+
+**File Info:**
+- **Size**: 7.92 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/plan.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 18:26:05 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 18:26:05 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `d8b80c9a6c34c738aa224103725c871e`
+- **SHA256**: `0fead931f3282dbbdbf93e5d4e6c940b634751976d2970c71d1a34adeae457e2`
+- **Encoding**: UTF-8
+
+**File code content:**
+
+````markdown
+# Home Controller Architecture Cleanup Plan
+
+## Executive Summary
+
+You're not facing a mysterious bug - you're dealing with a project that contains several partly completed architectural migrations. This plan provides a systematic approach to finish these migrations, bringing your codebase to the clean, intended architecture you originally designed.
+
+## Current Architecture Problems
+
+### Problem A: Hardware Access is Leaking Upward
+**Current State:**
+~~~~
+ScriptManager → HardwareManager
+SceneManager  → HardwareManager
+WebUI         → ScriptManager → HardwareManager
+Core          → HardwareManager
+~~~~
+
+**Target State (from issues.md):**
+~~~~
+Core → HardwareManager
+~~~~
+Higher-level components should go through the application command path instead of directly accessing hardware.
+
+### Problem B: SceneManager and ScriptManager Overlap
+**Current State:**
+~~~~
+SceneManager     ├── scene storage
+                ├── KAKU lookup
+                ├── action execution
+                └── hardware control
+
+ScriptManager    ├── script storage
+                ├── trigger matching
+                ├── KAKU→scene
+                ├── action execution
+                └── hardware control
+~~~~
+
+**Target State:**
+~~~~
+SceneManager     ├── scene storage
+                ├── trigger → scene lookup
+                └── request script/action
+
+ScriptManager    ├── script storage
+                ├── trigger matching
+                └── execute actions
+~~~~
+
+### Problem C: Translator is One-Directional
+**Current State:**
+~~~~
+IR → VC
+~~~~
+
+**Target State:**
+~~~~
+IR → VC (currently implemented)
+VC → hardware (needs implementation)
+~~~~
+
+### Problem D: WebUI Contains Hardware Data
+**Current State:**
+~~~~
+action_scripts.html     └── IR codes / remote definitions
+~~~~
+
+**Target State:**
+~~~~
+/data/ir_db/    ← authoritative source of IR data
+WebUI           ← queries ESP32 for available data
+~~~~
+
+### Problem E: Command Representation is Inconsistent
+**Current State:**
+- JSON action objects: `{"type": "ir", ...}`
+- Script command strings: `living 1 rgb 255 100 20`, `rgbstrip ...`, `ir ...`
+
+**Target State:**
+Unified command representation system
+
+## Cleanup Phases
+
+### Phase 1: Establish One Execution Path
+**Goal:** Create the canonical execution path before making any other changes
+
+~~~~
+Trigger → Scene/Script logic → Application command → Core → HardwareManager
+~~~~
+
+**Key Tasks:**
+1. Identify and document the actual execution paths in the current codebase
+2. Establish a single, clear path from trigger to hardware execution
+3. Eliminate direct hardware access from non-Core components
+
+**Focus:** This is the foundation - everything else depends on getting this right.
+
+### Phase 2: Make SceneManager Small
+**Goal:** Reduce SceneManager to its core responsibilities
+
+**New Responsibilities:**
+- scenes.json storage
+- "which scene?" lookup
+- "which script/action?" delegation
+
+**Remove:**
+- Hardware calls
+- Second command engine
+- Hardware action parsing
+
+**Alignment:** Directly addresses ISSUE-010.
+
+### Phase 3: Make ScriptManager the Action Engine
+**Goal:** Define ScriptManager's proper role in the architecture
+
+**New Responsibilities:**
+- scripts.json storage
+- trigger matching
+- action sequencing
+
+**Remove:**
+- Physical hardware access
+- Direct command execution
+
+**Result:** All action execution goes through the common command path.
+
+### Phase 4: Make IR Data Authoritative
+**Goal:** Centralize IR data management
+
+**New State:**
+- JSON files contain: `remote`, `button`, `code`, `VC_*`
+- No copies in JavaScript
+- No copies in random C++
+- WebUI queries ESP32 for available data
+
+**Addresses:** Issues 004, 005, and 013 together.
+
+### Phase 5: Finish IR Output
+**Goal:** Complete the IR command flow
+
+**New Flow:**
+~~~~
+remote = TV
+button = POWER
+    ↓ IR DB lookup
+    ↓ IRCommand
+    ↓ Core
+    ↓ HardwareManager
+    ↓ IRController::send()
+~~~~
+
+**Satisfies:** The intent of ISSUE-007.
+
+### Phase 6: Finish RGB-Strip Output
+**Goal:** Implement complete RGB-strip command handling
+
+**New Flow:**
+~~~~
+rgbstrip RGB_24KEY-R1 RED
+    ↓ remote lookup
+    ↓ nominal/virtual color
+    ↓ correct button/code for THAT remote
+    ↓ IRCommand
+    ↓ IR hardware
+~~~~
+
+**Addresses:** ISSUE-006.
+
+### Phase 7: Revisit the Color Model
+**Goal:** Finalize the color system architecture
+
+**Key Principle:**
+~~~~
+VC_RED
+~~~~
+Should not secretly mean an IR code or #FF0000. It is a semantic color identity. The actual output representation depends on the target hardware.
+
+**Components to Consider:**
+- HelperRGB
+- VC_*
+- hex codes
+- IR codes
+- LivingColors RGB
+- NeoPixel RGB
+
+## Simplified Mental Model
+
+Instead of thinking of your project as "25 classes," think of it as these six boxes:
+
+~~~~
+┌───────────────┐
+│  Hardware     │
+│               │
+│ IR  RF  KAKU  │
+│ Living  Audio │
+└───────┬───────┘
+        │
+        ▼
+┌───────────────┐
+│ Hardware      │
+│ Manager       │
+└───────┬───────┘
+        │ events
+        ▼
+┌───────────────┐
+│ Event /       │
+│ Translation   │
+│               │
+│ IR → VC       │
+└───────┬───────┘
+        │
+        ▼
+┌────────────────────┐
+│ Scenes / Scripts   │
+│                    │
+│ "what should happen?"
+└─────────┬──────────┘
+          │
+          ▼
+┌────────────────────┐
+│ Command / Core     │
+│                    │
+│ "make it happen"   │
+└─────────┬──────────┘
+          │
+          ▼
+┌────────────────────┐
+│ HardwareManager    │
+│                    │
+│ "do the physical   │
+│  operation"        │
+└────────────────────┘
+~~~~
+
+**WebUI** sits off to the side:
+~~~~
+WebUI                    │
+               HTTP / JSON
+                    │
+                    ▼
+             Scenes / Scripts
+~~~~
+
+NOT:
+~~~~
+WebUI → HardwareManager
+~~~~
+
+## Next Concrete Step
+
+Before changing any code, create a precise "CURRENT → TARGET" call graph for these five critical paths:
+
+1. **KAKU → Scene → Script → LivingColors**
+2. **IR → Translator → VC**
+3. **WebUI → action/script test**
+4. **IR command → IR transmitter**
+5. **RGB-strip command → IR transmitter**
+
+Each arrow should be based on actual source code, not assumptions.
+
+## Why This Will Work
+
+You're not redesigning the whole project - you're finishing the migration it has already started. The evidence is unusually clear:
+
+- issues.md explicitly lists the migration problems
+- HardwareManager is already a sensible hardware boundary
+- Translator already provides a working IR → VC mechanism
+- SceneManager and ScriptManager currently overlap
+- WebUI contains duplicated IR knowledge
+- rgbstrip is explicitly unfinished
+- The repository's documented target architecture points toward Translator → Core → HardwareManager
+
+## Expected Outcomes
+
+After completing this plan:
+
+1. **Clean Architecture:** Clear separation of concerns between components
+2. **Maintainable Code:** Each component has a well-defined responsibility
+3. **Consistent Commands:** Unified command representation system
+4. **Centralized Data:** Single source of truth for IR data
+5. **Complete Feature Set:** All intended features (including RGB strips) work end-to-end
+6. **Foundation for Growth:** Architecture supports future expansion
+
+````
+
+---
+
+### <a id="📄-docs-script-scene-md"></a>📄 `Docs/script_scene.md`
+
+**File Info:**
+- **Size**: 4.05 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/script_scene.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 12:09:48 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 12:09:48 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `219e9dfff489e39d5bb7b7a521d17087`
+- **SHA256**: `bfe55ae3520221738b55781a4bebd7cdcc7b5320d545a53dbd63c760fe720305`
+- **Encoding**: ASCII
+
+**File code content:**
+
+````markdown
+# Script Manager and Scene Manager
+
+## Overview
+This document explains the purpose and functionality of the Script Manager and Scene Manager in the ESP32 Home Controller system.
+
+---
+
+## Script Manager
+
+### Purpose
+The Script Manager is responsible for managing custom automation scripts in your home controller system. Scripts allow you to create sequences of commands that can be executed with a single trigger, making it easy to automate complex routines.
+
+### Key Features
+- **Script Storage**: Stores scripts in JSON format on the filesystem
+- **Script Execution**: Executes scripts by sending commands to connected devices
+- **Script Management**: Provides methods to add, update, delete, and list scripts
+- **Command Parsing**: Parses and validates script commands before execution
+
+### Script Structure
+Each script contains:
+- **ID**: Unique identifier for the script
+- **Name**: Human-readable name for the script
+- **Aliases**: Alternative names that can trigger the script
+- **Commands**: Array of commands to execute when the script is triggered
+
+### Example Script
+~~~~json
+[
+  {
+    "id": 1,
+    "name": "Movie Start",
+    "aliases": [],
+    "commands": [
+      "living 1 rgb 255 100 20",
+      "living 2 rgb 255 255 20",
+      "living 3 rgb 255 100 220"
+    ]
+  }
+]
+~~~~
+
+### Common Commands
+- `living <id> rgb <r> <g> <b>`: Set LivingColors light color
+- `delay <ms>`: Pause execution for specified milliseconds
+- `audio <command>`: Control audio playback
+
+---
+
+## Scene Manager
+
+### Purpose
+The Scene Manager manages predefined scenes in your home controller system. Scenes are named configurations that can be activated to instantly change the state of multiple devices, creating specific atmospheres or moods.
+
+### Key Features
+- **Scene Storage**: Stores scenes in JSON format on the filesystem
+- **Scene Activation**: Activates scenes by sending device commands
+- **Scene Management**: Provides methods to add, update, delete, and list scenes
+- **Preset Configurations**: Stores predefined device settings for each scene
+
+### Scene Structure
+Each scene contains:
+- **ID**: Unique identifier for the scene
+- **Name**: Human-readable name for the scene
+- **Type**: Category of the scene (e.g., "lighting", "mood", "activity")
+- **Devices**: Array of device configurations for the scene
+
+### Example Scene
+~~~~json
+[
+  {
+    "id": 1,
+    "name": "Movie Night",
+    "type": "activity",
+    "devices": [
+      {
+        "id": 1,
+        "type": "light",
+        "value": 50
+      },
+      {
+        "id": 2,
+        "type": "light",
+        "value": 20
+      }
+    ]
+  }
+]
+~~~~
+
+### Common Scene Types
+- **Lighting**: Control brightness and colors of lights
+- **Mood**: Create atmospheric settings
+- **Activity**: Set up for specific activities (movie, dinner, etc.)
+- **Security**: Configure alarm and surveillance settings
+
+---
+
+## Integration
+
+### How They Work Together
+While Scripts and Scenes serve different purposes, they can be used together:
+
+1. **Scripts can activate scenes**: A script can include commands to activate specific scenes
+2. **Scenes can be triggered by scripts**: Scenes can be part of larger automation scripts
+3. **Web Interface**: Both can be controlled through the WebUI
+4. **Event System**: Both can be triggered by system events
+
+### Use Cases
+- **Script Example**: "Good Morning" script that turns on lights, sets thermostat, and plays news
+- **Scene Example**: "Movie Night" scene that dims lights and closes blinds
+
+---
+
+## File Locations
+- Scripts: `/scripts.json`
+- Scenes: `/scenes.json`
+
+---
+
+## API Endpoints
+- Scripts: `/api/action-scripts` (GET for listing, POST for adding/updating)
+- Scenes: `/api/scenes` (GET for listing, POST for adding/updating)
+
+---
+
+## Conclusion
+The Script Manager and Scene Manager provide powerful automation capabilities for your home controller system. Scripts are ideal for complex sequences of actions, while scenes are perfect for instant atmosphere changes. Together, they create a flexible and user-friendly home automation system.
+
+````
+
+---
+
+### <a id="📄-docs-system-architecture-md"></a>📄 `Docs/System_Architecture.md`
+
+**File Info:**
+- **Size**: 4.68 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/System_Architecture.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-16 17:18:56 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 17:18:56 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `279011a0395ee56f7dee94d413ac474b`
+- **SHA256**: `048392afc8533aef31291e1bf4571ff545a4283ff47e3c380bf572f05c5d08f6`
+- **Encoding**: ASCII
+
+**File code content:**
+
+````markdown
+# System Architecture Overview
+
+## Object Creation and Initialization
+
+### Main Application
+- **Created by**: System entry point (main.cpp)
+- **Purpose**: Initializes the entire system and manages the main loop
+
+### HardwareManager
+- **Created by**: Main application
+- **Purpose**: Manages all hardware controllers (IR, LivingColors, NeoPixel, KAKU)
+- **Creates**: 
+  - IRController (for IR communication)
+  - LivingColorsController (for RF lamp control)
+  - NeoPixelController (for addressable LEDs)
+  - KAKUController (for RF switches)
+
+### SceneManager
+- **Created by**: Main application or HardwareManager
+- **Purpose**: Manages scenes and maps triggers to scripts
+- **Creates**: Scene objects
+
+### ScriptManager
+- **Created by**: Main application or SceneManager
+- **Purpose**: Manages scripts and executes commands
+- **Creates**: Script objects
+
+### Translator
+- **Created by**: Main application or ScriptManager
+- **Purpose**: Converts virtual colors to hardware-specific commands
+- **Does not create objects**: Acts as a conversion layer
+
+### WebUI
+- **Created by**: Main application
+- **Purpose**: Provides web interface for control and configuration
+- **Creates**: Web server and API endpoints
+
+## Update Loop Execution
+
+### Main Loop
+- **Called by**: System entry point (main.cpp)
+- **Purpose**: Runs the main system loop
+- **Calls**:
+  - HardwareManager.update()
+  - SceneManager.update()
+  - ScriptManager.update()
+  - WebUI.update()
+
+### HardwareManager.update()
+- **Called by**: Main loop
+- **Purpose**: Updates all hardware controllers
+- **Calls**:
+  - IRController.update()
+  - LivingColorsController.update()
+  - NeoPixelController.update()
+  - KAKUController.update()
+
+### Component Updates
+- **Called by**: HardwareManager.update()
+- **Purpose**: Process hardware-specific updates
+- **Examples**:
+  - IRController.update(): Checks for incoming IR signals
+  - KAKUController.update(): Checks for incoming RF signals
+
+## Callback Registration
+
+### IRController
+- **Registered by**: SceneManager or Translator
+- **Method**: onCommand()
+- **Purpose**: Handle incoming IR commands
+
+### KAKUController
+- **Registered by**: SceneManager
+- **Method**: onCommand()
+- **Purpose**: Handle incoming KAKU RF events
+
+### LivingColorsController
+- **Registered by**: ScriptManager or Translator
+- **Method**: onCommand()
+- **Purpose**: Handle lamp commands
+
+### NeoPixelController
+- **Registered by**: ScriptManager or Translator
+- **Method**: onCommand()
+- **Purpose**: Handle LED strip commands
+
+## EventBus Usage
+
+### Publishers
+- **IRController**: Publishes IR_RECEIVED events with decoded IR data
+- **KAKUController**: Publishes KAKU events with house/button information
+- **ScriptManager**: Publishes SCRIPT events with script execution status
+- **SceneManager**: Publishes SCENE events with scene activation information
+
+### Subscribers
+- **SceneManager**: Subscribes to IR_RECEIVED and KAKU events
+- **ScriptManager**: Subscribes to SCENE events
+- **Translator**: Subscribes to events requiring color translation
+- **WebUI**: Subscribes to various events for real-time updates
+
+## Event Flow Example (KAKU Button Press)
+
+1. **KAKUController** receives RF signal
+2. **KAKUController** publishes KAKU event (e.g., "House D Button 4")
+3. **SceneManager** consumes the KAKU event
+4. **SceneManager** finds matching scene and publishes SCENE event
+5. **ScriptManager** consumes the SCENE event
+6. **ScriptManager** loads and executes script commands
+7. **ScriptManager** publishes SCRIPT events for each command
+8. **Translator** consumes SCRIPT events and converts to hardware commands
+9. **Hardware controllers** (LivingColors, NeoPixel, etc.) consume converted commands
+10. **WebUI** may consume events to update UI in real-time
+
+## Data Flow
+
+### Virtual Color Processing
+1. **Script** references virtual color (e.g., "VC_RED")
+2. **Translator** converts to hex value (e.g., "#FF0000")
+3. **Translator** converts hex to hardware-specific command:
+   - For LivingColors: RGB values
+   - For NeoPixels: RGB values
+   - For IR strips: IR codes
+
+### Scene Processing
+1. **KAKU/IR event** triggers scene
+2. **SceneManager** finds matching scene
+3. **SceneManager** activates associated script
+4. **ScriptManager** executes script commands
+5. **Hardware controllers** execute commands
+
+## Debug System
+
+### Debug Levels
+- **Level 1**: Errors only
+- **Level 2**: Warnings and important events
+- **Level 3**: Detailed operation information
+- **Level 4**: Flood of all possible information
+
+### Debug Output
+- **Published by**: All system components
+- **Consumed by**: Debug system and WebUI
+- **Purpose**: System monitoring and troubleshooting
+
+````
+
+---
+
+### <a id="📄-docs-todo-md"></a>📄 `Docs/todo.md`
+
+**File Info:**
+- **Size**: 4.12 KB
+- **Extension**: `.md`
+- **Language**: `text`
+- **Location**: `Docs/todo.md`
+- **Relative Path**: `Docs`
+- **Created**: 2026-09-07 23:12:33 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-16 21:40:49 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `2ed4ac5c201ceb1e02c800f1c3141786`
+- **SHA256**: `e222631d1942746dbf0334d96f5664f58f50ba83230d4664171b4ec5fb0beca8`
+- **Encoding**: UTF-8
+
+**File code content:**
+
+````markdown
+# ESP32 Home Controller — TODO
+
+## Phase 1 — Foundation
+
+- [ ] Fix LittleFS ownership: find all `LittleFS.begin()` calls and keep one application-level initialization, preferably owned by Core.
+- [ ] Make Translator, ScriptManager, SceneManager, and WebUI use the already-mounted LittleFS without mounting it themselves.
+- [ ] Remove leftover C++ references to obsolete `backup/` and `config/`.
+- [ ] Clean up logging while keeping the existing `Debug::println()` system.
+- [x] Fix or remove `/api/set-debug-level` if the UI still requests an endpoint that no longer exists. → Implemented both `/api/set-debug-level` POST endpoint and `/api/debug-level` GET endpoint in WebUI.cpp.
+
+## Phase 2 — ScriptManager
+
+- [ ] Fix `commands` JSON corruption. Current bad value resembles `[]["living 2 rgb 255 100 20","rgbstrip RGB_44KEY-R1 #00FF00"]`; it must be a normal JSON array.
+- [ ] Verify new script save/update, aliases, commands, reload after reboot, and valid JSON.
+- [ ] Fix temporary editor Test execution. It currently passes the entire temporary JSON object to `runScript(name)`.
+- [ ] If needed, add one small ScriptManager method for executing an unsaved command list; do not add WebUI-specific or HardwareManager logic.
+- [ ] Keep ScriptManager architecture: `ScriptManager → CommandSink → Core`.
+
+## Phase 3 — Translator
+
+- [ ] Make IR JSON the single source of truth.
+- [ ] Remove hardcoded remote/color definitions from `action_scripts.html`, including `fallbackRemotes`.
+- [ ] Finish `nominal_color` migration while preserving actual working IR codes.
+- [ ] Expose loaded IR database information to WebUI/editor so the editor can populate remotes and colors dynamically.
+- [ ] Decide how normal IR buttons such as `POWER` and `PLAY_PAUSE` are represented alongside color mappings.
+- [ ] Support canonical commands such as `ir TV POWER`.
+
+## Phase 4 — Core command handling
+
+- [ ] Finish canonical `ir TV POWER` end-to-end.
+- [ ] Finish `rgbstrip RGB_44KEY-R1 #00FF00` end-to-end.
+- [ ] Resolve remote + nominal color to the actual IR button/code.
+- [ ] Keep Core as the only component with HardwareManager access.
+
+## Phase 5 — Script editor
+
+- [ ] Remove `fallbackRemotes`.
+- [ ] Populate remote dropdown dynamically from ESP32/Translator data.
+- [ ] Populate colors dynamically using `nominal_color` and button name.
+- [ ] Keep editor script-centric: name, aliases, ordered commands, add/delete/reorder, save, run, test.
+- [ ] Keep scene/Kaku editor logic out of the script editor.
+
+## Phase 6 — Scenes
+
+- [ ] Clean SceneManager so it is not a copy of ScriptManager.
+- [ ] Keep scene-specific state in SceneManager.
+- [ ] Allow scenes to reference scripts by name/alias.
+- [ ] Preserve static scenes.
+- [ ] Add animated scene architecture without duplicating ScriptManager.
+- [ ] Kaku activates scenes through Core → SceneManager.
+- [ ] WebUI activates scenes through the same scene path.
+- [ ] No direct HardwareManager access from SceneManager.
+
+## Phase 7 — Audio / automation
+
+- [ ] Route automation effects through Core.
+- [ ] Use beat detection as timing/speed control for animated scenes/effects.
+- [ ] Keep Audio from directly owning hardware actions.
+
+## Phase 8 — Final cleanup and testing
+
+- [ ] Search the entire project for duplicate LittleFS initialization.
+- [ ] Search for obsolete `backup`, `config`, old action APIs, old scene APIs, obsolete capture APIs, and `fallbackRemotes`.
+- [ ] Search for direct HardwareManager access outside Core.
+- [ ] Search for hardcoded IR codes outside `/data/ir_db/`.
+- [ ] Search for hardcoded remote/color definitions outside the IR JSON files.
+- [ ] Remove dead and duplicate WebUI code.
+- [ ] Test rebuild/upload of LittleFS and verify `scripts.json` and `scenes.json` survive.
+- [ ] Full functional test: script creation, save, reload, run, LivingColors, RGB strip, IR transmit, Kaku → scene, scene → script, and audio/animation.
+
+## Recommended order
+
+1. LittleFS cleanup
+2. ScriptManager `commands` JSON bug
+3. Editor Test execution
+4. Translator cleanup
+5. RGB-strip + IR
+6. Scene cleanup
+7. Audio/automation
+8. Final cleanup and full test
+
+````
+
+---
+
+## 🚫 Binary/Excluded Files
+
+The following files were not included in the text content:
+
+- `Docs/LivingColors Remote.png`
 
 ### <a id="📄-helperrgb-just-color-codes-126-json"></a>📄 `HelperRGB/Just Color Codes 126.json`
 
@@ -2802,15 +4947,15 @@ The following files were not included in the text content:
 ### <a id="📄-lib-core-core-cpp"></a>📄 `lib/Core/Core.cpp`
 
 **File Info:**
-- **Size**: 19.14 KB
+- **Size**: 19.98 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/Core/Core.cpp`
 - **Relative Path**: `lib/Core`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 08:33:00 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `2965d83f883990a15af4228b3e7dab40`
-- **SHA256**: `df5f4bc0cf7b611385b7ea59be796fdec8b113d966e4d42e8e0c7a9919593b5b`
+- **Modified**: 2026-09-17 01:12:39 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `57db35588068465d4993bf26e4085009`
+- **SHA256**: `b792cc011ade9622fb678722503745d6cb85a81303eef2bbe3e3423d0ef356a5`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -2841,7 +4986,7 @@ Core::Core()
     : hardware(),
       scriptManager(*this),
       sceneManager(scriptManager),
-      webui(scriptManager, sceneManager)
+      webui (scriptManager, sceneManager, *this)
 {
 }
 
@@ -3672,15 +5817,15 @@ String Core::generateSecurePassword()
 ### <a id="📄-lib-core-core-h"></a>📄 `lib/Core/Core.h`
 
 **File Info:**
-- **Size**: 4.71 KB
+- **Size**: 4.7 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/Core/Core.h`
 - **Relative Path**: `lib/Core`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 08:56:55 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `121aab1e3f39910770df4ac1c8c665d1`
-- **SHA256**: `db697c11ddba037a31340d3b0e6ec5f7f3bf230211b548b1275d56c77ff649ee`
+- **Modified**: 2026-09-17 00:08:59 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `ae3278ee410363eafe036879c2cfb357`
+- **SHA256**: `dffee43d3b7838cd42fa804dd595f2e5ae5b31ecf551f5219df226ccc5714203`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -3714,7 +5859,7 @@ String Core::generateSecurePassword()
 //   ir TV POWER
 //   living 1 rgb 255 0 0
 //   living 1 hsv 120 255 255
-//   delay 1000
+// 
 //
 // The exact command vocabulary belongs to Core/the translator layer.
 // -----------------------------------------------------------------------------
@@ -3932,15 +6077,15 @@ private:
 ### <a id="📄-lib-debug-debug-cpp"></a>📄 `lib/Debug/Debug.cpp`
 
 **File Info:**
-- **Size**: 10.12 KB
+- **Size**: 10.82 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/Debug/Debug.cpp`
 - **Relative Path**: `lib/Debug`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-02 06:00:10 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `2834842493f49a6b2b1f7cec159ccdda`
-- **SHA256**: `834269efb663b4f88cb9104086ad06ad2a9d4b5cc9905a3c364da70966bf1364`
+- **Modified**: 2026-09-17 15:26:36 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `f902331f29a341ee615fb0755146e4f4`
+- **SHA256**: `4918fbb255f3f7ac075ef5a28769039a751372a0bc0c839e6aa38cb3e0a74331`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -3957,26 +6102,14 @@ int Debug::currentDebugLevel = 3; // Default to debug level 3
 /**
  * @brief Initialize the debug system
  * @param baud Serial baud rate (default: 115200)
+ * @param defaultLevel Default debug level if not set elsewhere (default: 3)
  */
-void Debug::begin(long baud) {
+void Debug::begin(long baud, int defaultLevel) {
     Serial.begin(baud);
-    println(currentDebugLevel, "[DEBUG] Debugging initialized at " + String(baud) + " baud");
-
-    // Set debug level based on compile-time flag
-    #ifdef DEBUG_LEVEL
-        currentDebugLevel = DEBUG_LEVEL;
-        println(currentDebugLevel, "[DEBUG] DEBUG_LEVEL = " + String(currentDebugLevel));
-    #else
-        println(currentDebugLevel, "[DEBUG] DEBUG_LEVEL not defined (using default level 3)");
-    #endif
-
-    if (deviceTimeOffset == 0) {
-        println(currentDebugLevel, "[DEBUG] Timestamps use uptime until wall-clock sync is available");
-    } else {
-        println(currentDebugLevel, "[DEBUG] Timestamps synchronized to wall clock");
-    }
+    currentDebugLevel = defaultLevel;
+   
+    
 }
-
 /**
  * @brief Get the current timestamp string
  * @return Timestamp string in [HH:MM:SS] format using either uptime or synced wall time
@@ -4012,24 +6145,55 @@ String Debug::getTimestamp() {
  */
 void Debug::setDeviceTime(unsigned long unixTime) {
     deviceTimeOffset = unixTime - (millis() / 1000);
-    println(currentDebugLevel, "[INFO][DEBUG] Device time synchronized to: " + String(unixTime) + " (wall clock active, UTC offset " + String(timezoneOffsetMinutes) + " minutes)");
+    println(3, "[DEBUG][setDeviceTime] Device time synchronized to: " + String(unixTime) + " (UTC offset " + String(timezoneOffsetMinutes) + " minutes)");
 }
 
 void Debug::setTimezoneOffsetMinutes(int offsetMinutes) {
     timezoneOffsetMinutes = constrain(offsetMinutes, -840, 840);
-    println(currentDebugLevel, "[INFO][DEBUG] Debug timezone set to UTC" + String(timezoneOffsetMinutes >= 0 ? "+" : "") + String(timezoneOffsetMinutes / 60.0, 2));
+    println(3, "[DEBUG][setTimezoneOffsetMinutes] UTC" + String(timezoneOffsetMinutes >= 0 ? "+" : "") + String(timezoneOffsetMinutes / 60.0, 2));
+}
+
+/**
+ * @brief Set the debug level at runtime
+ * @param level New debug level (1-5)
+ */
+void Debug::setDebugLevel(int level) {
+    if (level < 1 || level > 6) {
+        level = 3; // Default to INFO level if invalid
+    }
+    println(4, "[DEBUG] Debug level was " + String(currentDebugLevel) + " and now set to " + String(level));
+    currentDebugLevel = level;
+
+}
+
+/**
+ * @brief Get the current debug level
+ * @return Current debug level (1-4)
+ */
+int Debug::getDebugLevel() {
+    return currentDebugLevel;
+}
+
+int Debug::getDebugLevelVar() {
+    return currentDebugLevel;
 }
 
 void Debug::logStartupBanner(const String& projectName, const String& version) {
     println(3, "");
-    println(3, "========================================");
-    println(3, "[BOOT] " + projectName + " v" + version + " starting");
-    println(3, "[BOOT] Target: ESP32 DOIT DEVKIT V1");
-    println(3, "[BOOT] Debug levels: 1=errors, 2=warnings, 3=debug, 4=verbose");
-    println(3, "[BOOT] Serial: " + String(115200) + " baud");
-    println(3, "[BOOT] Timestamp mode: " + String(deviceTimeOffset == 0 ? "uptime fallback" : "wall clock"));
-    println(3, "========================================");
-}
+    println(5, "  ┌─────────────────────────────────────────────┐");
+    println(5, "  │  ▄▀█ █▀▀ █▀█ █▀▄▀█                         │");
+    println(5, "  │  █▀█ ██▄ █▀▀ █ ▀ █                         │");
+    println(5, "  └─────────────────────────────────────────────┘");
+    println(4, "  " + projectName + " v" + version);
+    println(4, "  Target: ESP32 DOIT DEVKIT V1");
+    println(3, "  222 files · 5.96 MB · .h:60 .cpp:19 .ino:38");
+    println(2, "  ⚠ Pieteboe's childhood dream: INITIALIZED");
+    println(1, "  ✗ No bugs found (they're hiding)");
+    println(3, "  Timestamp: " + String(deviceTimeOffset == 0 ? "uptime fallback" : "wall clock"));
+    println(5, "  ─────────────────────────────────────────────");
+    println(4, "  🚀 All systems go. Launching...");
+    println(3, "");
+}   
 
 void Debug::logSubsystemStatus(const String& subsystem, const String& status, const String& details) {
     String message = "[STATUS] " + subsystem + " -> " + status;
@@ -4109,24 +6273,28 @@ void Debug::println(const String& message) {
 
 /**
  * @brief Print a message with specified debug level
- * @param level Debug level (1-4)
+ * @param level Debug level (1-5)
  * @param message Message to print
  */
 void Debug::println(int level, const String& message) {
     // Enforce the configured debug threshold so the logger behaves predictably.
     // This keeps the serial window readable while still preserving noisy traces
     // when DEBUG_LEVEL is raised intentionally during debugging.
-    if (level < 1 || level > 4) {
+    if (level < 1 || level > 6) {
         level = 3;
     }
-    if (level > currentDebugLevel) {
-        return;
-    }
-
+    // if (level > currentDebugLevel) {
+    //     return;
+    // }
+   
     String timestamp = getTimestamp();
-    String output = timestamp + message;
+    
+        String output = timestamp + message;   
+       
 
-    // Print to serial with the selected severity.
+
+    
+        // Print to serial with the selected severity.
     Serial.println(output);
 
     // Add to web log with level-specific color coding.
@@ -4135,7 +6303,7 @@ void Debug::println(int level, const String& message) {
 
 /**
  * @brief Print an integer value with specified debug level
- * @param level Debug level (1-4)
+ * @param level Debug level (1-5)
  * @param value Integer value to print
  */
 void Debug::println(int level, int value) {
@@ -4144,7 +6312,7 @@ void Debug::println(int level, int value) {
 
 /**
  * @brief Print an unsigned long value with specified debug level
- * @param level Debug level (1-4)
+ * @param level Debug level (1-5)
  * @param value Unsigned long value to print
  */
 void Debug::println(int level, unsigned long value) {
@@ -4196,12 +6364,12 @@ void Debug::rotateWebLogBuffer() {
  */
 String Debug::getWebLogColor(int level) {
     // Keep the web log colors aligned with the serial-level convention used in the firmware.
-    // 1=red errors, 2=yellow warnings, 3=blue debug, 4=grey verbose.
     switch(level) {
         case 1: return "<span style='color:red'>";
-        case 2: return "<span style='color:yellow'>";
-        case 3: return "<span style='color:blue'>";
-        case 4: return "<span style='color:gray'>";
+        case 2: return "<span style='color:blue'>";
+        case 3: return "<span style='color:green'>";
+        case 4: return "<span style='color:violet'>";
+        case 5: return "<span style='color:yellow'>";
         default: return "";
     }
 }
@@ -4282,15 +6450,15 @@ void Debug::acknowledgeLogs(int count) {
 ### <a id="📄-lib-debug-debug-h"></a>📄 `lib/Debug/Debug.h`
 
 **File Info:**
-- **Size**: 7.3 KB
+- **Size**: 8.62 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/Debug/Debug.h`
 - **Relative Path**: `lib/Debug`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-02 06:00:10 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `4cb7bba7e942e3a9bcac6c003473d6ed`
-- **SHA256**: `58fa466eeca23159e8aff08fbcef8ebcede513cb5a7d3f39a6b487f5168d4f77`
+- **Modified**: 2026-09-17 10:37:02 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `fe0e139bca30734140d7938149fca780`
+- **SHA256**: `5293ffb8db5de9be7b617de5f859c230e667afc3e3f276055941357927b71b01`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -4300,37 +6468,42 @@ void Debug::acknowledgeLogs(int count) {
 
 #include <Arduino.h>
 
+
 /**
  * @brief Debug logging library with levels, timestamps, and web log support
  *
  * Logging convention used across the firmware:
- * - 1 = errors (red)
- * - 2 = warnings / important startup info (yellow)
- * - 3 = debug / normal runtime trace (blue)
- * - 4 = verbose / very noisy internals (grey)
+ * - 1 = only errors (red)
+ * - 2 = error / warnings / important startup info (purple)
+ * - 3 = debug / errors  / warnings /   normal runtime trace (blue)
+ * - 4 = debug / errors  / warnings /   normal runtime trace (grey), just for pretty
+ * - 5 =  verbose /debug / errors  / warnings /   flood the log (yellow), just for pretty
+
+
  *
  * Preferred usage:
  * @code
  * #define DEBUG_LEVEL 3
  *
- * if (DEBUG_LEVEL >= 1) {
+ * #if defined(DEBUG_LEVEL) && DebugLevel >= 1
  *     Debug::println(1, "[CORE][ERROR] Something failed");
- * }
+ * #endif
  *
- * if (DEBUG_LEVEL >= 2) {
- *     Debug::println(2, "[CORE][WARN] Something may need attention");
- * }
+ * #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+ *     Debug::println("[CORE][WARN] Something may need attention");
+ * #endif
  *
- * if (DEBUG_LEVEL >= 3) {
- *     Debug::println(3, "[CORE][INFO] Normal startup details");
- * }
+ * #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
+ *     Debug::println("[CORE][INFO] Normal startup details");
+ * #endif
  *
- * if (DEBUG_LEVEL >= 4) {
- *     Debug::println(4, "[CORE][TRACE] Verbose low-level trace");
- * }
+ * #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 4
+ *     Debug::println("[CORE][TRACE] Verbose low-level trace");
+ * #endif
  * @endcode
  *
  * Notes:
+ * - When using preprocessor directives, Debug::println() automatically uses the current debug level threshold.
  * - The logger still enforces the level gate internally so a direct call like
  *   Debug::println(3, "...") does not leak past the configured threshold.
  * - This keeps the serial output readable while preserving high-detail logs when
@@ -4338,16 +6511,43 @@ void Debug::acknowledgeLogs(int count) {
  */
 class Debug {
 public:
+    // Debug level constants
+    static const int ERROR = 1;     // Red - Critical errors
+    static const int WARN = 2;      // Yellow - Warnings and important info
+    static const int INFO = 3;      // Blue - Normal runtime trace
+    static const int VERBOSE = 4;    // Grey - Verbose details
+
+
+
     /**
      * @brief Initialize the debug system
      * @param baud Serial baud rate (default: 115200)
+     * @param defaultLevel Default debug level if not set elsewhere (default: 3)
      */
-    static void begin(long baud = 115200);
+    static void begin(long baud = 115200, int defaultLevel = INFO);
+
+    /**
+     * @brief Set the debug level at runtime
+     * @param level New debug level (1-4)
+     */
+    static void setDebugLevel(int level);
+
+    /**
+     * @brief Get the current debug level
+     * @return Current debug level (1-5)
+     */
+    static int getDebugLevel();
+    
+    /**
+     * @brief Get the runtime debug level variable
+     * @return Runtime debug level variable (1-5)
+     */
+    static int getDebugLevelVar();
     
     /**
      * @brief Print a message to serial and web log buffer
      * @param message Message to print
-     * @note Uses current DEBUG_LEVEL if defined, otherwise defaults to 3
+     * @note Uses current debug level if not using preprocessor directives
      */
     static void print(const char* message);
     
@@ -4375,7 +6575,7 @@ public:
     /**
      * @brief Print a message with newline to serial and web log buffer
      * @param message Message to print (default: empty string)
-     * @note Uses current DEBUG_LEVEL if defined, otherwise defaults to 3
+     * @note Uses current debug level if not using preprocessor directives
      */
     static void println(const char* message = "");
     
@@ -4406,6 +6606,7 @@ public:
      * @param message Message to print
      * @note Preferred convention: 1 = red/error, 2 = yellow/warn,
      *       3 = blue/debug, 4 = grey/verbose.
+     * @note When using preprocessor directives, use the simplified println() without level parameter.
      */
     static void println(int level, const String& message);
     
@@ -4488,7 +6689,7 @@ private:
     static const int MAX_LOG_SIZE = 18192;  // Maximum size of web log buffer
     static unsigned long deviceTimeOffset; // Offset for device time synchronization
     static int timezoneOffsetMinutes;      // Local offset from UTC supplied by the browser
-    static int currentDebugLevel;         // Current debug level (0-4)
+    static int currentDebugLevel;         // Current debug level (1-5)
     
     /**
      * @brief Internal method to add a message to web log buffer with timestamp
@@ -7509,15 +9710,15 @@ static const uint8_t LAMP_ADDRESSES[LAMP_COUNT][9] = {
 ### <a id="📄-lib-hardwaremanager-hardwaremanager-cpp"></a>📄 `lib/HardwareManager/HardwareManager.cpp`
 
 **File Info:**
-- **Size**: 5.13 KB
+- **Size**: 5.18 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/HardwareManager.cpp`
 - **Relative Path**: `lib/HardwareManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 09:37:50 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `abf1bfe6baf793748a108eee5dc591ab`
-- **SHA256**: `d530fe422c800a33e07014bfef9a4dca9e47bd2fb5d39e4b848273cb3f16a517`
+- **Modified**: 2026-09-16 20:22:08 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `998816aeea038fbe1faa561f941020df`
+- **SHA256**: `519be43ed5e6bd2caf352e7d00ee389434f434cec451b0bf943569b73e17ccdf`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7635,9 +9836,16 @@ void HardwareManager::handleIRDecoded(const IRCommand& cmd) {
     while (codeHex.length() < 8) codeHex = "0" + codeHex; 
     if (codeHex.length() > 8) codeHex = codeHex.substring(codeHex.length() - 8);
 
-#if DEBUG_LEVEL >= 4
+#ifdef DEBUG_LEVEL
+
+if (Debug::getDebugLevel () == 6) {
     Debug::println(4, "[HW][DEBUG] Received IR code: 0x" + codeHex);
+}
+
 #endif
+
+
+
 
     SystemEvent evt;
     evt.source = "IR";
@@ -7804,15 +10012,15 @@ private:
 ### <a id="📄-lib-scenemanager-scenemanager-cpp"></a>📄 `lib/SceneManager/SceneManager.cpp`
 
 **File Info:**
-- **Size**: 15.56 KB
+- **Size**: 15.22 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/SceneManager/SceneManager.cpp`
 - **Relative Path**: `lib/SceneManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 09:43:30 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `dc2ffd62bbed7b1182aa36df8a4f0d21`
-- **SHA256**: `d8057d8505cd38955c37ec3e795a917a4704a010252d70ae34401ad824af3c53`
+- **Modified**: 2026-09-17 09:41:06 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `0b6050368720bff4bb0f3208f3847305`
+- **SHA256**: `f95da64385034d0147449c0b0535c8231dafa0ae325ac28668e67b6790fdda45`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7893,9 +10101,7 @@ bool SceneManager::loadScenesFromFile(
     if (fileContent.isEmpty())
         return false;
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -8202,7 +10408,7 @@ bool SceneManager::aliasesContain(
     const String& value
 ) const
 {
-    DynamicJsonDocument doc(1024);
+    JsonDocument doc;
 
     if (deserializeJson(
             doc,
@@ -8241,9 +10447,7 @@ bool SceneManager::addScene(
     if (sceneCount >= MAX_SCENES)
         return false;
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     if (deserializeJson(doc, json))
         return false;
@@ -8322,9 +10526,7 @@ bool SceneManager::updateScene(
     if (index < 0)
         return false;
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     if (deserializeJson(doc, json))
         return false;
@@ -8427,9 +10629,7 @@ int SceneManager::nextSceneId() const
 
 bool SceneManager::saveScenes()
 {
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc ;
 
     JsonArray array =
         doc.to<JsonArray>();
@@ -8438,9 +10638,8 @@ bool SceneManager::saveScenes()
     {
         Scene& scene =
             scenes[i];
-
         JsonObject obj =
-            array.createNestedObject();
+            array.add<JsonObject>();
 
         obj["id"] =
             scene.id;
@@ -8455,7 +10654,7 @@ bool SceneManager::saveScenes()
             scene.script;
 
         // aliases
-        DynamicJsonDocument aliasDoc(1024);
+        JsonDocument aliasDoc;
 
         if (!deserializeJson(
                 aliasDoc,
@@ -8468,8 +10667,7 @@ bool SceneManager::saveScenes()
         // Kaku
         if (scene.kakuHouse != 0)
         {
-            JsonObject kaku =
-                obj.createNestedObject("kaku");
+            JsonObject kaku = obj["kaku"].to<JsonObject>();
 
             String house;
             house += scene.kakuHouse;
@@ -8501,7 +10699,6 @@ bool SceneManager::saveScenesToFile(
     const String& json
 )
 {
-    // Write file using Storage class
     return Storage::write(path, json);
 }
 
@@ -8512,9 +10709,7 @@ bool SceneManager::saveScenesToFile(
 
 String SceneManager::getScenesAsJson()
 {
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     JsonArray array =
         doc.to<JsonArray>();
@@ -8525,7 +10720,7 @@ String SceneManager::getScenesAsJson()
             scenes[i];
 
         JsonObject obj =
-            array.createNestedObject();
+            array.add<JsonObject>();
 
         obj["id"] =
             scene.id;
@@ -8539,7 +10734,7 @@ String SceneManager::getScenesAsJson()
         obj["script"] =
             scene.script;
 
-        DynamicJsonDocument aliasDoc(1024);
+        JsonDocument aliasDoc;
 
         if (!deserializeJson(
                 aliasDoc,
@@ -8552,7 +10747,7 @@ String SceneManager::getScenesAsJson()
         if (scene.kakuHouse != 0)
         {
             JsonObject kaku =
-                obj.createNestedObject("kaku");
+                obj["kaku"].to<JsonObject>();
 
             String house;
             house += scene.kakuHouse;
@@ -8563,8 +10758,7 @@ String SceneManager::getScenesAsJson()
             kaku["button"] =
                 scene.kakuButton;
         }
-    }
-
+    }   
     String output;
 
     serializeJson(
@@ -8586,9 +10780,7 @@ String SceneManager::getSceneById(
     if (index < 0)
         return "{}";
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     Scene& scene =
         scenes[index];
@@ -8608,7 +10800,7 @@ String SceneManager::getSceneById(
     obj["script"] =
         scene.script;
 
-    DynamicJsonDocument aliasDoc(1024);
+    JsonDocument aliasDoc;
 
     if (!deserializeJson(
             aliasDoc,
@@ -8621,7 +10813,7 @@ String SceneManager::getSceneById(
     if (scene.kakuHouse != 0)
     {
         JsonObject kaku =
-            obj.createNestedObject("kaku");
+                obj["kaku"].to<JsonObject>();
 
         String house;
         house += scene.kakuHouse;
@@ -8792,15 +10984,15 @@ private:
 ### <a id="📄-lib-scriptmanager-scriptmanager-cpp"></a>📄 `lib/ScriptManager/ScriptManager.cpp`
 
 **File Info:**
-- **Size**: 23.96 KB
+- **Size**: 22.19 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/ScriptManager/ScriptManager.cpp`
 - **Relative Path**: `lib/ScriptManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 11:52:04 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `e642897a1496687d7b3e52e483e025d3`
-- **SHA256**: `bfe38dcf12b1787e5ceeed99b10079ffecf7bcde5ab24b183b8c4059f3303127`
+- **Modified**: 2026-09-17 10:45:10 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `74ace5ce3fce6130b9f8040b6759b675`
+- **SHA256**: `3a368dd0b2fb0c78185f156a75b7e6b36a21e2116ecb1285d29f76986867184c`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -8808,7 +11000,6 @@ private:
 ```cpp
 #include "ScriptManager.h"
 
-#include "../Debug/Debug.h"
 
 
 // ============================================================================
@@ -8894,37 +11085,34 @@ bool ScriptManager::loadScripts()
             return true;
         }
 
-        Debug::println(
-            1,
-            "[ScriptManager] Primary script file failed."
-        );
-    }
-    else
-    {
-        Debug::println(
-            2,
-            "[ScriptManager] Primary script file not found."
-        );
-    }
+    //     Debug::println(
+    //         1,
+    //         "[ScriptManager] Primary script file failed."
+    //     );
+    // }
+    // else
+    // {
+    //     Debug::println(
+    //         2,
+    //         "[ScriptManager] Primary script file not found."
+    //     );
+    // }
 
-    if (Storage::exists(SCRIPT_BACKUP_FILE))
-    {
-        Debug::println(
-            2,
-            "[ScriptManager] Loading backup script file."
-        );
+    // if (Storage::exists(SCRIPT_BACKUP_FILE))
+    // {
+    //     Debug::println(
+    //         2,
+    //         "[ScriptManager] Loading backup script file."
+    //     );
 
-        return loadScriptsFromFile(
-            SCRIPT_BACKUP_FILE
-        );
-    }
+    //     return loadScriptsFromFile(
+    //         SCRIPT_BACKUP_FILE
+    //     );
+     }
 
     scriptCount = 0;
 
-    Debug::println(
-        2,
-        "[ScriptManager] No scripts file found."
-    );
+    Debug::println(2, "[ScriptManager] No scripts file found." );
 
     return false;
 }
@@ -8965,9 +11153,7 @@ bool ScriptManager::loadScriptsFromFile(
         " bytes"
     );
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -9052,9 +11238,7 @@ bool ScriptManager::loadScriptsFromFile(
         }
         else if (obj["alias"].is<const char*>())
         {
-            DynamicJsonDocument aliasDoc(
-                512
-            );
+            JsonDocument aliasDoc ; 
 
             JsonArray aliases =
                 aliasDoc.to<JsonArray>();
@@ -9118,11 +11302,12 @@ bool ScriptManager::loadScriptsFromFile(
             script.aliases
         );
 
-        Debug::println(
-            2,
-            "[ScriptManager] Commands JSON: " +
-            script.commands
-        );
+        #ifdef DEBUG_LEVEL 
+            if (Debug::getDebugLevel() >= 3) {
+                Debug::println(5, "[ScriptManager] Commands JSON: " +  script.commands );
+            }
+        #endif
+        
 
         scriptCount++;
     }
@@ -9223,9 +11408,7 @@ bool ScriptManager::aliasesContain(
     const String& value
 )
 {
-    DynamicJsonDocument doc(
-        1024
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -9391,9 +11574,7 @@ bool ScriptManager::executeScriptAtIndex(
     // Parse command array
     // ------------------------------------------------------------------------
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -9558,83 +11739,36 @@ bool ScriptManager::executeScriptAtIndex(
 
 bool ScriptManager::saveScripts()
 {
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
-
-    JsonArray array =
-        doc.to<JsonArray>();
+    JsonDocument doc;
+    JsonArray array = doc.to<JsonArray>();
 
     for (int i = 0; i < scriptCount; i++)
     {
-        Script& script =
-            scripts[i];
+        Script& s = scripts[i];
+        JsonObject obj = array.add<JsonObject>();
 
-        JsonObject obj =
-            array.createNestedObject();
+        obj["id"]   = s.id;
+        obj["name"] = s.name;
 
-        obj["id"] =
-            script.id;
-
-        obj["name"] =
-            script.name;
-
-        // --------------------------------------------------------------------
-        // aliases
-        // --------------------------------------------------------------------
-
-        DynamicJsonDocument aliasDoc(
-            1024
-        );
-
-        DeserializationError aliasError =
-            deserializeJson(
-                aliasDoc,
-                script.aliases
-            );
-
-        if (!aliasError &&
-            aliasDoc.is<JsonArray>())
+        JsonDocument aliasDoc;
+        if (deserializeJson(aliasDoc, s.aliases) == DeserializationError::Ok
+            && aliasDoc.is<JsonArray>())
         {
-            obj["aliases"] =
-                aliasDoc.as<JsonArray>();
+            obj["aliases"] = aliasDoc.as<JsonArray>();
         }
 
-        // --------------------------------------------------------------------
-        // commands
-        // --------------------------------------------------------------------
-
-        DynamicJsonDocument commandDoc(
-            4096
-        );
-
-        DeserializationError commandError =
-            deserializeJson(
-                commandDoc,
-                script.commands
-            );
-
-        if (!commandError &&
-            commandDoc.is<JsonArray>())
+        JsonDocument cmdDoc;
+        if (deserializeJson(cmdDoc, s.commands) == DeserializationError::Ok
+            && cmdDoc.is<JsonArray>())
         {
-            obj["commands"] =
-                commandDoc.as<JsonArray>();
+            obj["commands"] = cmdDoc.as<JsonArray>();
         }
     }
 
     String json;
-
-    serializeJsonPretty(
-        doc,
-        json
-    );
-
-    return saveScriptsToFile(
-        SCRIPT_FILE,
-        json
-    );
-}
-
+    serializeJsonPretty(doc, json);
+    return saveScriptsToFile(SCRIPT_FILE, json);
+}   
 
 // ============================================================================
 // Save to file
@@ -9661,9 +11795,7 @@ bool ScriptManager::addScript(
     if (scriptCount >= MAX_SCRIPTS)
         return false;
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -9732,9 +11864,7 @@ bool ScriptManager::updateScript(
     if (index < 0)
         return false;
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
 
     DeserializationError error =
         deserializeJson(
@@ -9826,137 +11956,71 @@ int ScriptManager::nextScriptId() const
     return maxId + 1;
 }
 
-
-// ============================================================================
-// JSON output
-// ============================================================================
-
 String ScriptManager::getScriptsAsJson()
 {
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
+    JsonArray array = doc.to<JsonArray>();
 
-    JsonArray array =
-        doc.to<JsonArray>();
-
-    for (int i = 0;
-         i < scriptCount;
-         i++)
+    for (int i = 0; i < scriptCount; i++)
     {
-        Script& script =
-            scripts[i];
+        Script& s = scripts[i];
+        JsonObject obj = array.add<JsonObject>();
 
-        JsonObject obj =
-            array.createNestedObject();
+        obj["id"]   = s.id;
+        obj["name"] = s.name;
 
-        obj["id"] =
-            script.id;
-
-        obj["name"] =
-            script.name;
-
-        DynamicJsonDocument aliasDoc(
-            1024
-        );
-
-        if (!deserializeJson(
-                aliasDoc,
-                script.aliases))
+        JsonDocument aliasDoc;
+        if (deserializeJson(aliasDoc, s.aliases) == DeserializationError::Ok
+            && aliasDoc.is<JsonArray>())
         {
-            obj["aliases"] =
-                aliasDoc.as<JsonArray>();
+            obj["aliases"] = aliasDoc.as<JsonArray>();
         }
 
-        DynamicJsonDocument commandDoc(
-            4096
-        );
-
-        if (!deserializeJson(
-                commandDoc,
-                script.commands))
+        JsonDocument cmdDoc;
+        if (deserializeJson(cmdDoc, s.commands) == DeserializationError::Ok
+            && cmdDoc.is<JsonArray>())
         {
-            obj["commands"] =
-                commandDoc.as<JsonArray>();
+            obj["commands"] = cmdDoc.as<JsonArray>();
         }
     }
 
     String output;
-
-    serializeJsonPretty(
-        doc,
-        output
-    );
-
+    serializeJsonPretty(doc, output);
     return output;
 }
 
 
-// ============================================================================
-// Get script by ID
-// ============================================================================
-
-String ScriptManager::getScriptById(
-    int scriptId
-)
+String ScriptManager::getScriptById(int scriptId)
 {
-    int index =
-        findScriptIndex(
-            scriptId
-        );
+    int index = findScriptIndex(scriptId);
+    if (index < 0) return "{}";
 
-    if (index < 0)
-        return "{}";
+    Script& s = scripts[index];
 
-    DynamicJsonDocument doc(
-        JSON_DOC_SIZE
-    );
+    JsonDocument doc;
+    JsonObject obj = doc.to<JsonObject>();
 
-    Script& script =
-        scripts[index];
+    obj["id"]   = s.id;
+    obj["name"] = s.name;
 
-    JsonObject obj =
-        doc.to<JsonObject>();
-
-    obj["id"] =
-        script.id;
-
-    obj["name"] =
-        script.name;
-
-    DynamicJsonDocument aliasDoc(
-        1024
-    );
-
-    if (!deserializeJson(
-            aliasDoc,
-            script.aliases))
+    JsonDocument aliasDoc;
+    if (deserializeJson(aliasDoc, s.aliases) == DeserializationError::Ok
+        && aliasDoc.is<JsonArray>())
     {
-        obj["aliases"] =
-            aliasDoc.as<JsonArray>();
+        obj["aliases"] = aliasDoc.as<JsonArray>();
     }
 
-    DynamicJsonDocument commandDoc(
-        4096
-    );
-
-    if (!deserializeJson(
-            commandDoc,
-            script.commands))
+    JsonDocument cmdDoc;
+    if (deserializeJson(cmdDoc, s.commands) == DeserializationError::Ok
+        && cmdDoc.is<JsonArray>())
     {
-        obj["commands"] =
-            commandDoc.as<JsonArray>();
+        obj["commands"] = cmdDoc.as<JsonArray>();
     }
 
     String output;
-
-    serializeJsonPretty(
-        doc,
-        output
-    );
-
+    serializeJsonPretty(doc, output);
     return output;
-}
+}   
 ```
 
 ---
@@ -9964,15 +12028,15 @@ String ScriptManager::getScriptById(
 ### <a id="📄-lib-scriptmanager-scriptmanager-h"></a>📄 `lib/ScriptManager/ScriptManager.h`
 
 **File Info:**
-- **Size**: 5.14 KB
+- **Size**: 5.08 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/ScriptManager/ScriptManager.h`
 - **Relative Path**: `lib/ScriptManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 09:44:37 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `fe679f959929724829a38dabdbd3b714`
-- **SHA256**: `67e6d664854d380fd0bfcd21e231162e693086fdb1f2fb9e7e040d6e9879963f`
+- **Modified**: 2026-09-17 00:54:53 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `d658b73be96b731ed46fb593ddf7f1db`
+- **SHA256**: `9dfef8eca889c80878c5ab2f906588f33df534b36c34ca42e393dab3009ce913`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -9981,6 +12045,7 @@ String ScriptManager::getScriptById(
 #pragma once
 
 #include <Arduino.h>
+#include "Debug.h"
 #include <LittleFS.h>
 #include <ArduinoJson.h>
 #include "../HardwareManager/Storage/StorageManager.h"
@@ -10108,8 +12173,7 @@ private:
     const char* SCRIPT_FILE =
         "/scripts.json";
 
-    const char* SCRIPT_BACKUP_FILE =
-        "/backup/scripts.json";
+   
 
 
     // ------------------------------------------------------------------------
@@ -10134,7 +12198,7 @@ private:
          *
          * [
          *   "ir TV POWER",
-         *   "delay 1000",
+         *   
          *   "living 1 rgb 255 100 20"
          * ]
          */
@@ -10207,15 +12271,15 @@ private:
 ### <a id="📄-lib-translator-translator-cpp"></a>📄 `lib/Translator/Translator.cpp`
 
 **File Info:**
-- **Size**: 6.12 KB
+- **Size**: 6.11 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/Translator/Translator.cpp`
 - **Relative Path**: `lib/Translator`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 09:46:59 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `5151c96c231ebb1e20998f8ee3d1582d`
-- **SHA256**: `fa57931ffa565fca3d2f14aed8da8fc83005d1ee68f9cb2310c22fada0d8cad7`
+- **Modified**: 2026-09-17 10:22:14 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `c37e35e280b5566db0f70bb6e79e801a`
+- **SHA256**: `c88ffd7a0cdc00d4adb073306859c02782f24092f2f27bfb45be6765d193a94f`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -10297,7 +12361,7 @@ void Translator::loadIrDatabase() {
         }
         
         // Parse JSON
-        DynamicJsonDocument doc(4096);
+        JsonDocument doc;
         DeserializationError error = deserializeJson(doc, fileContent);
 
         if (error) {
@@ -31225,35 +33289,36 @@ compile a sniffer tool and transmission commands.
 ### <a id="📄-lib-webui-webui-cpp"></a>📄 `lib/WebUI/WebUI.cpp`
 
 **File Info:**
-- **Size**: 31.48 KB
+- **Size**: 39.57 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/WebUI/WebUI.cpp`
 - **Relative Path**: `lib/WebUI`
 - **Created**: 2026-09-07 13:29:46 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 11:52:18 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `47ab94205a37b10ea3ab7f27f50c5d0d`
-- **SHA256**: `22d8a14ce3b3442242a978ce483639179fc3be3515f72b71ebe2c900d94f1c8e`
+- **Modified**: 2026-09-17 09:02:19 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `142fb4a923ac5d720ea312ba8c46b586`
+- **SHA256**: `53c407378873bc5842e9a84c48a13a3ff5d7d830180b9f54bfb7cdb53d44c614`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```cpp
 #include "WebUI.h"
-#include "Debug.h"
-#include <WiFi.h>
-#include <LittleFS.h>
-#include <ArduinoJson.h>
-#include <algorithm>
+
 
 WebUI::WebUI(
     ScriptManager &scriptManager,
-    SceneManager &sceneManager
+    SceneManager &sceneManager,
+    CommandSink &commandSink
 )
     : server(80),
       scriptManagerRef(scriptManager),
-      sceneManagerRef(sceneManager)
+      sceneManagerRef(sceneManager),
+      commandSinkRef(commandSink)
 {
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
+    Debug::println(3, "[WebUI][Constructor] WebUI object created");
+#endif
 }
 
 // ============================================================
@@ -31262,12 +33327,17 @@ WebUI::WebUI(
 
 void WebUI::begin()
 {
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+    Debug::println(2, "[WebUI][begin] Starting WebUI initialization");
+#endif
     Debug::println(
         2,
         "[WEBUI][INIT] Starting WebUI initialization"
     );
     
     beginAP();
+
+    // Initialize the Access Point for web interface
 
     /*
      * Managers are initialized by Core.
@@ -31282,6 +33352,10 @@ void WebUI::begin()
         2,
         "[WEBUI][INIT] WebUI initialization complete"
     );
+
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+    Debug::println(2, "[WebUI][begin] WebUI initialization complete");
+#endif
 }
 
 // ============================================================
@@ -31290,70 +33364,51 @@ void WebUI::begin()
 
 void WebUI::beginAP()
 {
-    Debug::println(
-        2,
-        "[WEBUI][INIT] Initializing WebUI in Access Point mode"
-    );
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+    Debug::println(2, "[WebUI][beginAP] Initializing WebUI in Access Point mode");
+#endif
 
+    // Configure ESP32 as Access Point
     WiFi.mode(WIFI_AP);
 
+    // Set up IP configuration for the Access Point
     IPAddress localIP(192, 168, 4, 1);
     IPAddress gateway(192, 168, 4, 1);
     IPAddress subnet(255, 255, 255, 0);
 
-    WiFi.softAPConfig(
-        localIP,
-        gateway,
-        subnet
-    );
-
+    // Start Access Point with SSID and password
     if (!WiFi.softAP(
         "HomeController",
         apPassword.c_str()
     ))
     {
-        Debug::println(
-            1,
-            "[WEBUI][ERROR] Failed to start Access Point with password: " + apPassword
-        );
-
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
+        Debug::println(1, "[WebUI][beginAP] Failed to start Access Point with password: " + apPassword);
+#endif
+        // Log error and return early
         return;
     }
 
-    Debug::println(
-        3,
-        "[WEBUI][INIT] Access Point started with SSID=HomeController"
-    );
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
+    Debug::println(3, "[WebUI][beginAP] Access Point started with SSID=HomeController");
+    Debug::println(3, "[WebUI][beginAP] Access Point IP: " + WiFi.softAPIP().toString());
+#endif
 
-    Debug::println(
-        3,
-        "[WEBUI][INIT] Access Point IP: " +
-        WiFi.softAPIP().toString()
-    );
+    // Setup web server routes
+    setupRoutes();
 
-    // if (!LittleFS.begin())
-    // {
-    //     Debug::println(
-    //         1,
-    //         "[WEBUI][ERROR] LittleFS mount failed - filesystem may be corrupted or missing"
-    //     );
+    // Start the web server
+    server.begin();
 
-    //     return;
-    // }
     
-    // Debug::println(
-    //     3,
-    //     "[WEBUI][INIT] LittleFS mounted successfully"
-    // );
 
     setupRoutes();
 
     server.begin();
 
-    Debug::println(
-        3,
-        "[WEBUI][INIT] Web server started on port 80"
-    );
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
+    Debug::println(3, "[WebUI][beginAP] Web server started on port 80");
+#endif
 }
 
 // ============================================================
@@ -31362,7 +33417,35 @@ void WebUI::beginAP()
 
 bool WebUI::getPostBody(AsyncWebServerRequest *request, String &body)
 {
-    if (request->hasParam("body", true)) {
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
+    Debug::println(1, "[WebUI][getPostBody] Processing POST request");
+#endif
+    // Log request content information 
+    Debug::println(1, "[WEBUI][getPostBody] Content-Type: " + String(request->contentType(  )));
+    Debug::println(1, "[WEBUI][getPostBody] Content-Length: " + String(request->contentLength(  )));
+
+    
+
+
+    // Check for JSON content type
+    if (request->contentType() == "application/json") {
+        // For JSON content, the body should be in _tempObject
+        if (request->_tempObject) {
+            body = String((char *)request->_tempObject);
+        } else {
+            // Fallback to reading the request stream
+            body = "";
+            int len = request->contentLength();
+            if (len > 0) {
+                char* buf = new char[len+1];
+                request->getParam(0)->value().toCharArray(buf, len+1);
+                buf[len] = 0;
+                body = String(buf);
+                delete[] buf;
+            }
+        }
+    }
+    else if (request->hasParam("body", true)) {
         body = request->getParam("body", true)->value();
     }
     else if (request->_tempObject) {
@@ -31377,7 +33460,7 @@ bool WebUI::getPostBody(AsyncWebServerRequest *request, String &body)
         return true;
     }
 
-    Debug::println(1, "[WEBUI][ERROR] Empty POST body");
+    Debug::println(1, "[WEBUI][getPostBody] Empty POST body");
     return false;
 }
 
@@ -31652,7 +33735,7 @@ void WebUI::setupRoutes()
                     return;
                 }
 
-                DynamicJsonDocument doc(512);
+                JsonDocument doc;
 
                 DeserializationError err =
                     deserializeJson(doc, body);
@@ -31702,7 +33785,7 @@ void WebUI::setupRoutes()
         HTTP_GET,
         [this](AsyncWebServerRequest *request)
         {
-            DynamicJsonDocument doc(512);
+            JsonDocument doc;
 
             int core0Busy =
                 100 -
@@ -31784,6 +33867,94 @@ void WebUI::setupRoutes()
     );
 
     // ========================================================
+    // DEBUG LEVEL
+    // ========================================================
+
+       // POST endpoint to update debug level
+    server.on(
+        "/api/set-debug-level",
+        HTTP_POST,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                String body;
+
+                if (!getPostBody(request, body))
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        R"json({"success":false,"message":"Missing debug level payload"})json"
+                    );
+                    return;
+                }
+
+                // Upgraded to true ArduinoJson v7 style JsonDocument (Fixed capacity no longer needed)
+                JsonDocument doc;
+                DeserializationError error = deserializeJson(doc, body);
+
+                if (error)
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        R"json({"success":false,"message":"Invalid JSON"})json"
+                    );
+                    return;
+                }
+
+                // Get debug level
+                int level = doc["level"] | 3; // Default to INFO level if not specified
+
+                // Validate debug level
+                if (level < 1 || level > 5)
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        R"json({"success":false,"message":"Invalid debug level. Must be between 1 and 5."})json"
+                    );
+                    return;
+                }
+
+                // Set debug level
+                Debug::setDebugLevel(level);
+
+                // FIXED: Properly formatted dynamic JSON string with snprintf
+                char responseBuffer[64];
+                snprintf(responseBuffer, sizeof(responseBuffer), "{\"success\":true,\"level\":%d}", level);
+                
+                request->send(200, "application/json", responseBuffer);
+            }
+        )
+    );
+
+    // GET endpoint to retrieve current debug level
+    server.on(
+        "/api/debug-level",
+        HTTP_GET,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                int level = Debug::getDebugLevel();
+                
+                // Upgraded to true ArduinoJson v7 style JsonDocument
+                JsonDocument doc;
+                doc["level"] = level;
+                
+                String response;
+                serializeJson(doc, response);
+
+                request->send(
+                    200,
+                    "application/json",
+                    response
+                );
+            }
+        )
+    );
+
+    // ========================================================
     // SCRIPTS - LIST
     // ========================================================
 
@@ -31793,8 +33964,7 @@ void WebUI::setupRoutes()
         withAuth(
             [this](AsyncWebServerRequest *request)
             {
-                String json =
-                    scriptManagerRef.getScriptsAsJson();
+                String json = scriptManagerRef.getScriptsAsJson();
 
                 request->send(
                     200,
@@ -31931,11 +34101,17 @@ server.on("/api/action-scripts", HTTP_POST,
     // ========================================================
     // EXECUTE SCRIPT
     //
-    // This is a macro invocation.
+    // This endpoint allows executing scripts by ID, name, or full JSON object.
+    // The endpoint supports three request formats:
+    // 1. {"id": 1} - Execute script by ID (preferred method)
+    // 2. {"name": "Script Name"} - Execute script by name or alias
+    // 3. {"script": "{\"name\": \"Script Name\", ...}"} - Execute with full JSON
+    //    This is used by the editor test functionality.
     //
+    // Execution flow:
     // ScriptManager -> CommandSink -> Core -> HardwareManager
     //
-    // WebUI never sees the hardware.
+    // WebUI never directly interacts with hardware.
     // ========================================================
 
     server.on(
@@ -31958,7 +34134,7 @@ server.on("/api/action-scripts", HTTP_POST,
                     return;
                 }
 
-                DynamicJsonDocument doc(512);
+                JsonDocument doc;
 
                 if (
                     deserializeJson(doc, body) !=
@@ -31977,35 +34153,92 @@ server.on("/api/action-scripts", HTTP_POST,
 
                 bool success = false;
 
-                if (doc["id"].is<int>())
-                {
-                    success =
-                        scriptManagerRef.runScript(
-                            doc["id"].as<int>()
-                        );
+                // Execute script by ID (integer)
+                // This is the preferred method when the script ID is known
+                if (doc["id"].is<int>()) {
+                    const int scriptId = doc["id"].as<int>();
+                    Debug::println(2, "[WebUI] Executing script by ID: " + String(scriptId));
+                    success = scriptManagerRef.runScript(scriptId);
                 }
-                else if (doc["name"].is<String>())
-                {
-                    success =
-                        scriptManagerRef.runScript(
-                            doc["name"].as<String>()
-                        );
+                // Execute script by name (string)
+                // This is used when the script name or alias is known
+                else if (doc["name"].is<String>()) {
+                    const String scriptName = doc["name"].as<String>();
+                    Debug::println(2, "[WebUI] Executing script by name: " + scriptName);
+                    success = scriptManagerRef.runScript(scriptName);
                 }
-                else if (doc["script"].is<String>())
-                {
-                    success =
-                        scriptManagerRef.runScript(
-                            doc["script"].as<String>()
+                else if (doc["script"].is<String>()) {
+                    // Handle script execution with full JSON object
+                    // This is used by the editor test functionality where the web interface
+                    // sends a complete script JSON object instead of just a name or ID
+                    Debug::println(2, "[WebUI] Processing script execution with full JSON object");
+                    
+                    const String scriptJson = doc["script"].as<String>();
+                    Debug::println(3, "[WebUI] Script JSON: " + scriptJson);
+                    
+                    // Parse the script JSON to extract the name
+                    JsonDocument scriptDoc;
+                    DeserializationError error = deserializeJson(scriptDoc, scriptJson);
+                    
+                    if (error || !scriptDoc.is<JsonObject>()) {
+                        Debug::println(1, "[WebUI] Failed to parse script JSON: " + String(error.c_str()));
+                        request->send(
+                            400,
+                            "application/json",
+                            R"json({"success":false,"message":"Invalid script JSON"})json"
                         );
+                        return;
+                    }
+                    
+                    // Extract script name if available
+                    if (scriptDoc["name"].is<String>()) {
+                        const String scriptName = scriptDoc["name"].as<String>();
+                        Debug::println(2, "[WebUI] Executing script by name: " + scriptName);
+                        
+                        // Special case for __EDITOR_TEST__ - extract and execute commands directly
+                        if (scriptName == "__EDITOR_TEST__") {
+                            Debug::println(2, "[WebUI] Special case: __EDITOR_TEST__ - executing commands directly");
+                            
+                            if (scriptDoc["commands"].is<JsonArray>()) {
+                                JsonArray commands = scriptDoc["commands"].as<JsonArray>();
+                                Debug::println(2, "[WebUI] Found " + String(commands.size()) + " commands to execute");
+                                
+                                success = true;
+                                for (JsonVariant command : commands) {
+                                    if (!commandSinkRef.executeCommand(command.as<String>())) {
+                                        Debug::println(1, "[WebUI] Command failed: " + String(command.as<String>()));
+                                        success = false;
+                                    }
+                                }
+                            } else {
+                                Debug::println(1, "[WebUI] No commands found in __EDITOR_TEST__");
+                                success = false;
+                            }
+                        } else {
+                            // Normal script execution
+                            success = scriptManagerRef.runScript(scriptName);
+                        }
+                    }
+                    else {
+                        Debug::println(1, "[WebUI] Script JSON missing name field");
+                        request->send(
+                            400,
+                            "application/json",
+                            R"json({"success":false,"message":"Script JSON missing name field"})json"
+                        );
+                        return;
+                    }
                 }
 
+                // Send response based on script execution result
+                // 200 OK with success:true if script executed successfully
+                // 404 Not Found with success:false and error message if script failed
                 request->send(
                     success ? 200 : 404,
                     "application/json",
                     success
-                        ? "{\"success\":true}"
-                        : "{\"success\":false,"
-                          "\"message\":\"Script not found or failed\"}"
+                        ? R"json({"success":true})json"
+                        : R"json({"success":false,"message":"Script not found or failed"})json"
                 );
             }
         ),
@@ -32063,7 +34296,7 @@ server.on("/api/action-scripts", HTTP_POST,
                     return;
                 }
 
-                DynamicJsonDocument doc(512);
+                JsonDocument doc;
 
                 if (
                     deserializeJson(doc, body) !=
@@ -32264,7 +34497,8 @@ void WebUI::setAuthentication(
 )
 {
     bool wasEnabled = authenticationEnabled;
-    authenticationEnabled = enabled;
+    // Keep authentication disabled regardless of the enabled parameter
+    authenticationEnabled = false;
 
     if (password.length() > 0)
     {
@@ -32277,9 +34511,7 @@ void WebUI::setAuthentication(
 
     Debug::println(
         2,
-        "[WEBUI][AUTH] Authentication " +
-        String(enabled ? "enabled" : "disabled") +
-        (wasEnabled != enabled ? " (status changed)" : " (status unchanged)")
+        "[WEBUI][AUTH] Authentication disabled (automatic access enabled)"
     );
 }
 
@@ -32320,7 +34552,7 @@ bool WebUI::saveOrUpdateScript(
     const String &scriptJson
 )
 {
-    DynamicJsonDocument doc(8192);
+    JsonDocument doc;
 
     if (
         deserializeJson(doc, scriptJson) !=
@@ -32336,24 +34568,7 @@ bool WebUI::saveOrUpdateScript(
         return false;
     }
 
-    /*
-     * Accept both:
-     *
-     * {
-     * "script": "{...}"
-     * }
-     *
-     * and:
-     *
-     * {
-     * "id": 1,
-     * "name": "...",
-     * ...
-     * }
-     *
-     * This keeps the existing editor working while the
-     * frontend is being simplified.
-     */
+   
 
     String script;
 
@@ -32374,7 +34589,7 @@ bool WebUI::saveOrUpdateScript(
         return false;
     }
 
-    DynamicJsonDocument scriptDoc(8192);
+    JsonDocument  scriptDoc;
 
     if (
         deserializeJson(scriptDoc, script) !=
@@ -32474,15 +34689,15 @@ void WebUI::authenticateClient(
 ### <a id="📄-lib-webui-webui-h"></a>📄 `lib/WebUI/WebUI.h`
 
 **File Info:**
-- **Size**: 1.82 KB
+- **Size**: 2.09 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/WebUI/WebUI.h`
 - **Relative Path**: `lib/WebUI`
 - **Created**: 2026-09-07 00:57:16 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 17:38:10 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `a3783e307e0e4d23193f7f7a8ef62cca`
-- **SHA256**: `eaa585ba2227538c7cf3e6d26748b47aefc92a80424735f6cb92088051d4e3ca`
+- **Modified**: 2026-09-17 09:01:31 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `97063dbfdc4955d0b408f41dec080460`
+- **SHA256**: `6ca1337adf954171326347912a5922af768be5003de956b1e02f25cfbadd0973`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -32491,7 +34706,12 @@ void WebUI::authenticateClient(
 #pragma once
 
 #include <Arduino.h>
+#include "Debug.h"
+#include <WiFi.h>
 #include <ESPAsyncWebServer.h>
+#include <LittleFS.h>
+#include <ArduinoJson.h>
+#include <algorithm>
 #include <vector>
 #include <map>
 
@@ -32501,7 +34721,7 @@ void WebUI::authenticateClient(
 class WebUI
 {
 public:
-    WebUI(ScriptManager &scriptManager, SceneManager &sceneManager);
+    WebUI(ScriptManager &scriptManager, SceneManager &sceneManager, CommandSink &commandSink);
 
     void begin();
     void beginAP();
@@ -32523,10 +34743,11 @@ private:
 
     ScriptManager &scriptManagerRef;
     SceneManager &sceneManagerRef;
+    CommandSink &commandSinkRef;
 
     volatile bool heartbeatState = false;
 
-    bool authenticationEnabled = true;
+    bool authenticationEnabled = false;  // Disabled for automatic access
 
     String adminPassword = "defaultadmin";
     String apPassword = "password123";
@@ -32571,27 +34792,24 @@ private:
 ### <a id="📄-src-main-cpp"></a>📄 `src/main.cpp`
 
 **File Info:**
-- **Size**: 2.56 KB
+- **Size**: 2.36 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `src/main.cpp`
 - **Relative Path**: `src`
 - **Created**: 2026-09-07 00:57:16 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-02 06:07:12 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `7a5e94ceb5651ba4b69b74e882635861`
-- **SHA256**: `2ec6dc67725b3f8736ee3ba2926e225361b8af02934ebe2eb434e6c00809acce`
+- **Modified**: 2026-09-17 10:46:17 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `0f7a7fb9812b0e1e16c44dffd7f98c36`
+- **SHA256**: `a90384e854c41f43a13a088e7eae1aaa6fcbbb256c15f0bd8b03b9837c8524a3`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```cpp
 #include <Arduino.h>
-#include "../lib/Core/Core.h"
-#include "../lib/Debug/Debug.h"
+#include "Debug.h"
+#include "Core.h"
 
-namespace {
-constexpr unsigned long kSerialBaudRate = 115200;
-}
 
 // Read this first when debugging:
 // -----------------------------------------------------------------------------
@@ -32624,22 +34842,21 @@ public:
      * then delegates all intelligent startup coordination to Core::init().
      */
     void begin() {
-        // Serial debug is the main observability tool during bring-up and runtime debugging.
-        Debug::begin(kSerialBaudRate);
-        Debug::logStartupBanner("HomeController", "ESP32");
+        Debug::begin(115200, Debug::INFO);
 
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[MAIN] Boot sequence started");
-        Debug::println(1, "[MAIN] Starting application");
-#endif
+        #ifdef DEBUG_LEVEL
+            if (Debug::getDebugLevel() >=  0) {
+                Debug::println(1, "[MAIN] Debug level set to " + String(Debug::getDebugLevel()));
+            }
+        #endif
+
+        
+
+        Debug::logStartupBanner("HomeController", "ESP32");
 
         // Core owns the startup sequence and the single status log for the system lifecycle.
         core.init();
 
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[MAIN] Core startup complete, application is running");
-        Debug::println(1, "[MAIN] Application started");
-#endif
     }
 
     /**
@@ -34629,297 +36846,18 @@ function escapeHtml(value){
 
 ---
 
-### <a id="📄-issues-md"></a>📄 `issues.md`
-
-**File Info:**
-- **Size**: 6.42 KB
-- **Extension**: `.md`
-- **Language**: `text`
-- **Location**: `issues.md`
-- **Relative Path**: `root`
-- **Created**: 2026-09-07 23:12:46 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 23:12:49 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `6f59e013203a2f930f3429e44b1cc03f`
-- **SHA256**: `4772c842410512fded6a2f8f4e98dfbb51a539e9c49ae3797eef407c336dc392`
-- **Encoding**: UTF-8
-
-**File code content:**
-
-````markdown
-# ESP32 Home Controller — Issues
-
-## Active
-
-### ISSUE-001 — Duplicate LittleFS initialization
-**Priority:** High
-
-LittleFS appears to be initialized/mounted in multiple components.
-
-**Goal:** Core owns filesystem initialization; other components only access the mounted filesystem.
-
-**Acceptance criteria**
-- Only one application `LittleFS.begin()`.
-- Translator reads `/ir_db/`.
-- ScriptManager reads/writes `/scripts.json`.
-- SceneManager reads/writes `/scenes.json`.
-- WebUI serves files normally.
-- Boot remains stable.
-
-### ISSUE-002 — Script commands JSON corruption
-**Priority:** High
-
-Saved commands can become:
-
-~~~~text
-[]["living 2 rgb 255 100 20","rgbstrip RGB_44KEY-R1 #00FF00"]
-~~~~
-
-Expected:
-
-~~~~json
-[
-  "living 2 rgb 255 100 20",
-  "rgbstrip RGB_44KEY-R1 #00FF00"
-]
-~~~~
-
-**Acceptance criteria**
-- New and updated scripts contain valid command arrays.
-- Commands reload correctly after reboot.
-- `runScript(ID)` reports the correct command count.
-
-### ISSUE-003 — Temporary editor Test calls `runScript()` incorrectly
-**Priority:** High
-
-The editor currently causes a call resembling:
-
-~~~~text
-runScript(name): {"name":"__EDITOR_TEST__","aliases":[],"commands":[...]}
-~~~~
-
-The entire JSON object is being treated as the script name.
-
-**Acceptance criteria**
-- Test does not create a permanent script.
-- Test executes the selected commands through CommandSink/Core.
-- WebUI does not access HardwareManager directly.
-
-### ISSUE-004 — Hardcoded `fallbackRemotes` in action_scripts.html
-**Priority:** High
-
-The editor contains a duplicate JavaScript database of remotes/colors even though IR JSON files and Translator are intended to be the source of truth.
-
-**Acceptance criteria**
-- Remove `fallbackRemotes`.
-- No hardcoded remote/color list in the editor.
-- Editor obtains available data from ESP32/Translator.
-- Adding a new IR JSON automatically makes it available.
-
-### ISSUE-005 — Translator does not expose all IR buttons
-**Priority:** Medium
-
-Current Translator loading only adds mappings when `virtual_color` is non-empty. Normal buttons such as `POWER` and `PLAY_PAUSE` therefore do not use the same mapping structure.
-
-**Acceptance criteria**
-- Define a clean representation for normal IR buttons.
-- Support `ir TV POWER`.
-- Preserve color/nominal-color support.
-
-### ISSUE-006 — `rgbstrip` command is not implemented end-to-end
-**Priority:** High
-
-The editor generates commands such as:
-
-~~~~text
-rgbstrip RGB_44KEY-R1 #00FF00
-~~~~
-
-but the complete Core → IR → HardwareManager path is not finished.
-
-**Acceptance criteria**
-- Resolve remote from IR database.
-- Resolve nominal color to the correct button/code.
-- Transmit the actual IR code.
-- Different remotes may use different codes for the same nominal color.
-
-### ISSUE-007 — `ir TV POWER` currently fails in Core
-**Priority:** High
-
-Current behavior reaches Core but returns failure.
-
-**Acceptance criteria**
-- Resolve remote/button.
-- Transmit through HardwareManager.
-- Script reports success when transmission succeeds.
-
-### ISSUE-008 — `/api/set-debug-level` is requested but not found
-**Priority:** Low
-
-The log currently shows requests to:
-
-~~~~text
-/api/set-debug-level
-~~~~
-
-which return NOTFOUND.
-
-**Acceptance criteria**
-- Either implement it using the existing Debug system, or remove the frontend request if obsolete.
-
-### ISSUE-009 — WebUI contains obsolete/duplicate code
-**Priority:** Medium
-
-WebUI has accumulated old routes and APIs during the architecture changes.
-
-**Acceptance criteria**
-- Remove unsupported calls and obsolete routes.
-- Do not add methods to ScriptManager/SceneManager merely to satisfy old WebUI code.
-- Keep WebUI as the HTTP/UI layer.
-
-### ISSUE-010 — SceneManager architecture cleanup
-**Priority:** Medium
-
-SceneManager should not duplicate ScriptManager's macro engine.
-
-**Target responsibilities**
-- Scene definitions.
-- Static/animated scene state.
-- Kaku scene activation.
-- WebUI scene activation.
-- Calling ScriptManager when a scene references a script.
-
-**Acceptance criteria**
-- No HardwareManager access.
-- No duplicated script engine.
-- Scenes remain in `/scenes.json`.
-
-### ISSUE-011 — Audio/automation ownership
-**Priority:** Medium
-
-Audio beat detection and automation need to use the Core command path.
-
-**Acceptance criteria**
-- Audio provides beat/timing information.
-- Animated scene speed/timing can use beat information.
-- Hardware actions still go through Core.
-
-### ISSUE-012 — Direct HardwareManager access outside Core
-**Priority:** High
-
-Core should be the only higher-level component that knows about and accesses HardwareManager.
-
-**Acceptance criteria**
-- Search the entire project for HardwareManager references.
-- Remove unnecessary higher-level access.
-
-### ISSUE-013 — Hardcoded IR data outside `/data/ir_db/`
-**Priority:** Medium
-
-IR codes, remote definitions, and color mappings should not be duplicated in HTML or application code.
-
-**Acceptance criteria**
-- IR JSON is the source of truth.
-- No duplicated IR codes in WebUI/editor.
-- No duplicated remote/color tables in JavaScript.
-
-## Closed / verified
-
-### ISSUE-014 — Runtime filesystem preservation
-**Status:** Closed
-
-The Python filesystem update process now preserves:
-
-~~~~text
-/scripts.json
-/scenes.json
-~~~~
-
-`backup/` and `config/` are no longer used.
-
-Verified after rebuild/upload:
-- `scripts.json` survives.
-- `scenes.json` survives.
-
-### ISSUE-015 — WebUI raw JSON POST body
-**Status:** Closed
-
-WebUI raw JSON POST handling was corrected.
-
-Verified by:
-
-~~~~text
-[WEBUI][SCRIPTS] Save request received
-[WEBUI][SCRIPTS] Save successful
-~~~~
-
-### ISSUE-016 — LivingColors canonical command path
-**Status:** Closed
-
-Working path:
-
-~~~~text
-ScriptManager
-    ↓
-CommandSink
-    ↓
-Core
-    ↓
-HardwareManager
-    ↓
-LivingColors
-~~~~
-
-Verified commands include:
-
-~~~~text
-living 1 rgb 255 100 20
-living 2 rgb 255 100 20
-~~~~
-
-## Architecture target
-
-~~~~text
-WEB / KAKU / IR / AUDIO
-          ↓
-       Translator
-          ↓
-         Core
-       /  |    Scenes Scripts Effects
-       \  |  /
-      Core commands
-          ↓
-   HardwareManager
-~~~~
-
-### Ownership rules
-
-- Core owns hardware access.
-- HardwareManager owns physical devices.
-- Translator translates external/device representations into canonical forms.
-- ScriptManager owns scripts/macros.
-- SceneManager owns scenes and scene activation.
-- WebUI owns HTTP/UI interaction.
-- LittleFS is initialized once.
-- `/scripts.json` is the runtime script store.
-- `/scenes.json` is the runtime scene store.
-- `/data/ir_db/*.json` is the IR database source of truth.
-
-````
-
----
-
 ### <a id="📄-platformio-ini"></a>📄 `platformio.ini`
 
 **File Info:**
-- **Size**: 698 B
+- **Size**: 791 B
 - **Extension**: `.ini`
 - **Language**: `text`
 - **Location**: `platformio.ini`
 - **Relative Path**: `root`
 - **Created**: 2026-09-07 00:57:16 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 13:53:37 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `a55b86054c456bfd2b00f7482fb5dc74`
-- **SHA256**: `19506209708d18503f98460536a68d4cafa381a8c2fb6da3aae5ed0655619a59`
+- **Modified**: 2026-09-17 09:32:17 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `5f01bf2b425e3325e9e79094399cdc11`
+- **SHA256**: `2ea5fed53947c942ee1ae08009664da99ce69f74f1fb5fd76143845265e96a6f`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -34935,20 +36873,22 @@ framework = arduino
 monitor_speed = 115200
 board_build.filesystem = littlefs
 
-board_upload.com_port = /dev/ttyACM0
-board_upload.wait_for_upload_port = yes
-board_upload.use_1200bps_touch = yes
+; board_upload.com_port = /dev/ttyACM0
+; board_upload.wait_for_upload_port = yes
+; board_upload.use_1200bps_touch = yes
 
 
-build_flags =
-      -D DEBUG_LEVEL=2
+build_flags = 
+      -D DEBUG_LEVEL=2  ; // if not defined it skips debug entirely
+      
+
   
    
  
 lib_deps =
     lib/vendor/rc-switch
     lib/vendor/irremote
-    ArduinoJson @ ^6.18
+    ArduinoJson @^7.4.3 
     https://github.com/ESP32Async/AsyncTCP.git#v3.4.10
     https://github.com/ESP32Async/ESPAsyncWebServer.git#v3.11.2
     ; adafruit/Adafruit GFX Library@^1.11.5
@@ -34957,257 +36897,6 @@ lib_deps =
 
 
 ```
-
----
-
-### <a id="📄-script-scene-md"></a>📄 `script_scene.md`
-
-**File Info:**
-- **Size**: 4.05 KB
-- **Extension**: `.md`
-- **Language**: `text`
-- **Location**: `script_scene.md`
-- **Relative Path**: `root`
-- **Created**: 2026-09-16 12:09:48 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 12:09:48 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `219e9dfff489e39d5bb7b7a521d17087`
-- **SHA256**: `bfe55ae3520221738b55781a4bebd7cdcc7b5320d545a53dbd63c760fe720305`
-- **Encoding**: ASCII
-
-**File code content:**
-
-````markdown
-# Script Manager and Scene Manager
-
-## Overview
-This document explains the purpose and functionality of the Script Manager and Scene Manager in the ESP32 Home Controller system.
-
----
-
-## Script Manager
-
-### Purpose
-The Script Manager is responsible for managing custom automation scripts in your home controller system. Scripts allow you to create sequences of commands that can be executed with a single trigger, making it easy to automate complex routines.
-
-### Key Features
-- **Script Storage**: Stores scripts in JSON format on the filesystem
-- **Script Execution**: Executes scripts by sending commands to connected devices
-- **Script Management**: Provides methods to add, update, delete, and list scripts
-- **Command Parsing**: Parses and validates script commands before execution
-
-### Script Structure
-Each script contains:
-- **ID**: Unique identifier for the script
-- **Name**: Human-readable name for the script
-- **Aliases**: Alternative names that can trigger the script
-- **Commands**: Array of commands to execute when the script is triggered
-
-### Example Script
-~~~~json
-[
-  {
-    "id": 1,
-    "name": "Movie Start",
-    "aliases": [],
-    "commands": [
-      "living 1 rgb 255 100 20",
-      "living 2 rgb 255 255 20",
-      "living 3 rgb 255 100 220"
-    ]
-  }
-]
-~~~~
-
-### Common Commands
-- `living <id> rgb <r> <g> <b>`: Set LivingColors light color
-- `delay <ms>`: Pause execution for specified milliseconds
-- `audio <command>`: Control audio playback
-
----
-
-## Scene Manager
-
-### Purpose
-The Scene Manager manages predefined scenes in your home controller system. Scenes are named configurations that can be activated to instantly change the state of multiple devices, creating specific atmospheres or moods.
-
-### Key Features
-- **Scene Storage**: Stores scenes in JSON format on the filesystem
-- **Scene Activation**: Activates scenes by sending device commands
-- **Scene Management**: Provides methods to add, update, delete, and list scenes
-- **Preset Configurations**: Stores predefined device settings for each scene
-
-### Scene Structure
-Each scene contains:
-- **ID**: Unique identifier for the scene
-- **Name**: Human-readable name for the scene
-- **Type**: Category of the scene (e.g., "lighting", "mood", "activity")
-- **Devices**: Array of device configurations for the scene
-
-### Example Scene
-~~~~json
-[
-  {
-    "id": 1,
-    "name": "Movie Night",
-    "type": "activity",
-    "devices": [
-      {
-        "id": 1,
-        "type": "light",
-        "value": 50
-      },
-      {
-        "id": 2,
-        "type": "light",
-        "value": 20
-      }
-    ]
-  }
-]
-~~~~
-
-### Common Scene Types
-- **Lighting**: Control brightness and colors of lights
-- **Mood**: Create atmospheric settings
-- **Activity**: Set up for specific activities (movie, dinner, etc.)
-- **Security**: Configure alarm and surveillance settings
-
----
-
-## Integration
-
-### How They Work Together
-While Scripts and Scenes serve different purposes, they can be used together:
-
-1. **Scripts can activate scenes**: A script can include commands to activate specific scenes
-2. **Scenes can be triggered by scripts**: Scenes can be part of larger automation scripts
-3. **Web Interface**: Both can be controlled through the WebUI
-4. **Event System**: Both can be triggered by system events
-
-### Use Cases
-- **Script Example**: "Good Morning" script that turns on lights, sets thermostat, and plays news
-- **Scene Example**: "Movie Night" scene that dims lights and closes blinds
-
----
-
-## File Locations
-- Scripts: `/scripts.json`
-- Scenes: `/scenes.json`
-
----
-
-## API Endpoints
-- Scripts: `/api/action-scripts` (GET for listing, POST for adding/updating)
-- Scenes: `/api/scenes` (GET for listing, POST for adding/updating)
-
----
-
-## Conclusion
-The Script Manager and Scene Manager provide powerful automation capabilities for your home controller system. Scripts are ideal for complex sequences of actions, while scenes are perfect for instant atmosphere changes. Together, they create a flexible and user-friendly home automation system.
-
-````
-
----
-
-### <a id="📄-todo-md"></a>📄 `todo.md`
-
-**File Info:**
-- **Size**: 3.94 KB
-- **Extension**: `.md`
-- **Language**: `text`
-- **Location**: `todo.md`
-- **Relative Path**: `root`
-- **Created**: 2026-09-07 23:12:33 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 23:12:42 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `0dd3f99b958b3376234ed88fc0f613a3`
-- **SHA256**: `90b76a9a2699f313af1c9c64328002521e227ca9bf5b3df40ca0b25f92657bc9`
-- **Encoding**: UTF-8
-
-**File code content:**
-
-````markdown
-# ESP32 Home Controller — TODO
-
-## Phase 1 — Foundation
-
-- [ ] Fix LittleFS ownership: find all `LittleFS.begin()` calls and keep one application-level initialization, preferably owned by Core.
-- [ ] Make Translator, ScriptManager, SceneManager, and WebUI use the already-mounted LittleFS without mounting it themselves.
-- [ ] Remove leftover C++ references to obsolete `backup/` and `config/`.
-- [ ] Clean up logging while keeping the existing `Debug::println()` system.
-- [ ] Fix or remove `/api/set-debug-level` if the UI still requests an endpoint that no longer exists.
-
-## Phase 2 — ScriptManager
-
-- [ ] Fix `commands` JSON corruption. Current bad value resembles `[]["living 2 rgb 255 100 20","rgbstrip RGB_44KEY-R1 #00FF00"]`; it must be a normal JSON array.
-- [ ] Verify new script save/update, aliases, commands, reload after reboot, and valid JSON.
-- [ ] Fix temporary editor Test execution. It currently passes the entire temporary JSON object to `runScript(name)`.
-- [ ] If needed, add one small ScriptManager method for executing an unsaved command list; do not add WebUI-specific or HardwareManager logic.
-- [ ] Keep ScriptManager architecture: `ScriptManager → CommandSink → Core`.
-
-## Phase 3 — Translator
-
-- [ ] Make IR JSON the single source of truth.
-- [ ] Remove hardcoded remote/color definitions from `action_scripts.html`, including `fallbackRemotes`.
-- [ ] Finish `nominal_color` migration while preserving actual working IR codes.
-- [ ] Expose loaded IR database information to WebUI/editor so the editor can populate remotes and colors dynamically.
-- [ ] Decide how normal IR buttons such as `POWER` and `PLAY_PAUSE` are represented alongside color mappings.
-- [ ] Support canonical commands such as `ir TV POWER`.
-
-## Phase 4 — Core command handling
-
-- [ ] Finish canonical `ir TV POWER` end-to-end.
-- [ ] Finish `rgbstrip RGB_44KEY-R1 #00FF00` end-to-end.
-- [ ] Resolve remote + nominal color to the actual IR button/code.
-- [ ] Keep Core as the only component with HardwareManager access.
-
-## Phase 5 — Script editor
-
-- [ ] Remove `fallbackRemotes`.
-- [ ] Populate remote dropdown dynamically from ESP32/Translator data.
-- [ ] Populate colors dynamically using `nominal_color` and button name.
-- [ ] Keep editor script-centric: name, aliases, ordered commands, add/delete/reorder, save, run, test.
-- [ ] Keep scene/Kaku editor logic out of the script editor.
-
-## Phase 6 — Scenes
-
-- [ ] Clean SceneManager so it is not a copy of ScriptManager.
-- [ ] Keep scene-specific state in SceneManager.
-- [ ] Allow scenes to reference scripts by name/alias.
-- [ ] Preserve static scenes.
-- [ ] Add animated scene architecture without duplicating ScriptManager.
-- [ ] Kaku activates scenes through Core → SceneManager.
-- [ ] WebUI activates scenes through the same scene path.
-- [ ] No direct HardwareManager access from SceneManager.
-
-## Phase 7 — Audio / automation
-
-- [ ] Route automation effects through Core.
-- [ ] Use beat detection as timing/speed control for animated scenes/effects.
-- [ ] Keep Audio from directly owning hardware actions.
-
-## Phase 8 — Final cleanup and testing
-
-- [ ] Search the entire project for duplicate LittleFS initialization.
-- [ ] Search for obsolete `backup`, `config`, old action APIs, old scene APIs, obsolete capture APIs, and `fallbackRemotes`.
-- [ ] Search for direct HardwareManager access outside Core.
-- [ ] Search for hardcoded IR codes outside `/data/ir_db/`.
-- [ ] Search for hardcoded remote/color definitions outside the IR JSON files.
-- [ ] Remove dead and duplicate WebUI code.
-- [ ] Test rebuild/upload of LittleFS and verify `scripts.json` and `scenes.json` survive.
-- [ ] Full functional test: script creation, save, reload, run, LivingColors, RGB strip, IR transmit, Kaku → scene, scene → script, and audio/animation.
-
-## Recommended order
-
-1. LittleFS cleanup
-2. ScriptManager `commands` JSON bug
-3. Editor Test execution
-4. Translator cleanup
-5. RGB-strip + IR
-6. Scene cleanup
-7. Audio/automation
-8. Final cleanup and full test
-
-````
 
 ---
 
@@ -35618,6 +37307,5 @@ if __name__ == "__main__":
 
 The following files were not included in the text content:
 
-- `LivingColors Remote.png`
 - `repomix-output.xml`
 

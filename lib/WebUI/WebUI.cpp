@@ -1,18 +1,19 @@
 #include "WebUI.h"
-#include "Debug.h"
-#include <WiFi.h>
-#include <LittleFS.h>
-#include <ArduinoJson.h>
-#include <algorithm>
+
 
 WebUI::WebUI(
     ScriptManager &scriptManager,
-    SceneManager &sceneManager
+    SceneManager &sceneManager,
+    CommandSink &commandSink
 )
     : server(80),
       scriptManagerRef(scriptManager),
-      sceneManagerRef(sceneManager)
+      sceneManagerRef(sceneManager),
+      commandSinkRef(commandSink)
 {
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
+    Debug::println(3, "[WebUI][Constructor] WebUI object created");
+#endif
 }
 
 // ============================================================
@@ -21,12 +22,17 @@ WebUI::WebUI(
 
 void WebUI::begin()
 {
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+    Debug::println(2, "[WebUI][begin] Starting WebUI initialization");
+#endif
     Debug::println(
         2,
         "[WEBUI][INIT] Starting WebUI initialization"
     );
     
     beginAP();
+
+    // Initialize the Access Point for web interface
 
     /*
      * Managers are initialized by Core.
@@ -41,6 +47,10 @@ void WebUI::begin()
         2,
         "[WEBUI][INIT] WebUI initialization complete"
     );
+
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+    Debug::println(2, "[WebUI][begin] WebUI initialization complete");
+#endif
 }
 
 // ============================================================
@@ -49,70 +59,51 @@ void WebUI::begin()
 
 void WebUI::beginAP()
 {
-    Debug::println(
-        2,
-        "[WEBUI][INIT] Initializing WebUI in Access Point mode"
-    );
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+    Debug::println(2, "[WebUI][beginAP] Initializing WebUI in Access Point mode");
+#endif
 
+    // Configure ESP32 as Access Point
     WiFi.mode(WIFI_AP);
 
+    // Set up IP configuration for the Access Point
     IPAddress localIP(192, 168, 4, 1);
     IPAddress gateway(192, 168, 4, 1);
     IPAddress subnet(255, 255, 255, 0);
 
-    WiFi.softAPConfig(
-        localIP,
-        gateway,
-        subnet
-    );
-
+    // Start Access Point with SSID and password
     if (!WiFi.softAP(
         "HomeController",
         apPassword.c_str()
     ))
     {
-        Debug::println(
-            1,
-            "[WEBUI][ERROR] Failed to start Access Point with password: " + apPassword
-        );
-
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
+        Debug::println(1, "[WebUI][beginAP] Failed to start Access Point with password: " + apPassword);
+#endif
+        // Log error and return early
         return;
     }
 
-    Debug::println(
-        3,
-        "[WEBUI][INIT] Access Point started with SSID=HomeController"
-    );
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
+    Debug::println(3, "[WebUI][beginAP] Access Point started with SSID=HomeController");
+    Debug::println(3, "[WebUI][beginAP] Access Point IP: " + WiFi.softAPIP().toString());
+#endif
 
-    Debug::println(
-        3,
-        "[WEBUI][INIT] Access Point IP: " +
-        WiFi.softAPIP().toString()
-    );
+    // Setup web server routes
+    setupRoutes();
 
-    // if (!LittleFS.begin())
-    // {
-    //     Debug::println(
-    //         1,
-    //         "[WEBUI][ERROR] LittleFS mount failed - filesystem may be corrupted or missing"
-    //     );
+    // Start the web server
+    server.begin();
 
-    //     return;
-    // }
     
-    // Debug::println(
-    //     3,
-    //     "[WEBUI][INIT] LittleFS mounted successfully"
-    // );
 
     setupRoutes();
 
     server.begin();
 
-    Debug::println(
-        3,
-        "[WEBUI][INIT] Web server started on port 80"
-    );
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
+    Debug::println(3, "[WebUI][beginAP] Web server started on port 80");
+#endif
 }
 
 // ============================================================
@@ -121,7 +112,35 @@ void WebUI::beginAP()
 
 bool WebUI::getPostBody(AsyncWebServerRequest *request, String &body)
 {
-    if (request->hasParam("body", true)) {
+#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
+    Debug::println(1, "[WebUI][getPostBody] Processing POST request");
+#endif
+    // Log request content information 
+    Debug::println(1, "[WEBUI][getPostBody] Content-Type: " + String(request->contentType(  )));
+    Debug::println(1, "[WEBUI][getPostBody] Content-Length: " + String(request->contentLength(  )));
+
+    
+
+
+    // Check for JSON content type
+    if (request->contentType() == "application/json") {
+        // For JSON content, the body should be in _tempObject
+        if (request->_tempObject) {
+            body = String((char *)request->_tempObject);
+        } else {
+            // Fallback to reading the request stream
+            body = "";
+            int len = request->contentLength();
+            if (len > 0) {
+                char* buf = new char[len+1];
+                request->getParam(0)->value().toCharArray(buf, len+1);
+                buf[len] = 0;
+                body = String(buf);
+                delete[] buf;
+            }
+        }
+    }
+    else if (request->hasParam("body", true)) {
         body = request->getParam("body", true)->value();
     }
     else if (request->_tempObject) {
@@ -136,7 +155,7 @@ bool WebUI::getPostBody(AsyncWebServerRequest *request, String &body)
         return true;
     }
 
-    Debug::println(1, "[WEBUI][ERROR] Empty POST body");
+    Debug::println(1, "[WEBUI][getPostBody] Empty POST body");
     return false;
 }
 
@@ -411,7 +430,7 @@ void WebUI::setupRoutes()
                     return;
                 }
 
-                DynamicJsonDocument doc(512);
+                JsonDocument doc;
 
                 DeserializationError err =
                     deserializeJson(doc, body);
@@ -461,7 +480,7 @@ void WebUI::setupRoutes()
         HTTP_GET,
         [this](AsyncWebServerRequest *request)
         {
-            DynamicJsonDocument doc(512);
+            JsonDocument doc;
 
             int core0Busy =
                 100 -
@@ -543,6 +562,94 @@ void WebUI::setupRoutes()
     );
 
     // ========================================================
+    // DEBUG LEVEL
+    // ========================================================
+
+       // POST endpoint to update debug level
+    server.on(
+        "/api/set-debug-level",
+        HTTP_POST,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                String body;
+
+                if (!getPostBody(request, body))
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        R"json({"success":false,"message":"Missing debug level payload"})json"
+                    );
+                    return;
+                }
+
+                // Upgraded to true ArduinoJson v7 style JsonDocument (Fixed capacity no longer needed)
+                JsonDocument doc;
+                DeserializationError error = deserializeJson(doc, body);
+
+                if (error)
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        R"json({"success":false,"message":"Invalid JSON"})json"
+                    );
+                    return;
+                }
+
+                // Get debug level
+                int level = doc["level"] | 3; // Default to INFO level if not specified
+
+                // Validate debug level
+                if (level < 1 || level > 5)
+                {
+                    request->send(
+                        400,
+                        "application/json",
+                        R"json({"success":false,"message":"Invalid debug level. Must be between 1 and 5."})json"
+                    );
+                    return;
+                }
+
+                // Set debug level
+                Debug::setDebugLevel(level);
+
+                // FIXED: Properly formatted dynamic JSON string with snprintf
+                char responseBuffer[64];
+                snprintf(responseBuffer, sizeof(responseBuffer), "{\"success\":true,\"level\":%d}", level);
+                
+                request->send(200, "application/json", responseBuffer);
+            }
+        )
+    );
+
+    // GET endpoint to retrieve current debug level
+    server.on(
+        "/api/debug-level",
+        HTTP_GET,
+        withAuth(
+            [this](AsyncWebServerRequest *request)
+            {
+                int level = Debug::getDebugLevel();
+                
+                // Upgraded to true ArduinoJson v7 style JsonDocument
+                JsonDocument doc;
+                doc["level"] = level;
+                
+                String response;
+                serializeJson(doc, response);
+
+                request->send(
+                    200,
+                    "application/json",
+                    response
+                );
+            }
+        )
+    );
+
+    // ========================================================
     // SCRIPTS - LIST
     // ========================================================
 
@@ -552,8 +659,7 @@ void WebUI::setupRoutes()
         withAuth(
             [this](AsyncWebServerRequest *request)
             {
-                String json =
-                    scriptManagerRef.getScriptsAsJson();
+                String json = scriptManagerRef.getScriptsAsJson();
 
                 request->send(
                     200,
@@ -690,11 +796,17 @@ server.on("/api/action-scripts", HTTP_POST,
     // ========================================================
     // EXECUTE SCRIPT
     //
-    // This is a macro invocation.
+    // This endpoint allows executing scripts by ID, name, or full JSON object.
+    // The endpoint supports three request formats:
+    // 1. {"id": 1} - Execute script by ID (preferred method)
+    // 2. {"name": "Script Name"} - Execute script by name or alias
+    // 3. {"script": "{\"name\": \"Script Name\", ...}"} - Execute with full JSON
+    //    This is used by the editor test functionality.
     //
+    // Execution flow:
     // ScriptManager -> CommandSink -> Core -> HardwareManager
     //
-    // WebUI never sees the hardware.
+    // WebUI never directly interacts with hardware.
     // ========================================================
 
     server.on(
@@ -717,7 +829,7 @@ server.on("/api/action-scripts", HTTP_POST,
                     return;
                 }
 
-                DynamicJsonDocument doc(512);
+                JsonDocument doc;
 
                 if (
                     deserializeJson(doc, body) !=
@@ -736,35 +848,92 @@ server.on("/api/action-scripts", HTTP_POST,
 
                 bool success = false;
 
-                if (doc["id"].is<int>())
-                {
-                    success =
-                        scriptManagerRef.runScript(
-                            doc["id"].as<int>()
-                        );
+                // Execute script by ID (integer)
+                // This is the preferred method when the script ID is known
+                if (doc["id"].is<int>()) {
+                    const int scriptId = doc["id"].as<int>();
+                    Debug::println(2, "[WebUI] Executing script by ID: " + String(scriptId));
+                    success = scriptManagerRef.runScript(scriptId);
                 }
-                else if (doc["name"].is<String>())
-                {
-                    success =
-                        scriptManagerRef.runScript(
-                            doc["name"].as<String>()
-                        );
+                // Execute script by name (string)
+                // This is used when the script name or alias is known
+                else if (doc["name"].is<String>()) {
+                    const String scriptName = doc["name"].as<String>();
+                    Debug::println(2, "[WebUI] Executing script by name: " + scriptName);
+                    success = scriptManagerRef.runScript(scriptName);
                 }
-                else if (doc["script"].is<String>())
-                {
-                    success =
-                        scriptManagerRef.runScript(
-                            doc["script"].as<String>()
+                else if (doc["script"].is<String>()) {
+                    // Handle script execution with full JSON object
+                    // This is used by the editor test functionality where the web interface
+                    // sends a complete script JSON object instead of just a name or ID
+                    Debug::println(2, "[WebUI] Processing script execution with full JSON object");
+                    
+                    const String scriptJson = doc["script"].as<String>();
+                    Debug::println(3, "[WebUI] Script JSON: " + scriptJson);
+                    
+                    // Parse the script JSON to extract the name
+                    JsonDocument scriptDoc;
+                    DeserializationError error = deserializeJson(scriptDoc, scriptJson);
+                    
+                    if (error || !scriptDoc.is<JsonObject>()) {
+                        Debug::println(1, "[WebUI] Failed to parse script JSON: " + String(error.c_str()));
+                        request->send(
+                            400,
+                            "application/json",
+                            R"json({"success":false,"message":"Invalid script JSON"})json"
                         );
+                        return;
+                    }
+                    
+                    // Extract script name if available
+                    if (scriptDoc["name"].is<String>()) {
+                        const String scriptName = scriptDoc["name"].as<String>();
+                        Debug::println(2, "[WebUI] Executing script by name: " + scriptName);
+                        
+                        // Special case for __EDITOR_TEST__ - extract and execute commands directly
+                        if (scriptName == "__EDITOR_TEST__") {
+                            Debug::println(2, "[WebUI] Special case: __EDITOR_TEST__ - executing commands directly");
+                            
+                            if (scriptDoc["commands"].is<JsonArray>()) {
+                                JsonArray commands = scriptDoc["commands"].as<JsonArray>();
+                                Debug::println(2, "[WebUI] Found " + String(commands.size()) + " commands to execute");
+                                
+                                success = true;
+                                for (JsonVariant command : commands) {
+                                    if (!commandSinkRef.executeCommand(command.as<String>())) {
+                                        Debug::println(1, "[WebUI] Command failed: " + String(command.as<String>()));
+                                        success = false;
+                                    }
+                                }
+                            } else {
+                                Debug::println(1, "[WebUI] No commands found in __EDITOR_TEST__");
+                                success = false;
+                            }
+                        } else {
+                            // Normal script execution
+                            success = scriptManagerRef.runScript(scriptName);
+                        }
+                    }
+                    else {
+                        Debug::println(1, "[WebUI] Script JSON missing name field");
+                        request->send(
+                            400,
+                            "application/json",
+                            R"json({"success":false,"message":"Script JSON missing name field"})json"
+                        );
+                        return;
+                    }
                 }
 
+                // Send response based on script execution result
+                // 200 OK with success:true if script executed successfully
+                // 404 Not Found with success:false and error message if script failed
                 request->send(
                     success ? 200 : 404,
                     "application/json",
                     success
-                        ? "{\"success\":true}"
-                        : "{\"success\":false,"
-                          "\"message\":\"Script not found or failed\"}"
+                        ? R"json({"success":true})json"
+                        : R"json({"success":false,"message":"Script not found or failed"})json"
                 );
             }
         ),
@@ -822,7 +991,7 @@ server.on("/api/action-scripts", HTTP_POST,
                     return;
                 }
 
-                DynamicJsonDocument doc(512);
+                JsonDocument doc;
 
                 if (
                     deserializeJson(doc, body) !=
@@ -1023,7 +1192,8 @@ void WebUI::setAuthentication(
 )
 {
     bool wasEnabled = authenticationEnabled;
-    authenticationEnabled = enabled;
+    // Keep authentication disabled regardless of the enabled parameter
+    authenticationEnabled = false;
 
     if (password.length() > 0)
     {
@@ -1036,9 +1206,7 @@ void WebUI::setAuthentication(
 
     Debug::println(
         2,
-        "[WEBUI][AUTH] Authentication " +
-        String(enabled ? "enabled" : "disabled") +
-        (wasEnabled != enabled ? " (status changed)" : " (status unchanged)")
+        "[WEBUI][AUTH] Authentication disabled (automatic access enabled)"
     );
 }
 
@@ -1079,7 +1247,7 @@ bool WebUI::saveOrUpdateScript(
     const String &scriptJson
 )
 {
-    DynamicJsonDocument doc(8192);
+    JsonDocument doc;
 
     if (
         deserializeJson(doc, scriptJson) !=
@@ -1095,24 +1263,7 @@ bool WebUI::saveOrUpdateScript(
         return false;
     }
 
-    /*
-     * Accept both:
-     *
-     * {
-     * "script": "{...}"
-     * }
-     *
-     * and:
-     *
-     * {
-     * "id": 1,
-     * "name": "...",
-     * ...
-     * }
-     *
-     * This keeps the existing editor working while the
-     * frontend is being simplified.
-     */
+   
 
     String script;
 
@@ -1133,7 +1284,7 @@ bool WebUI::saveOrUpdateScript(
         return false;
     }
 
-    DynamicJsonDocument scriptDoc(8192);
+    JsonDocument  scriptDoc;
 
     if (
         deserializeJson(scriptDoc, script) !=

@@ -6,7 +6,7 @@
 - [ ] Make Translator, ScriptManager, SceneManager, and WebUI use the already-mounted LittleFS without mounting it themselves.
 - [ ] Remove leftover C++ references to obsolete `backup/` and `config/`.
 - [ ] Clean up logging while keeping the existing `Debug::println()` system.
-- [ ] Fix or remove `/api/set-debug-level` if the UI still requests an endpoint that no longer exists.
+- [x] Fix or remove `/api/set-debug-level` if the UI still requests an endpoint that no longer exists. → Implemented both `/api/set-debug-level` POST endpoint and `/api/debug-level` GET endpoint in WebUI.cpp.
 
 ## Phase 2 — ScriptManager
 

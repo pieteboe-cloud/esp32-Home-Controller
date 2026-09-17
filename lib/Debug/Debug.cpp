@@ -9,26 +9,14 @@ int Debug::currentDebugLevel = 3; // Default to debug level 3
 /**
  * @brief Initialize the debug system
  * @param baud Serial baud rate (default: 115200)
+ * @param defaultLevel Default debug level if not set elsewhere (default: 3)
  */
-void Debug::begin(long baud) {
+void Debug::begin(long baud, int defaultLevel) {
     Serial.begin(baud);
-    println(currentDebugLevel, "[DEBUG] Debugging initialized at " + String(baud) + " baud");
-
-    // Set debug level based on compile-time flag
-    #ifdef DEBUG_LEVEL
-        currentDebugLevel = DEBUG_LEVEL;
-        println(currentDebugLevel, "[DEBUG] DEBUG_LEVEL = " + String(currentDebugLevel));
-    #else
-        println(currentDebugLevel, "[DEBUG] DEBUG_LEVEL not defined (using default level 3)");
-    #endif
-
-    if (deviceTimeOffset == 0) {
-        println(currentDebugLevel, "[DEBUG] Timestamps use uptime until wall-clock sync is available");
-    } else {
-        println(currentDebugLevel, "[DEBUG] Timestamps synchronized to wall clock");
-    }
+    currentDebugLevel = defaultLevel;
+   
+    
 }
-
 /**
  * @brief Get the current timestamp string
  * @return Timestamp string in [HH:MM:SS] format using either uptime or synced wall time
@@ -64,24 +52,55 @@ String Debug::getTimestamp() {
  */
 void Debug::setDeviceTime(unsigned long unixTime) {
     deviceTimeOffset = unixTime - (millis() / 1000);
-    println(currentDebugLevel, "[INFO][DEBUG] Device time synchronized to: " + String(unixTime) + " (wall clock active, UTC offset " + String(timezoneOffsetMinutes) + " minutes)");
+    println(3, "[DEBUG][setDeviceTime] Device time synchronized to: " + String(unixTime) + " (UTC offset " + String(timezoneOffsetMinutes) + " minutes)");
 }
 
 void Debug::setTimezoneOffsetMinutes(int offsetMinutes) {
     timezoneOffsetMinutes = constrain(offsetMinutes, -840, 840);
-    println(currentDebugLevel, "[INFO][DEBUG] Debug timezone set to UTC" + String(timezoneOffsetMinutes >= 0 ? "+" : "") + String(timezoneOffsetMinutes / 60.0, 2));
+    println(3, "[DEBUG][setTimezoneOffsetMinutes] UTC" + String(timezoneOffsetMinutes >= 0 ? "+" : "") + String(timezoneOffsetMinutes / 60.0, 2));
+}
+
+/**
+ * @brief Set the debug level at runtime
+ * @param level New debug level (1-5)
+ */
+void Debug::setDebugLevel(int level) {
+    if (level < 1 || level > 6) {
+        level = 3; // Default to INFO level if invalid
+    }
+    println(4, "[DEBUG] Debug level was " + String(currentDebugLevel) + " and now set to " + String(level));
+    currentDebugLevel = level;
+
+}
+
+/**
+ * @brief Get the current debug level
+ * @return Current debug level (1-4)
+ */
+int Debug::getDebugLevel() {
+    return currentDebugLevel;
+}
+
+int Debug::getDebugLevelVar() {
+    return currentDebugLevel;
 }
 
 void Debug::logStartupBanner(const String& projectName, const String& version) {
     println(3, "");
-    println(3, "========================================");
-    println(3, "[BOOT] " + projectName + " v" + version + " starting");
-    println(3, "[BOOT] Target: ESP32 DOIT DEVKIT V1");
-    println(3, "[BOOT] Debug levels: 1=errors, 2=warnings, 3=debug, 4=verbose");
-    println(3, "[BOOT] Serial: " + String(115200) + " baud");
-    println(3, "[BOOT] Timestamp mode: " + String(deviceTimeOffset == 0 ? "uptime fallback" : "wall clock"));
-    println(3, "========================================");
-}
+    println(5, "  ┌─────────────────────────────────────────────┐");
+    println(5, "  │  ▄▀█ █▀▀ █▀█ █▀▄▀█                         │");
+    println(5, "  │  █▀█ ██▄ █▀▀ █ ▀ █                         │");
+    println(5, "  └─────────────────────────────────────────────┘");
+    println(4, "  " + projectName + " v" + version);
+    println(4, "  Target: ESP32 DOIT DEVKIT V1");
+    println(3, "  222 files · 5.96 MB · .h:60 .cpp:19 .ino:38");
+    println(2, "  ⚠ Pieteboe's childhood dream: INITIALIZED");
+    println(1, "  ✗ No bugs found (they're hiding)");
+    println(3, "  Timestamp: " + String(deviceTimeOffset == 0 ? "uptime fallback" : "wall clock"));
+    println(5, "  ─────────────────────────────────────────────");
+    println(4, "  🚀 All systems go. Launching...");
+    println(3, "");
+}   
 
 void Debug::logSubsystemStatus(const String& subsystem, const String& status, const String& details) {
     String message = "[STATUS] " + subsystem + " -> " + status;
@@ -161,24 +180,28 @@ void Debug::println(const String& message) {
 
 /**
  * @brief Print a message with specified debug level
- * @param level Debug level (1-4)
+ * @param level Debug level (1-5)
  * @param message Message to print
  */
 void Debug::println(int level, const String& message) {
     // Enforce the configured debug threshold so the logger behaves predictably.
     // This keeps the serial window readable while still preserving noisy traces
     // when DEBUG_LEVEL is raised intentionally during debugging.
-    if (level < 1 || level > 4) {
+    if (level < 1 || level > 6) {
         level = 3;
     }
-    if (level > currentDebugLevel) {
-        return;
-    }
-
+    // if (level > currentDebugLevel) {
+    //     return;
+    // }
+   
     String timestamp = getTimestamp();
-    String output = timestamp + message;
+    
+        String output = timestamp + message;   
+       
 
-    // Print to serial with the selected severity.
+
+    
+        // Print to serial with the selected severity.
     Serial.println(output);
 
     // Add to web log with level-specific color coding.
@@ -187,7 +210,7 @@ void Debug::println(int level, const String& message) {
 
 /**
  * @brief Print an integer value with specified debug level
- * @param level Debug level (1-4)
+ * @param level Debug level (1-5)
  * @param value Integer value to print
  */
 void Debug::println(int level, int value) {
@@ -196,7 +219,7 @@ void Debug::println(int level, int value) {
 
 /**
  * @brief Print an unsigned long value with specified debug level
- * @param level Debug level (1-4)
+ * @param level Debug level (1-5)
  * @param value Unsigned long value to print
  */
 void Debug::println(int level, unsigned long value) {
@@ -248,12 +271,12 @@ void Debug::rotateWebLogBuffer() {
  */
 String Debug::getWebLogColor(int level) {
     // Keep the web log colors aligned with the serial-level convention used in the firmware.
-    // 1=red errors, 2=yellow warnings, 3=blue debug, 4=grey verbose.
     switch(level) {
         case 1: return "<span style='color:red'>";
-        case 2: return "<span style='color:yellow'>";
-        case 3: return "<span style='color:blue'>";
-        case 4: return "<span style='color:gray'>";
+        case 2: return "<span style='color:blue'>";
+        case 3: return "<span style='color:green'>";
+        case 4: return "<span style='color:violet'>";
+        case 5: return "<span style='color:yellow'>";
         default: return "";
     }
 }
