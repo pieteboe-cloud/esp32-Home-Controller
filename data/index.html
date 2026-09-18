@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ESP32 Controller</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         :root {
             --bg: #0b1020;
@@ -20,19 +21,19 @@
             --amber: #f59e0b;
             --red: #ef4444;
             --cyan: #38bdf8;
-            --shadow: 0 22px 48px rgba(0,0,0,.38);
+            --shadow: 0 22px 48px rgba(0, 0, 0, 0.38);
         }
 
         * { box-sizing: border-box; }
 
         html, body {
             margin: 0;
+            min-height: 100vh;
             background:
                 radial-gradient(circle at top, rgba(75, 104, 205, 0.22), transparent 30%),
                 linear-gradient(180deg, #0d1424 0%, #0b1020 100%);
             color: var(--text);
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            min-height: 100vh;
         }
 
         body {
@@ -45,131 +46,127 @@
         }
 
         .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 16px 20px;
+            border: 1px solid var(--line);
+            background: rgba(10, 16, 28, 0.72);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 30;
-            background: linear-gradient(180deg, rgba(17,25,41,.9), rgba(12,18,31,.82));
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 14px 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 18px;
-            box-shadow: var(--shadow);
         }
 
         .brand {
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: 0.04em;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 14px;
+            min-width: 0;
         }
 
         .brand-mark {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: linear-gradient(180deg, #39f3a2, #1dbf72);
-            box-shadow: 0 0 14px rgba(34, 197, 94, 0.8);
-        }
-
-        .toolbar {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .heartbeat-wrap {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid var(--line-strong);
-            padding: 8px 12px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.9);
-        }
-
-        #time-display {
-            min-width: 110px;
-            text-align: center;
-            font-weight: 700;
-            color: #9ad3ff;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        }
-
-        .led {
             width: 14px;
             height: 14px;
             border-radius: 50%;
-            background: #555;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,.4);
-            transition: background-color .15s ease, box-shadow .15s ease;
-        }
-        .led.on { background: var(--green); box-shadow: 0 0 12px rgba(34,197,94,.8); }
-        .led.error { background: var(--red); box-shadow: 0 0 12px rgba(239,68,68,.8); }
-
-        .status-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 14px;
-            margin: 18px 0;
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
+            box-shadow: 0 0 18px rgba(124, 156, 255, 0.8);
+            display: inline-block;
         }
 
-        .status-card {
-            background: linear-gradient(180deg, rgba(24,33,52,.98), rgba(14,21,33,.98));
-            border: 1px solid var(--line);
-            border-radius: 16px;
-            padding: 16px 18px;
-            box-shadow: var(--shadow);
+        .brand h1 {
+            margin: 0;
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            letter-spacing: 0.04em;
+            font-weight: 700;
         }
 
-        .status-card .label {
-            font-size: .72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .connection-state {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             color: var(--muted);
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .status-card .value {
-            margin-top: 10px;
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-            font-weight: 800;
-            color: #a9d7ff;
+        .led {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--muted);
+            box-shadow: 0 0 0 rgba(0,0,0,0);
+            transition: all 0.2s ease;
         }
 
-        .dashboard-grid {
+        .led.on {
+            background: var(--green);
+            box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
+        }
+
+        .led.error {
+            background: var(--red);
+            box-shadow: 0 0 14px rgba(239, 68, 68, 0.9);
+        }
+
+        .system-btn, .ghost-btn {
+            border: 1px solid var(--line-strong);
+            background: linear-gradient(180deg, rgba(124, 156, 255, 0.12), rgba(124, 156, 255, 0.02));
+            color: var(--text);
+            border-radius: 10px;
+            padding: 0.7rem 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.15s ease, border-color 0.15s ease, filter 0.15s ease;
+        }
+
+        .system-btn:hover, .ghost-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.08);
+        }
+
+        .system-btn.secondary, .ghost-btn.secondary {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .system-btn.active {
+            border-color: rgba(124, 156, 255, 0.8);
+            box-shadow: inset 0 0 0 1px rgba(124, 156, 255, 0.4);
+        }
+
+        .content-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1.1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 20px;
         }
 
         .panel {
-            position: relative;
-            background: linear-gradient(180deg, rgba(24,32,48,.94), rgba(15,20,31,.92));
+            background: var(--panel);
             border: 1px solid var(--line);
             border-radius: 18px;
-            box-shadow: var(--shadow);
             padding: 18px;
+            box-shadow: var(--shadow);
             overflow: hidden;
         }
 
-        .panel::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 3px;
-            background: linear-gradient(180deg, #7c9cff, #38bdf8, #22c55e);
-        }
-
-        .panel.wide {
-            margin-bottom: 16px;
-        }
+        .panel.wide { grid-column: span 12; }
+        .panel.large { grid-column: span 8; }
+        .panel.medium { grid-column: span 5; }
+        .panel.small { grid-column: span 4; }
 
         .panel-header {
             display: flex;
@@ -182,292 +179,408 @@
         .panel-header h3 {
             margin: 0;
             font-size: 1.05rem;
+            letter-spacing: 0.04em;
+            color: var(--text);
         }
 
-        .scene-grid, .action-grid, .effect-grid,
-        .system-grid {
+        .stat-grid {
             display: grid;
-            gap: 10px;
+            grid-template-columns: repeat(5, minmax(120px, 1fr));
+            gap: 16px;
         }
 
-        .scene-grid, .action-grid {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        .stat-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(124,156,255,0.04));
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px 14px;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .effect-grid, .system-grid {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        .stat-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
         }
 
-        .scene-btn, .action-btn, .effect-btn, .system-btn, button {
-            border: 1px solid rgba(255,255,255,.06);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: transform .15s ease, filter .15s ease, border-color .15s ease;
-            color: var(--text);
-        }
-
-        .scene-btn, .action-btn, .effect-btn, .system-btn {
-            padding: 12px 10px;
-            background: linear-gradient(180deg, rgba(68,83,118,.9), rgba(31,42,63,.9));
-            font-weight: 600;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 18px rgba(8,12,22,.18);
-        }
-
-        .scene-btn:hover, .action-btn:hover, .effect-btn:hover, .system-btn:hover, button:hover {
-            transform: translateY(-1px);
-            filter: brightness(1.08);
-            border-color: var(--line-strong);
-        }
-
-        .scene-btn.active, .action-btn.active {
-            background: linear-gradient(180deg, rgba(28, 118, 89, 1), rgba(21, 85, 75, 1));
-            border-color: rgba(34,197,94,.8);
-            box-shadow: inset 0 0 0 1px rgba(34,197,94,.2);
-        }
-
-        .effect-btn.primary { background: linear-gradient(180deg, rgba(52, 104, 181, 1), rgba(33, 76, 160, 1)); }
-        .effect-btn.warn { background: linear-gradient(180deg, rgba(188, 112, 24, 1), rgba(124, 77, 13, 1)); }
-        .effect-btn.safe { background: linear-gradient(180deg, rgba(23, 128, 92, 1), rgba(17, 93, 67, 1)); }
-        .effect-btn.danger { background: linear-gradient(180deg, rgba(149, 38, 38, 1), rgba(97, 20, 20, 1)); }
-
-        button {
-            background: linear-gradient(180deg, rgba(86, 114, 195, 1), rgba(52, 72, 126, 1));
-            padding: 9px 12px;
+        .stat-value {
+            font-size: clamp(1.4rem, 2vw, 2.1rem);
             font-weight: 700;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 18px rgba(5,8,16,.18);
+            letter-spacing: 0.02em;
+            word-break: break-word;
         }
 
-        button.secondary {
-            background: linear-gradient(180deg, rgba(90, 96, 110, 1), rgba(58, 64, 76, 1));
+        .stat-meta {
+            font-size: 0.75rem;
+            color: var(--muted);
         }
 
-        button.ghost {
-            background: rgba(255,255,255,.04);
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .metric-box {
+            background: rgba(255,255,255,0.02);
             border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px;
         }
 
-        select {
-            background: rgba(11, 20, 30, 1);
+        .metric-box-label {
+            color: var(--muted);
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .metric-box-value {
+            margin-top: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .scene-btn, .script-btn {
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.02);
             color: var(--text);
+            border-radius: 12px;
+            padding: 12px 10px;
+            cursor: pointer;
+            transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+            text-align: left;
+        }
+
+        .scene-btn:hover, .script-btn:hover {
+            transform: translateY(-1px);
+            border-color: rgba(124, 156, 255, 0.55);
+        }
+
+        .scene-btn.active, .script-btn.active {
+            background: rgba(124, 156, 255, 0.12);
+            border-color: rgba(124, 156, 255, 0.8);
+        }
+
+        .list-box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .mini-button {
+            width: 100%;
             border: 1px solid var(--line);
+            background: rgba(255,255,255,0.02);
+            color: var(--text);
             border-radius: 10px;
-            padding: 9px 10px;
-            min-width: 110px;
+            padding: 10px 12px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .debug-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 12px;
+        }
+
+        .debug-buttons .system-btn {
+            min-width: 48px;
+            padding: 8px 12px;
         }
 
         #log-window {
-            min-height: 260px;
-            max-height: 44vh;
-            overflow-y: auto;
-            padding: 14px;
-            background: rgba(8, 12, 20, 0.9);
+            min-height: 300px;
+            max-height: 420px;
+            overflow: auto;
+            background: rgba(2, 6, 23, 0.7);
             border: 1px solid var(--line);
-            border-radius: 16px;
-            font-family: "SFMono-Regular", Consolas, monospace;
-            font-size: 0.82rem;
+            border-radius: 12px;
+            padding: 12px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 12px;
             line-height: 1.5;
+            color: #d9ebff;
             white-space: pre-wrap;
-            word-break: break-word;
-            color: #dfefff;
         }
 
-        .log-line { margin: 3px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
-        .error-log { color: #ff9a9a; }
-        .highlight { color: #fef08a; font-weight: 700; }
-        .debug-buttons { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
-        .debug-btn.active { background: linear-gradient(180deg, rgba(28, 118, 89, 1), rgba(21, 85, 75, 1)); border-color: rgba(34,197,94,.8); box-shadow: inset 0 0 0 1px rgba(34,197,94,.2); }
+        .log-line {
+            display: block;
+            margin: 0;
+        }
+
+        .log-line.warn { color: #fbbf24; }
+        .log-line.error { color: #fca5a5; }
+        .log-line.info { color: #7dd3fc; }
+        .log-line.debug { color: #a5b4fc; }
+        .log-line.ok { color: #86efac; }
+
+        .status-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 10px;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 6px 10px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .muted {
+            color: var(--muted);
+        }
 
         @media (max-width: 980px) {
-            .dashboard-grid { grid-template-columns: 1fr; }
+            .panel.large, .panel.medium, .panel.small {
+                grid-column: span 12;
+            }
+
+            .stat-grid {
+                grid-template-columns: repeat(2, minmax(120px, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 12px;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .topbar-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="page-shell">
         <header class="topbar">
-            <div class="brand"><span class="brand-mark"></span> Home Controller</div>
-            <div class="toolbar">
-                <div class="heartbeat-wrap">
-                    <span id="time-display">--:--:--</span>
-                    <span>Heartbeat</span>
-                    <div id="heartbeat-led" class="led"></div>
-                    <span id="connection-status" style="font-size:0.8rem;color: var(--muted);">Connecting...</span>
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <h1>ESP32 Home Controller</h1>
+            </div>
+
+            <div class="topbar-actions">
+                <div class="connection-state">
+                    <span id="heartbeat-led" class="led on"></span>
+                    <span id="connection-status">Connected</span>
                 </div>
+                <button id="open-editor-btn" class="system-btn">Open Script Editor</button>
+                <button id="audio-test-btn" class="ghost-btn secondary">Audio Test</button>
             </div>
         </header>
 
-        <div class="status-grid">
-            <div class="status-card"><div class="label">Uptime</div><div id="uptime-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">Free Heap</div><div id="heap-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">CPU Load</div><div id="cpu-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">WiFi IP</div><div id="ip-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">Mode</div><div id="mode-value" class="value">--</div></div>
-        </div>
-
-        <div class="dashboard-grid">
-            <section class="panel">
+        <main class="content-grid">
+            <section class="panel wide">
                 <div class="panel-header">
-                    <h3>Saved scenes</h3>
-                    <button class="ghost" id="refresh-scenes">Refresh</button>
+                    <h3>System overview</h3>
                 </div>
-                <div class="scene-grid" id="scenes-grid">
-                    <div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">Loading scenes...</div>
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Uptime</div>
+                        <div id="uptime-value" class="stat-value">--</div>
+                        <div class="stat-meta">Runtime</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Free heap</div>
+                        <div id="heap-value" class="stat-value">--</div>
+                        <div class="stat-meta">Available memory</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">CPU</div>
+                        <div id="cpu-value" class="stat-value">--</div>
+                        <div class="stat-meta">Load</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">IP</div>
+                        <div id="ip-value" class="stat-value">--</div>
+                        <div class="stat-meta">Network</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Mode</div>
+                        <div id="mode-value" class="stat-value">--</div>
+                        <div class="stat-meta">System mode</div>
+                    </div>
                 </div>
             </section>
 
-            <section class="panel">
+            <section class="panel medium">
                 <div class="panel-header">
-                    <h3>Effects</h3>
+                    <h3>Quick actions</h3>
                 </div>
-                <div class="effect-grid">
-                    <button class="effect-btn primary" data-effect="rainbow">Rainbow</button>
-                    <button class="effect-btn primary" data-effect="chase">Chase</button>
-                    <button class="effect-btn warn" data-effect="pulse">Pulse</button>
-                    <button class="effect-btn safe" data-effect="night">Night</button>
-                    <button class="effect-btn safe" data-effect="party">Party</button>
-                    <button class="effect-btn danger" data-effect="off">Off</button>
-                </div>
-            </section>
-
-            <section class="panel">
-                <div class="panel-header">
-                    <h3>System</h3>
-                </div>
-                <div class="system-grid">
-                    <button class="system-btn" id="reboot-btn">Reboot</button>
+                <div class="toolbar">
                     <button class="system-btn" id="sync-time-btn">Sync time</button>
-                    <button class="system-btn" id="open-editor-btn">Editor</button>
-                    <button class="system-btn" id="audio-test-btn">Audio Test</button>
+                    <button class="system-btn secondary" id="refresh-status-btn">Refresh</button>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-box-label">Date</div>
+                        <div id="date-value" class="metric-box-value">--</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-box-label">Time</div>
+                        <div id="time-display" class="metric-box-value">--:--:--</div>
+                    </div>
+                </div>
+
+                <div class="status-row" style="margin-top: 14px;">
+                    <span class="pill"><span class="muted">Status</span> <strong id="status-pill">Idle</strong></span>
+                    <span class="muted" id="last-updated">--</span>
                 </div>
             </section>
-        </div>
 
-        <section class="panel wide">
-            <div class="panel-header">
-                <h3>Debug log</h3>
-            </div>
-            <div class="debug-buttons">
-                <button class="system-btn secondary" id="clear-log-btn">Clear log</button>
-                <button class="system-btn" id="save-log-btn">Save log</button>
-                <button class="system-btn secondary" id="pause-toggle-btn">Pause log</button>
-                <button class="system-btn" id="debug-btn-1">[1]</button>
-                <button class="system-btn" id="debug-btn-2">[2]</button>
-                <button class="system-btn" id="debug-btn-3">[3]</button>
-                <button class="system-btn" id="debug-btn-4">[4]</button>
-                <button class="system-btn" id="debug-btn-5">[5]</button>
-            </div>
-            <div id="log-window">Waiting for logs...</div>
-        </section>
+            <section class="panel medium">
+                <div class="panel-header">
+                    <h3>Scripts</h3>
+                </div>
+                <div id="scripts-grid" class="scenes-grid"></div>
+            </section>
+
+            <section class="panel wide">
+                <div class="panel-header">
+                    <h3>Scenes</h3>
+                </div>
+                <div id="scenes-grid" class="scenes-grid"></div>
+            </section>
+
+            <section class="panel wide">
+                <div class="panel-header">
+                    <h3>Debug log</h3>
+                </div>
+
+                <div class="debug-buttons">
+                    <button class="system-btn secondary" id="clear-log-btn">Clear log</button>
+                    <button class="system-btn" id="save-log-btn">Save log</button>
+                    <button class="system-btn secondary" id="pause-toggle-btn">Pause log</button>
+                    <button class="system-btn" id="debug-btn-1">[1]</button>
+                    <button class="system-btn" id="debug-btn-2">[2]</button>
+                    <button class="system-btn" id="debug-btn-3">[3]</button>
+                </div>
+
+                <div id="log-window">Waiting for logs...</div>
+            </section>
+        </main>
     </div>
 
     <script>
         let lastBeatTime = 0;
         let shouldAutoScroll = true;
         let liveLogEnabled = true;
-        let currentDebugLevel = 3; // Default to INFO level
+        let currentDebugLevel = 2;
 
         const led = document.getElementById('heartbeat-led');
         const statusText = document.getElementById('connection-status');
         const logWindow = document.getElementById('log-window');
         const timeDisplay = document.getElementById('time-display');
+        const dateValue = document.getElementById('date-value');
         const pauseToggleBtn = document.getElementById('pause-toggle-btn');
         const clearLogBtn = document.getElementById('clear-log-btn');
         const saveLogBtn = document.getElementById('save-log-btn');
         const debugBtn1 = document.getElementById('debug-btn-1');
         const debugBtn2 = document.getElementById('debug-btn-2');
         const debugBtn3 = document.getElementById('debug-btn-3');
-        const debugBtn4 = document.getElementById('debug-btn-4');
-        const debugBtn5 = document.getElementById('debug-btn-5');
         const syncTimeBtn = document.getElementById('sync-time-btn');
+        const refreshStatusBtn = document.getElementById('refresh-status-btn');
+        const statusPill = document.getElementById('status-pill');
+        const lastUpdated = document.getElementById('last-updated');
+
+        const scriptGrid = document.getElementById('scripts-grid');
+        const sceneGrid = document.getElementById('scenes-grid');
 
         logWindow.addEventListener('scroll', () => {
             const distanceFromBottom = logWindow.scrollHeight - logWindow.scrollTop - logWindow.clientHeight;
             shouldAutoScroll = distanceFromBottom < 40;
         });
-        
-        // Debug level management
-        function setDebugLevel(level) {
-            currentDebugLevel = level;
-            
-            // Update button states
-            [debugBtn1, debugBtn2, debugBtn3, debugBtn4, debugBtn5].forEach(btn => btn.classList.remove('active'));
-            
-            if (level === 1) debugBtn1.classList.add('active');
-            if (level === 2) debugBtn2.classList.add('active');
-            if (level === 3) debugBtn3.classList.add('active');
-            if (level === 4) debugBtn4.classList.add('active');
-            if (level === 5) debugBtn5.classList.add('active');
-            
-            // Send request to ESP32 to update debug level
-            fetch('/api/set-debug-level', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ level: level })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    console.log(`Debug level set to ${level}`);
-                } else {
-                    console.error(`Failed to set debug level: ${data.message}`);
-                }
-            })
-            .catch(error => {
-                console.error('Error setting debug level:', error);
-            });
+
+        function updateLastUpdated(label = 'Updated') {
+            const now = new Date();
+            const ts = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            lastUpdated.textContent = `${label} ${ts}`;
         }
-        
-        // Set initial debug level
-        setDebugLevel(currentDebugLevel);
-        
-        // Add click handlers to debug buttons
-        debugBtn1.addEventListener('click', () => setDebugLevel(1));
-        debugBtn2.addEventListener('click', () => setDebugLevel(2));
-        debugBtn3.addEventListener('click', () => setDebugLevel(3));
-        debugBtn4.addEventListener('click', () => setDebugLevel(4));
-        debugBtn5.addEventListener('click', () => setDebugLevel(5));
+
+        function setStatusPill(text, tone = 'neutral') {
+            statusPill.textContent = text;
+            statusPill.style.color = tone === 'ok' ? '#86efac' : tone === 'warn' ? '#fbbf24' : tone === 'error' ? '#fca5a5' : '#dfeafe';
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
 
         function filterLogHtml(rawHtml) {
             const chosen = 'ALL';
             if (chosen === 'ALL') return rawHtml;
-
-            const lines = String(rawHtml || '').split('\n').filter(line => line.trim().length > 0);
-            const filtered = lines.filter(line => {
-                const plain = line.replace(/<[^>]*>/g, '').toLowerCase();
-                if (chosen === 'INFO') {
-                    return plain.includes('info') || plain.includes('startup') || plain.includes('ready') || plain.includes('initialized') || plain.includes('loading');
-                }
-                if (chosen === 'WARN') {
-                    return plain.includes('warn') || plain.includes('warning') || plain.includes('sync') || plain.includes('not synchronized');
-                }
-                if (chosen === 'ERROR') {
-                    return plain.includes('error') || plain.includes('failed') || plain.includes('fatal');
-                }
-                if (chosen === 'DEBUG') {
-                    return plain.includes('debug') || plain.includes('core') || plain.includes('webui') || plain.includes('script') || plain.includes('storage') || plain.includes('rf') || plain.includes('ir');
-                }
-                return true;
-            });
-
-            return filtered.join('\n');
+            return rawHtml;
         }
 
-        // The connection label is transport-only. Endpoint successes and errors
-        // are reported by the firmware and appear in the debug log below.
-        function setLiveLogState(enabled) {
-            liveLogEnabled = enabled;
-            pauseToggleBtn.textContent = enabled ? 'Pause log' : 'Resume log';
-            pauseToggleBtn.classList.toggle('secondary', !enabled);
-        }
+        function setDebugLevel(level) {
+            currentDebugLevel = level;
+            [debugBtn1, debugBtn2, debugBtn3].forEach(btn => btn.classList.remove('active'));
+            if (level === 1) debugBtn1.classList.add('active');
+            if (level === 2) debugBtn2.classList.add('active');
+            if (level === 3) debugBtn3.classList.add('active');
 
-        function updateClock() {
-            const d = new Date();
-            timeDisplay.textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            fetch('/api/set-debug-level', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ level: level })
+            })
+            .then(response => response.ok ? response.json() : Promise.reject())
+            .then(data => {
+                if (data && data.success) {
+                    console.log('Debug level set to ' + level);
+                }
+            })
+            .catch(() => {});
         }
 
         function formatUptime(ms) {
+            if (!ms || ms < 0) return '--';
             const totalSeconds = Math.floor(ms / 1000);
             const hours = Math.floor(totalSeconds / 3600);
             const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -475,25 +588,11 @@
             return `${hours}h ${minutes}m ${seconds}s`;
         }
 
-        // Send time in the same form-encoded `body` field used by the other
-        // POST routes. The firmware logs accepted and rejected sync attempts.
-        function syncTime() {
-            const now = Math.floor(Date.now() / 1000);
-            const timezoneOffsetMinutes = -new Date().getTimezoneOffset();
-            syncTimeBtn.disabled = true;
-            fetch('/api/set-time', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'body=' + encodeURIComponent(JSON.stringify({ time: now, timezoneOffsetMinutes }))
-            })
-                .then(response => response.ok ? response.json() : Promise.reject())
-                .then(() => {})
-                .catch(() => {
-                    syncTimeBtn.disabled = false;
-                })
-                .finally(() => {
-                    syncTimeBtn.disabled = false;
-                });
+        function formatClock(date) {
+            const h = String(date.getHours()).padStart(2, '0');
+            const m = String(date.getMinutes()).padStart(2, '0');
+            const s = String(date.getSeconds()).padStart(2, '0');
+            return `${h}:${m}:${s}`;
         }
 
         function updateStatusCards(data) {
@@ -503,95 +602,89 @@
             const ipEl = document.getElementById('ip-value');
             const modeEl = document.getElementById('mode-value');
 
-            if (data) {
-                uptimeEl.textContent = formatUptime(data.uptimeMs || 0);
-                heapEl.textContent = `${Math.round((data.freeHeap || 0) / 1024)} KB`;
-                cpuEl.textContent = `${data.cpuLoadPercent ?? '--'}%`;
-                ipEl.textContent = data.ip || '--';
-                modeEl.textContent = data.mode || '--';
+            if (!data) return;
+
+            uptimeEl.textContent = formatUptime(data.uptimeMs || 0);
+            heapEl.textContent = `${Math.round((data.freeHeap || 0) / 1024)} KB`;
+            cpuEl.textContent = `${data.cpuLoadPercent ?? '--'}%`;
+            ipEl.textContent = data.ip || '--';
+            modeEl.textContent = data.mode || '--';
+
+            const now = new Date();
+            timeDisplay.textContent = formatClock(now);
+            dateValue.textContent = now.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        function renderScriptButtons(data) {
+            scriptGrid.innerHTML = '';
+            if (!Array.isArray(data) || data.length === 0) {
+                scriptGrid.innerHTML = '<div class="muted">No scripts yet.</div>';
+                return;
             }
-        }
 
-        function loadScenes() {
-            // Refreshing the scene list is a read operation; the firmware logs
-            // the request while the response remains independent of connectivity.
-            fetch('/api/action-scripts')
-                .then(res => res.ok ? res.json() : null)
-                .then(data => {
-                    const grid = document.getElementById('scenes-grid');
-                    if (!Array.isArray(data)) {
-                        grid.innerHTML = '<div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">No scenes available.</div>';
-                        return;
-                    }
-
-                    grid.innerHTML = '';
-                    if (data.length === 0) {
-                        grid.innerHTML = '<div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">No scenes yet.</div>';
-                        return;
-                    }
-
-                    data.forEach(scene => {
-                        const btn = document.createElement('button');
-                        btn.className = 'scene-btn';
-                        btn.textContent = scene.name || 'Unnamed scene';
-                        btn.onclick = () => executeScript(scene.id, btn);
-                        grid.appendChild(btn);
+            data.forEach(script => {
+                const btn = document.createElement('button');
+                btn.className = 'script-btn';
+                btn.textContent = script.name || 'Unnamed script';
+                btn.title = `${(script.commands || []).length} commands`;
+                btn.onclick = () => {
+                    fetch('/api/execute-script', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: script.id })
+                    })
+                    .then(res => res.ok ? res.json() : Promise.reject())
+                    .then(data => {
+                        if (data && data.success) {
+                            btn.classList.add('active');
+                            setTimeout(() => btn.classList.remove('active'), 300);
+                            setStatusPill('Executed', 'ok');
+                            updateLastUpdated('Script run');
+                        }
+                    })
+                    .catch(() => {
+                        setStatusPill('Failed', 'error');
                     });
-                })
-                .catch(() => {});
+                };
+                scriptGrid.appendChild(btn);
+            });
         }
 
-        function executeScript(scriptId, btn) {
-            // The execution result is recorded by /api/execute-script. Do not
-            // replace the connection state with a one-off action message.
-            fetch('/api/execute-script', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'body=' + encodeURIComponent(JSON.stringify({ id: scriptId }))
-            })
-            .then(res => res.ok ? res.json() : Promise.reject())
-            .then(data => {
-                if (data && data.success) {
-                    btn.classList.add('active');
-                    setTimeout(() => btn.classList.remove('active'), 300);
-                }
-            })
-            .catch(() => {});
-        }
+        function renderSceneButtons(data) {
+            sceneGrid.innerHTML = '';
+            if (!Array.isArray(data) || data.length === 0) {
+                sceneGrid.innerHTML = '<div class="muted">No scenes available.</div>';
+                return;
+            }
 
-        function applyScene(sceneId, btn) {
-            fetch('/api/scenes/apply', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: sceneId })
-            })
-            .then(res => res.ok ? res.json() : null)
-            .then(data => {
-                if (data && data.success) {
-                    btn.classList.add('active');
-                    setTimeout(() => btn.classList.remove('active'), 300);
-                }
-            })
-            .catch(() => {});
-        }
-
-        function sendEffect(effect) {
-            const payload = { effect };
-            fetch('/api/effect', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            })
-            .then(res => res.ok ? res.json() : null)
-            .then(data => {
-                if (data && data.success) {
-                }
-            })
-            .catch(() => {});
+            data.forEach(scene => {
+                const btn = document.createElement('button');
+                btn.className = 'scene-btn';
+                btn.textContent = scene.name || 'Unnamed scene';
+                btn.onclick = () => {
+                    fetch('/api/scenes/apply', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: scene.id })
+                    })
+                    .then(res => res.ok ? res.json() : null)
+                    .then(data => {
+                        if (data && data.success) {
+                            btn.classList.add('active');
+                            setTimeout(() => btn.classList.remove('active'), 300);
+                            setStatusPill('Scene active', 'ok');
+                            updateLastUpdated('Scene applied');
+                        }
+                    })
+                    .catch(() => {
+                        setStatusPill('Scene failed', 'error');
+                    });
+                };
+                sceneGrid.appendChild(btn);
+            });
         }
 
         function fetchStatus() {
-            // Status is a heartbeat poll, not an action log event.
             fetch('/api/status')
                 .then(res => res.ok ? res.json() : null)
                 .then(data => {
@@ -599,40 +692,147 @@
                         updateStatusCards(data);
                         lastBeatTime = Date.now();
                         led.className = data.heartbeat ? 'led on' : 'led';
+                        statusText.textContent = data.connected === false ? 'Disconnected' : 'Connected';
+                        statusText.style.color = data.connected === false ? '#fca5a5' : '#dfeafe';
+                        setStatusPill('Ready', 'ok');
+                        updateLastUpdated('Status');
                     }
                 })
-                .catch(() => {});
+                .catch(() => {
+                    led.className = 'led error';
+                    statusText.textContent = 'Disconnected';
+                    statusText.style.color = '#fca5a5';
+                    setStatusPill('Offline', 'error');
+                });
         }
 
-        function startPolling() {
-            setInterval(fetchLogs, 500);
+        function fetchScripts() {
+            fetch('/api/action-scripts')
+                .then(res => res.ok ? res.json() : null)
+                .then(data => {
+                    if (Array.isArray(data)) {
+                        renderScriptButtons(data);
+                    } else if (data && Array.isArray(data.scripts)) {
+                        renderScriptButtons(data.scripts);
+                    } else {
+                        scriptGrid.innerHTML = '<div class="muted">No scripts yet.</div>';
+                    }
+                })
+                .catch(() => {
+                    scriptGrid.innerHTML = '<div class="muted">Unable to load scripts.</div>';
+                });
+        }
+
+        function fetchScenes() {
+            fetch('/api/scenes')
+                .then(res => res.ok ? res.json() : null)
+                .then(data => {
+                    if (Array.isArray(data)) {
+                        renderSceneButtons(data);
+                    } else if (data && Array.isArray(data.scenes)) {
+                        renderSceneButtons(data.scenes);
+                    } else {
+                        sceneGrid.innerHTML = '<div class="muted">No scenes available.</div>';
+                    }
+                })
+                .catch(() => {
+                    sceneGrid.innerHTML = '<div class="muted">Unable to load scenes.</div>';
+                });
         }
 
         function fetchLogs() {
             if (!liveLogEnabled) return;
 
-            // This label is reserved for transport state; action results belong in the debug log.
             fetch('/api/logs')
                 .then(response => response.text())
                 .then(text => {
-                    statusText.innerText = 'Connected';
-                    statusText.style.color = '#8df0b5';
+                    statusText.textContent = 'Connected';
+                    statusText.style.color = '#dfeafe';
                     lastBeatTime = Date.now();
+                    led.className = 'led on';
 
                     logWindow.innerHTML = filterLogHtml(text);
                     if (shouldAutoScroll) {
                         logWindow.scrollTop = logWindow.scrollHeight;
                     }
-
                 })
                 .catch(() => {
-                    statusText.innerText = 'Disconnected';
+                    statusText.textContent = 'Disconnected';
                     statusText.style.color = '#fca5a5';
                     if (Date.now() - lastBeatTime > 2000) {
                         led.className = 'led error';
                     }
                 });
         }
+
+        function clearLog() {
+            logWindow.textContent = 'Log cleared.';
+            fetch('/api/logs/clear', { method: 'POST' }).catch(() => {});
+        }
+
+        function saveLog() {
+            fetch('/api/logs')
+                .then(res => res.text())
+                .then(text => {
+                    const blob = new Blob([text], { type: 'text/plain' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'esp32-log.txt';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    setStatusPill('Saved', 'ok');
+                    updateLastUpdated('Log saved');
+                })
+                .catch(() => {
+                    setStatusPill('Save failed', 'error');
+                });
+        }
+
+        function syncTime() {
+            const now = Math.floor(Date.now() / 1000);
+            const timezoneOffsetMinutes = -new Date().getTimezoneOffset();
+            syncTimeBtn.disabled = true;
+
+            fetch('/api/set-time', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'body=' + encodeURIComponent(JSON.stringify({ time: now, timezoneOffsetMinutes }))
+            })
+            .then(res => res.ok ? res.json() : Promise.reject())
+            .then(() => {
+                setStatusPill('Time synced', 'ok');
+                updateLastUpdated('Time synced');
+            })
+            .catch(() => {
+                setStatusPill('Sync failed', 'error');
+            })
+            .finally(() => {
+                syncTimeBtn.disabled = false;
+            });
+        }
+
+        function startPolling() {
+            setInterval(fetchStatus, 2000);
+            setInterval(fetchLogs, 800);
+            setInterval(fetchScripts, 10000);
+            setInterval(fetchScenes, 15000);
+        }
+
+        pauseToggleBtn.addEventListener('click', () => {
+            liveLogEnabled = !liveLogEnabled;
+            pauseToggleBtn.textContent = liveLogEnabled ? 'Pause log' : 'Resume log';
+            pauseToggleBtn.classList.toggle('secondary', !liveLogEnabled);
+        });
+
+        clearLogBtn.addEventListener('click', clearLog);
+        saveLogBtn.addEventListener('click', saveLog);
+        syncTimeBtn.addEventListener('click', syncTime);
+        refreshStatusBtn.addEventListener('click', () => {
+            fetchStatus();
+            fetchScripts();
+            fetchScenes();
+        });
 
         document.getElementById('open-editor-btn').addEventListener('click', () => {
             window.open('/action_scripts.html', '_blank');
@@ -642,63 +842,16 @@
             window.open('/audio_test.html', '_blank');
         });
 
-        document.getElementById('refresh-scenes').addEventListener('click', loadScenes);
+        debugBtn1.addEventListener('click', () => setDebugLevel(1));
+        debugBtn2.addEventListener('click', () => setDebugLevel(2));
+        debugBtn3.addEventListener('click', () => setDebugLevel(3));
 
-        document.getElementById('reboot-btn').addEventListener('click', () => {
-            // Unsupported controls still reach an explicit firmware route so
-            // the debug log explains why the request was rejected.
-            fetch('/api/reboot', { method: 'POST' }).catch(() => {});
-        });
-
-        // Manual retry for browsers that opened before the clock was ready or
-        // whose first synchronization request was interrupted.
-        syncTimeBtn.addEventListener('click', syncTime);
-
-        clearLogBtn.addEventListener('click', () => {
-            fetch('/api/logs/clear', { method: 'POST' })
-                .then(() => {
-                    logWindow.innerHTML = 'Log cleared';
-                    logWindow.scrollTop = logWindow.scrollHeight;
-                })
-                .catch(() => {});
-        });
-
-        saveLogBtn.addEventListener('click', () => {
-            fetch('/api/logs/save', { method: 'POST' })
-                .catch(() => {});
-        });
-
-        pauseToggleBtn.addEventListener('click', () => {
-            setLiveLogState(!liveLogEnabled);
-            if (liveLogEnabled) {
-                logWindow.scrollTop = logWindow.scrollHeight;
-            }
-        });
-
-        document.querySelectorAll('[data-effect]').forEach(button => {
-            button.addEventListener('click', () => sendEffect(button.dataset.effect));
-        });
-
-        window.onload = function() {
-            updateClock();
-            setInterval(updateClock, 1000);
-            setLiveLogState(true);
-            fetchStatus();
-            setInterval(fetchStatus, 500);
-            loadScenes();
-            setInterval(loadScenes, 5000);
-
-            syncTime();
-            startPolling();
-        };
-
-        setInterval(() => {
-            if (Date.now() - lastBeatTime > 2500) {
-                led.className = 'led error';
-                statusText.innerText = 'Disconnected';
-                statusText.style.color = '#fca5a5';
-            }
-        }, 1000);
+        setDebugLevel(currentDebugLevel);
+        fetchStatus();
+        fetchScripts();
+        fetchScenes();
+        fetchLogs();
+        startPolling();
     </script>
 </body>
 </html>
