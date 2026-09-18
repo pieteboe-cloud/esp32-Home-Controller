@@ -3,7 +3,7 @@
 ## 📊 Project Information
 
 - **Project Name**: `esp32_home-controller`
-- **Generated On**: 2026-09-18 19:43:35 (Europe/Amsterdam / GMT+02:00)
+- **Generated On**: 2026-09-18 22:53:27 (Europe/Amsterdam / GMT+02:00)
 - **Total Files Processed**: 223
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
@@ -67,7 +67,7 @@
 │   │   └── 📄 Debug.h (2.09 KB)
 │   ├── 📁 HardwareManager/
 │   │   ├── 📁 AudioController/
-│   │   │   ├── 📄 AudioController.cpp (16.25 KB)
+│   │   │   ├── 📄 AudioController.cpp (16.22 KB)
 │   │   │   └── 📄 AudioController.h (4.15 KB)
 │   │   ├── 📁 IR/
 │   │   │   ├── 📄 IRController.cpp (6.81 KB)
@@ -90,7 +90,7 @@
 │   │   ├── 📁 Storage/
 │   │   │   ├── 📄 StorageManager.cpp (11.42 KB)
 │   │   │   └── 📄 StorageManager.h (1.4 KB)
-│   │   ├── 📄 Config.h (1.97 KB)
+│   │   ├── 📄 Config.h (2.06 KB)
 │   │   ├── 📄 HardwareManager.cpp (5.18 KB)
 │   │   └── 📄 HardwareManager.h (2.12 KB)
 │   ├── 📁 SceneManager/
@@ -5870,15 +5870,15 @@ private:
 ### <a id="📄-lib-hardwaremanager-audiocontroller-audiocontroller-cpp"></a>📄 `lib/HardwareManager/AudioController/AudioController.cpp`
 
 **File Info:**
-- **Size**: 16.25 KB
+- **Size**: 16.22 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/AudioController/AudioController.cpp`
 - **Relative Path**: `lib/HardwareManager/AudioController`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-18 17:43:19 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `6f107abb6d571ec9d23be7a4a61eae82`
-- **SHA256**: `da4111369c13c0e2c478705408faf2a27c2c62a48f49008968bac6b9a133fe8a`
+- **Modified**: 2026-09-18 22:53:26 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `ea7ec385ec710f30c50f8b817668686a`
+- **SHA256**: `d5708dbfb8a76cc0bc89fe94215e4410c68c2ca39bfe17f9d03d2b99394ff6a4`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -5932,11 +5932,12 @@ AudioController::AudioController(uint8_t adcPin)
 
 void AudioController::init() {
   // Initialize LED pin for visual feedback
-  pinMode(AUDIO_LED_PIN, OUTPUT);
+  pinMode(AUDIO_LED_RED, OUTPUT);
+  pinMode(AUDIO_LED_BLUE, OUTPUT);
 
   // Initialize LED state
   _ledState = LOW;
-  digitalWrite(AUDIO_LED_PIN, _ledState);
+  digitalWrite(AUDIO_LED_RED, _ledState);
 
   // Set up non-blocking LED sequence for initialization indication
   _lastLedUpdate = millis();
@@ -5980,9 +5981,9 @@ void AudioController::init() {
   if (Debug::getDebugLevel() >= 3) {
     Debug::println(3, "[AUDIO][INIT] AudioController initialized on pin " +
                           String(_adcPin));
-    Debug::println(3, "[AUDIO][INFO] Buffer size: " + String(AUDIO_WINDOW_SIZE) +
-                          " samples, sample rate: " + String(AUDIO_SAMPLE_RATE) +
-                          " Hz");
+    Debug::println(
+        3, "[AUDIO][INFO] Buffer size: " + String(AUDIO_WINDOW_SIZE) +
+               " samples, sample rate: " + String(AUDIO_SAMPLE_RATE) + " Hz");
   }
 #endif
 }
@@ -5992,7 +5993,7 @@ void AudioController::update() {
   // LED pulses for 50ms when beat or silence is detected
   if (_ledPulseActive && millis() - _ledPulseStart >= 50) {
     _ledPulseActive = false;
-    digitalWrite(AUDIO_LED_PIN, LOW);
+    digitalWrite(AUDIO_LED_RED, LOW);
   }
 
   // Handle non-blocking LED initialization sequence
@@ -6002,13 +6003,13 @@ void AudioController::update() {
     if (millis() - _lastLedUpdate >= 300) { // 300ms between LED changes
       _lastLedUpdate = millis();
       _ledState = !_ledState;
-      digitalWrite(AUDIO_LED_PIN, _ledState);
+      digitalWrite(AUDIO_LED_RED, _ledState);
       _ledSequenceStep++;
 
       if (_ledSequenceStep >= 5) {
         _audioInitialized = true;
         _ledState = LOW;
-        digitalWrite(AUDIO_LED_PIN, _ledState);
+        digitalWrite(AUDIO_LED_RED, _ledState);
       }
     }
     // Continue with audio processing even during initialization
@@ -6045,11 +6046,11 @@ void AudioController::update() {
 
 #ifdef DEBUG_LEVEL
     if (Debug::getDebugLevel() >= 4) {
-      Debug::println(4,
-                     "[AUDIO][BEAT_DEBUG] Energy: " + String(_currentEnergy, 1) +
-                         ", Threshold: " + String(beatThreshold, 1) +
-                         ", Min: " + String(minEnergyThreshold, 1) +
-                         ", Avg: " + String(_averageEnergy, 1));
+      Debug::println(
+          4, "[AUDIO][BEAT_DEBUG] Energy: " + String(_currentEnergy, 1) +
+                 ", Threshold: " + String(beatThreshold, 1) +
+                 ", Min: " + String(minEnergyThreshold, 1) +
+                 ", Avg: " + String(_averageEnergy, 1));
     }
 #endif
 
@@ -6172,8 +6173,8 @@ void AudioController::setSilenceThreshold(uint16_t thresholdMv) {
   _silenceThresholdMv = thresholdMv;
 #ifdef DEBUG_LEVEL
   if (Debug::getDebugLevel() >= 2) {
-    Debug::println(2, "[AUDIO][SILENCE_THRESHOLD] Set to " + String(thresholdMv) +
-                          " mV");
+    Debug::println(2, "[AUDIO][SILENCE_THRESHOLD] Set to " +
+                          String(thresholdMv) + " mV");
   }
 #endif
 }
@@ -6276,7 +6277,7 @@ void AudioController::outputBeat() {
 #endif
 
   // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
-  digitalWrite(AUDIO_LED_PIN, HIGH);
+  digitalWrite(AUDIO_LED_RED, HIGH);
   _ledPulseActive = true;
   _ledPulseStart = millis();
 
@@ -6311,7 +6312,7 @@ void AudioController::outputSilence() {
 #endif
 
   // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
-  digitalWrite(AUDIO_LED_PIN, HIGH);
+  digitalWrite(AUDIO_LED_RED, HIGH);
   _ledPulseActive = true;
   _ledPulseStart = millis();
 
@@ -6335,7 +6336,7 @@ void AudioController::outputAudioResumed() {
 #endif
 
   // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
-  digitalWrite(AUDIO_LED_PIN, HIGH);
+  digitalWrite(AUDIO_LED_RED, HIGH);
   _ledPulseActive = true;
   _ledPulseStart = millis();
 
@@ -9000,23 +9001,22 @@ private:
 ### <a id="📄-lib-hardwaremanager-config-h"></a>📄 `lib/HardwareManager/Config.h`
 
 **File Info:**
-- **Size**: 1.97 KB
+- **Size**: 2.06 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/HardwareManager/Config.h`
 - **Relative Path**: `lib/HardwareManager`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 04:43:36 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `dfe1a6476ab5935895b755a021e90990`
-- **SHA256**: `c357f75b8e24d8411a2e2e37cbf8ca2c583b1f6223637d3571c13c9eace315ed`
+- **Modified**: 2026-09-18 22:47:47 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `d6d01503944eba5f59fe51c7d9d19a81`
+- **SHA256**: `ca36e60212160f1e18c36c0d7d12d5960ad56a1d4b5475d96295abd768359484`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```text
 #pragma once
-#include  <Arduino.h>
-
+#include <Arduino.h>
 
 // Pin definitions
 // SPI for CC2500
@@ -9026,7 +9026,7 @@ const uint8_t LC_MISO = 19;
 const uint8_t LC_MOSI = 23;
 const uint8_t LC_GDO2 = 22;
 
-// 433.92MHz RF 
+// 433.92MHz RF
 const uint8_t RF_RX = 33;
 const uint8_t RF_TX = 26;
 
@@ -9034,28 +9034,25 @@ const uint8_t RF_TX = 26;
 const uint8_t IR_RX = 35;
 const uint8_t IR_TX = 25;
 
-const uint8_t AUDIO_ADC_PIN = 32;
-const uint8_t AUDIO_LED_PIN = 12; 
+const uint8_t AUDIO_ADC_PIN = 32; // Microphone module output
+const uint8_t AUDIO_LED_RED = 12;
+const uint8_t AUDIO_LED_BLUE = 13;
 
 // =========================
 const uint8_t ACTIVE_LED_PIN = 2; // also LED on board
 const uint8_t HEARTBEAT_LED_PIN = 21;
 
-
-
 // =========================
 // Audio Configuration (MAX9814)
 // =========================
-#define AUDIO_ADC_RESOLUTION       12          // bits
-#define AUDIO_SAMPLE_RATE          10000       // Hz (10 kHz)
-#define AUDIO_WINDOW_SIZE          512         // samples (~51ms per analysis)
-#define AUDIO_DC_OFFSET_MV         1250        // 1.25V bias
-#define AUDIO_SILENCE_THRESHOLD_MV 1400        // Above = audio present
-#define AUDIO_BEAT_MULTIPLIER      1.5         // Beat = avg * 1.5
-#define AUDIO_BEAT_DEBOUNCE_MS     200
-#define AUDIO_SILENCE_TIMEOUT_MS   500         // Silence confirmed after 500ms quiet
-
-
+#define AUDIO_ADC_RESOLUTION 12         // bits
+#define AUDIO_SAMPLE_RATE 10000         // Hz (10 kHz)
+#define AUDIO_WINDOW_SIZE 512           // samples (~51ms per analysis)
+#define AUDIO_DC_OFFSET_MV 1250         // 1.25V bias
+#define AUDIO_SILENCE_THRESHOLD_MV 1400 // Above = audio present
+#define AUDIO_BEAT_MULTIPLIER 1.5       // Beat = avg * 1.5
+#define AUDIO_BEAT_DEBOUNCE_MS 200
+#define AUDIO_SILENCE_TIMEOUT_MS 500 // Silence confirmed after 500ms quiet
 
 // =========================
 // LivingColors Lamp Addresses
@@ -9063,19 +9060,18 @@ const uint8_t HEARTBEAT_LED_PIN = 21;
 #define LAMP_COUNT 12
 
 static const uint8_t LAMP_ADDRESSES[LAMP_COUNT][9] = {
-    {0xD3,0x06,0x8E,0x43,0x6D,0x92,0xE5,0x0C,0x11},
-    {0x94,0x4B,0x2D,0x30,0x6D,0x92,0xE5,0x0C,0x11},
-    {0x04,0x11,0x68,0x2E,0x6D,0x92,0xE5,0x0C,0x11},
-    {0x60,0xA7,0x3B,0x0A,0x6D,0x92,0xE5,0x0C,0x11},
-    {0xB0,0x56,0x86,0x01,0x6D,0x92,0xE5,0x0C,0x11},
-    {0x5B,0xC8,0x15,0x63,0x6D,0x92,0xE5,0x0C,0x11},
-    {0x73,0x34,0x63,0x73,0x78,0x53,0x51,0x2E,0x11},
-    {0xF8,0x6F,0x21,0x31,0x78,0x53,0x51,0x2E,0x11},
-    {0x1C,0x27,0x2F,0x1B,0x78,0x53,0x51,0x2E,0x11},
-    {0x8B,0x73,0xA3,0x18,0xAD,0xFA,0x3F,0x50,0x11},
-    {0x2F,0x06,0xE6,0x30,0xAD,0xFA,0x3F,0x50,0x11},
-    {0x9F,0x5B,0x9A,0x02,0xAD,0xFA,0x3F,0x50,0x11}
-};
+    {0xD3, 0x06, 0x8E, 0x43, 0x6D, 0x92, 0xE5, 0x0C, 0x11},
+    {0x94, 0x4B, 0x2D, 0x30, 0x6D, 0x92, 0xE5, 0x0C, 0x11},
+    {0x04, 0x11, 0x68, 0x2E, 0x6D, 0x92, 0xE5, 0x0C, 0x11},
+    {0x60, 0xA7, 0x3B, 0x0A, 0x6D, 0x92, 0xE5, 0x0C, 0x11},
+    {0xB0, 0x56, 0x86, 0x01, 0x6D, 0x92, 0xE5, 0x0C, 0x11},
+    {0x5B, 0xC8, 0x15, 0x63, 0x6D, 0x92, 0xE5, 0x0C, 0x11},
+    {0x73, 0x34, 0x63, 0x73, 0x78, 0x53, 0x51, 0x2E, 0x11},
+    {0xF8, 0x6F, 0x21, 0x31, 0x78, 0x53, 0x51, 0x2E, 0x11},
+    {0x1C, 0x27, 0x2F, 0x1B, 0x78, 0x53, 0x51, 0x2E, 0x11},
+    {0x8B, 0x73, 0xA3, 0x18, 0xAD, 0xFA, 0x3F, 0x50, 0x11},
+    {0x2F, 0x06, 0xE6, 0x30, 0xAD, 0xFA, 0x3F, 0x50, 0x11},
+    {0x9F, 0x5B, 0x9A, 0x02, 0xAD, 0xFA, 0x3F, 0x50, 0x11}};
 
 ```
 

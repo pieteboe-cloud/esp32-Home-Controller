@@ -46,11 +46,12 @@ AudioController::AudioController(uint8_t adcPin)
 
 void AudioController::init() {
   // Initialize LED pin for visual feedback
-  pinMode(AUDIO_LED_PIN, OUTPUT);
+  pinMode(AUDIO_LED_RED, OUTPUT);
+  pinMode(AUDIO_LED_BLUE, OUTPUT);
 
   // Initialize LED state
   _ledState = LOW;
-  digitalWrite(AUDIO_LED_PIN, _ledState);
+  digitalWrite(AUDIO_LED_RED, _ledState);
 
   // Set up non-blocking LED sequence for initialization indication
   _lastLedUpdate = millis();
@@ -94,9 +95,9 @@ void AudioController::init() {
   if (Debug::getDebugLevel() >= 3) {
     Debug::println(3, "[AUDIO][INIT] AudioController initialized on pin " +
                           String(_adcPin));
-    Debug::println(3, "[AUDIO][INFO] Buffer size: " + String(AUDIO_WINDOW_SIZE) +
-                          " samples, sample rate: " + String(AUDIO_SAMPLE_RATE) +
-                          " Hz");
+    Debug::println(
+        3, "[AUDIO][INFO] Buffer size: " + String(AUDIO_WINDOW_SIZE) +
+               " samples, sample rate: " + String(AUDIO_SAMPLE_RATE) + " Hz");
   }
 #endif
 }
@@ -106,7 +107,7 @@ void AudioController::update() {
   // LED pulses for 50ms when beat or silence is detected
   if (_ledPulseActive && millis() - _ledPulseStart >= 50) {
     _ledPulseActive = false;
-    digitalWrite(AUDIO_LED_PIN, LOW);
+    digitalWrite(AUDIO_LED_RED, LOW);
   }
 
   // Handle non-blocking LED initialization sequence
@@ -116,13 +117,13 @@ void AudioController::update() {
     if (millis() - _lastLedUpdate >= 300) { // 300ms between LED changes
       _lastLedUpdate = millis();
       _ledState = !_ledState;
-      digitalWrite(AUDIO_LED_PIN, _ledState);
+      digitalWrite(AUDIO_LED_RED, _ledState);
       _ledSequenceStep++;
 
       if (_ledSequenceStep >= 5) {
         _audioInitialized = true;
         _ledState = LOW;
-        digitalWrite(AUDIO_LED_PIN, _ledState);
+        digitalWrite(AUDIO_LED_RED, _ledState);
       }
     }
     // Continue with audio processing even during initialization
@@ -159,11 +160,11 @@ void AudioController::update() {
 
 #ifdef DEBUG_LEVEL
     if (Debug::getDebugLevel() >= 4) {
-      Debug::println(4,
-                     "[AUDIO][BEAT_DEBUG] Energy: " + String(_currentEnergy, 1) +
-                         ", Threshold: " + String(beatThreshold, 1) +
-                         ", Min: " + String(minEnergyThreshold, 1) +
-                         ", Avg: " + String(_averageEnergy, 1));
+      Debug::println(
+          4, "[AUDIO][BEAT_DEBUG] Energy: " + String(_currentEnergy, 1) +
+                 ", Threshold: " + String(beatThreshold, 1) +
+                 ", Min: " + String(minEnergyThreshold, 1) +
+                 ", Avg: " + String(_averageEnergy, 1));
     }
 #endif
 
@@ -286,8 +287,8 @@ void AudioController::setSilenceThreshold(uint16_t thresholdMv) {
   _silenceThresholdMv = thresholdMv;
 #ifdef DEBUG_LEVEL
   if (Debug::getDebugLevel() >= 2) {
-    Debug::println(2, "[AUDIO][SILENCE_THRESHOLD] Set to " + String(thresholdMv) +
-                          " mV");
+    Debug::println(2, "[AUDIO][SILENCE_THRESHOLD] Set to " +
+                          String(thresholdMv) + " mV");
   }
 #endif
 }
@@ -390,7 +391,7 @@ void AudioController::outputBeat() {
 #endif
 
   // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
-  digitalWrite(AUDIO_LED_PIN, HIGH);
+  digitalWrite(AUDIO_LED_RED, HIGH);
   _ledPulseActive = true;
   _ledPulseStart = millis();
 
@@ -425,7 +426,7 @@ void AudioController::outputSilence() {
 #endif
 
   // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
-  digitalWrite(AUDIO_LED_PIN, HIGH);
+  digitalWrite(AUDIO_LED_RED, HIGH);
   _ledPulseActive = true;
   _ledPulseStart = millis();
 
@@ -449,7 +450,7 @@ void AudioController::outputAudioResumed() {
 #endif
 
   // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
-  digitalWrite(AUDIO_LED_PIN, HIGH);
+  digitalWrite(AUDIO_LED_RED, HIGH);
   _ledPulseActive = true;
   _ledPulseStart = millis();
 
