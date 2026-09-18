@@ -1,7 +1,6 @@
-#include <Arduino.h>
-#include "Debug.h"
 #include "Core.h"
-
+#include "Debug.h"
+#include <Arduino.h>
 
 // Read this first when debugging:
 // -----------------------------------------------------------------------------
@@ -24,53 +23,48 @@
 
 // App is the top-level orchestration shell.
 // It boots the debug console, launches the Core runtime, and then hands control
-// to the main loop. Keeping this class thin makes the startup path easier to follow.
+// to the main loop. Keeping this class thin makes the startup path easier to
+// follow.
 class App {
 public:
-    /**
-     * Bootstraps the firmware and initializes the system runtime.
-     *
-     * This method should stay intentionally small: it configures logging,
-     * then delegates all intelligent startup coordination to Core::init().
-     */
-    void begin() {
-        Debug::begin(115200, Debug::INFO);
+  /**
+   * Bootstraps the firmware and initializes the system runtime.
+   *
+   * This method should stay intentionally small: it configures logging,
+   * then delegates all intelligent startup coordination to Core::init().
+   */
+  void begin() {
+    Debug::begin(115200, Debug::INFO);
+    Debug::setDebugLevel(3);
 
-        #ifdef DEBUG_LEVEL
-            if (Debug::getDebugLevel() >=  0) {
-                Debug::println(1, "[MAIN] Debug level set to " + String(Debug::getDebugLevel()));
-            }
-        #endif
-
-        
-
-        Debug::logStartupBanner("HomeController", "ESP32");
-
-        // Core owns the startup sequence and the single status log for the system lifecycle.
-        core.init();
-
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 0) {
+      Debug::println(1, "[MAIN] Debug level set to " +
+                            String(Debug::getDebugLevel()));
     }
+#endif
 
-    /**
-     * Runs the runtime loop for the application.
-     *
-     * The system is event-driven, so this method remains deliberately minimal and
-     * simply forwards control to the Core runtime tick.
-     */
-    void update() {
-        core.update();
-    }
+    //  Debug::logStartupBanner("HomeController", "ESP32");
+
+    // Core owns the startup sequence and the single status log for the system
+    // lifecycle.
+    core.init();
+  }
+
+  /**
+   * Runs the runtime loop for the application.
+   *
+   * The system is event-driven, so this method remains deliberately minimal and
+   * simply forwards control to the Core runtime tick.
+   */
+  void update() { core.update(); }
 
 private:
-    Core core;
+  Core core;
 };
 
 App app;
 
-void setup() {
-    app.begin();
-}
+void setup() { app.begin(); }
 
-void loop() {
-    app.update();
-}
+void loop() { app.update(); }

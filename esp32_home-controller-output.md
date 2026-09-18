@@ -3,8 +3,8 @@
 ## 📊 Project Information
 
 - **Project Name**: `esp32_home-controller`
-- **Generated On**: 2026-09-17 15:26:37 (Europe/Amsterdam / GMT+02:00)
-- **Total Files Processed**: 222
+- **Generated On**: 2026-09-18 19:43:35 (Europe/Amsterdam / GMT+02:00)
+- **Total Files Processed**: 223
 - **Export Tool**: Easy Whole Project to Single Text File for LLMs v1.1.0
 - **Tool Author**: Jota / José Guilherme Pandolfi
 
@@ -25,8 +25,8 @@
 │   │   ├── 📄 RGB_24KEY-R1.json (2.53 KB)
 │   │   ├── 📄 RGB_44KEY-R1.json (5.13 KB)
 │   │   └── 📄 RGB_44KEY-R2.json (3.45 KB)
-│   ├── 📄 action_scripts.html (22.38 KB)
-│   ├── 📄 index.html (27.47 KB)
+│   ├── 📄 action_scripts.html (19.35 KB)
+│   ├── 📄 index.html (30.18 KB)
 │   ├── 📄 scenes.json (202 B)
 │   └── 📄 scripts.json (789 B)
 ├── 📁 Docs/
@@ -59,36 +59,36 @@
 │   └── 📄 Trimlight-Codes-reds-to-yellows.webp (36.21 KB)
 ├── 📁 lib/
 │   ├── 📁 Core/
-│   │   ├── 📄 Core.cpp (19.98 KB)
+│   │   ├── 📄 Core.cpp (18.32 KB)
 │   │   ├── 📄 Core.h (4.7 KB)
 │   │   └── 📄 EventBus.h (2.03 KB)
 │   ├── 📁 Debug/
-│   │   ├── 📄 Debug.cpp (10.82 KB)
-│   │   └── 📄 Debug.h (8.62 KB)
+│   │   ├── 📄 Debug.cpp (6.77 KB)
+│   │   └── 📄 Debug.h (2.09 KB)
 │   ├── 📁 HardwareManager/
 │   │   ├── 📁 AudioController/
-│   │   │   ├── 📄 AudioController.cpp (15.89 KB)
+│   │   │   ├── 📄 AudioController.cpp (16.25 KB)
 │   │   │   └── 📄 AudioController.h (4.15 KB)
 │   │   ├── 📁 IR/
 │   │   │   ├── 📄 IRController.cpp (6.81 KB)
 │   │   │   └── 📄 IRController.h (3.73 KB)
 │   │   ├── 📁 KakuDecoder/
-│   │   │   ├── 📄 KakuDecoder.cpp (4.73 KB)
+│   │   │   ├── 📄 KakuDecoder.cpp (5.04 KB)
 │   │   │   └── 📄 KakuDecoder.h (1001 B)
 │   │   ├── 📁 LivingColors/
 │   │   │   ├── 📄 CC2500_Registers.h (2.23 KB)
-│   │   │   ├── 📄 CC2500.cpp (6.01 KB)
+│   │   │   ├── 📄 CC2500.cpp (5.79 KB)
 │   │   │   ├── 📄 CC2500.h (870 B)
-│   │   │   ├── 📄 LivingColors.cpp (12.07 KB)
+│   │   │   ├── 📄 LivingColors.cpp (12.62 KB)
 │   │   │   └── 📄 LivingColors.h (4.95 KB)
 │   │   ├── 📁 RCSwitch/
 │   │   │   ├── 📄 RFReceiver.cpp (1.35 KB)
 │   │   │   └── 📄 RFReceiver.h (952 B)
 │   │   ├── 📁 RF/
-│   │   │   ├── 📄 RFController.cpp (6.45 KB)
-│   │   │   └── 📄 RFController.h (2.75 KB)
+│   │   │   ├── 📄 RFController.cpp (6.26 KB)
+│   │   │   └── 📄 RFController.h (2.55 KB)
 │   │   ├── 📁 Storage/
-│   │   │   ├── 📄 StorageManager.cpp (10.36 KB)
+│   │   │   ├── 📄 StorageManager.cpp (11.42 KB)
 │   │   │   └── 📄 StorageManager.h (1.4 KB)
 │   │   ├── 📄 Config.h (1.97 KB)
 │   │   ├── 📄 HardwareManager.cpp (5.18 KB)
@@ -293,10 +293,10 @@
 │   │       ├── 📄 RCSwitch.h (6.41 KB)
 │   │       └── 📄 README.md (1.42 KB)
 │   └── 📁 WebUI/
-│       ├── 📄 WebUI.cpp (39.57 KB)
+│       ├── 📄 WebUI.cpp (31.36 KB)
 │       └── 📄 WebUI.h (2.09 KB)
 ├── 📁 src/
-│   └── 📄 main.cpp (2.36 KB)
+│   └── 📄 main.cpp (2.3 KB)
 ├── 📁 unpacked_fs/
 │   ├── 📁 ir_db/
 │   │   ├── 📄 RGB_24KEY-R1.json (2.53 KB)
@@ -306,7 +306,8 @@
 │   ├── 📄 index.html (26.92 KB)
 │   ├── 📄 scenes.json (202 B)
 │   └── 📄 scripts.json (426 B)
-├── 📄 platformio.ini (791 B)
+├── 📄 earlierchat.txt (22.78 KB)
+├── 📄 platformio.ini (575 B)
 ├── 📄 repomix-output.xml (1.24 MB)
 └── 📄 updatefs_preserve.py (9.24 KB)
 ```
@@ -445,6 +446,7 @@
 - [📄 unpacked_fs/index.html](#📄-unpacked-fs-index-html)
 - [📄 unpacked_fs/scenes.json](#📄-unpacked-fs-scenes-json)
 - [📄 unpacked_fs/scripts.json](#📄-unpacked-fs-scripts-json)
+- [📄 earlierchat.txt](#📄-earlierchat-txt)
 - [📄 platformio.ini](#📄-platformio-ini)
 - [📄 repomix-output.xml](#📄-repomix-output-xml)
 - [📄 updatefs_preserve.py](#📄-updatefs-preserve-py)
@@ -455,9 +457,9 @@
 
 | Metric | Count |
 |--------|-------|
-| Total Files | 222 |
+| Total Files | 223 |
 | Total Directories | 67 |
-| Text Files | 133 |
+| Text Files | 134 |
 | Binary Files | 89 |
 | Total Size | 5.96 MB |
 
@@ -476,8 +478,8 @@
 | `.png` | 5 |
 | `.webp` | 5 |
 | `.html` | 4 |
+| `.txt` | 3 |
 | `no extension` | 2 |
-| `.txt` | 2 |
 | `.properties` | 2 |
 | `.bmp` | 1 |
 | `.ini` | 1 |
@@ -1015,637 +1017,129 @@
 ### <a id="📄-data-action-scripts-html"></a>📄 `data/action_scripts.html`
 
 **File Info:**
-- **Size**: 22.38 KB
+- **Size**: 19.35 KB
 - **Extension**: `.html`
 - **Language**: `html`
 - **Location**: `data/action_scripts.html`
 - **Relative Path**: `data`
-- **Created**: 2026-09-07 16:38:04 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-07 18:30:06 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `dd91080ed86455960504ed45c1b485b7`
-- **SHA256**: `5f0ab6f80852f7bbf7cd29db7d8bab42e18f8d96502f843d1547885cab8cd492`
+- **Created**: 2026-09-18 16:44:03 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-18 16:44:03 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `3e33d1d84d96310090c41a10e55758ca`
+- **SHA256**: `5550f226ba3b2ccaef813573075cb30bd8448ea9ac118a81f5697cf20edfcea3`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Action Scripts</title>
+<title>Action scripts</title>
 <style>
-:root{
-  --bg:#101416;--panel:#181d20;--panel2:#20272b;--line:#30393e;
-  --text:#e8eeee;--muted:#98a5aa;--accent:#35c7c0;--accent2:#1e8f8a;
-  --danger:#d95c5c;--ok:#58c98b;--shadow:0 8px 30px rgba(0,0,0,.28);
-}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:14px Arial,Helvetica,sans-serif}
-button,input,select{font:inherit}
-button{border:1px solid var(--line);background:#252d31;color:var(--text);border-radius:6px;padding:9px 13px;cursor:pointer}
-button:hover{background:#303a3f}
-button.primary{background:var(--accent2);border-color:var(--accent);color:#fff}
-button.primary:hover{background:#249f99}
-button.danger{border-color:#743f43;color:#ffaaaa}
-button.small{padding:5px 8px;font-size:12px}
-button.icon{width:34px;padding:7px 0}
-input,select{width:100%;background:#0e1214;color:var(--text);border:1px solid var(--line);border-radius:6px;padding:9px 10px;outline:none}
-input:focus,select:focus{border-color:var(--accent)}
-.app{display:grid;grid-template-columns:280px 1fr;min-height:100vh}
-.sidebar{border-right:1px solid var(--line);background:#151a1d;padding:18px;display:flex;flex-direction:column;gap:12px}
-.logo{font-size:21px;font-weight:700;color:#8ce7e2;margin-bottom:4px}
-.subtitle{color:var(--muted);font-size:12px;margin-bottom:8px}
-.list{display:flex;flex-direction:column;gap:5px;overflow:auto;min-height:100px}
-.script-item{display:flex;align-items:center;gap:8px;padding:10px;border:1px solid transparent;border-radius:7px;cursor:pointer}
-.script-item:hover{background:#20272b}
-.script-item.active{background:#263338;border-color:#3d5559}
-.script-item .name{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.script-item .id{color:var(--muted);font-size:11px}
-.empty{color:var(--muted);padding:15px 8px;text-align:center}
-.main{padding:24px;max-width:1250px;width:100%;margin:0 auto}
-.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:20px}
-h1{font-size:25px;margin:0}
-h2{font-size:17px;margin:0 0 13px}
-h3{font-size:14px;margin:0 0 10px;color:#b9c4c7}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap}
-.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,430px);gap:18px}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:18px;box-shadow:var(--shadow);margin-bottom:18px}
-.field{margin-bottom:13px}
-label{display:block;color:#b9c4c7;font-size:12px;margin-bottom:6px}
-.row{display:flex;gap:9px;align-items:center}
-.row>*{flex:1}
-.aliases{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px}
-.alias{display:inline-flex;align-items:center;gap:6px;background:#263237;border:1px solid #3b4b50;border-radius:20px;padding:5px 9px}
-.alias button{border:0;background:none;padding:0;color:#aebcc0}
-.builder{display:grid;gap:15px}
-.lamps{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
-.lamp{position:relative}
-.lamp input{position:absolute;opacity:0;pointer-events:none}
-.lamp span{display:flex;align-items:center;justify-content:center;height:36px;border:1px solid var(--line);border-radius:5px;background:#111719;cursor:pointer}
-.lamp input:checked+span{border-color:var(--accent);background:#193c3c;color:#9ff2ee}
-.color-row{display:grid;grid-template-columns:65px 1fr 105px;gap:9px;align-items:center}
-.color-input{width:65px;height:40px;padding:2px;cursor:pointer}
-.hex{font-family:monospace;letter-spacing:.3px}
-.preview{height:34px;border-radius:6px;border:1px solid var(--line)}
-.actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
-.help{font-size:11px;color:var(--muted);line-height:1.45}
-.script-commands{display:flex;flex-direction:column;gap:7px}
-.command{display:grid;grid-template-columns:38px 1fr auto;gap:8px;align-items:center;background:#121719;border:1px solid var(--line);border-radius:7px;padding:8px}
-.command-num{color:var(--muted);text-align:center;font-size:12px}
-.command-text{font-family:Consolas,monospace;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.command button{padding:5px 8px}
-.status{min-height:20px;color:var(--muted);font-size:12px}
-.status.ok{color:var(--ok)}
-.status.error{color:#ff8f8f}
-.dirty{color:#f4c86a;font-size:12px}
-.badge{font-size:11px;color:#9de8e4;border:1px solid #31595a;border-radius:12px;padding:3px 7px}
-.strip-colors{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;max-height:290px;overflow:auto;padding-right:2px}
-.strip-color{position:relative}
-.strip-color input{position:absolute;opacity:0;pointer-events:none}
-.strip-color label{display:flex;align-items:center;gap:7px;margin:0;padding:7px;border:1px solid var(--line);border-radius:6px;background:#121719;cursor:pointer}
-.strip-color input:checked+label{border-color:var(--accent);background:#193c3c}
-.swatch{width:22px;height:22px;border-radius:4px;border:1px solid rgba(255,255,255,.25);flex:none}
-.footer{color:#68757a;font-size:11px;margin-top:8px}
-@media(max-width:900px){
-  .app{grid-template-columns:1fr}.sidebar{border-right:0;border-bottom:1px solid var(--line)}.grid{grid-template-columns:1fr}
-}
-</style>
+:root{color-scheme:dark;--bg:#0d1117;--panel:#161b22;--panel2:#1d2630;--line:#303944;--text:#e6edf3;--muted:#8b949e;--accent:#2dd4bf;--accent-strong:#0f766e;--danger:#f87171;--ok:#86efac;--shadow:0 18px 50px rgba(0,0,0,.45)}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at top right,#12343a 0,#0d1117 35%);color:var(--text);font:14px system-ui,-apple-system,Segoe UI,sans-serif}button,input,select{font:inherit}button{border:1px solid var(--line);border-radius:8px;background:var(--panel2);color:var(--text);padding:9px 13px;cursor:pointer;transition:all .12s ease}button:hover{border-color:#5b6875;background:#26323e}button:disabled{opacity:.45;cursor:not-allowed}.primary{background:var(--accent-strong);border-color:var(--accent)}.danger{color:#fecaca;border-color:#713b42}.small{padding:5px 8px;font-size:12px}.app{min-height:100vh;display:grid;grid-template-columns:280px minmax(0,1fr)}aside{background:#10151cdd;border-right:1px solid var(--line);padding:22px;display:flex;flex-direction:column;gap:14px}.brand{font-weight:800;letter-spacing:.12em;color:#99f6e4}.muted,.hint{color:var(--muted)}.hint{font-size:12px;line-height:1.45}.list{overflow:auto;display:grid;gap:6px;min-height:100px}.script{display:flex;align-items:center;gap:8px;border:1px solid transparent;border-radius:8px;padding:10px;cursor:pointer}.script:hover,.script.active{background:#20313a;border-color:#31515a}.script span:first-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}.script small{color:var(--muted)}main{width:min(1100px,100%);padding:30px;margin:auto}.top{display:flex;justify-content:space-between;gap:16px;align-items:start;margin-bottom:22px}.top h1{margin:0 0 5px;font-size:28px}.actions{display:flex;gap:8px;flex-wrap:wrap}.grid{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:18px}.card{background:#161b22ef;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow);margin-bottom:18px}.card h2{font-size:16px;margin:0 0 15px}.field{margin-bottom:15px}.field label{display:block;color:#b8c2cc;font-size:12px;margin-bottom:6px}.row{display:flex;gap:8px}.row>*{flex:1}input,select{width:100%;padding:10px 11px;border-radius:8px;border:1px solid var(--line);background:#0d1117;color:var(--text);outline:0}input:focus,select:focus{border-color:var(--accent)}.aliases{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}.alias{border:1px solid #31515a;background:#19343a;border-radius:20px;padding:5px 9px;font-size:12px}.alias button{border:0;background:transparent;padding:0 0 0 5px;color:var(--muted)}.commands{display:grid;gap:8px}.command{display:grid;grid-template-columns:32px minmax(0,1fr) auto;gap:8px;align-items:center;background:#0d1117;border:1px solid var(--line);border-radius:8px;padding:8px;cursor:grab}.command.dragging{opacity:.5}.command.drop-target{outline:1px solid var(--accent);outline-offset:-1px}.number{text-align:center;color:var(--muted)}.command input{font:13px ui-monospace,SFMono-Regular,Consolas,monospace}.command-tools{display:flex;gap:4px}.quick{display:grid;grid-template-columns:1fr 1fr;gap:10px}.quick .wide{grid-column:1/-1}.status{min-height:22px;margin-top:12px;color:var(--muted)}.status.error{color:var(--danger)}.status.ok{color:var(--ok)}.empty{text-align:center;color:var(--muted);padding:24px 8px}.dirty{color:#fbbf24;font-size:12px}.code{font:13px ui-monospace,SFMono-Regular,Consolas,monospace}.swatch{display:inline-block;width:16px;height:16px;border-radius:4px;border:1px solid rgba(255,255,255,.2);vertical-align:middle;margin-right:6px}.remote-row{display:flex;align-items:center;gap:8px}.color-list{display:grid;gap:8px}.remote-select{min-width:0}.linklike{cursor:pointer;color:#9fe7e3;text-decoration:underline}.@media(max-width:820px){.app{display:block}aside{border:0;border-bottom:1px solid var(--line)}.grid{grid-template-columns:1fr}main{padding:18px}.top{display:block}.top .actions{margin-top:14px}}</style>
 </head>
 <body>
 <div class="app">
-  <aside class="sidebar">
-    <div>
-      <div class="logo">ACTION SCRIPTS</div>
-      <div class="subtitle">Macros / ordered canonical commands</div>
-    </div>
-    <button class="primary" onclick="newScript()">＋ New script</button>
-    <div id="scriptList" class="list"><div class="empty">Loading…</div></div>
-    <button onclick="location.href='/'">← Dashboard</button>
-  </aside>
-
-  <main class="main">
-    <div class="topbar">
-      <div>
-        <h1 id="pageTitle">New script</h1>
-        <div id="dirty" class="dirty"></div>
+<aside>
+  <div><div class="brand">ACTION SCRIPTS</div><div class="hint">Create, reorder, test and save command sequences.</div></div>
+  <button class="primary" id="newBtn">＋ New script</button>
+  <div id="scriptList" class="list"><div class="empty">Loading…</div></div>
+  <button onclick="location.href='/'">← Dashboard</button>
+</aside>
+<main>
+  <div class="top"><div><h1 id="title">New script</h1><div id="dirty" class="dirty"></div></div><div class="actions"><button id="duplicateBtn">Duplicate</button><button id="runBtn">▶ Run</button><button class="primary" id="saveBtn">Save script</button><button class="danger" id="deleteBtn">Delete</button></div></div>
+  <div class="grid">
+    <section>
+      <div class="card">
+        <h2>Details</h2>
+        <div class="field"><label for="name">Name</label><input id="name" autocomplete="off" placeholder="Movie night"></div>
+        <div class="field"><label for="alias">Aliases</label><div class="row"><input id="alias" placeholder="movie"><button id="addAlias">Add</button></div><div id="aliases" class="aliases"></div><div class="hint">Aliases are optional and are matched by the controller.</div></div>
       </div>
-      <div class="toolbar">
-        <button onclick="runCurrentScript()">▶ Run script</button>
-        <button class="primary" onclick="saveScript()">Save</button>
-        <button class="danger" onclick="deleteCurrentScript()">Delete</button>
-      </div>
-    </div>
-
-    <div class="grid">
-      <section>
-        <div class="card">
-          <h2>Script</h2>
-          <div class="field">
-            <label for="name">Name</label>
-            <input id="name" placeholder="Movie Start" oninput="markDirty()">
-          </div>
-          <div class="field">
-            <label for="aliasInput">Aliases</label>
-            <div class="row">
-              <input id="aliasInput" placeholder="movie" onkeydown="if(event.key==='Enter'){event.preventDefault();addAlias();}">
-              <button onclick="addAlias()">＋ Add</button>
-            </div>
-            <div id="aliases" class="aliases"></div>
-            <div class="help">Aliases are case-insensitive. They are for convenient script lookup.</div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>LivingColors</h2>
-          <div class="field">
-            <label>Select lamps</label>
-            <div id="lamps" class="lamps"></div>
-          </div>
-          <div class="color-row">
-            <input id="livingColor" class="color-input" type="color" value="#FF6414" oninput="updateLivingPreview()">
-            <div>
-              <div class="hex" id="livingHex">#FF6414</div>
-              <div class="help">One colour can be applied to all selected lamps.</div>
-            </div>
-            <div class="actions">
-              <button onclick="testLiving()">Test</button>
-              <button class="primary" onclick="addLiving()">＋ Add</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>RGB LED strip</h2>
-          <div class="field">
-            <label for="remote">Remote</label>
-            <select id="remote" onchange="renderStripColors()"></select>
-          </div>
-          <div class="field">
-            <label>Colour</label>
-            <div id="stripColors" class="strip-colors"></div>
-          </div>
-          <div class="actions">
-            <button onclick="testStrip()">Test</button>
-            <button class="primary" onclick="addStrip()">＋ Add</button>
-          </div>
-          <div class="help" style="margin-top:9px">
-            The editor uses the nominal colour from the remote database. IR codes remain hidden from the script.
-          </div>
-        </div>
-      </section>
-
-      <aside>
-        <div class="card">
-          <h2>Script contents</h2>
-          <div id="commands" class="script-commands">
-            <div class="empty">No commands yet.</div>
-          </div>
-          <div class="footer">Commands execute from top to bottom.</div>
-        </div>
-
-        <div class="card">
-          <h2>Current script</h2>
-          <div id="scriptSummary" class="help">No script selected.</div>
-          <div id="status" class="status"></div>
-        </div>
-      </aside>
-    </div>
-  </main>
+      <div class="card"><h2>Commands <span class="hint">(executed top to bottom)</span></h2><div id="commands" class="commands"></div><div class="actions" style="margin-top:12px"><button id="addCommand" class="primary">＋ Add command</button><button id="clearCommands" class="danger">Clear</button></div><div class="hint" style="margin-top:10px">Use the controller command syntax, for example <span class="code">delay 500</span> or <span class="code">ir TV POWER</span>.</div></div>
+      <div class="card"><h2>Quick commands</h2><div class="quick"><div class="field"><label>LivingColors lamp numbers</label><input id="lamps" placeholder="1, 2, 3"></div><div class="field"><label>RGB colour</label><input id="livingColor" type="color" value="#ff6414" style="height:42px;padding:3px"></div><button id="addLiving">＋ Add LivingColors</button><button id="testLiving">Test LivingColors</button><div class="field wide"><label>IR remote</label><select id="remote" class="remote-select"><option value="">Loading remotes…</option></select></div><div class="field wide"><label>Colour</label><div id="stripColors" class="color-list"></div></div><button id="addStrip">＋ Add RGB strip</button><button id="testStrip">Test RGB strip</button></div><div class="hint" style="margin-top:12px">The editor loads defaults from the IR database in <span class="code">/ir_db/</span> instead of keeping a stale browser copy.</div></div>
+    </section>
+    <section><div class="card"><h2>Current script</h2><div id="summary" class="hint"></div><div id="status" class="status"></div></div><div class="card"><h2>Command syntax</h2><div class="hint"><p><span class="code">living &lt;lamp&gt; rgb &lt;r&gt; &lt;g&gt; &lt;b&gt;</span></p><p><span class="code">rgbstrip &lt;remote&gt; &lt;hex&gt;</span></p><p><span class="code">ir &lt;remote&gt; &lt;button&gt;</span></p><p><span class="code">delay &lt;milliseconds&gt;</span></p><p>Test uses the temporary execution endpoint and never saves a script.</p></div></div></section>
+  </div>
+</main>
 </div>
-
 <script>
-/*
- * Action Scripts editor
- *
- * Current backend endpoints:
- *   GET    /api/action-scripts
- *   POST   /api/action-scripts
- *   DELETE /api/action-scripts?id=<id>
- *   POST   /api/execute-script
- *
- * RGB strip database discovery is not yet exposed by the current WebUI,
- * so the three currently known remotes/colors are used as a temporary
- * client-side catalogue. Once /api/ir-remotes exists, loadRemoteDatabase()
- * can consume it without changing the editor UI.
- */
-
-const fallbackRemotes = {
-  "RGB_24KEY-R1": [
-    ["RED","#FF0000"],["GREEN","#00FF00"],["BLUE","#0000FF"],["WHITE","#FFFFFF"]
-  ],
-  "RGB_44KEY-R1": [
-    ["RED","#FF0000"],["GREEN","#00FF00"],["BLUE","#0000FF"],["WHITE","#FFFFFF"],
-    ["ORANGE","#FF8000"],["TEAL","#008080"],["PURPLE","#800080"],["PINK","#FF69B4"],
-    ["YELLOW_ORANGE","#FFA500"],["AQUA","#00FFFF"],["MAGENTA","#FF00FF"],["LIGHT_PINK","#FFB6C1"],
-    ["YELLOW","#FFFF00"],["CYAN","#00FFFF"],["VIOLET","#8F00FF"],["SKY_BLUE","#87CEEB"],
-    ["LIGHT_YELLOW","#FFFFD0"],["LIGHT_CYAN","#E0FFFF"],["LIGHT_MAGENTA","#FF80FF"],["LIGHT_SKY_BLUE","#87CEFF"]
-  ],
-  "RGB_44KEY-R2": [
-    ["RED","#FF0000"],["GREEN","#00FF00"],["BLUE","#0000FF"],["WHITE","#FFFFFF"],
-    ["ORANGE","#FF8000"],["TEAL","#008080"],["PURPLE","#800080"],["PINK","#FF69B4"],
-    ["YELLOW_ORANGE","#FFA500"],["AQUA","#00FFFF"],["MAGENTA","#FF00FF"],["LIGHT_PINK","#FFB6C1"],
-    ["YELLOW","#FFFF00"],["CYAN","#00FFFF"],["VIOLET","#8F00FF"],["SKY_BLUE","#87CEEB"],
-    ["LIGHT_YELLOW","#FFFFD0"],["LIGHT_CYAN","#E0FFFF"],["LIGHT_MAGENTA","#FF80FF"],["LIGHT_SKY_BLUE","#87CEFF"]
-  ]
-};
-
-let scripts = [];
-let current = null;
-let dirty = false;
-let aliases = [];
-
-function $(id){ return document.getElementById(id); }
-
-document.addEventListener("DOMContentLoaded", async () => {
-  console.log("[WEBUI][SCRIPTS_EDITOR] Initializing editor");
-  buildLamps();
-  loadRemoteDatabase();
-  await loadScripts();
-  newScript();
-  console.log("[WEBUI][SCRIPTS_EDITOR] Editor initialization complete");
-});
-
-function buildLamps(){
-  $("lamps").innerHTML = "";
-  for(let i=1;i<=12;i++){
-    const d=document.createElement("label");
-    d.className="lamp";
-    d.innerHTML=`<input type="checkbox" value="${i}"><span>${i}</span>`;
-    $("lamps").appendChild(d);
-  }
-}
-
-async function loadScripts(){
-  console.log("[WEBUI][SCRIPTS_EDITOR] Loading scripts from server");
-  try{
-    const r=await fetch("/api/action-scripts");
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    const data=await r.json();
-    scripts=Array.isArray(data)?data:(data.scripts||[]);
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Loaded ${scripts.length} scripts`);
-    renderScriptList();
-  }catch(e){
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Error loading scripts: ${e.message}`);
-    scripts=[];
-    renderScriptList();
-    setStatus("Could not load scripts: "+e.message,true);
-  }
-}
-
-function renderScriptList(){
-  const list=$("scriptList");
-  list.innerHTML="";
-  if(!scripts.length){
-    list.innerHTML='<div class="empty">No saved scripts.</div>';
-    return;
-  }
-  scripts.forEach(s=>{
-    const el=document.createElement("div");
-    el.className="script-item"+(current && current.id===s.id?" active":"");
-    el.onclick=()=>selectScript(s.id);
-    el.innerHTML=`<div class="name">${escapeHtml(s.name||"Unnamed")}</div>
-                  <div class="id">${s.id??""}</div>`;
-    list.appendChild(el);
-  });
-}
-
-function selectScript(id){
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Selecting script with ID: ${id}`);
-  const found=scripts.find(s=>String(s.id)===String(id));
-  if(!found) {
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Script not found with ID: ${id}`);
-    return;
-  }
-  current=deepCopy(found);
-  aliases=normaliseAliases(current.aliases);
-  $("name").value=current.name||"";
-  renderAliases();
-  renderCommands();
-  clearLampSelection();
-  $("pageTitle").textContent=current.name||"Script";
-  dirty=false;
-  updateDirty();
-  renderScriptList();
-  updateSummary();
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Selected script: ${current.name} with ${current.commands?.length || 0} commands`);
-}
-
-function newScript(){
-  console.log("[WEBUI][SCRIPTS_EDITOR] Creating new script");
-  current={id:null,name:"",aliases:[],commands:[]};
-  aliases=[];
-  $("name").value="";
-  renderAliases();
-  renderCommands();
-  clearLampSelection();
-  $("pageTitle").textContent="New script";
-  dirty=false;
-  updateDirty();
-  renderScriptList();
-  updateSummary();
-  setStatus("");
-  $("name").focus();
-}
-
-function normaliseAliases(value){
-  if(Array.isArray(value)) return value.map(String).filter(Boolean);
-  if(typeof value==="string"){
-    try{
-      const parsed=JSON.parse(value);
-      if(Array.isArray(parsed)) return parsed.map(String).filter(Boolean);
-    }catch(_){}
-    return value.split(",").map(x=>x.trim()).filter(Boolean);
-  }
-  return [];
-}
-
-function addAlias(){
-  const input=$("aliasInput");
-  const alias=input.value.trim();
-  if(!alias) return;
-  if(aliases.some(a=>a.toLowerCase()===alias.toLowerCase())){
-    setStatus("That alias already exists.",true); return;
-  }
-  if(alias.toLowerCase()===(($("name").value||"").trim().toLowerCase())){
-    setStatus("Alias is the same as the script name.",true); return;
-  }
-  aliases.push(alias);
-  input.value="";
-  renderAliases();
-  markDirty();
-}
-
-function removeAlias(index){
-  aliases.splice(index,1);
-  renderAliases();
-  markDirty();
-}
-
-function renderAliases(){
-  $("aliases").innerHTML=aliases.map((a,i)=>
-    `<span class="alias">${escapeHtml(a)} <button onclick="removeAlias(${i})" title="Remove">×</button></span>`
-  ).join("");
-}
-
-function clearLampSelection(){
-  document.querySelectorAll("#lamps input").forEach(x=>x.checked=false);
-}
-
-function selectedLamps(){
-  return [...document.querySelectorAll("#lamps input:checked")].map(x=>Number(x.value));
-}
-
-function updateLivingPreview(){
-  $("livingHex").textContent=$("livingColor").value.toUpperCase();
-}
-
-function addLiving(){
-  const lamps=selectedLamps();
-  if(!lamps.length){setStatus("Select at least one LivingColors lamp.",true);return;}
-  const hex=$("livingColor").value.toUpperCase();
-  const {r,g,b}=hexToRgb(hex);
-  lamps.forEach(lamp=>{
-    current.commands.push(`living ${lamp} rgb ${r} ${g} ${b}`);
-  });
-  renderCommands(); markDirty();
-}
-
-async function testLiving(){
-  const lamps=selectedLamps();
-  if(!lamps.length){setStatus("Select at least one LivingColors lamp.",true);return;}
-  const hex=$("livingColor").value.toUpperCase();
-  const {r,g,b}=hexToRgb(hex);
-  const commands=lamps.map(lamp=>`living ${lamp} rgb ${r} ${g} ${b}`);
-  await executeTemporary(commands,"LivingColors test");
-}
-
-function loadRemoteDatabase(){
-  const select=$("remote");
-  select.innerHTML="";
-  Object.keys(fallbackRemotes).forEach(id=>{
-    const o=document.createElement("option");
-    o.value=id;o.textContent=id;select.appendChild(o);
-  });
-  renderStripColors();
-}
-
-function renderStripColors(){
-  const remote=$("remote").value;
-  const colours=fallbackRemotes[remote]||[];
-  const box=$("stripColors");
-  box.innerHTML="";
-  colours.forEach((c,i)=>{
-    const id="stripColour_"+i;
-    const d=document.createElement("div");
-    d.className="strip-color";
-    d.innerHTML=`<input type="radio" name="stripColour" id="${id}" value="${c[1]}" data-name="${c[0]}" ${i===0?"checked":""}>
-      <label for="${id}"><span class="swatch" style="background:${c[1]}"></span><span>${escapeHtml(c[0])}</span></label>`;
-    box.appendChild(d);
-  });
-}
-
-function selectedStripColour(){
-  const input=document.querySelector('input[name="stripColour"]:checked');
-  if(!input) return null;
-  return {name:input.dataset.name,hex:input.value.toUpperCase()};
-}
-
-function addStrip(){
-  const remote=$("remote").value;
-  const colour=selectedStripColour();
-  if(!remote||!colour){setStatus("Select a remote and colour.",true);return;}
-  current.commands.push(`rgbstrip ${remote} ${colour.hex}`);
-  renderCommands(); markDirty();
-}
-
-async function testStrip(){
-  const remote=$("remote").value;
-  const colour=selectedStripColour();
-  if(!remote||!colour){setStatus("Select a remote and colour.",true);return;}
-  await executeTemporary([`rgbstrip ${remote} ${colour.hex}`],"RGB strip test");
-}
-
+const $=id=>document.getElementById(id);
+let scripts=[];
+let current=null;
+let aliases=[];
+let dirty=false;
+let dragIndex=null;
+const IR_REMOTE_FILES=["RGB_24KEY-R1.json","RGB_44KEY-R1.json","RGB_44KEY-R2.json"];
+const copy=o=>JSON.parse(JSON.stringify(o));
+function normaliseAliases(v){if(Array.isArray(v))return v.map(String).filter(Boolean);if(typeof v==='string')return v.split(',').map(x=>x.trim()).filter(Boolean);return[]}
+function commands(){return current?.commands||[]}
+function status(text,error=false,ok=false){const el=$('status');el.textContent=text||'';el.className='status'+(error?' error':ok?' ok':'')}
+function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderSummary(){const name=$('name').value.trim()||'Unnamed';$('summary').innerHTML='<strong>'+esc(name)+'</strong><br>'+commands().length+' command'+(commands().length===1?'':'s')+' · '+aliases.length+' alias'+(aliases.length===1?'':'es')}
+function renderAliases(){const box=$('aliases');box.innerHTML=aliases.map((a,i)=>'<span class="alias">'+esc(a)+' <button data-alias="'+i+'" type="button">×</button></span>').join('');document.querySelectorAll('[data-alias]').forEach(btn=>btn.onclick=()=>{aliases.splice(Number(btn.dataset.alias),1);renderAliases();markDirty()})}
 function renderCommands(){
-  const box=$("commands");
-  box.innerHTML="";
-  const commands=current?.commands||[];
-  if(!commands.length){
-    box.innerHTML='<div class="empty">No commands yet.</div>';
-    updateSummary(); return;
-  }
-  commands.forEach((cmd,i)=>{
-    const row=document.createElement("div");
-    row.className="command";
-    row.innerHTML=`<div class="command-num">${i+1}</div>
-      <div class="command-text" title="${escapeHtml(cmd)}">${escapeHtml(cmd)}</div>
-      <div class="actions">
-        <button class="small" onclick="moveCommand(${i},-1)" ${i===0?"disabled":""}>↑</button>
-        <button class="small" onclick="moveCommand(${i},1)" ${i===commands.length-1?"disabled":""}>↓</button>
-        <button class="small danger" onclick="deleteCommand(${i})">×</button>
-      </div>`;
+  const box=$('commands');
+  box.innerHTML='';
+  if(!commands().length){box.innerHTML='<div class="empty">No commands yet. Add one below.</div>';renderSummary();return;}
+  commands().forEach((value,i)=>{
+    const row=document.createElement('div');
+    row.className='command';
+    row.draggable=true;
+    row.dataset.index=i;
+    row.innerHTML='<div class="number">'+(i+1)+'</div><input value="'+esc(value)+'" aria-label="Command '+(i+1)+'"><div class="command-tools"><button class="small" '+(i?'':'disabled')+' data-up type="button">↑</button><button class="small" '+(i<commands().length-1?'':'disabled')+' data-down type="button">↓</button><button class="small danger" data-remove type="button">×</button></div>';
+    const input=row.querySelector('input');
+    input.oninput=()=>{commands()[i]=input.value;markDirty()};
+    row.querySelector('[data-up]').onclick=()=>move(i,-1);
+    row.querySelector('[data-down]').onclick=()=>move(i,1);
+    row.querySelector('[data-remove]').onclick=()=>{commands().splice(i,1);renderCommands();markDirty()};
+    row.addEventListener('dragstart',e=>{dragIndex=i;row.classList.add('dragging');e.dataTransfer.effectAllowed='move';});
+    row.addEventListener('dragend',()=>{dragIndex=null;row.classList.remove('dragging');document.querySelectorAll('.command').forEach(el=>el.classList.remove('drop-target'))});
+    row.addEventListener('dragover',e=>{e.preventDefault();row.classList.add('drop-target');});
+    row.addEventListener('dragleave',()=>row.classList.remove('drop-target'));
+    row.addEventListener('drop',e=>{e.preventDefault();row.classList.remove('drop-target');if(dragIndex==null)return;const from=dragIndex;const to=i;dragIndex=null;reorder(from,to)});
     box.appendChild(row);
   });
-  updateSummary();
+  renderSummary();
 }
-
-function moveCommand(index,direction){
-  const to=index+direction;
-  if(to<0||to>=current.commands.length)return;
-  [current.commands[index],current.commands[to]]=[current.commands[to],current.commands[index]];
-  renderCommands(); markDirty();
-}
-
-function deleteCommand(index){
-  current.commands.splice(index,1);
-  renderCommands(); markDirty();
-}
-
-async function saveScript(){
-  const name=$("name").value.trim();
-  if(!name){setStatus("Script name is required.",true);$("name").focus();return;}
-  if(!current) newScript();
-
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Saving script: ${name}`);
-  const payload={
-    id:current.id,
-    name:name,
-    aliases:[...aliases],
-    commands:[...current.commands]
-  };
-  if(payload.id===null || payload.id===undefined) delete payload.id;
-
+function reorder(from,to){if(from===to||from<0||to<0||from>=commands().length||to>=commands().length)return;const item=commands().splice(from,1)[0];commands().splice(to,0,item);renderCommands();markDirty()}
+function move(i,d){const j=i+d;if(j<0||j>=commands().length)return;reorder(i,j)}
+function newScript(){current={id:null,name:'',aliases:[],commands:[]};aliases=[];$('name').value='';renderAliases();renderCommands();dirty=false;$('dirty').textContent='';$('title').textContent='New script';renderList();status('');$('name').focus()}
+function select(id){const found=scripts.find(s=>String(s.id)===String(id));if(!found)return;current=copy(found);current.commands=Array.isArray(current.commands)?current.commands.map(String):[];aliases=normaliseAliases(current.aliases);$('name').value=current.name||'';dirty=false;$('dirty').textContent='';$('title').textContent=current.name||'Script';renderAliases();renderCommands();renderList();status('')}
+function renderList(){const box=$('scriptList');box.innerHTML='';if(!scripts.length){box.innerHTML='<div class="empty">No saved scripts.</div>';return}scripts.forEach(s=>{const b=document.createElement('div');b.className='script'+(current&&String(current.id)===String(s.id)?' active':'');b.innerHTML='<span>'+esc(s.name||'Unnamed')+'</span><small>#'+esc(s.id)+'</small>';b.onclick=()=>select(s.id);box.appendChild(b)})}
+async function load(){try{const r=await fetch('/api/action-scripts');if(!r.ok)throw Error('HTTP '+r.status);const data=await r.json();scripts=Array.isArray(data)?data:(data.scripts||[]);renderList()}catch(e){scripts=[];renderList();status('Could not load scripts: '+e.message,true)}}
+function normalizeHex(hex){const h=String(hex||'').replace('#','').trim();return h.length===6?('#'+h.toUpperCase()):''}
+function rgb(hex){const h=String(hex||'').replace('#','').trim();if(h.length!==6)return[0,0,0];return[parseInt(h.slice(0,2),16),parseInt(h.slice(2,4),16),parseInt(h.slice(4,6),16)]}
+function populatedRemoteColors(){return Array.from(new Map((irState.remotes||[]).flatMap(remote=>remote.colors.map(c=>[c.nominalColor.toUpperCase()+':'+remote.id,c]))).values())}
+function renderRemoteColors(){const remoteId=$('remote').value;const remote=(irState.remotes||[]).find(r=>r.id===remoteId);const box=$('stripColors');box.innerHTML='';if(!remote){box.innerHTML='<div class="hint">Choose a remote to see available colours.</div>';return;}const seen=new Map();remote.colors.forEach(c=>{const key=(c.nominalColor||'').toUpperCase();if(!key||seen.has(key))return;seen.set(key,true);const opt=document.createElement('label');opt.style.display='flex';opt.style.alignItems='center';opt.style.gap='8px';opt.style.padding='8px 10px';opt.style.border='1px solid var(--line)';opt.style.borderRadius='8px';opt.style.cursor='pointer';opt.innerHTML='<input type="radio" name="stripChoice" value="'+esc(c.nominalColor.toUpperCase())+'" '+(seen.size===1?'checked':'')+'><span class="swatch" style="background:'+esc(c.nominalColor.toUpperCase())+'"></span><span>'+esc(c.name||c.nominalColor.toUpperCase())+'</span>';box.appendChild(opt)})}
+function stripCommand(){const remoteId=$('remote').value;const color = document.querySelector('input[name="stripChoice"]:checked')?.value;if(!remoteId||!color){status('Choose a remote and a colour first.',true);return null;}return 'rgbstrip '+remoteId+' '+String(color).toUpperCase();}
+async function loadRemoteDatabase(){
+  irState={remotes:[]};
+  const select=$('remote');
+  select.innerHTML='<option value="">Loading remotes…</option>';
   try{
-    setStatus("Saving…");
-    const r=await fetch("/api/action-scripts",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify(payload)
-    });
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    const response=await r.json().catch(()=>null);
-
-    // Backend may return the saved object, an object containing it, or no body.
-    const saved=response?.script || response;
-    if(saved && typeof saved==="object" && !Array.isArray(saved) && saved.name){
-      console.log(`[WEBUI][SCRIPTS_EDITOR] Script saved with ID: ${saved.id}`);
-      current=deepCopy(saved);
-    }else{
-      console.log("[WEBUI][SCRIPTS_EDITOR] Script saved but no ID returned");
-      current={...payload};
-      if(current.id==null && response?.id!=null) current.id=response.id;
-    }
-
-    await loadScripts();
-    if(current.id!=null) selectScript(current.id);
-    else{
-      dirty=false; updateDirty();
-      $("pageTitle").textContent=current.name;
-    }
-    setStatus("Saved.",false,true);
-  }catch(e){
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Save failed: ${e.message}`);
-    setStatus("Save failed: "+e.message,true);
-  }
+    const entries=await Promise.all(IR_REMOTE_FILES.map(async file=>{try{const r=await fetch('/ir_db/'+file);if(!r.ok)return null;const data=await r.json();if(!data||!Array.isArray(data.buttons))return null;const remoteId=data.id||file.replace(/\.json$/,'');const colors=[];for(const btn of data.buttons){const nominal=normalizeHex(btn.nominal_color||btn.virtual_color||'');if(!nominal) continue;const name=(btn.name||'').toUpperCase();colors.push({name, nominalColor: nominal});}if(!colors.length)return null;return {id:remoteId,name:data.name||remoteId,colors:colors};}catch{return null;}}));
+    irState.remotes = entries.filter(Boolean);
+    if(!irState.remotes.length){select.innerHTML='<option value="">No IR remotes found</option>';status('No IR database remotes were found in /ir_db/.',true);return;}
+    select.innerHTML='';
+    irState.remotes.forEach(remote=>{const o=document.createElement('option');o.value=remote.id;o.textContent=remote.name||remote.id;select.appendChild(o);});
+    if(select.options.length){select.value=irState.remotes[0].id;renderRemoteColors();}
+  }catch(e){select.innerHTML='<option value="">IR DB unavailable</option>';status('Could not load IR remote database: '+e.message,true)}
 }
-
-async function deleteCurrentScript(){
-  if(!current?.id){newScript();return;}
-  if(!confirm(`Delete "${current.name||"this script"}"?`)) return;
-
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Deleting script: ${current.name} (ID: ${current.id})`);
-  try{
-    const r=await fetch("/api/action-scripts?id="+encodeURIComponent(current.id),{method:"DELETE"});
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    await loadScripts();
-    newScript();
-    setStatus("Deleted.",false,true);
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Script deleted successfully`);
-  }catch(e){
-    console.log(`[WEBUI][SCRIPTS_EDITOR] Delete failed: ${e.message}`);
-    setStatus("Delete failed: "+e.message,true);
-  }
-}
-
-async function runCurrentScript(){
-  if(!current){return;}
-  if(!current.commands?.length){setStatus("The script has no commands.",true);return;}
-
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Executing script: ${current.name} with ${current.commands.length} commands`);
-  await executeTemporary(current.commands,"Script");
-}
-
-async function executeTemporary(commands,label){
-  const temp={
-    name:"__EDITOR_TEST__",
-    aliases:[],
-    commands:[...commands]
-  };
-
-  console.log(`[WEBUI][SCRIPTS_EDITOR] Executing ${label} with ${commands.length} commands`);
-  try{
-    setStatus(label+"…");
-    const r=await fetch("/api/execute-script",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body:JSON.stringify({script:JSON.stringify(temp)})
-    });
-    if(!r.ok) throw new Error("HTTP "+r.status);
-    const data=await r.json().catch(()=>null);
-    if(data && data.success===false) throw new Error(data.message||"Command failed");
-    console.log(`[WEBUI][SCRIPTS_EDITOR] ${label} executed successfully`);
-    setStatus(label+" sent.",false,true);
-  }catch(e){
-    console.log(`[WEBUI][SCRIPTS_EDITOR] ${label} execution failed: ${e.message}`);
-    setStatus(label+" failed: "+e.message,true);
-  }
-}
-
-function markDirty(){
-  dirty=true;
-  updateDirty();
-  $("pageTitle").textContent=$("name").value.trim()||"New script";
-  updateSummary();
-}
-
-function updateDirty(){
-  $("dirty").textContent=dirty?"● Unsaved changes":"";
-}
-
-function updateSummary(){
-  const name=$("name").value.trim()||"Unnamed";
-  const commands=current?.commands?.length||0;
-  $("scriptSummary").innerHTML=
-    `<strong>${escapeHtml(name)}</strong><br>`+
-    `${commands} command${commands===1?"":"s"}<br>`+
-    `${aliases.length} alias${aliases.length===1?"":"es"}`;
-}
-
-function setStatus(message,error=false,ok=false){
-  const el=$("status");
-  el.textContent=message||"";
-  el.className="status"+(error?" error":ok?" ok":"");
-}
-
-function hexToRgb(hex){
-  const h=hex.replace("#","");
-  return {
-    r:parseInt(h.substring(0,2),16),
-    g:parseInt(h.substring(2,4),16),
-    b:parseInt(h.substring(4,6),16)
-  };
-}
-
-function deepCopy(obj){return JSON.parse(JSON.stringify(obj));}
-function escapeHtml(value){
-  return String(value??"").replace(/[&<>"']/g,c=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-  }[c]));
-}
+function addLiving(){const lamps=$('lamps').value.split(',').map(x=>parseInt(x.trim(),10)).filter(x=>Number.isInteger(x)&&x>0);if(!lamps.length){status('Enter at least one lamp number.',true);return}const [r,g,b]=rgb($('livingColor').value);lamps.forEach(n=>commands().push('living '+n+' rgb '+r+' '+g+' '+b));renderCommands();markDirty()}
+async function execute(list,label){if(!list.length){status('There are no commands to execute.',true);return}try{status(label+'…');const temp={name:'__EDITOR_TEST__',aliases:[],commands:[...list]};const r=await fetch('/api/execute-script',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({script:JSON.stringify(temp)})});const data=await r.json().catch(()=>null);if(!r.ok||data?.success===false)throw Error(data?.message||'HTTP '+r.status);status(label+' sent.',false,true)}catch(e){status(label+' failed: '+e.message,true)}}
+function duplicateScript(){if(!current)return;const dup=copy(current);dup.id=null;dup.name=(dup.name||'Unnamed')+' Copy';dup.aliases=[...(dup.aliases||[])];current=dup;aliases=normaliseAliases(dup.aliases);$('name').value=dup.name;dirty=true;$('dirty').textContent='● Unsaved changes';renderAliases();renderCommands();status('Duplicate created. Save to keep it.',false,false)}
+async function save(){const name=$('name').value.trim();if(!name){status('A script name is required.',true);$('name').focus();return}const payload={name,aliases:[...aliases],commands:[...commands()]};if(current?.id!=null)payload.id=current.id;try{status('Saving…');const r=await fetch('/api/action-scripts',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});if(!r.ok)throw Error('HTTP '+r.status);await load();const saved=scripts.find(s=>String(s.id)===String(payload.id))||scripts.find(s=>s.name===name);if(saved)select(saved.id);else{current={...payload};dirty=false;$('dirty').textContent='';renderSummary();renderList()}status('Saved.',false,true)}catch(e){status('Save failed: '+e.message,true)}}
+async function remove(){if(!current?.id){newScript();return}if(!confirm('Delete "'+(current.name||'this script')+'"?'))return;try{const r=await fetch('/api/action-scripts?id='+encodeURIComponent(current.id),{method:'DELETE'});if(!r.ok)throw Error('HTTP '+r.status);await load();newScript();status('Deleted.',false,true)}catch(e){status('Delete failed: '+e.message,true)}}
+function markDirty(){dirty=true;$('dirty').textContent='● Unsaved changes';$('title').textContent=$('name').value.trim()||'New script';renderSummary()}
+$('newBtn').onclick=newScript;$('duplicateBtn').onclick=duplicateScript;$('saveBtn').onclick=save;$('deleteBtn').onclick=remove;$('name').oninput=markDirty;$('addAlias').onclick=()=>{const v=$('alias').value.trim();if(!v)return;if(!aliases.some(a=>a.toLowerCase()===v.toLowerCase())){aliases.push(v);$('alias').value='';renderAliases();markDirty()}};$('alias').onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();$('addAlias').click()}};$('addCommand').onclick=()=>{commands().push('');renderCommands();markDirty();const el=document.querySelector('#commands input:last-of-type');if(el)el.focus()};$('clearCommands').onclick=()=>{if(commands().length&&!confirm('Remove all commands?'))return;commands().length=0;renderCommands();markDirty()};$('addLiving').onclick=addLiving;$('testLiving').onclick=()=>{const lamps=$('lamps').value.split(',').map(x=>parseInt(x.trim(),10)).filter(x=>Number.isInteger(x)&&x>0);if(!lamps.length){status('Enter at least one lamp number.',true);return}const [r,g,b]=rgb($('livingColor').value);execute(lamps.map(n=>'living '+n+' rgb '+r+' '+g+' '+b),'LivingColors test')};$('addStrip').onclick=()=>{const command=stripCommand();if(!command)return;commands().push(command);renderCommands();markDirty()};$('testStrip').onclick=()=>{const command=stripCommand();if(command)execute([command],'RGB strip test')};$('remote').onchange=renderRemoteColors;$('runBtn').onclick=async()=>{if(current?.id!=null){try{status('Running…');const r=await fetch('/api/execute-script',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:current.id})});const data=await r.json().catch(()=>null);if(!r.ok||data?.success===false)throw Error(data?.message||'HTTP '+r.status);status('Run sent.',false,true)}catch(e){status('Run failed: '+e.message,true);return}}execute(commands(),'Run')};
+(async()=>{await loadRemoteDatabase();await load();newScript()})();
 </script>
 </body>
 </html>
+
 ```
 
 ---
@@ -1653,15 +1147,15 @@ function escapeHtml(value){
 ### <a id="📄-data-index-html"></a>📄 `data/index.html`
 
 **File Info:**
-- **Size**: 27.47 KB
+- **Size**: 30.18 KB
 - **Extension**: `.html`
 - **Language**: `html`
 - **Location**: `data/index.html`
 - **Relative Path**: `data`
-- **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 21:30:49 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `101c176150165ad0f2fd600b09bbec61`
-- **SHA256**: `2ba29700c2aac18a49d9cd96306b6054f325b0dbf358140865af493ca4e39148`
+- **Created**: 2026-09-18 16:44:03 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-18 16:44:03 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `3439004cda1175d957d1303d69d89cc6`
+- **SHA256**: `c8670082c279195a8f7d7698842680422dca34e2f8c1d1448d3b568e828fcd86`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -1670,8 +1164,9 @@ function escapeHtml(value){
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ESP32 Controller</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         :root {
             --bg: #0b1020;
@@ -1689,19 +1184,19 @@ function escapeHtml(value){
             --amber: #f59e0b;
             --red: #ef4444;
             --cyan: #38bdf8;
-            --shadow: 0 22px 48px rgba(0,0,0,.38);
+            --shadow: 0 22px 48px rgba(0, 0, 0, 0.38);
         }
 
         * { box-sizing: border-box; }
 
         html, body {
             margin: 0;
+            min-height: 100vh;
             background:
                 radial-gradient(circle at top, rgba(75, 104, 205, 0.22), transparent 30%),
                 linear-gradient(180deg, #0d1424 0%, #0b1020 100%);
             color: var(--text);
             font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            min-height: 100vh;
         }
 
         body {
@@ -1714,131 +1209,127 @@ function escapeHtml(value){
         }
 
         .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 16px 20px;
+            border: 1px solid var(--line);
+            background: rgba(10, 16, 28, 0.72);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 30;
-            background: linear-gradient(180deg, rgba(17,25,41,.9), rgba(12,18,31,.82));
-            backdrop-filter: blur(12px);
-            border: 1px solid var(--line);
-            border-radius: 18px;
-            padding: 14px 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 18px;
-            box-shadow: var(--shadow);
         }
 
         .brand {
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: 0.04em;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 14px;
+            min-width: 0;
         }
 
         .brand-mark {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: linear-gradient(180deg, #39f3a2, #1dbf72);
-            box-shadow: 0 0 14px rgba(34, 197, 94, 0.8);
-        }
-
-        .toolbar {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .heartbeat-wrap {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: 1px solid var(--line-strong);
-            padding: 8px 12px;
-            border-radius: 999px;
-            background: rgba(15, 23, 42, 0.9);
-        }
-
-        #time-display {
-            min-width: 110px;
-            text-align: center;
-            font-weight: 700;
-            color: #9ad3ff;
-            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
-        }
-
-        .led {
             width: 14px;
             height: 14px;
             border-radius: 50%;
-            background: #555;
-            box-shadow: inset 0 2px 8px rgba(0,0,0,.4);
-            transition: background-color .15s ease, box-shadow .15s ease;
-        }
-        .led.on { background: var(--green); box-shadow: 0 0 12px rgba(34,197,94,.8); }
-        .led.error { background: var(--red); box-shadow: 0 0 12px rgba(239,68,68,.8); }
-
-        .status-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 14px;
-            margin: 18px 0;
+            background: linear-gradient(135deg, var(--primary), var(--cyan));
+            box-shadow: 0 0 18px rgba(124, 156, 255, 0.8);
+            display: inline-block;
         }
 
-        .status-card {
-            background: linear-gradient(180deg, rgba(24,33,52,.98), rgba(14,21,33,.98));
-            border: 1px solid var(--line);
-            border-radius: 16px;
-            padding: 16px 18px;
-            box-shadow: var(--shadow);
+        .brand h1 {
+            margin: 0;
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            letter-spacing: 0.04em;
+            font-weight: 700;
         }
 
-        .status-card .label {
-            font-size: .72rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
+        .topbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .connection-state {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             color: var(--muted);
+            font-size: 0.9rem;
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .status-card .value {
-            margin-top: 10px;
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-            font-weight: 800;
-            color: #a9d7ff;
+        .led {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--muted);
+            box-shadow: 0 0 0 rgba(0,0,0,0);
+            transition: all 0.2s ease;
         }
 
-        .dashboard-grid {
+        .led.on {
+            background: var(--green);
+            box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
+        }
+
+        .led.error {
+            background: var(--red);
+            box-shadow: 0 0 14px rgba(239, 68, 68, 0.9);
+        }
+
+        .system-btn, .ghost-btn {
+            border: 1px solid var(--line-strong);
+            background: linear-gradient(180deg, rgba(124, 156, 255, 0.12), rgba(124, 156, 255, 0.02));
+            color: var(--text);
+            border-radius: 10px;
+            padding: 0.7rem 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.15s ease, border-color 0.15s ease, filter 0.15s ease;
+        }
+
+        .system-btn:hover, .ghost-btn:hover {
+            transform: translateY(-1px);
+            filter: brightness(1.08);
+        }
+
+        .system-btn.secondary, .ghost-btn.secondary {
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .system-btn.active {
+            border-color: rgba(124, 156, 255, 0.8);
+            box-shadow: inset 0 0 0 1px rgba(124, 156, 255, 0.4);
+        }
+
+        .content-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1.1fr 1fr;
-            gap: 16px;
-            margin-bottom: 16px;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 20px;
         }
 
         .panel {
-            position: relative;
-            background: linear-gradient(180deg, rgba(24,32,48,.94), rgba(15,20,31,.92));
+            background: var(--panel);
             border: 1px solid var(--line);
             border-radius: 18px;
-            box-shadow: var(--shadow);
             padding: 18px;
+            box-shadow: var(--shadow);
             overflow: hidden;
         }
 
-        .panel::before {
-            content: "";
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 3px;
-            background: linear-gradient(180deg, #7c9cff, #38bdf8, #22c55e);
-        }
-
-        .panel.wide {
-            margin-bottom: 16px;
-        }
+        .panel.wide { grid-column: span 12; }
+        .panel.large { grid-column: span 8; }
+        .panel.medium { grid-column: span 5; }
+        .panel.small { grid-column: span 4; }
 
         .panel-header {
             display: flex;
@@ -1851,292 +1342,408 @@ function escapeHtml(value){
         .panel-header h3 {
             margin: 0;
             font-size: 1.05rem;
+            letter-spacing: 0.04em;
+            color: var(--text);
         }
 
-        .scene-grid, .action-grid, .effect-grid,
-        .system-grid {
+        .stat-grid {
             display: grid;
-            gap: 10px;
+            grid-template-columns: repeat(5, minmax(120px, 1fr));
+            gap: 16px;
         }
 
-        .scene-grid, .action-grid {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        .stat-card {
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(124,156,255,0.04));
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px 14px;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .effect-grid, .system-grid {
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        .stat-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--muted);
         }
 
-        .scene-btn, .action-btn, .effect-btn, .system-btn, button {
-            border: 1px solid rgba(255,255,255,.06);
-            border-radius: 12px;
-            cursor: pointer;
-            transition: transform .15s ease, filter .15s ease, border-color .15s ease;
-            color: var(--text);
-        }
-
-        .scene-btn, .action-btn, .effect-btn, .system-btn {
-            padding: 12px 10px;
-            background: linear-gradient(180deg, rgba(68,83,118,.9), rgba(31,42,63,.9));
-            font-weight: 600;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 18px rgba(8,12,22,.18);
-        }
-
-        .scene-btn:hover, .action-btn:hover, .effect-btn:hover, .system-btn:hover, button:hover {
-            transform: translateY(-1px);
-            filter: brightness(1.08);
-            border-color: var(--line-strong);
-        }
-
-        .scene-btn.active, .action-btn.active {
-            background: linear-gradient(180deg, rgba(28, 118, 89, 1), rgba(21, 85, 75, 1));
-            border-color: rgba(34,197,94,.8);
-            box-shadow: inset 0 0 0 1px rgba(34,197,94,.2);
-        }
-
-        .effect-btn.primary { background: linear-gradient(180deg, rgba(52, 104, 181, 1), rgba(33, 76, 160, 1)); }
-        .effect-btn.warn { background: linear-gradient(180deg, rgba(188, 112, 24, 1), rgba(124, 77, 13, 1)); }
-        .effect-btn.safe { background: linear-gradient(180deg, rgba(23, 128, 92, 1), rgba(17, 93, 67, 1)); }
-        .effect-btn.danger { background: linear-gradient(180deg, rgba(149, 38, 38, 1), rgba(97, 20, 20, 1)); }
-
-        button {
-            background: linear-gradient(180deg, rgba(86, 114, 195, 1), rgba(52, 72, 126, 1));
-            padding: 9px 12px;
+        .stat-value {
+            font-size: clamp(1.4rem, 2vw, 2.1rem);
             font-weight: 700;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 12px 18px rgba(5,8,16,.18);
+            letter-spacing: 0.02em;
+            word-break: break-word;
         }
 
-        button.secondary {
-            background: linear-gradient(180deg, rgba(90, 96, 110, 1), rgba(58, 64, 76, 1));
+        .stat-meta {
+            font-size: 0.75rem;
+            color: var(--muted);
         }
 
-        button.ghost {
-            background: rgba(255,255,255,.04);
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .metric-box {
+            background: rgba(255,255,255,0.02);
             border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 14px;
         }
 
-        select {
-            background: rgba(11, 20, 30, 1);
+        .metric-box-label {
+            color: var(--muted);
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .metric-box-value {
+            margin-top: 10px;
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-top: 8px;
+        }
+
+        .scene-btn, .script-btn {
+            border: 1px solid var(--line);
+            background: rgba(255,255,255,0.02);
             color: var(--text);
+            border-radius: 12px;
+            padding: 12px 10px;
+            cursor: pointer;
+            transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+            text-align: left;
+        }
+
+        .scene-btn:hover, .script-btn:hover {
+            transform: translateY(-1px);
+            border-color: rgba(124, 156, 255, 0.55);
+        }
+
+        .scene-btn.active, .script-btn.active {
+            background: rgba(124, 156, 255, 0.12);
+            border-color: rgba(124, 156, 255, 0.8);
+        }
+
+        .list-box {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .mini-button {
+            width: 100%;
             border: 1px solid var(--line);
+            background: rgba(255,255,255,0.02);
+            color: var(--text);
             border-radius: 10px;
-            padding: 9px 10px;
-            min-width: 110px;
+            padding: 10px 12px;
+            text-align: left;
+            cursor: pointer;
+        }
+
+        .debug-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0 0 12px;
+        }
+
+        .debug-buttons .system-btn {
+            min-width: 48px;
+            padding: 8px 12px;
         }
 
         #log-window {
-            min-height: 260px;
-            max-height: 44vh;
-            overflow-y: auto;
-            padding: 14px;
-            background: rgba(8, 12, 20, 0.9);
+            min-height: 300px;
+            max-height: 420px;
+            overflow: auto;
+            background: rgba(2, 6, 23, 0.7);
             border: 1px solid var(--line);
-            border-radius: 16px;
-            font-family: "SFMono-Regular", Consolas, monospace;
-            font-size: 0.82rem;
+            border-radius: 12px;
+            padding: 12px;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+            font-size: 12px;
             line-height: 1.5;
+            color: #d9ebff;
             white-space: pre-wrap;
-            word-break: break-word;
-            color: #dfefff;
         }
 
-        .log-line { margin: 3px 0; border-bottom: 1px solid rgba(255,255,255,.04); }
-        .error-log { color: #ff9a9a; }
-        .highlight { color: #fef08a; font-weight: 700; }
-        .debug-buttons { display: flex; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
-        .debug-btn.active { background: linear-gradient(180deg, rgba(28, 118, 89, 1), rgba(21, 85, 75, 1)); border-color: rgba(34,197,94,.8); box-shadow: inset 0 0 0 1px rgba(34,197,94,.2); }
+        .log-line {
+            display: block;
+            margin: 0;
+        }
+
+        .log-line.warn { color: #fbbf24; }
+        .log-line.error { color: #fca5a5; }
+        .log-line.info { color: #7dd3fc; }
+        .log-line.debug { color: #a5b4fc; }
+        .log-line.ok { color: #86efac; }
+
+        .status-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding-top: 10px;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            padding: 6px 10px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .muted {
+            color: var(--muted);
+        }
 
         @media (max-width: 980px) {
-            .dashboard-grid { grid-template-columns: 1fr; }
+            .panel.large, .panel.medium, .panel.small {
+                grid-column: span 12;
+            }
+
+            .stat-grid {
+                grid-template-columns: repeat(2, minmax(120px, 1fr));
+            }
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 12px;
+            }
+
+            .topbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .topbar-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="page-shell">
         <header class="topbar">
-            <div class="brand"><span class="brand-mark"></span> Home Controller</div>
-            <div class="toolbar">
-                <div class="heartbeat-wrap">
-                    <span id="time-display">--:--:--</span>
-                    <span>Heartbeat</span>
-                    <div id="heartbeat-led" class="led"></div>
-                    <span id="connection-status" style="font-size:0.8rem;color: var(--muted);">Connecting...</span>
+            <div class="brand">
+                <span class="brand-mark"></span>
+                <h1>ESP32 Home Controller</h1>
+            </div>
+
+            <div class="topbar-actions">
+                <div class="connection-state">
+                    <span id="heartbeat-led" class="led on"></span>
+                    <span id="connection-status">Connected</span>
                 </div>
+                <button id="open-editor-btn" class="system-btn">Open Script Editor</button>
+                <button id="audio-test-btn" class="ghost-btn secondary">Audio Test</button>
             </div>
         </header>
 
-        <div class="status-grid">
-            <div class="status-card"><div class="label">Uptime</div><div id="uptime-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">Free Heap</div><div id="heap-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">CPU Load</div><div id="cpu-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">WiFi IP</div><div id="ip-value" class="value">--</div></div>
-            <div class="status-card"><div class="label">Mode</div><div id="mode-value" class="value">--</div></div>
-        </div>
-
-        <div class="dashboard-grid">
-            <section class="panel">
+        <main class="content-grid">
+            <section class="panel wide">
                 <div class="panel-header">
-                    <h3>Saved scenes</h3>
-                    <button class="ghost" id="refresh-scenes">Refresh</button>
+                    <h3>System overview</h3>
                 </div>
-                <div class="scene-grid" id="scenes-grid">
-                    <div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">Loading scenes...</div>
+                <div class="stat-grid">
+                    <div class="stat-card">
+                        <div class="stat-label">Uptime</div>
+                        <div id="uptime-value" class="stat-value">--</div>
+                        <div class="stat-meta">Runtime</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Free heap</div>
+                        <div id="heap-value" class="stat-value">--</div>
+                        <div class="stat-meta">Available memory</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">CPU</div>
+                        <div id="cpu-value" class="stat-value">--</div>
+                        <div class="stat-meta">Load</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">IP</div>
+                        <div id="ip-value" class="stat-value">--</div>
+                        <div class="stat-meta">Network</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Mode</div>
+                        <div id="mode-value" class="stat-value">--</div>
+                        <div class="stat-meta">System mode</div>
+                    </div>
                 </div>
             </section>
 
-            <section class="panel">
+            <section class="panel medium">
                 <div class="panel-header">
-                    <h3>Effects</h3>
+                    <h3>Quick actions</h3>
                 </div>
-                <div class="effect-grid">
-                    <button class="effect-btn primary" data-effect="rainbow">Rainbow</button>
-                    <button class="effect-btn primary" data-effect="chase">Chase</button>
-                    <button class="effect-btn warn" data-effect="pulse">Pulse</button>
-                    <button class="effect-btn safe" data-effect="night">Night</button>
-                    <button class="effect-btn safe" data-effect="party">Party</button>
-                    <button class="effect-btn danger" data-effect="off">Off</button>
-                </div>
-            </section>
-
-            <section class="panel">
-                <div class="panel-header">
-                    <h3>System</h3>
-                </div>
-                <div class="system-grid">
-                    <button class="system-btn" id="reboot-btn">Reboot</button>
+                <div class="toolbar">
                     <button class="system-btn" id="sync-time-btn">Sync time</button>
-                    <button class="system-btn" id="open-editor-btn">Editor</button>
-                    <button class="system-btn" id="audio-test-btn">Audio Test</button>
+                    <button class="system-btn secondary" id="refresh-status-btn">Refresh</button>
+                </div>
+
+                <div class="metrics-grid">
+                    <div class="metric-box">
+                        <div class="metric-box-label">Date</div>
+                        <div id="date-value" class="metric-box-value">--</div>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-box-label">Time</div>
+                        <div id="time-display" class="metric-box-value">--:--:--</div>
+                    </div>
+                </div>
+
+                <div class="status-row" style="margin-top: 14px;">
+                    <span class="pill"><span class="muted">Status</span> <strong id="status-pill">Idle</strong></span>
+                    <span class="muted" id="last-updated">--</span>
                 </div>
             </section>
-        </div>
 
-        <section class="panel wide">
-            <div class="panel-header">
-                <h3>Debug log</h3>
-            </div>
-            <div class="debug-buttons">
-                <button class="system-btn secondary" id="clear-log-btn">Clear log</button>
-                <button class="system-btn" id="save-log-btn">Save log</button>
-                <button class="system-btn secondary" id="pause-toggle-btn">Pause log</button>
-                <button class="system-btn" id="debug-btn-1">[1]</button>
-                <button class="system-btn" id="debug-btn-2">[2]</button>
-                <button class="system-btn" id="debug-btn-3">[3]</button>
-                <button class="system-btn" id="debug-btn-4">[4]</button>
-                <button class="system-btn" id="debug-btn-5">[5]</button>
-            </div>
-            <div id="log-window">Waiting for logs...</div>
-        </section>
+            <section class="panel medium">
+                <div class="panel-header">
+                    <h3>Scripts</h3>
+                </div>
+                <div id="scripts-grid" class="scenes-grid"></div>
+            </section>
+
+            <section class="panel wide">
+                <div class="panel-header">
+                    <h3>Scenes</h3>
+                </div>
+                <div id="scenes-grid" class="scenes-grid"></div>
+            </section>
+
+            <section class="panel wide">
+                <div class="panel-header">
+                    <h3>Debug log</h3>
+                </div>
+
+                <div class="debug-buttons">
+                    <button class="system-btn secondary" id="clear-log-btn">Clear log</button>
+                    <button class="system-btn" id="save-log-btn">Save log</button>
+                    <button class="system-btn secondary" id="pause-toggle-btn">Pause log</button>
+                    <button class="system-btn" id="debug-btn-1">[1]</button>
+                    <button class="system-btn" id="debug-btn-2">[2]</button>
+                    <button class="system-btn" id="debug-btn-3">[3]</button>
+                </div>
+
+                <div id="log-window">Waiting for logs...</div>
+            </section>
+        </main>
     </div>
 
     <script>
         let lastBeatTime = 0;
         let shouldAutoScroll = true;
         let liveLogEnabled = true;
-        let currentDebugLevel = 3; // Default to INFO level
+        let currentDebugLevel = 2;
 
         const led = document.getElementById('heartbeat-led');
         const statusText = document.getElementById('connection-status');
         const logWindow = document.getElementById('log-window');
         const timeDisplay = document.getElementById('time-display');
+        const dateValue = document.getElementById('date-value');
         const pauseToggleBtn = document.getElementById('pause-toggle-btn');
         const clearLogBtn = document.getElementById('clear-log-btn');
         const saveLogBtn = document.getElementById('save-log-btn');
         const debugBtn1 = document.getElementById('debug-btn-1');
         const debugBtn2 = document.getElementById('debug-btn-2');
         const debugBtn3 = document.getElementById('debug-btn-3');
-        const debugBtn4 = document.getElementById('debug-btn-4');
-        const debugBtn5 = document.getElementById('debug-btn-5');
         const syncTimeBtn = document.getElementById('sync-time-btn');
+        const refreshStatusBtn = document.getElementById('refresh-status-btn');
+        const statusPill = document.getElementById('status-pill');
+        const lastUpdated = document.getElementById('last-updated');
+
+        const scriptGrid = document.getElementById('scripts-grid');
+        const sceneGrid = document.getElementById('scenes-grid');
 
         logWindow.addEventListener('scroll', () => {
             const distanceFromBottom = logWindow.scrollHeight - logWindow.scrollTop - logWindow.clientHeight;
             shouldAutoScroll = distanceFromBottom < 40;
         });
-        
-        // Debug level management
-        function setDebugLevel(level) {
-            currentDebugLevel = level;
-            
-            // Update button states
-            [debugBtn1, debugBtn2, debugBtn3, debugBtn4, debugBtn5].forEach(btn => btn.classList.remove('active'));
-            
-            if (level === 1) debugBtn1.classList.add('active');
-            if (level === 2) debugBtn2.classList.add('active');
-            if (level === 3) debugBtn3.classList.add('active');
-            if (level === 4) debugBtn4.classList.add('active');
-            if (level === 5) debugBtn5.classList.add('active');
-            
-            // Send request to ESP32 to update debug level
-            fetch('/api/set-debug-level', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ level: level })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    console.log(`Debug level set to ${level}`);
-                } else {
-                    console.error(`Failed to set debug level: ${data.message}`);
-                }
-            })
-            .catch(error => {
-                console.error('Error setting debug level:', error);
-            });
+
+        function updateLastUpdated(label = 'Updated') {
+            const now = new Date();
+            const ts = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            lastUpdated.textContent = `${label} ${ts}`;
         }
-        
-        // Set initial debug level
-        setDebugLevel(currentDebugLevel);
-        
-        // Add click handlers to debug buttons
-        debugBtn1.addEventListener('click', () => setDebugLevel(1));
-        debugBtn2.addEventListener('click', () => setDebugLevel(2));
-        debugBtn3.addEventListener('click', () => setDebugLevel(3));
-        debugBtn4.addEventListener('click', () => setDebugLevel(4));
-        debugBtn5.addEventListener('click', () => setDebugLevel(5));
+
+        function setStatusPill(text, tone = 'neutral') {
+            statusPill.textContent = text;
+            statusPill.style.color = tone === 'ok' ? '#86efac' : tone === 'warn' ? '#fbbf24' : tone === 'error' ? '#fca5a5' : '#dfeafe';
+        }
+
+        function escapeHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
 
         function filterLogHtml(rawHtml) {
             const chosen = 'ALL';
             if (chosen === 'ALL') return rawHtml;
-
-            const lines = String(rawHtml || '').split('\n').filter(line => line.trim().length > 0);
-            const filtered = lines.filter(line => {
-                const plain = line.replace(/<[^>]*>/g, '').toLowerCase();
-                if (chosen === 'INFO') {
-                    return plain.includes('info') || plain.includes('startup') || plain.includes('ready') || plain.includes('initialized') || plain.includes('loading');
-                }
-                if (chosen === 'WARN') {
-                    return plain.includes('warn') || plain.includes('warning') || plain.includes('sync') || plain.includes('not synchronized');
-                }
-                if (chosen === 'ERROR') {
-                    return plain.includes('error') || plain.includes('failed') || plain.includes('fatal');
-                }
-                if (chosen === 'DEBUG') {
-                    return plain.includes('debug') || plain.includes('core') || plain.includes('webui') || plain.includes('script') || plain.includes('storage') || plain.includes('rf') || plain.includes('ir');
-                }
-                return true;
-            });
-
-            return filtered.join('\n');
+            return rawHtml;
         }
 
-        // The connection label is transport-only. Endpoint successes and errors
-        // are reported by the firmware and appear in the debug log below.
-        function setLiveLogState(enabled) {
-            liveLogEnabled = enabled;
-            pauseToggleBtn.textContent = enabled ? 'Pause log' : 'Resume log';
-            pauseToggleBtn.classList.toggle('secondary', !enabled);
-        }
+        function setDebugLevel(level) {
+            currentDebugLevel = level;
+            [debugBtn1, debugBtn2, debugBtn3].forEach(btn => btn.classList.remove('active'));
+            if (level === 1) debugBtn1.classList.add('active');
+            if (level === 2) debugBtn2.classList.add('active');
+            if (level === 3) debugBtn3.classList.add('active');
 
-        function updateClock() {
-            const d = new Date();
-            timeDisplay.textContent = d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            fetch('/api/set-debug-level', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ level: level })
+            })
+            .then(response => response.ok ? response.json() : Promise.reject())
+            .then(data => {
+                if (data && data.success) {
+                    console.log('Debug level set to ' + level);
+                }
+            })
+            .catch(() => {});
         }
 
         function formatUptime(ms) {
+            if (!ms || ms < 0) return '--';
             const totalSeconds = Math.floor(ms / 1000);
             const hours = Math.floor(totalSeconds / 3600);
             const minutes = Math.floor((totalSeconds % 3600) / 60);
@@ -2144,25 +1751,11 @@ function escapeHtml(value){
             return `${hours}h ${minutes}m ${seconds}s`;
         }
 
-        // Send time in the same form-encoded `body` field used by the other
-        // POST routes. The firmware logs accepted and rejected sync attempts.
-        function syncTime() {
-            const now = Math.floor(Date.now() / 1000);
-            const timezoneOffsetMinutes = -new Date().getTimezoneOffset();
-            syncTimeBtn.disabled = true;
-            fetch('/api/set-time', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'body=' + encodeURIComponent(JSON.stringify({ time: now, timezoneOffsetMinutes }))
-            })
-                .then(response => response.ok ? response.json() : Promise.reject())
-                .then(() => {})
-                .catch(() => {
-                    syncTimeBtn.disabled = false;
-                })
-                .finally(() => {
-                    syncTimeBtn.disabled = false;
-                });
+        function formatClock(date) {
+            const h = String(date.getHours()).padStart(2, '0');
+            const m = String(date.getMinutes()).padStart(2, '0');
+            const s = String(date.getSeconds()).padStart(2, '0');
+            return `${h}:${m}:${s}`;
         }
 
         function updateStatusCards(data) {
@@ -2172,95 +1765,89 @@ function escapeHtml(value){
             const ipEl = document.getElementById('ip-value');
             const modeEl = document.getElementById('mode-value');
 
-            if (data) {
-                uptimeEl.textContent = formatUptime(data.uptimeMs || 0);
-                heapEl.textContent = `${Math.round((data.freeHeap || 0) / 1024)} KB`;
-                cpuEl.textContent = `${data.cpuLoadPercent ?? '--'}%`;
-                ipEl.textContent = data.ip || '--';
-                modeEl.textContent = data.mode || '--';
+            if (!data) return;
+
+            uptimeEl.textContent = formatUptime(data.uptimeMs || 0);
+            heapEl.textContent = `${Math.round((data.freeHeap || 0) / 1024)} KB`;
+            cpuEl.textContent = `${data.cpuLoadPercent ?? '--'}%`;
+            ipEl.textContent = data.ip || '--';
+            modeEl.textContent = data.mode || '--';
+
+            const now = new Date();
+            timeDisplay.textContent = formatClock(now);
+            dateValue.textContent = now.toLocaleDateString([], { weekday: 'short', month: 'short', day: 'numeric', year: 'numeric' });
+        }
+
+        function renderScriptButtons(data) {
+            scriptGrid.innerHTML = '';
+            if (!Array.isArray(data) || data.length === 0) {
+                scriptGrid.innerHTML = '<div class="muted">No scripts yet.</div>';
+                return;
             }
-        }
 
-        function loadScenes() {
-            // Refreshing the scene list is a read operation; the firmware logs
-            // the request while the response remains independent of connectivity.
-            fetch('/api/action-scripts')
-                .then(res => res.ok ? res.json() : null)
-                .then(data => {
-                    const grid = document.getElementById('scenes-grid');
-                    if (!Array.isArray(data)) {
-                        grid.innerHTML = '<div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">No scenes available.</div>';
-                        return;
-                    }
-
-                    grid.innerHTML = '';
-                    if (data.length === 0) {
-                        grid.innerHTML = '<div style="color: var(--muted); grid-column: 1/-1; text-align: center; padding: 22px 10px;">No scenes yet.</div>';
-                        return;
-                    }
-
-                    data.forEach(scene => {
-                        const btn = document.createElement('button');
-                        btn.className = 'scene-btn';
-                        btn.textContent = scene.name || 'Unnamed scene';
-                        btn.onclick = () => executeScript(scene.id, btn);
-                        grid.appendChild(btn);
+            data.forEach(script => {
+                const btn = document.createElement('button');
+                btn.className = 'script-btn';
+                btn.textContent = script.name || 'Unnamed script';
+                btn.title = `${(script.commands || []).length} commands`;
+                btn.onclick = () => {
+                    fetch('/api/execute-script', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: script.id })
+                    })
+                    .then(res => res.ok ? res.json() : Promise.reject())
+                    .then(data => {
+                        if (data && data.success) {
+                            btn.classList.add('active');
+                            setTimeout(() => btn.classList.remove('active'), 300);
+                            setStatusPill('Executed', 'ok');
+                            updateLastUpdated('Script run');
+                        }
+                    })
+                    .catch(() => {
+                        setStatusPill('Failed', 'error');
                     });
-                })
-                .catch(() => {});
+                };
+                scriptGrid.appendChild(btn);
+            });
         }
 
-        function executeScript(scriptId, btn) {
-            // The execution result is recorded by /api/execute-script. Do not
-            // replace the connection state with a one-off action message.
-            fetch('/api/execute-script', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: 'body=' + encodeURIComponent(JSON.stringify({ id: scriptId }))
-            })
-            .then(res => res.ok ? res.json() : Promise.reject())
-            .then(data => {
-                if (data && data.success) {
-                    btn.classList.add('active');
-                    setTimeout(() => btn.classList.remove('active'), 300);
-                }
-            })
-            .catch(() => {});
-        }
+        function renderSceneButtons(data) {
+            sceneGrid.innerHTML = '';
+            if (!Array.isArray(data) || data.length === 0) {
+                sceneGrid.innerHTML = '<div class="muted">No scenes available.</div>';
+                return;
+            }
 
-        function applyScene(sceneId, btn) {
-            fetch('/api/scenes/apply', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: sceneId })
-            })
-            .then(res => res.ok ? res.json() : null)
-            .then(data => {
-                if (data && data.success) {
-                    btn.classList.add('active');
-                    setTimeout(() => btn.classList.remove('active'), 300);
-                }
-            })
-            .catch(() => {});
-        }
-
-        function sendEffect(effect) {
-            const payload = { effect };
-            fetch('/api/effect', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            })
-            .then(res => res.ok ? res.json() : null)
-            .then(data => {
-                if (data && data.success) {
-                }
-            })
-            .catch(() => {});
+            data.forEach(scene => {
+                const btn = document.createElement('button');
+                btn.className = 'scene-btn';
+                btn.textContent = scene.name || 'Unnamed scene';
+                btn.onclick = () => {
+                    fetch('/api/scenes/apply', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: scene.id })
+                    })
+                    .then(res => res.ok ? res.json() : null)
+                    .then(data => {
+                        if (data && data.success) {
+                            btn.classList.add('active');
+                            setTimeout(() => btn.classList.remove('active'), 300);
+                            setStatusPill('Scene active', 'ok');
+                            updateLastUpdated('Scene applied');
+                        }
+                    })
+                    .catch(() => {
+                        setStatusPill('Scene failed', 'error');
+                    });
+                };
+                sceneGrid.appendChild(btn);
+            });
         }
 
         function fetchStatus() {
-            // Status is a heartbeat poll, not an action log event.
             fetch('/api/status')
                 .then(res => res.ok ? res.json() : null)
                 .then(data => {
@@ -2268,40 +1855,147 @@ function escapeHtml(value){
                         updateStatusCards(data);
                         lastBeatTime = Date.now();
                         led.className = data.heartbeat ? 'led on' : 'led';
+                        statusText.textContent = data.connected === false ? 'Disconnected' : 'Connected';
+                        statusText.style.color = data.connected === false ? '#fca5a5' : '#dfeafe';
+                        setStatusPill('Ready', 'ok');
+                        updateLastUpdated('Status');
                     }
                 })
-                .catch(() => {});
+                .catch(() => {
+                    led.className = 'led error';
+                    statusText.textContent = 'Disconnected';
+                    statusText.style.color = '#fca5a5';
+                    setStatusPill('Offline', 'error');
+                });
         }
 
-        function startPolling() {
-            setInterval(fetchLogs, 500);
+        function fetchScripts() {
+            fetch('/api/action-scripts')
+                .then(res => res.ok ? res.json() : null)
+                .then(data => {
+                    if (Array.isArray(data)) {
+                        renderScriptButtons(data);
+                    } else if (data && Array.isArray(data.scripts)) {
+                        renderScriptButtons(data.scripts);
+                    } else {
+                        scriptGrid.innerHTML = '<div class="muted">No scripts yet.</div>';
+                    }
+                })
+                .catch(() => {
+                    scriptGrid.innerHTML = '<div class="muted">Unable to load scripts.</div>';
+                });
+        }
+
+        function fetchScenes() {
+            fetch('/api/scenes')
+                .then(res => res.ok ? res.json() : null)
+                .then(data => {
+                    if (Array.isArray(data)) {
+                        renderSceneButtons(data);
+                    } else if (data && Array.isArray(data.scenes)) {
+                        renderSceneButtons(data.scenes);
+                    } else {
+                        sceneGrid.innerHTML = '<div class="muted">No scenes available.</div>';
+                    }
+                })
+                .catch(() => {
+                    sceneGrid.innerHTML = '<div class="muted">Unable to load scenes.</div>';
+                });
         }
 
         function fetchLogs() {
             if (!liveLogEnabled) return;
 
-            // This label is reserved for transport state; action results belong in the debug log.
             fetch('/api/logs')
                 .then(response => response.text())
                 .then(text => {
-                    statusText.innerText = 'Connected';
-                    statusText.style.color = '#8df0b5';
+                    statusText.textContent = 'Connected';
+                    statusText.style.color = '#dfeafe';
                     lastBeatTime = Date.now();
+                    led.className = 'led on';
 
                     logWindow.innerHTML = filterLogHtml(text);
                     if (shouldAutoScroll) {
                         logWindow.scrollTop = logWindow.scrollHeight;
                     }
-
                 })
                 .catch(() => {
-                    statusText.innerText = 'Disconnected';
+                    statusText.textContent = 'Disconnected';
                     statusText.style.color = '#fca5a5';
                     if (Date.now() - lastBeatTime > 2000) {
                         led.className = 'led error';
                     }
                 });
         }
+
+        function clearLog() {
+            logWindow.textContent = 'Log cleared.';
+            fetch('/api/logs/clear', { method: 'POST' }).catch(() => {});
+        }
+
+        function saveLog() {
+            fetch('/api/logs')
+                .then(res => res.text())
+                .then(text => {
+                    const blob = new Blob([text], { type: 'text/plain' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = 'esp32-log.txt';
+                    a.click();
+                    URL.revokeObjectURL(url);
+                    setStatusPill('Saved', 'ok');
+                    updateLastUpdated('Log saved');
+                })
+                .catch(() => {
+                    setStatusPill('Save failed', 'error');
+                });
+        }
+
+        function syncTime() {
+            const now = Math.floor(Date.now() / 1000);
+            const timezoneOffsetMinutes = -new Date().getTimezoneOffset();
+            syncTimeBtn.disabled = true;
+
+            fetch('/api/set-time', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: 'body=' + encodeURIComponent(JSON.stringify({ time: now, timezoneOffsetMinutes }))
+            })
+            .then(res => res.ok ? res.json() : Promise.reject())
+            .then(() => {
+                setStatusPill('Time synced', 'ok');
+                updateLastUpdated('Time synced');
+            })
+            .catch(() => {
+                setStatusPill('Sync failed', 'error');
+            })
+            .finally(() => {
+                syncTimeBtn.disabled = false;
+            });
+        }
+
+        function startPolling() {
+            setInterval(fetchStatus, 2000);
+            setInterval(fetchLogs, 800);
+            setInterval(fetchScripts, 10000);
+            setInterval(fetchScenes, 15000);
+        }
+
+        pauseToggleBtn.addEventListener('click', () => {
+            liveLogEnabled = !liveLogEnabled;
+            pauseToggleBtn.textContent = liveLogEnabled ? 'Pause log' : 'Resume log';
+            pauseToggleBtn.classList.toggle('secondary', !liveLogEnabled);
+        });
+
+        clearLogBtn.addEventListener('click', clearLog);
+        saveLogBtn.addEventListener('click', saveLog);
+        syncTimeBtn.addEventListener('click', syncTime);
+        refreshStatusBtn.addEventListener('click', () => {
+            fetchStatus();
+            fetchScripts();
+            fetchScenes();
+        });
 
         document.getElementById('open-editor-btn').addEventListener('click', () => {
             window.open('/action_scripts.html', '_blank');
@@ -2311,63 +2005,16 @@ function escapeHtml(value){
             window.open('/audio_test.html', '_blank');
         });
 
-        document.getElementById('refresh-scenes').addEventListener('click', loadScenes);
+        debugBtn1.addEventListener('click', () => setDebugLevel(1));
+        debugBtn2.addEventListener('click', () => setDebugLevel(2));
+        debugBtn3.addEventListener('click', () => setDebugLevel(3));
 
-        document.getElementById('reboot-btn').addEventListener('click', () => {
-            // Unsupported controls still reach an explicit firmware route so
-            // the debug log explains why the request was rejected.
-            fetch('/api/reboot', { method: 'POST' }).catch(() => {});
-        });
-
-        // Manual retry for browsers that opened before the clock was ready or
-        // whose first synchronization request was interrupted.
-        syncTimeBtn.addEventListener('click', syncTime);
-
-        clearLogBtn.addEventListener('click', () => {
-            fetch('/api/logs/clear', { method: 'POST' })
-                .then(() => {
-                    logWindow.innerHTML = 'Log cleared';
-                    logWindow.scrollTop = logWindow.scrollHeight;
-                })
-                .catch(() => {});
-        });
-
-        saveLogBtn.addEventListener('click', () => {
-            fetch('/api/logs/save', { method: 'POST' })
-                .catch(() => {});
-        });
-
-        pauseToggleBtn.addEventListener('click', () => {
-            setLiveLogState(!liveLogEnabled);
-            if (liveLogEnabled) {
-                logWindow.scrollTop = logWindow.scrollHeight;
-            }
-        });
-
-        document.querySelectorAll('[data-effect]').forEach(button => {
-            button.addEventListener('click', () => sendEffect(button.dataset.effect));
-        });
-
-        window.onload = function() {
-            updateClock();
-            setInterval(updateClock, 1000);
-            setLiveLogState(true);
-            fetchStatus();
-            setInterval(fetchStatus, 500);
-            loadScenes();
-            setInterval(loadScenes, 5000);
-
-            syncTime();
-            startPolling();
-        };
-
-        setInterval(() => {
-            if (Date.now() - lastBeatTime > 2500) {
-                led.className = 'led error';
-                statusText.innerText = 'Disconnected';
-                statusText.style.color = '#fca5a5';
-            }
-        }, 1000);
+        setDebugLevel(currentDebugLevel);
+        fetchStatus();
+        fetchScripts();
+        fetchScenes();
+        fetchLogs();
+        startPolling();
     </script>
 </body>
 </html>
@@ -4947,15 +4594,15 @@ The following files were not included in the text content:
 ### <a id="📄-lib-core-core-cpp"></a>📄 `lib/Core/Core.cpp`
 
 **File Info:**
-- **Size**: 19.98 KB
+- **Size**: 18.32 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/Core/Core.cpp`
 - **Relative Path**: `lib/Core`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-17 01:12:39 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `57db35588068465d4993bf26e4085009`
-- **SHA256**: `b792cc011ade9622fb678722503745d6cb85a81303eef2bbe3e3423d0ef356a5`
+- **Modified**: 2026-09-18 19:25:02 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `d49a1347cfbbb6766f957b7410cc5b3a`
+- **SHA256**: `7e1dd69c891e7349fb4495b2f102bfdd6de1ce0310054d9cb374d5b234c6249b`
 - **Encoding**: UTF-8
 
 **File code content:**
@@ -4983,13 +4630,8 @@ The following files were not included in the text content:
 // Core without ever knowing about HardwareManager.
 //
 Core::Core()
-    : hardware(),
-      scriptManager(*this),
-      sceneManager(scriptManager),
-      webui (scriptManager, sceneManager, *this)
-{
-}
-
+    : hardware(), scriptManager(*this), sceneManager(scriptManager),
+      webui(scriptManager, sceneManager, *this) {}
 
 // -----------------------------------------------------------------------------
 // init
@@ -5007,129 +4649,123 @@ Core::Core()
 //
 // Therefore Core must NOT initialize Storage separately.
 //
-void Core::init()
-{
-    Debug::logSubsystemStatus(
-        "System",
-        "initializing",
-        "hardware -> translator -> scenes -> webui -> eventbus"
-    );
+void Core::init() {
 
-    // -------------------------------------------------------------------------
-    // Heartbeat
-    // -------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
+  // Heartbeat
+  // -------------------------------------------------------------------------
 
-    pinMode(HEARTBEAT_PIN, OUTPUT);
+  pinMode(HEARTBEAT_PIN, OUTPUT);
 
-    heartbeatState = LOW;
-    digitalWrite(HEARTBEAT_PIN, heartbeatState);
+  heartbeatState = LOW;
+  digitalWrite(HEARTBEAT_PIN, heartbeatState);
 
+  // -------------------------------------------------------------------------
+  // Hardware
+  // -------------------------------------------------------------------------
+  //
+  // HardwareManager owns storage initialization as well as all physical
+  // controllers.
+  //
 
-    // -------------------------------------------------------------------------
-    // Hardware
-    // -------------------------------------------------------------------------
-    //
-    // HardwareManager owns storage initialization as well as all physical
-    // controllers.
-    //
-
-#if DEBUG_LEVEL >= 2
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
     Debug::println(2, "[CORE] Initializing HardwareManager");
+  }
 #endif
 
-    hardware.init();
+  hardware.init();
 
+  // -------------------------------------------------------------------------
+  // Translator
+  // -------------------------------------------------------------------------
+  //
+  // Translator is responsible for converting external representations into
+  // the canonical command vocabulary used by Core.
+  //
 
-    // -------------------------------------------------------------------------
-    // Translator
-    // -------------------------------------------------------------------------
-    //
-    // Translator is responsible for converting external representations into
-    // the canonical command vocabulary used by Core.
-    //
-
-#if DEBUG_LEVEL >= 2
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
     Debug::println(2, "[CORE] Initializing Translator");
+  }
 #endif
 
-    Translator::init();
+  Translator::init();
 
-    // -------------------------------------------------------------------------
-    // ScriptManager
-    // -------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
+  // ScriptManager
+  // -------------------------------------------------------------------------
 
-#if DEBUG_LEVEL  >= 2
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
     Debug::println(2, "[CORE] Initializing ScriptManager");
+  }
 #endif
 
-    scriptManager.begin();
+  scriptManager.begin();
 
+  // -------------------------------------------------------------------------
+  // SceneManager
+  // -------------------------------------------------------------------------
 
-    // -------------------------------------------------------------------------
-    // SceneManager
-    // -------------------------------------------------------------------------
-
-#if DEBUG_LEVEL >= 2
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
     Debug::println(2, "[CORE] Initializing SceneManager");
+  }
 #endif
 
-    sceneManager.begin();
+  sceneManager.begin();
 
+  // -------------------------------------------------------------------------
+  // WebUI
+  // -------------------------------------------------------------------------
+  //
+  // WebUI receives references to ScriptManager and SceneManager.
+  //
+  // It does NOT initialize ScriptManager itself.
+  //
 
-    // -------------------------------------------------------------------------
-    // WebUI
-    // -------------------------------------------------------------------------
-    //
-    // WebUI receives references to ScriptManager and SceneManager.
-    //
-    // It does NOT initialize ScriptManager itself.
-    //
+  String fixedPassword = "admin123";
 
-    String fixedPassword = "admin123";
+  webui.setAuthentication(true, fixedPassword);
+  webui.setAPPassword(fixedPassword);
+  webui.setFixedPassword(fixedPassword);
 
-    webui.setAuthentication(true, fixedPassword);
-    webui.setAPPassword(fixedPassword);
-    webui.setFixedPassword(fixedPassword);
-
-#if DEBUG_LEVEL >= 2
-    Debug::println(
-        2,
-        "[CORE] Starting WebUI"
-    );
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[CORE] Starting WebUI");
+  }
 #endif
 
-    webui.begin();
+  webui.begin();
 
+  // -------------------------------------------------------------------------
+  // EventBus
+  // -------------------------------------------------------------------------
+  //
+  // HardwareManager publishes events.
+  //
+  // Core listens to those events and routes only the events that belong to
+  // application orchestration.
+  //
+  // Kaku is handled here and forwarded to SceneManager.
+  //
 
-    // -------------------------------------------------------------------------
-    // EventBus
-    // -------------------------------------------------------------------------
-    //
-    // HardwareManager publishes events.
-    //
-    // Core listens to those events and routes only the events that belong to
-    // application orchestration.
-    //
-    // Kaku is handled here and forwarded to SceneManager.
-    //
-
-#if DEBUG_LEVEL >= 2
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
     Debug::println(2, "[CORE] Registering EventBus listener");
+  }
 #endif
 
-    EventBus::getInstance().subscribe(
-        [this](const SystemEvent& evt)
-        {
-            this->handleSystemEvent(evt);
-        }
-    );
+  EventBus::getInstance().subscribe(
+      [this](const SystemEvent &evt) { this->handleSystemEvent(evt); });
 
-
-#if DEBUG_LEVEL >= 2
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
     Debug::println(2, "[CORE] Initialization complete");
+  }
 #endif
 }
-
 
 // -----------------------------------------------------------------------------
 // update
@@ -5140,38 +4776,30 @@ void Core::init()
 // HardwareManager is responsible for polling the physical controllers.
 // Core only performs application-level periodic work.
 //
-void Core::update()
-{
-    hardware.update();
+void Core::update() {
+  hardware.update();
 
+  // -------------------------------------------------------------------------
+  // Heartbeat
+  // -------------------------------------------------------------------------
 
-    // -------------------------------------------------------------------------
-    // Heartbeat
-    // -------------------------------------------------------------------------
+  if (millis() - lastHeartbeatTime >= 500) {
+    lastHeartbeatTime = millis();
 
-    if (millis() - lastHeartbeatTime >= 500)
-    {
-        lastHeartbeatTime = millis();
+    heartbeatState = !heartbeatState;
 
-        heartbeatState = !heartbeatState;
+    digitalWrite(HEARTBEAT_PIN, heartbeatState);
 
-        digitalWrite(
-            HEARTBEAT_PIN,
-            heartbeatState
-        );
+    webui.setHeartbeatState(heartbeatState);
 
-        webui.setHeartbeatState(heartbeatState);
-
-#if DEBUG_LEVEL >= 3
-        Debug::println(
-            3,
-            "[CORE][heartbeat] Heartbeat toggled to " +
-            String(heartbeatState ? "HIGH" : "LOW")
-        );
-#endif
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 5) {
+      Debug::println(3, "[CORE][heartbeat] Heartbeat toggled to " +
+                            String(heartbeatState ? "HIGH" : "LOW"));
     }
+#endif
+  }
 }
-
 
 // -----------------------------------------------------------------------------
 // EventBus handling
@@ -5190,99 +4818,69 @@ void Core::update()
 // Audio beats do NOT directly execute scripts here.
 // Those responsibilities belong to the higher-level systems.
 //
-void Core::handleSystemEvent(const SystemEvent& evt)
-{
-#if DEBUG_LEVEL >= 3
-
-    if (evt.source.equalsIgnoreCase("AUDIO"))
-    {
-        Debug::println(
-            3,
-            "[CORE][AUDIO] " +
-            evt.identifier +
-            " | " +
-            evt.rawData
-        );
+void Core::handleSystemEvent(const SystemEvent &evt) {
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 3) {
+    if (evt.source.equalsIgnoreCase("AUDIO")) {
+      Debug::println(3,
+                     "[CORE][AUDIO] " + evt.identifier + " | " + evt.rawData);
+    } else {
+      Debug::println(3,
+                     "[CORE][EVENT] " + evt.source + " -> " + evt.identifier);
     }
-    else
-    {
-        Debug::println(
-            3,
-            "[CORE][EVENT] " +
-            evt.source +
-            " -> " +
-            evt.identifier
-        );
-    }
-
+  }
 #endif
 
-
-#if DEBUG_LEVEL >= 2
-
-    if (!evt.source.equalsIgnoreCase("AUDIO"))
-    {
-        Debug::println(
-            2,
-            "[CORE][EVENT] " +
-            evt.source +
-            " -> " +
-            evt.identifier
-        );
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    if (!evt.source.equalsIgnoreCase("AUDIO")) {
+      Debug::println(2,
+                     "[CORE][EVENT] " + evt.source + " -> " + evt.identifier);
     }
-
+  }
 #endif
 
-    // -------------------------------------------------------------------------
-    // Kaku
-    // -------------------------------------------------------------------------
-    //
-    // HardwareManager already decodes the RF packet into a Kaku command and
-    // publishes the event.
-    //
-    // The current EventBus SystemEvent contains the house/button information
-    // as:
-    //
-    //     identifier = "D_2"
-    //
-    // SceneManager owns the mapping from Kaku -> Scene.
-    //
-    if (evt.source.equalsIgnoreCase("KAKU"))
-    {
-        if (evt.identifier.length() >= 3)
-        {
-            int separator = evt.identifier.indexOf('_');
+  // -------------------------------------------------------------------------
+  // Kaku
+  // -------------------------------------------------------------------------
+  //
+  // HardwareManager already decodes the RF packet into a Kaku command and
+  // publishes the event.
+  //
+  // The current EventBus SystemEvent contains the house/button information
+  // as:
+  //
+  //     identifier = "D_2"
+  //
+  // SceneManager owns the mapping from Kaku -> Scene.
+  //
+  if (evt.source.equalsIgnoreCase("KAKU")) {
+    if (evt.identifier.length() >= 3) {
+      int separator = evt.identifier.indexOf('_');
 
-            if (separator > 0)
-            {
-                char house = evt.identifier.charAt(0);
+      if (separator > 0) {
+        char house = evt.identifier.charAt(0);
 
-                uint8_t button =
-                    (uint8_t)evt.identifier.substring(separator + 1).toInt();
+        uint8_t button =
+            (uint8_t)evt.identifier.substring(separator + 1).toInt();
 
-                handleKaku(
-                    RFCommand{
-                        house,
-                        button
-                    }
-                );
-            }
-        }
-
-        return;
+        handleKaku(RFCommand{house, button});
+      }
     }
 
-    // -------------------------------------------------------------------------
-    // Everything else
-    // -------------------------------------------------------------------------
-    //
-    // Core observes these events for now.
-    //
-    // They can later be routed to dedicated systems without giving those
-    // systems access to HardwareManager.
-    //
+    return;
+  }
+
+  // -------------------------------------------------------------------------
+  // Everything else
+  // -------------------------------------------------------------------------
+  //
+  // Core observes these events for now.
+  //
+  // They can later be routed to dedicated systems without giving those
+  // systems access to HardwareManager.
+  //
 }
-
 
 // -----------------------------------------------------------------------------
 // Kaku handling
@@ -5292,24 +4890,16 @@ void Core::handleSystemEvent(const SystemEvent& evt)
 //
 // Core merely forwards the decoded Kaku input.
 //
-void Core::handleKaku(const RFCommand& cmd)
-{
-#if DEBUG_LEVEL >= 2
-    Debug::println(
-        2,
-        "[CORE][KAKU] House " +
-        String(cmd.house) +
-        " Button " +
-        String(cmd.button)
-    );
+void Core::handleKaku(const RFCommand &cmd) {
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[CORE][KAKU] House " + String(cmd.house) + " Button " +
+                          String(cmd.button));
+  }
 #endif
 
-    sceneManager.handleKaku(
-        cmd.house,
-        cmd.button
-    );
+  sceneManager.handleKaku(cmd.house, cmd.button);
 }
-
 
 // -----------------------------------------------------------------------------
 // executeCommand
@@ -5338,84 +4928,68 @@ void Core::handleKaku(const RFCommand& cmd)
 //
 // If the command is not recognized, return false.
 //
-bool Core::executeCommand(const String& command)
-{
-    String cmd = command;
+bool Core::executeCommand(const String &command) {
+  String cmd = command;
 
-    cmd.trim();
+  cmd.trim();
 
-    if (cmd.length() == 0)
-    {
-        return false;
-    }
-
-
-#if DEBUG_LEVEL >= 3
-    Debug::println(
-        3,
-        "[CORE][COMMAND] " + cmd
-    );
-#endif
-
-
-    // -------------------------------------------------------------------------
-    // delay
-    // -------------------------------------------------------------------------
-
-    if (cmd.startsWith("delay "))
-    {
-        return executeDelayCommand(cmd);
-    }
-
-
-    // -------------------------------------------------------------------------
-    // IR
-    // -------------------------------------------------------------------------
-
-    if (cmd.startsWith("ir "))
-    {
-        return executeIRCommand(cmd);
-    }
-
-
-    // -------------------------------------------------------------------------
-    // LivingColors
-    // -------------------------------------------------------------------------
-
-    if (cmd.startsWith("living "))
-    {
-        return executeLivingColorsCommand(cmd);
-    }
-
-
-#if DEBUG_LEVEL >= 1
-    Debug::println(
-        1,
-        "[CORE][COMMAND] Unknown command: " + cmd
-    );
-#endif
-
+  if (cmd.length() == 0) {
     return false;
-}
+  }
 
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 3) {
+    Debug::println(3, "[CORE][COMMAND] " + cmd);
+  }
+#endif
+
+  // -------------------------------------------------------------------------
+  // delay
+  // -------------------------------------------------------------------------
+
+  if (cmd.startsWith("delay ")) {
+    return executeDelayCommand(cmd);
+  }
+
+  // -------------------------------------------------------------------------
+  // IR
+  // -------------------------------------------------------------------------
+
+  if (cmd.startsWith("ir ")) {
+    return executeIRCommand(cmd);
+  }
+
+  // -------------------------------------------------------------------------
+  // LivingColors
+  // -------------------------------------------------------------------------
+
+  if (cmd.startsWith("living ")) {
+    return executeLivingColorsCommand(cmd);
+  }
+
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 1) {
+    Debug::println(1, "[CORE][COMMAND] Unknown command: " + cmd);
+  }
+#endif
+
+  return false;
+}
 
 // -----------------------------------------------------------------------------
 // executeDelayCommand
 // -----------------------------------------------------------------------------
 
-bool Core::executeDelayCommand(const String& command)
-{
-    String value = command.substring(6);
-    value.trim();
+bool Core::executeDelayCommand(const String &command) {
+  String value = command.substring(6);
+  value.trim();
 
-    unsigned long milliseconds =
-        (unsigned long)value.toInt();
+  unsigned long milliseconds = (unsigned long)value.toInt();
 
-    delay(milliseconds);
+  delay(milliseconds);
 
-    return true;
+  return true;
 }
-
 
 // -----------------------------------------------------------------------------
 // executeIRCommand
@@ -5436,63 +5010,54 @@ bool Core::executeDelayCommand(const String& command)
 //
 // The exact HardwareManager/IRController API must match your implementation.
 //
-bool Core::executeIRCommand(const String& command)
-{
-    String payload = command.substring(3);
-    payload.trim();
+bool Core::executeIRCommand(const String &command) {
+  String payload = command.substring(3);
+  payload.trim();
 
-    int separator = payload.indexOf(' ');
+  int separator = payload.indexOf(' ');
 
-    if (separator <= 0)
-    {
-#if DEBUG_LEVEL >= 1
-        Debug::println(
-            1,
-            "[CORE][IR] Invalid command: " + command
-        );
-#endif
-        return false;
+  if (separator <= 0) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[CORE][IR] Invalid command: " + command);
     }
-
-    String remote = payload.substring(0, separator);
-    String button = payload.substring(separator + 1);
-
-    remote.trim();
-    button.trim();
-
-    if (remote.length() == 0 || button.length() == 0)
-    {
-        return false;
-    }
-
-
-    // -------------------------------------------------------------------------
-    // IMPORTANT
-    // -------------------------------------------------------------------------
-    //
-    // Do not put raw IR codes into ScriptManager or SceneManager.
-    //
-    // The remote/button lookup belongs at the hardware boundary.
-    //
-    // We need to adapt this one call to the actual IRController API.
-    //
-    // For now this intentionally returns false rather than guessing an API
-    // that may not exist in your current IRController.
-    //
-
-#if DEBUG_LEVEL >= 1
-    Debug::println(
-        1,
-        "[CORE][IR] IR command received: " +
-        remote +
-        " " +
-        button
-    );
 #endif
-
     return false;
-}
+  }
 
+  String remote = payload.substring(0, separator);
+  String button = payload.substring(separator + 1);
+
+  remote.trim();
+  button.trim();
+
+  if (remote.length() == 0 || button.length() == 0) {
+    return false;
+  }
+
+  // -------------------------------------------------------------------------
+  // IMPORTANT
+  // -------------------------------------------------------------------------
+  //
+  // Do not put raw IR codes into ScriptManager or SceneManager.
+  //
+  // The remote/button lookup belongs at the hardware boundary.
+  //
+  // We need to adapt this one call to the actual IRController API.
+  //
+  // For now this intentionally returns false rather than guessing an API
+  // that may not exist in your current IRController.
+  //
+
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 1) {
+    Debug::println(1,
+                   "[CORE][IR] IR command received: " + remote + " " + button);
+  }
+#endif
+
+  return false;
+}
 
 // -----------------------------------------------------------------------------
 // executeLivingColorsCommand
@@ -5513,302 +5078,224 @@ bool Core::executeIRCommand(const String& command)
 // this function needs to change.
 //
 
-bool Core::executeLivingColorsCommand(const String& command)
-{
-    String payload = command.substring(7);
-    payload.trim();
+bool Core::executeLivingColorsCommand(const String &command) {
+  String payload = command.substring(7);
+  payload.trim();
 
-    // -------------------------------------------------------------------------
-    // Extract lamp number
-    // -------------------------------------------------------------------------
+  // -------------------------------------------------------------------------
+  // Extract lamp number
+  // -------------------------------------------------------------------------
 
-    int firstSpace = payload.indexOf(' ');
+  int firstSpace = payload.indexOf(' ');
 
-    if (firstSpace <= 0)
-    {
-        return false;
-    }
-
-    int lamp =
-        payload.substring(0, firstSpace).toInt();
-
-    String values =
-        payload.substring(firstSpace + 1);
-
-    values.trim();
-
-
-    // -------------------------------------------------------------------------
-    // Validate public lamp number
-    // -------------------------------------------------------------------------
-    //
-    // Command layer:
-    //
-    //     living 1 ...
-    //     living 12 ...
-    //
-    // Hardware layer:
-    //
-    //     0 ... 11
-    //
-    // Keep that conversion here.
-    //
-
-    if (lamp < 1 || lamp > LAMP_COUNT)
-    {
-#if DEBUG_LEVEL >= 1
-        Debug::println(
-            1,
-            "[CORE][LIVING] Invalid lamp: " +
-            String(lamp)
-        );
-#endif
-        return false;
-    }
-
-    uint8_t lampIndex =
-        (uint8_t)(lamp - 1);
-
-
-    // -------------------------------------------------------------------------
-    // RGB
-    // -------------------------------------------------------------------------
-
-    if (values.startsWith("rgb "))
-    {
-        String rgb =
-            values.substring(4);
-
-        rgb.trim();
-
-        int p1 = rgb.indexOf(' ');
-
-        if (p1 <= 0)
-        {
-            return false;
-        }
-
-        int p2 =
-            rgb.indexOf(' ', p1 + 1);
-
-        if (p2 <= p1)
-        {
-            return false;
-        }
-
-        String rString =
-            rgb.substring(0, p1);
-
-        String gString =
-            rgb.substring(p1 + 1, p2);
-
-        String bString =
-            rgb.substring(p2 + 1);
-
-        rString.trim();
-        gString.trim();
-        bString.trim();
-
-        if (rString.length() == 0 ||
-            gString.length() == 0 ||
-            bString.length() == 0)
-        {
-            return false;
-        }
-
-        int rValue = rString.toInt();
-        int gValue = gString.toInt();
-        int bValue = bString.toInt();
-
-        if (rValue < 0 || rValue > 255 ||
-            gValue < 0 || gValue > 255 ||
-            bValue < 0 || bValue > 255)
-        {
-#if DEBUG_LEVEL >= 1
-            Debug::println(
-                1,
-                "[CORE][LIVING] Invalid RGB values: " +
-                rgb
-            );
-#endif
-            return false;
-        }
-
-        uint8_t r = (uint8_t)rValue;
-        uint8_t g = (uint8_t)gValue;
-        uint8_t b = (uint8_t)bValue;
-
-
-#if DEBUG_LEVEL >= 2
-        Debug::println(
-            2,
-            "[CORE][LIVING] Lamp " +
-            String(lamp) +
-            " -> index " +
-            String(lampIndex) +
-            " RGB " +
-            String(r) + " " +
-            String(g) + " " +
-            String(b)
-        );
-#endif
-
-        hardware.living().setColorRGB(
-            lampIndex,
-            r,
-            g,
-            b
-        );
-
-        return true;
-    }
-
-
-    // -------------------------------------------------------------------------
-    // HSV
-    // -------------------------------------------------------------------------
-
-    if (values.startsWith("hsv "))
-    {
-        String hsv =
-            values.substring(4);
-
-        hsv.trim();
-
-        int p1 = hsv.indexOf(' ');
-
-        if (p1 <= 0)
-        {
-            return false;
-        }
-
-        int p2 =
-            hsv.indexOf(' ', p1 + 1);
-
-        if (p2 <= p1)
-        {
-            return false;
-        }
-
-        String hString =
-            hsv.substring(0, p1);
-
-        String sString =
-            hsv.substring(p1 + 1, p2);
-
-        String vString =
-            hsv.substring(p2 + 1);
-
-        hString.trim();
-        sString.trim();
-        vString.trim();
-
-        if (hString.length() == 0 ||
-            sString.length() == 0 ||
-            vString.length() == 0)
-        {
-            return false;
-        }
-
-        int hValue = hString.toInt();
-        int sValue = sString.toInt();
-        int vValue = vString.toInt();
-
-        if (hValue < 0 || hValue > 255 ||
-            sValue < 0 || sValue > 255 ||
-            vValue < 0 || vValue > 255)
-        {
-#if DEBUG_LEVEL >= 1
-            Debug::println(
-                1,
-                "[CORE][LIVING] Invalid HSV values: " +
-                hsv
-            );
-#endif
-            return false;
-        }
-
-        uint8_t h = (uint8_t)hValue;
-        uint8_t s = (uint8_t)sValue;
-        uint8_t v = (uint8_t)vValue;
-
-
-#if DEBUG_LEVEL >= 2
-        Debug::println(
-            2,
-            "[CORE][LIVING] Lamp " +
-            String(lamp) +
-            " -> index " +
-            String(lampIndex) +
-            " HSV " +
-            String(h) + " " +
-            String(s) +
-            " " +
-            String(v)
-        );
-#endif
-
-        hardware.living().setColor(
-            lampIndex,
-            h,
-            s,
-            v
-        );
-
-        return true;
-    }
-
-
-    // -------------------------------------------------------------------------
-    // Unknown LivingColors command
-    // -------------------------------------------------------------------------
-
-#if DEBUG_LEVEL >= 1
-    Debug::println(
-        1,
-        "[CORE][LIVING] Unknown LivingColors command: " +
-        command
-    );
-#endif
-
+  if (firstSpace <= 0) {
     return false;
-}
+  }
 
+  int lamp = payload.substring(0, firstSpace).toInt();
+
+  String values = payload.substring(firstSpace + 1);
+
+  values.trim();
+
+  // -------------------------------------------------------------------------
+  // Validate public lamp number
+  // -------------------------------------------------------------------------
+  //
+  // Command layer:
+  //
+  //     living 1 ...
+  //     living 12 ...
+  //
+  // Hardware layer:
+  //
+  //     0 ... 11
+  //
+  // Keep that conversion here.
+  //
+
+  if (lamp < 1 || lamp > LAMP_COUNT) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[CORE][LIVING] Invalid lamp: " + String(lamp));
+    }
+#endif
+    return false;
+  }
+
+  uint8_t lampIndex = (uint8_t)(lamp - 1);
+
+  // -------------------------------------------------------------------------
+  // RGB
+  // -------------------------------------------------------------------------
+
+  if (values.startsWith("rgb ")) {
+    String rgb = values.substring(4);
+
+    rgb.trim();
+
+    int p1 = rgb.indexOf(' ');
+
+    if (p1 <= 0) {
+      return false;
+    }
+
+    int p2 = rgb.indexOf(' ', p1 + 1);
+
+    if (p2 <= p1) {
+      return false;
+    }
+
+    String rString = rgb.substring(0, p1);
+
+    String gString = rgb.substring(p1 + 1, p2);
+
+    String bString = rgb.substring(p2 + 1);
+
+    rString.trim();
+    gString.trim();
+    bString.trim();
+
+    if (rString.length() == 0 || gString.length() == 0 ||
+        bString.length() == 0) {
+      return false;
+    }
+
+    int rValue = rString.toInt();
+    int gValue = gString.toInt();
+    int bValue = bString.toInt();
+
+    if (rValue < 0 || rValue > 255 || gValue < 0 || gValue > 255 ||
+        bValue < 0 || bValue > 255) {
+#ifdef DEBUG_LEVEL
+      if (Debug::getDebugLevel() >= 1) {
+        Debug::println(1, "[CORE][LIVING] Invalid RGB values: " + rgb);
+      }
+#endif
+      return false;
+    }
+
+    uint8_t r = (uint8_t)rValue;
+    uint8_t g = (uint8_t)gValue;
+    uint8_t b = (uint8_t)bValue;
+
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 2) {
+      Debug::println(2, "[CORE][LIVING] Lamp " + String(lamp) + " -> index " +
+                            String(lampIndex) + " RGB " + String(r) + " " +
+                            String(g) + " " + String(b));
+    }
+#endif
+
+    hardware.living().setColorRGB(lampIndex, r, g, b);
+
+    return true;
+  }
+
+  // -------------------------------------------------------------------------
+  // HSV
+  // -------------------------------------------------------------------------
+
+  if (values.startsWith("hsv ")) {
+    String hsv = values.substring(4);
+
+    hsv.trim();
+
+    int p1 = hsv.indexOf(' ');
+
+    if (p1 <= 0) {
+      return false;
+    }
+
+    int p2 = hsv.indexOf(' ', p1 + 1);
+
+    if (p2 <= p1) {
+      return false;
+    }
+
+    String hString = hsv.substring(0, p1);
+
+    String sString = hsv.substring(p1 + 1, p2);
+
+    String vString = hsv.substring(p2 + 1);
+
+    hString.trim();
+    sString.trim();
+    vString.trim();
+
+    if (hString.length() == 0 || sString.length() == 0 ||
+        vString.length() == 0) {
+      return false;
+    }
+
+    int hValue = hString.toInt();
+    int sValue = sString.toInt();
+    int vValue = vString.toInt();
+
+    if (hValue < 0 || hValue > 255 || sValue < 0 || sValue > 255 ||
+        vValue < 0 || vValue > 255) {
+#ifdef DEBUG_LEVEL
+      if (Debug::getDebugLevel() >= 1) {
+        Debug::println(1, "[CORE][LIVING] Invalid HSV values: " + hsv);
+      }
+#endif
+      return false;
+    }
+
+    uint8_t h = (uint8_t)hValue;
+    uint8_t s = (uint8_t)sValue;
+    uint8_t v = (uint8_t)vValue;
+
+#if DEBUG_LEVEL >= 2
+    Debug::println(2, "[CORE][LIVING] Lamp " + String(lamp) + " -> index " +
+                          String(lampIndex) + " HSV " + String(h) + " " +
+                          String(s) + " " + String(v));
+#endif
+
+    hardware.living().setColor(lampIndex, h, s, v);
+
+    return true;
+  }
+
+  // -------------------------------------------------------------------------
+  // Unknown LivingColors command
+  // -------------------------------------------------------------------------
+
+#if DEBUG_LEVEL >= 1
+  Debug::println(1, "[CORE][LIVING] Unknown LivingColors command: " + command);
+#endif
+
+  return false;
+}
 
 // -----------------------------------------------------------------------------
 // Password helper
 // -----------------------------------------------------------------------------
 
-String Core::generateSecurePassword()
-{
-    static bool seedInitialized = false;
+String Core::generateSecurePassword() {
+  static bool seedInitialized = false;
 
-    if (!seedInitialized)
-    {
-        randomSeed(millis());
-        seedInitialized = true;
-    }
+  if (!seedInitialized) {
+    randomSeed(millis());
+    seedInitialized = true;
+  }
 
-    const char charset[] =
-        "abcdefghijklmnopqrstuvwxyz"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "0123456789";
+  const char charset[] = "abcdefghijklmnopqrstuvwxyz"
+                         "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+                         "0123456789";
 
-    const int length = 8;
+  const int length = 8;
 
-    String password;
+  String password;
 
-    for (int i = 0; i < length; i++)
-    {
-        int index =
-            random(sizeof(charset) - 1);
+  for (int i = 0; i < length; i++) {
+    int index = random(sizeof(charset) - 1);
 
-        password += charset[index];
-    }
+    password += charset[index];
+  }
 
-    return password;
+  return password;
 }
-
 
 ```
 
@@ -6077,15 +5564,15 @@ private:
 ### <a id="📄-lib-debug-debug-cpp"></a>📄 `lib/Debug/Debug.cpp`
 
 **File Info:**
-- **Size**: 10.82 KB
+- **Size**: 6.77 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/Debug/Debug.cpp`
 - **Relative Path**: `lib/Debug`
-- **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-17 15:26:36 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `f902331f29a341ee615fb0755146e4f4`
-- **SHA256**: `4918fbb255f3f7ac075ef5a28769039a751372a0bc0c839e6aa38cb3e0a74331`
+- **Created**: 2026-09-18 16:44:03 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-18 16:44:03 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `be4d9dbdfaeebd429d8f07c42053bfb6`
+- **SHA256**: `f78ae5df385d72a6d8eb850a5ff3e1de14af9faf01ccb3876e3ee0843aeb3c4f`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -6093,352 +5580,202 @@ private:
 ```cpp
 #include "Debug.h"
 
-// Initialize static members
+// The logger is intentionally self-contained: it can start before the rest of
+// the application and remains useful even when the network or filesystem fails.
 String Debug::webLogBuffer = "";
 unsigned long Debug::deviceTimeOffset = 0;
+unsigned long Debug::bootSeconds = 0;
 int Debug::timezoneOffsetMinutes = 0;
-int Debug::currentDebugLevel = 3; // Default to debug level 3
+int Debug::currentDebugLevel = Debug::INFO;
+bool Debug::timestampEnabled = true;
 
-/**
- * @brief Initialize the debug system
- * @param baud Serial baud rate (default: 115200)
- * @param defaultLevel Default debug level if not set elsewhere (default: 3)
- */
+int Debug::normalizeLevel(int level) {
+    // Be forgiving. Bad input from a web client must never disable logging.
+    if (level < ERROR) return ERROR;
+    if (level > VERBOSE) return VERBOSE;
+    return level;
+}
+
 void Debug::begin(long baud, int defaultLevel) {
     Serial.begin(baud);
-    currentDebugLevel = defaultLevel;
-   
-    
+    bootSeconds = millis() / 1000UL;
+    deviceTimeOffset = 0;
+    timezoneOffsetMinutes = 0;
+    currentDebugLevel = normalizeLevel(defaultLevel);
+    timestampEnabled = true;
 }
-/**
- * @brief Get the current timestamp string
- * @return Timestamp string in [HH:MM:SS] format using either uptime or synced wall time
- */
+
 String Debug::getTimestamp() {
-    long currentTime;
+    if (!timestampEnabled) return "";
+
     if (deviceTimeOffset == 0) {
-        currentTime = millis() / 1000UL;
-    } else {
-        currentTime = (long)(deviceTimeOffset + (millis() / 1000UL)) + (timezoneOffsetMinutes * 60L);
+        // Before time sync, uptime is honest and useful for boot diagnostics.
+        return "+" + String((millis() / 1000UL) - bootSeconds) + "s ";
     }
 
-    if (currentTime < 0) currentTime = 0;
+    const long localTime = static_cast<long>(
+        deviceTimeOffset + millis() / 1000UL + timezoneOffsetMinutes * 60L
+    );
+    const unsigned long safeTime = localTime < 0 ? 0UL : static_cast<unsigned long>(localTime);
+    const unsigned long hours = (safeTime / 3600UL) % 24UL;
+    const unsigned long minutes = (safeTime / 60UL) % 60UL;
+    const unsigned long seconds = safeTime % 60UL;
 
-    unsigned long hours = (currentTime / 3600UL) % 24UL;
-    unsigned long minutes = (currentTime / 60UL) % 60UL;
-    unsigned long seconds = currentTime % 60UL;
-
-    String ts = "[";
-    if (hours < 10) ts += "0";
-    ts += String(hours) + ":";
-    if (minutes < 10) ts += "0";
-    ts += String(minutes) + ":";
-    if (seconds < 10) ts += "0";
-    ts += String(seconds) + "] ";
-
-    return ts;
+    char timestamp[20];
+    snprintf(timestamp, sizeof(timestamp), "[%02lu:%02lu:%02lu] ", hours, minutes, seconds);
+    return String(timestamp);
 }
 
-/**
- * @brief Set the device time for synchronized timestamps
- * @param unixTime Unix timestamp to set
- */
 void Debug::setDeviceTime(unsigned long unixTime) {
-    deviceTimeOffset = unixTime - (millis() / 1000);
-    println(3, "[DEBUG][setDeviceTime] Device time synchronized to: " + String(unixTime) + " (UTC offset " + String(timezoneOffsetMinutes) + " minutes)");
+    deviceTimeOffset = unixTime - millis() / 1000UL;
+    println(INFO, "[DEBUG][TIME] Wall clock synchronized; timestamps now use wall clock");
 }
 
 void Debug::setTimezoneOffsetMinutes(int offsetMinutes) {
     timezoneOffsetMinutes = constrain(offsetMinutes, -840, 840);
-    println(3, "[DEBUG][setTimezoneOffsetMinutes] UTC" + String(timezoneOffsetMinutes >= 0 ? "+" : "") + String(timezoneOffsetMinutes / 60.0, 2));
+    println(INFO, "[DEBUG][TIME] UTC offset set to " + String(timezoneOffsetMinutes) + " minutes");
 }
 
-/**
- * @brief Set the debug level at runtime
- * @param level New debug level (1-5)
- */
 void Debug::setDebugLevel(int level) {
-    if (level < 1 || level > 6) {
-        level = 3; // Default to INFO level if invalid
-    }
-    println(4, "[DEBUG] Debug level was " + String(currentDebugLevel) + " and now set to " + String(level));
-    currentDebugLevel = level;
+    const int previousLevel = currentDebugLevel;
+    currentDebugLevel = normalizeLevel(level);
 
+    // Log after changing the level so the confirmation is visible at INFO.
+    println(INFO, "[DEBUG][LEVEL] Runtime level " + String(previousLevel) + " -> " + String(currentDebugLevel));
 }
 
-/**
- * @brief Get the current debug level
- * @return Current debug level (1-4)
- */
-int Debug::getDebugLevel() {
-    return currentDebugLevel;
-}
+int Debug::getDebugLevel() { return currentDebugLevel; }
+int Debug::getDebugLevelVar() { return currentDebugLevel; }
+bool Debug::hasSynchronizedTime() { return deviceTimeOffset != 0; }
+void Debug::setTimestampEnabled(bool enabled) { timestampEnabled = enabled; }
+bool Debug::isTimestampEnabled() { return timestampEnabled; }
 
-int Debug::getDebugLevelVar() {
-    return currentDebugLevel;
-}
-
-void Debug::logStartupBanner(const String& projectName, const String& version) {
-    println(3, "");
-    println(5, "  ┌─────────────────────────────────────────────┐");
-    println(5, "  │  ▄▀█ █▀▀ █▀█ █▀▄▀█                         │");
-    println(5, "  │  █▀█ ██▄ █▀▀ █ ▀ █                         │");
-    println(5, "  └─────────────────────────────────────────────┘");
-    println(4, "  " + projectName + " v" + version);
-    println(4, "  Target: ESP32 DOIT DEVKIT V1");
-    println(3, "  222 files · 5.96 MB · .h:60 .cpp:19 .ino:38");
-    println(2, "  ⚠ Pieteboe's childhood dream: INITIALIZED");
-    println(1, "  ✗ No bugs found (they're hiding)");
-    println(3, "  Timestamp: " + String(deviceTimeOffset == 0 ? "uptime fallback" : "wall clock"));
-    println(5, "  ─────────────────────────────────────────────");
-    println(4, "  🚀 All systems go. Launching...");
-    println(3, "");
-}   
-
-void Debug::logSubsystemStatus(const String& subsystem, const String& status, const String& details) {
-    String message = "[STATUS] " + subsystem + " -> " + status;
-    if (details.length() > 0) {
-        message += " | " + details;
-    }
-    println(currentDebugLevel, message);
-}
-
-/**
- * @brief Print a message to serial and web log buffer
- * @param message Message to print
- */
 void Debug::print(const char* message) {
-    Serial.print(message);
-    addToWebLog(message);
+    const String value = message ? String(message) : String("");
+    Serial.print(value);
+    addToWebLog(value, INFO);
 }
 
-/**
- * @brief Print an integer value to serial and web log buffer
- * @param value Integer value to print
- */
 void Debug::print(int value) {
     Serial.print(value);
-    addToWebLog(String(value));
+    addToWebLog(String(value), INFO);
 }
 
-/**
- * @brief Print an unsigned long value to serial and web log buffer
- * @param value Unsigned long value to print
- */
 void Debug::print(unsigned long value) {
     Serial.print(value);
-    addToWebLog(String(value));
+    addToWebLog(String(value), INFO);
 }
 
-/**
- * @brief Print a String message to serial and web log buffer
- * @param message String to print
- */
 void Debug::print(const String& message) {
     Serial.print(message);
-    addToWebLog(message);
+    addToWebLog(message, INFO);
 }
 
-/**
- * @brief Print a message with newline to serial and web log buffer
- * @param message Message to print (default: empty string)
- */
-void Debug::println(const char* message) {
-    println(currentDebugLevel, String(message));
-}
+void Debug::println(const char* message) { println(INFO, message ? String(message) : String("")); }
+void Debug::println(int value) { println(INFO, String(value)); }
+void Debug::println(unsigned long value) { println(INFO, String(value)); }
+void Debug::println(const String& message) { println(INFO, message); }
+void Debug::println(int level, int value) { println(level, String(value)); }
+void Debug::println(int level, unsigned long value) { println(level, String(value)); }
 
-/**
- * @brief Print an integer value with newline to serial and web log buffer
- * @param value Integer value to print
- */
-void Debug::println(int value) {
-    println(currentDebugLevel, value);
-}
-
-/**
- * @brief Print an unsigned long value with newline to serial and web log buffer
- * @param value Unsigned long value to print
- */
-void Debug::println(unsigned long value) {
-    println(currentDebugLevel, value);
-}
-
-/**
- * @brief Print a String message with newline to serial and web log buffer
- * @param message String to print
- */
-void Debug::println(const String& message) {
-    println(currentDebugLevel, message);
-}
-
-/**
- * @brief Print a message with specified debug level
- * @param level Debug level (1-5)
- * @param message Message to print
- */
 void Debug::println(int level, const String& message) {
-    // Enforce the configured debug threshold so the logger behaves predictably.
-    // This keeps the serial window readable while still preserving noisy traces
-    // when DEBUG_LEVEL is raised intentionally during debugging.
-    if (level < 1 || level > 6) {
-        level = 3;
-    }
-    // if (level > currentDebugLevel) {
-    //     return;
-    // }
-   
-    String timestamp = getTimestamp();
-    
-        String output = timestamp + message;   
-       
+    level = normalizeLevel(level);
 
+    // Levels are thresholds: level 3 includes levels 1, 2, and 3.
+    if (level > currentDebugLevel) return;
 
-    
-        // Print to serial with the selected severity.
-    Serial.println(output);
-
-    // Add to web log with level-specific color coding.
+    Serial.println(getTimestamp() + message);
     addToWebLog(message, level);
 }
 
-/**
- * @brief Print an integer value with specified debug level
- * @param level Debug level (1-5)
- * @param value Integer value to print
- */
-void Debug::println(int level, int value) {
-    println(level, String(value));
+String Debug::escapeHtml(const String& value) {
+    String escaped;
+    escaped.reserve(value.length());
+
+    for (size_t i = 0; i < value.length(); ++i) {
+        switch (value.charAt(i)) {
+            case '&': escaped += "&amp;"; break;
+            case '<': escaped += "&lt;"; break;
+            case '>': escaped += "&gt;"; break;
+            case '\"': escaped += "&quot;"; break;
+            case '\'': escaped += "&#39;"; break;
+            default: escaped += value.charAt(i); break;
+        }
+    }
+
+    return escaped;
 }
 
-/**
- * @brief Print an unsigned long value with specified debug level
- * @param level Debug level (1-5)
- * @param value Unsigned long value to print
- */
-void Debug::println(int level, unsigned long value) {
-    println(level, String(value));
-}
-
-/**
- * @brief Add a message to web log buffer with timestamp
- * @param message Message to add
- * @param level Debug level for color coding
- */
 void Debug::addToWebLog(const String& message, int level) {
-    // Always add a timestamp, even before wall-clock sync. This keeps the log timeline useful
-    // and makes debugging easier when the device is still booting or has not yet received time.
-    String timestampedMsg = getTimestamp() + message;
-    webLogBuffer += getWebLogColor(level) + timestampedMsg + "\n";
-
-    // Check if buffer needs rotation
+    // The dashboard renders this as HTML. Escape content and close every span.
+    webLogBuffer += getWebLogColor(normalizeLevel(level));
+    webLogBuffer += getTimestamp();
+    webLogBuffer += escapeHtml(message);
+    webLogBuffer += "</span>\n";
     rotateWebLogBuffer();
 }
 
-/**
- * @brief Rotate the web log buffer if needed
- */
 void Debug::rotateWebLogBuffer() {
-    // Check if adding this message would exceed buffer size
-    if (webLogBuffer.length() > MAX_LOG_SIZE) {
-        // Rotate buffer: keep the most recent 75%
-        size_t keepSize = MAX_LOG_SIZE * 3 / 4;
+    if (webLogBuffer.length() <= MAX_LOG_SIZE) return;
 
-        // Find the position to start keeping from (look for last newline)
-        int startPos = webLogBuffer.length() - keepSize;
-        int newlinePos = webLogBuffer.lastIndexOf('\n', startPos);
+    // Keep the newest 75%, starting at a complete line where possible.
+    const size_t keepSize = MAX_LOG_SIZE * 3 / 4;
+    const int start = static_cast<int>(webLogBuffer.length() - keepSize);
+    const int newline = webLogBuffer.lastIndexOf('\n', start);
 
-        if (newlinePos > 0) {
-            // Keep everything after the last newline
-            webLogBuffer = webLogBuffer.substring(newlinePos + 1);
-        } else {
-            // If no newline found, clear half the buffer
-            webLogBuffer = webLogBuffer.substring(webLogBuffer.length() / 2);
-        }
+    if (newline >= 0) {
+        webLogBuffer = webLogBuffer.substring(newline + 1);
+    } else {
+        webLogBuffer = webLogBuffer.substring(webLogBuffer.length() / 2);
     }
 }
 
-/**
- * @brief Get color code for web log based on debug level
- * @param level Debug level
- * @return HTML color code string
- */
 String Debug::getWebLogColor(int level) {
-    // Keep the web log colors aligned with the serial-level convention used in the firmware.
-    switch(level) {
-        case 1: return "<span style='color:red'>";
-        case 2: return "<span style='color:blue'>";
-        case 3: return "<span style='color:green'>";
-        case 4: return "<span style='color:violet'>";
-        case 5: return "<span style='color:yellow'>";
-        default: return "";
+    switch (normalizeLevel(level)) {
+        case ERROR: return "<span style='color:#ff8585'>";
+        case WARN: return "<span style='color:#ffd166'>";
+        case INFO: return "<span style='color:#8ec5ff'>";
+        case DEBUG: return "<span style='color:#c4b5fd'>";
+        default: return "<span style='color:#94a3b8'>";
     }
 }
 
-/**
- * @brief Get the web log buffer contents
- * @return String containing all web logs with timestamps
- */
-String Debug::getWebLogs() {
-    return webLogBuffer;
-}
+String Debug::getWebLogs() { return webLogBuffer; }
+void Debug::clearLogs() { webLogBuffer = ""; }
 
-/**
- * @brief Clear the web log buffer
- */
-void Debug::clearLogs() {
-    webLogBuffer = "";
-}
-
-/**
- * @brief Convert binary data to hexadecimal string representation
- * @param data Pointer to binary data
- * @param len Length of data in bytes
- * @return String containing hexadecimal representation
- */
 String Debug::hex(const uint8_t* data, uint8_t len) {
-    String result = "";
-    for (uint8_t i = 0; i < len; i++) {
-        if (data[i] < 0x10) {
-            result += "0";
-        }
+    if (!data || len == 0) return "";
+
+    String result;
+    result.reserve(len * 3);
+    for (uint8_t i = 0; i < len; ++i) {
+        if (data[i] < 0x10) result += '0';
         result += String(data[i], HEX);
-        result += " ";
+        if (i + 1 < len) result += ' ';
     }
     return result;
 }
 
-/**
- * @brief Acknowledge received logs (remove from buffer)
- * @param count Number of logs to acknowledge (0 = clear all)
- */
 void Debug::acknowledgeLogs(int count) {
     if (count == 0) {
-        // Clear all logs
         clearLogs();
         return;
     }
 
-    if (count < 0 || webLogBuffer.isEmpty()) {
-        return; // Invalid count or empty buffer
-    }
+    if (count < 0 || webLogBuffer.isEmpty()) return;
 
-    // Find the position to keep based on count of newlines
-    int newlineCount = 0;
-    int pos = -1;
-
-    // Count newlines from the end
-    for (int i = webLogBuffer.length() - 1; i >= 0 && newlineCount < count; i--) {
+    int found = 0;
+    int position = -1;
+    for (int i = webLogBuffer.length() - 1; i >= 0 && found < count; --i) {
         if (webLogBuffer.charAt(i) == '\n') {
-            newlineCount++;
-            pos = i;
+            ++found;
+            position = i;
         }
     }
 
-    if (pos > 0) {
-        // Keep everything after the last found newline
-        webLogBuffer = webLogBuffer.substring(pos + 1);
+    if (position >= 0) {
+        webLogBuffer = webLogBuffer.substring(position + 1);
     } else {
-        // Not enough newlines found, clear buffer
         clearLogs();
     }
 }
@@ -6450,15 +5787,15 @@ void Debug::acknowledgeLogs(int count) {
 ### <a id="📄-lib-debug-debug-h"></a>📄 `lib/Debug/Debug.h`
 
 **File Info:**
-- **Size**: 8.62 KB
+- **Size**: 2.09 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/Debug/Debug.h`
 - **Relative Path**: `lib/Debug`
-- **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-17 10:37:02 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `fe0e139bca30734140d7938149fca780`
-- **SHA256**: `5293ffb8db5de9be7b617de5f859c230e667afc3e3f276055941357927b71b01`
+- **Created**: 2026-09-18 16:44:03 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-18 16:44:03 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `3de9a243bfdf531361619b210dfdcf46`
+- **SHA256**: `f7879be537fe6d58e64bd09a2a62618af155c8c04166576cd5ce7c2cdb5ac1e8`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -6468,248 +5805,64 @@ void Debug::acknowledgeLogs(int count) {
 
 #include <Arduino.h>
 
-
 /**
- * @brief Debug logging library with levels, timestamps, and web log support
+ * Central logger for Serial and the dashboard log.
  *
- * Logging convention used across the firmware:
- * - 1 = only errors (red)
- * - 2 = error / warnings / important startup info (purple)
- * - 3 = debug / errors  / warnings /   normal runtime trace (blue)
- * - 4 = debug / errors  / warnings /   normal runtime trace (grey), just for pretty
- * - 5 =  verbose /debug / errors  / warnings /   flood the log (yellow), just for pretty
-
-
- *
- * Preferred usage:
- * @code
- * #define DEBUG_LEVEL 3
- *
- * #if defined(DEBUG_LEVEL) && DebugLevel >= 1
- *     Debug::println(1, "[CORE][ERROR] Something failed");
- * #endif
- *
- * #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
- *     Debug::println("[CORE][WARN] Something may need attention");
- * #endif
- *
- * #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
- *     Debug::println("[CORE][INFO] Normal startup details");
- * #endif
- *
- * #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 4
- *     Debug::println("[CORE][TRACE] Verbose low-level trace");
- * #endif
- * @endcode
- *
- * Notes:
- * - When using preprocessor directives, Debug::println() automatically uses the current debug level threshold.
- * - The logger still enforces the level gate internally so a direct call like
- *   Debug::println(3, "...") does not leak past the configured threshold.
- * - This keeps the serial output readable while preserving high-detail logs when
- *   you need them during troubleshooting.
+ * Runtime level is a visibility threshold: level 1 shows errors only;
+ * level 5 shows every compiled diagnostic message.
  */
 class Debug {
 public:
-    // Debug level constants
-    static const int ERROR = 1;     // Red - Critical errors
-    static const int WARN = 2;      // Yellow - Warnings and important info
-    static const int INFO = 3;      // Blue - Normal runtime trace
-    static const int VERBOSE = 4;    // Grey - Verbose details
+    static constexpr int ERROR = 1;
+    static constexpr int WARN = 2;
+    static constexpr int INFO = 3;
+    static constexpr int DEBUG = 4;
+    static constexpr int VERBOSE = 5;
 
-
-
-    /**
-     * @brief Initialize the debug system
-     * @param baud Serial baud rate (default: 115200)
-     * @param defaultLevel Default debug level if not set elsewhere (default: 3)
-     */
     static void begin(long baud = 115200, int defaultLevel = INFO);
-
-    /**
-     * @brief Set the debug level at runtime
-     * @param level New debug level (1-4)
-     */
     static void setDebugLevel(int level);
-
-    /**
-     * @brief Get the current debug level
-     * @return Current debug level (1-5)
-     */
     static int getDebugLevel();
-    
-    /**
-     * @brief Get the runtime debug level variable
-     * @return Runtime debug level variable (1-5)
-     */
     static int getDebugLevelVar();
-    
-    /**
-     * @brief Print a message to serial and web log buffer
-     * @param message Message to print
-     * @note Uses current debug level if not using preprocessor directives
-     */
+
     static void print(const char* message);
-    
-    /**
-     * @brief Print an integer value to serial and web log buffer
-     * @param value Integer value to print
-     * @note Uses current DEBUG_LEVEL if defined, otherwise defaults to 3
-     */
     static void print(int value);
-    
-    /**
-     * @brief Print an unsigned long value to serial and web log buffer
-     * @param value Unsigned long value to print
-     * @note Uses current DEBUG_LEVEL if defined, otherwise defaults to 3
-     */
     static void print(unsigned long value);
-    
-    /**
-     * @brief Print a String message to serial and web log buffer
-     * @param message String to print
-     * @note Uses current DEBUG_LEVEL if defined, otherwise defaults to 3
-     */
     static void print(const String& message);
-    
-    /**
-     * @brief Print a message with newline to serial and web log buffer
-     * @param message Message to print (default: empty string)
-     * @note Uses current debug level if not using preprocessor directives
-     */
     static void println(const char* message = "");
-    
-    /**
-     * @brief Print an integer value with newline to serial and web log buffer
-     * @param value Integer value to print
-     * @note Uses current DEBUG_LEVEL if defined, otherwise defaults to 3
-     */
     static void println(int value);
-    
-    /**
-     * @brief Print an unsigned long value with newline to serial and web log buffer
-     * @param value Unsigned long value to print
-     * @note Uses current DEBUG_LEVEL if defined, otherwise defaults to 3
-     */
     static void println(unsigned long value);
-    
-    /**
-     * @brief Print a String message with newline to serial and web log buffer
-     * @param message String to print
-     * @note Uses current DEBUG_LEVEL if defined, otherwise defaults to 3
-     */
     static void println(const String& message);
-    
-    /**
-     * @brief Print a message with specified debug level.
-     * @param level Debug level (1-4)
-     * @param message Message to print
-     * @note Preferred convention: 1 = red/error, 2 = yellow/warn,
-     *       3 = blue/debug, 4 = grey/verbose.
-     * @note When using preprocessor directives, use the simplified println() without level parameter.
-     */
     static void println(int level, const String& message);
-    
-    /**
-     * @brief Print an integer value with specified debug level
-     * @param level Debug level (1-4)
-     * @param value Integer value to print
-     * @note Level 1: Errors, Level 2: Warnings, Level 3: Debug, Level 4: Verbose
-     */
     static void println(int level, int value);
-    
-    /**
-     * @brief Print an unsigned long value with specified debug level
-     * @param level Debug level (1-4)
-     * @param value Unsigned long value to print
-     * @note Level 1: Errors, Level 2: Warnings, Level 3: Debug, Level 4: Verbose
-     */
     static void println(int level, unsigned long value);
-    
-    /**
-     * @brief Get the web log buffer contents
-     * @return String containing all web logs with timestamps
-     */
+
     static String getWebLogs();
-    
-    /**
-     * @brief Clear the web log buffer
-     */
     static void clearLogs();
-    
-    /**
-     * @brief Set the device time for synchronized timestamps
-     * @param unixTime Unix timestamp to set
-     */
     static void setDeviceTime(unsigned long unixTime);
-
-    /**
-     * @brief Set the local timezone offset used by debug timestamps
-     * @param offsetMinutes Offset from UTC in minutes, for example 120 for UTC+2
-     */
     static void setTimezoneOffsetMinutes(int offsetMinutes);
-    
-    /**
-     * @brief Get the current timestamp string
-     * @return Timestamp string in [HH:MM:SS] format. Falls back to uptime before wall-clock sync.
-     */
     static String getTimestamp();
-
-    /**
-     * @brief Emit a friendly startup banner for the whole firmware.
-     * @param projectName Human-readable project name
-     * @param version Optional version or build tag
-     */
-    static void logStartupBanner(const String& projectName, const String& version = "dev");
-
-    /**
-     * @brief Log a compact subsystem summary line for the serial monitor and web log.
-     * @param subsystem Name of the subsystem
-     * @param status Human-readable status text
-     * @param details Optional details appended to the status line
-     */
-    static void logSubsystemStatus(const String& subsystem, const String& status, const String& details = "");
-    
-    /**
-     * @brief Convert binary data to hexadecimal string representation
-     * @param data Pointer to binary data
-     * @param len Length of data in bytes
-     * @return String containing hexadecimal representation
-     */
+    static bool hasSynchronizedTime();
+    static void setTimestampEnabled(bool enabled);
+    static bool isTimestampEnabled();
     static String hex(const uint8_t* data, uint8_t len);
-    
-    /**
-     * @brief Acknowledge received logs (remove from buffer)
-     * @param count Number of logs to acknowledge (0 = clear all)
-     */
     static void acknowledgeLogs(int count = 0);
-    
+
 private:
-    static String webLogBuffer;           // Buffer for web logs
-    static const int MAX_LOG_SIZE = 18192;  // Maximum size of web log buffer
-    static unsigned long deviceTimeOffset; // Offset for device time synchronization
-    static int timezoneOffsetMinutes;      // Local offset from UTC supplied by the browser
-    static int currentDebugLevel;         // Current debug level (1-5)
-    
-    /**
-     * @brief Internal method to add a message to web log buffer with timestamp
-     * @param message Message to add
-     * @param level Debug level for color coding
-     */
-    static void addToWebLog(const String& message, int level = 3);
-    
-    /**
-     * @brief Internal method to rotate the web log buffer if needed
-     */
+    static String webLogBuffer;
+    static constexpr size_t MAX_LOG_SIZE = 18192;
+    static unsigned long deviceTimeOffset;
+    static unsigned long bootSeconds;
+    static int timezoneOffsetMinutes;
+    static int currentDebugLevel;
+    static bool timestampEnabled;
+
+    static int normalizeLevel(int level);
+    static String escapeHtml(const String& value);
+    static void addToWebLog(const String& message, int level);
     static void rotateWebLogBuffer();
-    
-    /**
-     * @brief Get color code for web log based on debug level
-     * @param level Debug level
-     * @return HTML color code string
-     */
     static String getWebLogColor(int level);
 };
+
 ```
 
 ---
@@ -6717,15 +5870,15 @@ private:
 ### <a id="📄-lib-hardwaremanager-audiocontroller-audiocontroller-cpp"></a>📄 `lib/HardwareManager/AudioController/AudioController.cpp`
 
 **File Info:**
-- **Size**: 15.89 KB
+- **Size**: 16.25 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/AudioController/AudioController.cpp`
 - **Relative Path**: `lib/HardwareManager/AudioController`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-04 22:42:24 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `2558c8ca727986683c167c07ef607d87`
-- **SHA256**: `4cc704595da32a7be55e46264b79b76177588080c74c0c84422661ca7d492490`
+- **Modified**: 2026-09-18 17:43:19 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `6f107abb6d571ec9d23be7a4a61eae82`
+- **SHA256**: `da4111369c13c0e2c478705408faf2a27c2c62a48f49008968bac6b9a133fe8a`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -6735,414 +5888,466 @@ private:
 //  AudioController.cpp - Audio input and beat/silence detection implementation.
 //
 //  Samples from MAX9814 via ADC, calculates RMS energy in sliding windows,
-//  and detects beats and silence events. Outputs simple "beat" and "silence" commands
-//  with timestamps for integration with scenes/scripts.
+//  and detects beats and silence events. Outputs simple "beat" and "silence"
+//  commands with timestamps for integration with scenes/scripts.
 // ============================================================================
 
 #include "AudioController.h"
 
-
 AudioController::AudioController(uint8_t adcPin)
-    : _adcPin(adcPin),                    // ADC pin for audio input
-      _adcMax(4095),                      // 12-bit ADC max value
-      _sampleBuffer(nullptr),             // Circular buffer for audio samples
-      _bufferIndex(0),                   // Current position in circular buffer
-      _sampleCount(0),                   // Number of samples collected
-      _currentEnergy(0.0f),              // Current RMS energy level
-      _averageEnergy(0.0f),              // Running average of energy
-      _energySmoothAlpha(0.1f),         // Smoothing factor for energy averaging
-      _beatCallback(nullptr),            // Callback for beat detection
-      _beatMultiplier(AUDIO_BEAT_MULTIPLIER),  // Beat sensitivity multiplier
-      _lastBeatTime(0),                 // Last beat detection time
-      _beatDebounceMs(AUDIO_BEAT_DEBOUNCE_MS), // Minimum time between beat detections
-      _beatTimestamps(),                // History of beat timestamps for BPM calculation
-      _currentBPM(0.0f),                // Current BPM estimate
-      _lastBPMUpdateTime(0),            // Last BPM calculation time
-      _silenceCallback(nullptr),         // Callback for silence detection
-      _silenceThresholdMv(AUDIO_SILENCE_THRESHOLD_MV), // Silence detection threshold in mV
-      _audioPresent(true),              // Current audio presence state
-      _silenceStartTime(0),             // When silence period started
-      _silenceTimeoutMs(AUDIO_SILENCE_TIMEOUT_MS), // How long to confirm silence
-      _audioInitialized(false),         // Flag to track initialization completion
-      _lastLedUpdate(0),                // Last LED update time
-      _ledSequenceStep(0),              // Current step in LED sequence
-      _ledState(LOW),                   // Current LED state
-      _ledPulseActive(false),           // Non-blocking LED pulse in progress
-      _ledPulseStart(0),                // When the LED pulse started
-      _silenceEventFired(false),        // Latch: silence event fired until audio resumes
-      _expectedBeatTime(0),            // When next beat is expected
-      _missedBeatCount(0)              // Count of consecutive missed beats
-{
-}
+    : _adcPin(adcPin),          // ADC pin for audio input
+      _adcMax(4095),            // 12-bit ADC max value
+      _sampleBuffer(nullptr),   // Circular buffer for audio samples
+      _bufferIndex(0),          // Current position in circular buffer
+      _sampleCount(0),          // Number of samples collected
+      _currentEnergy(0.0f),     // Current RMS energy level
+      _averageEnergy(0.0f),     // Running average of energy
+      _energySmoothAlpha(0.1f), // Smoothing factor for energy averaging
+      _beatCallback(nullptr),   // Callback for beat detection
+      _beatMultiplier(AUDIO_BEAT_MULTIPLIER), // Beat sensitivity multiplier
+      _lastBeatTime(0),                       // Last beat detection time
+      _beatDebounceMs(
+          AUDIO_BEAT_DEBOUNCE_MS), // Minimum time between beat detections
+      _beatTimestamps(),     // History of beat timestamps for BPM calculation
+      _currentBPM(0.0f),     // Current BPM estimate
+      _lastBPMUpdateTime(0), // Last BPM calculation time
+      _silenceCallback(nullptr), // Callback for silence detection
+      _silenceThresholdMv(
+          AUDIO_SILENCE_THRESHOLD_MV), // Silence detection threshold in mV
+      _audioPresent(true),             // Current audio presence state
+      _silenceStartTime(0),            // When silence period started
+      _silenceTimeoutMs(
+          AUDIO_SILENCE_TIMEOUT_MS), // How long to confirm silence
+      _audioInitialized(false),      // Flag to track initialization completion
+      _lastLedUpdate(0),             // Last LED update time
+      _ledSequenceStep(0),           // Current step in LED sequence
+      _ledState(LOW),                // Current LED state
+      _ledPulseActive(false),        // Non-blocking LED pulse in progress
+      _ledPulseStart(0),             // When the LED pulse started
+      _silenceEventFired(
+          false),           // Latch: silence event fired until audio resumes
+      _expectedBeatTime(0), // When next beat is expected
+      _missedBeatCount(0)   // Count of consecutive missed beats
+{}
 
 void AudioController::init() {
-    // Initialize LED pin for visual feedback
-    pinMode(AUDIO_LED_PIN, OUTPUT);
+  // Initialize LED pin for visual feedback
+  pinMode(AUDIO_LED_PIN, OUTPUT);
 
-    // Initialize LED state
-    _ledState = LOW;
-    digitalWrite(AUDIO_LED_PIN, _ledState);
+  // Initialize LED state
+  _ledState = LOW;
+  digitalWrite(AUDIO_LED_PIN, _ledState);
 
-    // Set up non-blocking LED sequence for initialization indication
-    _lastLedUpdate = millis();
-    _ledSequenceStep = 0;
-    _audioInitialized = false;
-    
-    // Initialize silence detection state
-    _audioPresent = true;  // Assume audio is present initially
-    _silenceEventFired = false;
-    _silenceStartTime = 0;
-    
-    // Initialize beat-based silence detection state
-    _expectedBeatTime = 0;
-    _missedBeatCount = 0;
+  // Set up non-blocking LED sequence for initialization indication
+  _lastLedUpdate = millis();
+  _ledSequenceStep = 0;
+  _audioInitialized = false;
 
+  // Initialize silence detection state
+  _audioPresent = true; // Assume audio is present initially
+  _silenceEventFired = false;
+  _silenceStartTime = 0;
 
-    // Allocate circular sample buffer for audio data
-    _sampleBuffer = new uint16_t[AUDIO_WINDOW_SIZE];
-    if (!_sampleBuffer) {
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[AUDIO][ERROR] Failed to allocate sample buffer");
+  // Initialize beat-based silence detection state
+  _expectedBeatTime = 0;
+  _missedBeatCount = 0;
+
+  // Allocate circular sample buffer for audio data
+  _sampleBuffer = new uint16_t[AUDIO_WINDOW_SIZE];
+  if (!_sampleBuffer) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[AUDIO][ERROR] Failed to allocate sample buffer");
+    }
 #endif
-        return;
-    }
+    return;
+  }
 
-    // Initialize buffer with zeros
-    for (uint16_t i = 0; i < AUDIO_WINDOW_SIZE; i++) {
-        _sampleBuffer[i] = 0;
-    }
-    _bufferIndex = 0;
-    _sampleCount = 0;
+  // Initialize buffer with zeros
+  for (uint16_t i = 0; i < AUDIO_WINDOW_SIZE; i++) {
+    _sampleBuffer[i] = 0;
+  }
+  _bufferIndex = 0;
+  _sampleCount = 0;
 
-    // Configure ADC for audio input
-    pinMode(_adcPin, INPUT);
-    analogSetAttenuation(ADC_11db);  // Full range for 3.3V input
-    // Note: ADC is set to maximum resolution in platformio.ini or default Arduino config
+  // Configure ADC for audio input
+  pinMode(_adcPin, INPUT);
+  analogSetAttenuation(ADC_11db); // Full range for 3.3V input
+  // Note: ADC is set to maximum resolution in platformio.ini or default Arduino
+  // config
 
-#if DEBUG_LEVEL >= 2
-    Debug::println(2, "[AUDIO][INIT] AudioController initialized on pin " + String(_adcPin));
-    Debug::println(2, "[AUDIO][INFO] Buffer size: " + String(AUDIO_WINDOW_SIZE) + " samples, sample rate: " + String(AUDIO_SAMPLE_RATE) + " Hz");
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 3) {
+    Debug::println(3, "[AUDIO][INIT] AudioController initialized on pin " +
+                          String(_adcPin));
+    Debug::println(3, "[AUDIO][INFO] Buffer size: " + String(AUDIO_WINDOW_SIZE) +
+                          " samples, sample rate: " + String(AUDIO_SAMPLE_RATE) +
+                          " Hz");
+  }
 #endif
 }
 
 void AudioController::update() {
-    // Handle non-blocking LED pulse for beat/silence indication
-    // LED pulses for 50ms when beat or silence is detected
-    if (_ledPulseActive && millis() - _ledPulseStart >= 50) {
-        _ledPulseActive = false;
-        digitalWrite(AUDIO_LED_PIN, LOW);
+  // Handle non-blocking LED pulse for beat/silence indication
+  // LED pulses for 50ms when beat or silence is detected
+  if (_ledPulseActive && millis() - _ledPulseStart >= 50) {
+    _ledPulseActive = false;
+    digitalWrite(AUDIO_LED_PIN, LOW);
+  }
+
+  // Handle non-blocking LED initialization sequence
+  // LED blinks 5 times during initialization to indicate the system is starting
+  // up
+  if (!_audioInitialized && _ledSequenceStep < 5) {
+    if (millis() - _lastLedUpdate >= 300) { // 300ms between LED changes
+      _lastLedUpdate = millis();
+      _ledState = !_ledState;
+      digitalWrite(AUDIO_LED_PIN, _ledState);
+      _ledSequenceStep++;
+
+      if (_ledSequenceStep >= 5) {
+        _audioInitialized = true;
+        _ledState = LOW;
+        digitalWrite(AUDIO_LED_PIN, _ledState);
+      }
     }
+    // Continue with audio processing even during initialization
+  }
 
-    // Handle non-blocking LED initialization sequence
-    // LED blinks 5 times during initialization to indicate the system is starting up
-    if (!_audioInitialized && _ledSequenceStep < 5) {
-        if (millis() - _lastLedUpdate >= 300) {  // 300ms between LED changes
-            _lastLedUpdate = millis();
-            _ledState = !_ledState;
-            digitalWrite(AUDIO_LED_PIN, _ledState);
-            _ledSequenceStep++;
+  // Read one ADC sample from the microphone input
+  uint16_t rawSample = analogRead(_adcPin);
 
-            if (_ledSequenceStep >= 5) {
-                _audioInitialized = true;
-                _ledState = LOW;
-                digitalWrite(AUDIO_LED_PIN, _ledState);
-            }
+  // Add to circular buffer for audio analysis
+  _sampleBuffer[_bufferIndex] = rawSample;
+  _bufferIndex = (_bufferIndex + 1) % AUDIO_WINDOW_SIZE;
+
+  // Track how many samples we have (fills up over first window_size calls)
+  if (_sampleCount < AUDIO_WINDOW_SIZE) {
+    _sampleCount++;
+  }
+
+  // When buffer is full, analyze audio for beats and silence
+  if (_sampleCount == AUDIO_WINDOW_SIZE) {
+    // Calculate RMS energy from current window
+    _currentEnergy = calculateRMS();
+
+    // Exponential smoothing of energy average for more stable detection
+    _averageEnergy = (_energySmoothAlpha * _currentEnergy) +
+                     ((1.0f - _energySmoothAlpha) * _averageEnergy);
+
+    // Beat detection: trigger if current energy exceeds threshold
+    // The threshold is based on the average energy multiplied by a sensitivity
+    // multiplier Add a minimum energy requirement to avoid detecting noise as
+    // beats
+    float beatThreshold = (_averageEnergy * _beatMultiplier);
+    float minEnergyThreshold =
+        _adcMax * 0.03f; // Minimum energy threshold (3% of max ADC)
+
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 4) {
+      Debug::println(4,
+                     "[AUDIO][BEAT_DEBUG] Energy: " + String(_currentEnergy, 1) +
+                         ", Threshold: " + String(beatThreshold, 1) +
+                         ", Min: " + String(minEnergyThreshold, 1) +
+                         ", Avg: " + String(_averageEnergy, 1));
+    }
+#endif
+
+    if (_currentEnergy > beatThreshold && _currentEnergy > minEnergyThreshold) {
+      uint32_t now = millis();
+      if (now - _lastBeatTime >=
+          _beatDebounceMs) { // Debounce to avoid multiple detections for the
+                             // same beat
+        _lastBeatTime = now;
+        // Output beat command with timestamp
+        outputBeat();
+      }
+    } else {
+      // No beat detected - check if we should trigger silence based on missed
+      // beats
+      uint32_t now = millis();
+      if (_currentBPM > 0 && _expectedBeatTime > 0 && now > _expectedBeatTime) {
+        _missedBeatCount++;
+
+        // If we've missed enough beats, trigger silence
+        if (_missedBeatCount >= _missedBeatThreshold && !_silenceEventFired) {
+          _silenceEventFired = true;
+          outputSilence();
+#ifdef DEBUG_LEVEL
+          if (Debug::getDebugLevel() >= 2) {
+            Debug::println(2, "[AUDIO][BEAT_SILENCE] Silence triggered after " +
+                                  String(_missedBeatCount) + " missed beats");
+          }
+#endif
         }
-        // Continue with audio processing even during initialization
+      }
     }
 
-    // Read one ADC sample from the microphone input
-    uint16_t rawSample = analogRead(_adcPin);
+    // Silence detection: check if RMS is below threshold
+    // Convert ADC value to millivolts for comparison with threshold
+    float currentMv = (_currentEnergy / _adcMax) * 3300.0f; // Convert to mV
+    bool wouldBeSilent =
+        (currentMv < (_silenceThresholdMv *
+                      0.9f)); // Slightly lower threshold for sensitivity
 
-    // Add to circular buffer for audio analysis
-    _sampleBuffer[_bufferIndex] = rawSample;
-    _bufferIndex = (_bufferIndex + 1) % AUDIO_WINDOW_SIZE;
-
-    // Track how many samples we have (fills up over first window_size calls)
-    if (_sampleCount < AUDIO_WINDOW_SIZE) {
-        _sampleCount++;
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 4) {
+      Debug::println(
+          4, "[AUDIO][SILENCE_DEBUG] Energy: " + String(_currentEnergy, 1) +
+                 ", mV: " + String(currentMv, 1) +
+                 ", Threshold: " + String(_silenceThresholdMv) +
+                 ", State: " + (_audioPresent ? "Audio" : "Silence") +
+                 ", EventFired: " + String(_silenceEventFired));
     }
-
-    // When buffer is full, analyze audio for beats and silence
-    if (_sampleCount == AUDIO_WINDOW_SIZE) {
-        // Calculate RMS energy from current window
-        _currentEnergy = calculateRMS();
-
-        // Exponential smoothing of energy average for more stable detection
-        _averageEnergy = (_energySmoothAlpha * _currentEnergy) + ((1.0f - _energySmoothAlpha) * _averageEnergy);
-
-        // Beat detection: trigger if current energy exceeds threshold
-        // The threshold is based on the average energy multiplied by a sensitivity multiplier
-        // Add a minimum energy requirement to avoid detecting noise as beats
-        float beatThreshold = (_averageEnergy * _beatMultiplier);
-        float minEnergyThreshold = _adcMax * 0.03f;  // Minimum energy threshold (3% of max ADC)
-        
-#if DEBUG_LEVEL >= 3
-        Debug::println(3, "[AUDIO][BEAT_DEBUG] Energy: " + String(_currentEnergy, 1) + 
-                      ", Threshold: " + String(beatThreshold, 1) + 
-                      ", Min: " + String(minEnergyThreshold, 1) + 
-                      ", Avg: " + String(_averageEnergy, 1));
 #endif
-        
-        if (_currentEnergy > beatThreshold && _currentEnergy > minEnergyThreshold) {
-            uint32_t now = millis();
-            if (now - _lastBeatTime >= _beatDebounceMs) {  // Debounce to avoid multiple detections for the same beat
-                _lastBeatTime = now;
-                // Output beat command with timestamp
-                outputBeat();
-            }
-        } else {
-            // No beat detected - check if we should trigger silence based on missed beats
-            uint32_t now = millis();
-            if (_currentBPM > 0 && _expectedBeatTime > 0 && now > _expectedBeatTime) {
-                _missedBeatCount++;
-                
-                // If we've missed enough beats, trigger silence
-                if (_missedBeatCount >= _missedBeatThreshold && !_silenceEventFired) {
-                    _silenceEventFired = true;
-                    outputSilence();
-#if DEBUG_LEVEL >= 2
-                    Debug::println(2, "[AUDIO][BEAT_SILENCE] Silence triggered after " + String(_missedBeatCount) + " missed beats");
-#endif
-                }
-            }
+
+    if (wouldBeSilent) {
+      // Audio is quiet
+      if (_audioPresent) {
+        // Just went quiet, start timer
+        _silenceStartTime = millis();
+        _audioPresent = false;
+#ifdef DEBUG_LEVEL
+        if (Debug::getDebugLevel() >= 2) {
+          Debug::println(
+              2, "[AUDIO][SILENCE_START] Audio level dropped below threshold");
         }
-
-        // Silence detection: check if RMS is below threshold
-        // Convert ADC value to millivolts for comparison with threshold
-        float currentMv = (_currentEnergy / _adcMax) * 3300.0f;  // Convert to mV
-        bool wouldBeSilent = (currentMv < (_silenceThresholdMv * 0.9f));  // Slightly lower threshold for sensitivity
-
-#if DEBUG_LEVEL >= 3
-        Debug::println(3, "[AUDIO][SILENCE_DEBUG] Energy: " + String(_currentEnergy, 1) + 
-                      ", mV: " + String(currentMv, 1) + 
-                      ", Threshold: " + String(_silenceThresholdMv) + 
-                      ", State: " + (_audioPresent ? "Audio" : "Silence") + 
-                      ", EventFired: " + String(_silenceEventFired));
 #endif
-
-        if (wouldBeSilent) {
-            // Audio is quiet
-            if (_audioPresent) {
-                // Just went quiet, start timer
-                _silenceStartTime = millis();
-                _audioPresent = false;
-#if DEBUG_LEVEL >= 2
-                Debug::println(2, "[AUDIO][SILENCE_START] Audio level dropped below threshold");
-#endif
-            } else if (!_silenceEventFired && millis() - _silenceStartTime >= (_silenceTimeoutMs * 0.7f)) {
-                // Slightly reduced timeout period - fire once, latch until audio resumes
-                _silenceEventFired = true;
-                // Output silence command with timestamp
-                outputSilence();
-#if DEBUG_LEVEL >= 2
-                Debug::println(2, "[AUDIO][SILENCE_EVENT] Silence event triggered");
-#endif
-            }
-        } else {
-            // Audio is loud
-            if (!_audioPresent) {
-                // Just came back from silence
-                _audioPresent = true;
-                _silenceEventFired = false;
-                // Output audio resumed command with timestamp
-                outputAudioResumed();
-#if DEBUG_LEVEL >= 2
-                Debug::println(2, "[AUDIO][SILENCE_END] Audio level returned above threshold");
-#endif
-            }
+      } else if (!_silenceEventFired &&
+                 millis() - _silenceStartTime >= (_silenceTimeoutMs * 0.7f)) {
+        // Slightly reduced timeout period - fire once, latch until audio
+        // resumes
+        _silenceEventFired = true;
+        // Output silence command with timestamp
+        outputSilence();
+#ifdef DEBUG_LEVEL
+        if (Debug::getDebugLevel() >= 2) {
+          Debug::println(2, "[AUDIO][SILENCE_EVENT] Silence event triggered");
         }
+#endif
+      }
+    } else {
+      // Audio is loud
+      if (!_audioPresent) {
+        // Just came back from silence
+        _audioPresent = true;
+        _silenceEventFired = false;
+        // Output audio resumed command with timestamp
+        outputAudioResumed();
+#ifdef DEBUG_LEVEL
+        if (Debug::getDebugLevel() >= 2) {
+          Debug::println(
+              2, "[AUDIO][SILENCE_END] Audio level returned above threshold");
+        }
+#endif
+      }
     }
+  }
 }
 
 void AudioController::onBeat(BeatCallback callback) {
-    // Register a callback function to be called when a beat is detected
-    // The callback should not block execution and should be quick to execute
-    _beatCallback = callback;
+  // Register a callback function to be called when a beat is detected
+  // The callback should not block execution and should be quick to execute
+  _beatCallback = callback;
 }
 
 void AudioController::onSilence(SilenceCallback callback) {
-    // Register a callback function to be called when silence state changes
-    // The callback receives a boolean parameter: true for silence, false for audio resumed
-    _silenceCallback = callback;
+  // Register a callback function to be called when silence state changes
+  // The callback receives a boolean parameter: true for silence, false for
+  // audio resumed
+  _silenceCallback = callback;
 }
 
 void AudioController::setSensitivity(float multiplier) {
-    // Sets the beat detection sensitivity
-    // Higher multiplier = harder to trigger a beat (more energy required)
-    // Lower multiplier = easier to trigger a beat (less energy required)
-    _beatMultiplier = multiplier;
+  // Sets the beat detection sensitivity
+  // Higher multiplier = harder to trigger a beat (more energy required)
+  // Lower multiplier = easier to trigger a beat (less energy required)
+  _beatMultiplier = multiplier;
 }
 
 void AudioController::setSilenceThreshold(uint16_t thresholdMv) {
-    // Sets the silence detection threshold in millivolts
-    // Lower threshold = more sensitive to silence (easier to detect silence)
-    // Higher threshold = less sensitive to silence (harder to detect silence)
-    _silenceThresholdMv = thresholdMv;
-#if DEBUG_LEVEL >= 2
-    Debug::println(2, "[AUDIO][SILENCE_THRESHOLD] Set to " + String(thresholdMv) + " mV");
+  // Sets the silence detection threshold in millivolts
+  // Lower threshold = more sensitive to silence (easier to detect silence)
+  // Higher threshold = less sensitive to silence (harder to detect silence)
+  _silenceThresholdMv = thresholdMv;
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[AUDIO][SILENCE_THRESHOLD] Set to " + String(thresholdMv) +
+                          " mV");
+  }
 #endif
 }
 
 float AudioController::getCurrentEnergy() const {
-    // Returns the current RMS energy level of the audio signal
-    // This is a measure of the current audio amplitude/volume
-    // Higher values indicate louder audio, lower values indicate quieter audio
-    return _currentEnergy;
+  // Returns the current RMS energy level of the audio signal
+  // This is a measure of the current audio amplitude/volume
+  // Higher values indicate louder audio, lower values indicate quieter audio
+  return _currentEnergy;
 }
 
 bool AudioController::isSilent() const {
-    // Returns true if audio is currently detected as silent
-    // Based on whether the audio level has been below the threshold
-    // for the configured timeout period
-    return !_audioPresent;
+  // Returns true if audio is currently detected as silent
+  // Based on whether the audio level has been below the threshold
+  // for the configured timeout period
+  return !_audioPresent;
 }
 
 float AudioController::getCurrentBPM() const {
-    // Returns the current beats per minute (BPM) estimate
-    // Calculated from the average interval between detected beats
-    // Returns 0.0 if insufficient beat data is available
-    return _currentBPM;
+  // Returns the current beats per minute (BPM) estimate
+  // Calculated from the average interval between detected beats
+  // Returns 0.0 if insufficient beat data is available
+  return _currentBPM;
 }
 
 float AudioController::calculateRMS() {
-    // Calculate RMS (root mean square) energy from sample buffer
-    // RMS is a measure of the power in the audio signal
-    // Higher values indicate louder audio, lower values indicate quieter audio
-    if (_sampleCount == 0) {
-        return 0.0f;
-    }
+  // Calculate RMS (root mean square) energy from sample buffer
+  // RMS is a measure of the power in the audio signal
+  // Higher values indicate louder audio, lower values indicate quieter audio
+  if (_sampleCount == 0) {
+    return 0.0f;
+  }
 
-    // Calculate mean of samples
-    uint32_t sum = 0;
-    for (uint16_t i = 0; i < AUDIO_WINDOW_SIZE; i++) {
-        sum += _sampleBuffer[i];
-    }
-    float mean = (float)sum / AUDIO_WINDOW_SIZE;
+  // Calculate mean of samples
+  uint32_t sum = 0;
+  for (uint16_t i = 0; i < AUDIO_WINDOW_SIZE; i++) {
+    sum += _sampleBuffer[i];
+  }
+  float mean = (float)sum / AUDIO_WINDOW_SIZE;
 
-    // Calculate sum of squared differences from mean
-    float sumSquaredDiff = 0.0f;
-    for (uint16_t i = 0; i < AUDIO_WINDOW_SIZE; i++) {
-        float diff = (float)_sampleBuffer[i] - mean;
-        sumSquaredDiff += diff * diff;
-    }
+  // Calculate sum of squared differences from mean
+  float sumSquaredDiff = 0.0f;
+  for (uint16_t i = 0; i < AUDIO_WINDOW_SIZE; i++) {
+    float diff = (float)_sampleBuffer[i] - mean;
+    sumSquaredDiff += diff * diff;
+  }
 
-    // RMS = sqrt(mean of squared differences)
-    return sqrt(sumSquaredDiff / AUDIO_WINDOW_SIZE);
+  // RMS = sqrt(mean of squared differences)
+  return sqrt(sumSquaredDiff / AUDIO_WINDOW_SIZE);
 }
 
 void AudioController::updateBPM() {
-    // Update BPM calculation at regular intervals
-    uint32_t now = millis();
-    if (now - _lastBPMUpdateTime < _bpmUpdateInterval) {
-        return;
-    }
-    
-    _lastBPMUpdateTime = now;
-    
-    // Need at least 2 beat timestamps to calculate BPM
-    if (_beatTimestamps.size() < 2) {
-        _currentBPM = 0.0f;
-        return;
-    }
-    
-    // Calculate average interval between beats
-    uint32_t totalInterval = 0;
-    for (size_t i = 1; i < _beatTimestamps.size(); i++) {
-        totalInterval += (_beatTimestamps[i] - _beatTimestamps[i-1]);
-    }
-    
-    float avgInterval = (float)totalInterval / (_beatTimestamps.size() - 1);
-    
-    // Convert to BPM (beats per minute)
-    if (avgInterval > 0) {
-        _currentBPM = 60000.0f / avgInterval;
-    } else {
-        _currentBPM = 0.0f;
-    }
-    
-#if DEBUG_LEVEL >= 3
-    Debug::println(3, "[AUDIO][BPM] Current BPM: " + String(_currentBPM, 1) + 
-                  " (based on " + String(_beatTimestamps.size()) + " beats)");
+  // Update BPM calculation at regular intervals
+  uint32_t now = millis();
+  if (now - _lastBPMUpdateTime < _bpmUpdateInterval) {
+    return;
+  }
+
+  _lastBPMUpdateTime = now;
+
+  // Need at least 2 beat timestamps to calculate BPM
+  if (_beatTimestamps.size() < 2) {
+    _currentBPM = 0.0f;
+    return;
+  }
+
+  // Calculate average interval between beats
+  uint32_t totalInterval = 0;
+  for (size_t i = 1; i < _beatTimestamps.size(); i++) {
+    totalInterval += (_beatTimestamps[i] - _beatTimestamps[i - 1]);
+  }
+
+  float avgInterval = (float)totalInterval / (_beatTimestamps.size() - 1);
+
+  // Convert to BPM (beats per minute)
+  if (avgInterval > 0) {
+    _currentBPM = 60000.0f / avgInterval;
+  } else {
+    _currentBPM = 0.0f;
+  }
+
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 3) {
+    Debug::println(3, "[AUDIO][BPM] Current BPM: " + String(_currentBPM, 1) +
+                          " (based on " + String(_beatTimestamps.size()) +
+                          " beats)");
+  }
 #endif
 }
 
 void AudioController::outputBeat() {
-    // Output beat command with timestamp in the format "beat[timestamp]"
-    uint32_t now = millis();
-    String output = "beat[" + String(now) + "]";
-    
-#if DEBUG_LEVEL >= 3
-    Debug::println(3, "[AUDIO][BEAT] " + output);
+  // Output beat command with timestamp in the format "beat[timestamp]"
+  uint32_t now = millis();
+  String output = "beat[" + String(now) + "]";
+
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[AUDIO][BEAT] " + output);
+  }
 #endif
-    
-    // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
-    digitalWrite(AUDIO_LED_PIN, HIGH);
-    _ledPulseActive = true;
-    _ledPulseStart = millis();
-    
-    // Add to beat history for BPM calculation
-    _beatTimestamps.push_back(now);
-    
-    // Keep only the most recent beats to limit memory usage
-    if (_beatTimestamps.size() > _maxBeatHistory) {
-        _beatTimestamps.erase(_beatTimestamps.begin());
-    }
-    
-    // Update BPM calculation
-    updateBPM();
-    
-    // Call registered callback if any
-    if (_beatCallback) {
-        _beatCallback();
-    }
+
+  // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
+  digitalWrite(AUDIO_LED_PIN, HIGH);
+  _ledPulseActive = true;
+  _ledPulseStart = millis();
+
+  // Add to beat history for BPM calculation
+  _beatTimestamps.push_back(now);
+
+  // Keep only the most recent beats to limit memory usage
+  if (_beatTimestamps.size() > _maxBeatHistory) {
+    _beatTimestamps.erase(_beatTimestamps.begin());
+  }
+
+  // Update BPM calculation
+  updateBPM();
+
+  // Call registered callback if any
+  if (_beatCallback) {
+    _beatCallback();
+  }
 }
 
 void AudioController::outputSilence() {
-    // Output silence command with timestamp in the format "silence[timestamp]"
-    // This is called only once when silence is detected and latches until audio resumes
-    uint32_t now = millis();
-    String output = "silence[" + String(now) + "]";
-    
-#if DEBUG_LEVEL >= 3
-    Debug::println(3, "[AUDIO][SILENCE] " + output);
+  // Output silence command with timestamp in the format "silence[timestamp]"
+  // This is called only once when silence is detected and latches until audio
+  // resumes
+  uint32_t now = millis();
+  String output = "silence[" + String(now) + "]";
+
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[AUDIO][SILENCE] " + output);
+  }
 #endif
-    
-    // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
-    digitalWrite(AUDIO_LED_PIN, HIGH);
-    _ledPulseActive = true;
-    _ledPulseStart = millis();
-    
-    // Call registered callback if any
-    if (_silenceCallback) {
-        _silenceCallback(true);  // true indicates silence state
-    }
+
+  // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
+  digitalWrite(AUDIO_LED_PIN, HIGH);
+  _ledPulseActive = true;
+  _ledPulseStart = millis();
+
+  // Call registered callback if any
+  if (_silenceCallback) {
+    _silenceCallback(true); // true indicates silence state
+  }
 }
 
 void AudioController::outputAudioResumed() {
-    // Output audio resumed command with timestamp in the format "audio_resumed[timestamp]"
-    // This is called when audio resumes after a period of silence
-    uint32_t now = millis();
-    String output = "audio_resumed[" + String(now) + "]";
-    
-#if DEBUG_LEVEL >= 3
-    Debug::println(3, "[AUDIO][RESUMED] " + output);
+  // Output audio resumed command with timestamp in the format
+  // "audio_resumed[timestamp]" This is called when audio resumes after a period
+  // of silence
+  uint32_t now = millis();
+  String output = "audio_resumed[" + String(now) + "]";
+
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[AUDIO][RESUMED] " + output);
+  }
 #endif
-    
-    // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
-    digitalWrite(AUDIO_LED_PIN, HIGH);
-    _ledPulseActive = true;
-    _ledPulseStart = millis();
-    
-    // Reset beat-based silence detection when audio resumes
-    _missedBeatCount = 0;
-    _expectedBeatTime = 0;
-    _silenceEventFired = false;
-    
-    // Call registered callback if any
-    if (_silenceCallback) {
-        _silenceCallback(false);  // false indicates audio resumed
-    }
+
+  // Flash LED on pin 12 (non-blocking 50ms pulse) for visual feedback
+  digitalWrite(AUDIO_LED_PIN, HIGH);
+  _ledPulseActive = true;
+  _ledPulseStart = millis();
+
+  // Reset beat-based silence detection when audio resumes
+  _missedBeatCount = 0;
+  _expectedBeatTime = 0;
+  _silenceEventFired = false;
+
+  // Call registered callback if any
+  if (_silenceCallback) {
+    _silenceCallback(false); // false indicates audio resumed
+  }
 }
 
 ```
@@ -7596,15 +6801,15 @@ private:
 ### <a id="📄-lib-hardwaremanager-kakudecoder-kakudecoder-cpp"></a>📄 `lib/HardwareManager/KakuDecoder/KakuDecoder.cpp`
 
 **File Info:**
-- **Size**: 4.73 KB
+- **Size**: 5.04 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/KakuDecoder/KakuDecoder.cpp`
 - **Relative Path**: `lib/HardwareManager/KakuDecoder`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-06 20:40:22 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `e50064163ec19d4802f0cba914a3f209`
-- **SHA256**: `8a42483784f7b6a633245f05de4f0448eb714f728129a73f2ba662bed842f1ec`
+- **Modified**: 2026-09-18 17:47:40 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `25c00f962cfedeef66b143b3c168fe09`
+- **SHA256**: `f9604b51d11a30990f4329c28ec24654408099522e934f648e527ddd3b72f179`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7620,24 +6825,48 @@ private:
 #include "KakuDecoder.h"
 
 KakuDecoder::KakuDecoder(uint32_t debounceMs)
-  : _debounceMs(debounceMs), _lastCodeTime(0), _lastCodeValue(0) {
-}
+    : _debounceMs(debounceMs), _lastCodeTime(0), _lastCodeValue(0) {}
 
-void KakuDecoder::onCommand(KakuCallback callback) {
-  _callback = callback;
-}
+void KakuDecoder::onCommand(KakuCallback callback) { _callback = callback; }
 
 char KakuDecoder::decodeHouseCode(byte n1, byte n2) {
   // Combine two nibbles to get the 8-bit address and map it to a letter (A-P)
   byte addr = (n1 << 4) | n2;
   switch (addr) {
-    case 0x00: return 'A'; case 0x40: return 'B'; case 0x10: return 'C';
-    case 0x04: return 'D'; case 0x44: return 'E'; case 0x14: return 'F';
-    case 0x54: return 'G'; case 0x01: return 'H'; case 0x41: return 'I';
-    case 0x11: return 'J'; case 0x51: return 'K'; case 0x05: return 'L';
-    case 0x45: return 'M'; case 0x15: return 'N'; case 0x55: return 'O';
-    case 0x50: return 'P';
-    default:   return '?'; // Unknown house code
+  case 0x00:
+    return 'A';
+  case 0x40:
+    return 'B';
+  case 0x10:
+    return 'C';
+  case 0x04:
+    return 'D';
+  case 0x44:
+    return 'E';
+  case 0x14:
+    return 'F';
+  case 0x54:
+    return 'G';
+  case 0x01:
+    return 'H';
+  case 0x41:
+    return 'I';
+  case 0x11:
+    return 'J';
+  case 0x51:
+    return 'K';
+  case 0x05:
+    return 'L';
+  case 0x45:
+    return 'M';
+  case 0x15:
+    return 'N';
+  case 0x55:
+    return 'O';
+  case 0x50:
+    return 'P';
+  default:
+    return '?'; // Unknown house code
   }
 }
 
@@ -7651,26 +6880,36 @@ bool KakuDecoder::isValidKaku24(unsigned long value) {
   byte n1 = (value >> 20) & 0x0F; // House high
   byte n2 = (value >> 16) & 0x0F; // House low
   byte n3 = (value >> 12) & 0x0F; // Row
-  byte n4 = (value >> 8)  & 0x0F; // Slider
-  byte n5 = (value >> 4)  & 0x0F; // Protocol marker (must be 1)
-  byte n6 =  value        & 0x0F; // On/Off (4 or 5)
+  byte n4 = (value >> 8) & 0x0F;  // Slider
+  byte n5 = (value >> 4) & 0x0F;  // Protocol marker (must be 1)
+  byte n6 = value & 0x0F;         // On/Off (4 or 5)
 
-  if (decodeHouseCode(n1, n2) == '?') return false; // Invalid house
-  if (!isValidKakuNibble(n3)) return false;
-  if (!isValidKakuNibble(n4)) return false;
-  if (n5 != 0x01) return false;
-  if (n6 != 0x04 && n6 != 0x05) return false;
+  if (decodeHouseCode(n1, n2) == '?')
+    return false; // Invalid house
+  if (!isValidKakuNibble(n3))
+    return false;
+  if (!isValidKakuNibble(n4))
+    return false;
+  if (n5 != 0x01)
+    return false;
+  if (n6 != 0x04 && n6 != 0x05)
+    return false;
 
   return true; // All checks passed
 }
 
 byte KakuDecoder::nibbleToPos(byte n) {
   // Convert Kaku nibbles (0,4,1,5) to human positions (1,2,3,4)
-  if      (n == 0x00) return 1;
-  else if (n == 0x04) return 2;
-  else if (n == 0x01) return 3;
-  else if (n == 0x05) return 4;
-  else return 0; // Invalid
+  if (n == 0x00)
+    return 1;
+  else if (n == 0x04)
+    return 2;
+  else if (n == 0x01)
+    return 3;
+  else if (n == 0x05)
+    return 4;
+  else
+    return 0; // Invalid
 }
 
 void KakuDecoder::decodeClassicKaku(unsigned long value) {
@@ -7678,8 +6917,8 @@ void KakuDecoder::decodeClassicKaku(unsigned long value) {
   byte n1 = (value >> 20) & 0x0F;
   byte n2 = (value >> 16) & 0x0F;
   byte n3 = (value >> 12) & 0x0F;
-  byte n4 = (value >> 8)  & 0x0F;
-  byte n6 =  value        & 0x0F;
+  byte n4 = (value >> 8) & 0x0F;
+  byte n6 = value & 0x0F;
 
   char house = decodeHouseCode(n1, n2);
   byte rowPos = nibbleToPos(n3);
@@ -7689,8 +6928,11 @@ void KakuDecoder::decodeClassicKaku(unsigned long value) {
   // Calculate button number (1-32) based on slider row and on/off state
   int button = (sliderPos - 1) * 8 + (rowPos - 1) * 2 + (isOn ? 1 : 2);
 
-#if DEBUG_LEVEL >= 3
-  Debug::println(3, "[KAKU][DECODE] House " + String(house) + " Button " + String(button));
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 3) {
+    Debug::println(3, "[KAKU][DECODE] House " + String(house) + " Button " +
+                          String(button));
+  }
 #endif
 }
 
@@ -7701,8 +6943,8 @@ void KakuDecoder::processValue(unsigned long value) {
   byte n1 = (value >> 20) & 0x0F;
   byte n2 = (value >> 16) & 0x0F;
   byte n3 = (value >> 12) & 0x0F;
-  byte n4 = (value >> 8)  & 0x0F;
-  byte n6 =  value        & 0x0F;
+  byte n4 = (value >> 8) & 0x0F;
+  byte n6 = value & 0x0F;
 
   RFCommand cmd;
   char houseChar = decodeHouseCode(n1, n2);
@@ -7716,22 +6958,29 @@ void KakuDecoder::processValue(unsigned long value) {
   cmd.button = (sliderPos - 1) * 8 + (rowPos - 1) * 2 + (isOn ? 1 : 2);
   cmd.timestamp = millis();
 
-  // All SystemEvent code has been removed to ensure events are only published through HardwareManager
-  
+  // All SystemEvent code has been removed to ensure events are only published
+  // through HardwareManager
 
-  #if DEBUG_LEVEL >= 2
-    Debug::println("[KAKU][processValue] Decoded House " + String(houseChar) + " Button " + String(cmd.button) + " - Event published via HardwareManager callback");
-  #endif
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[KAKU][processValue] Decoded House " +
+                          String(houseChar) + " Button " + String(cmd.button) +
+                          " - Event published via HardwareManager callback");
+  }
+#endif
   // ------------------------------
 
   // Trigger the old-style callback if anyone is still listening
-  if (_callback) _callback(cmd);
+  if (_callback)
+    _callback(cmd);
 }
 
-void KakuDecoder::onRawData(unsigned long value, int bits, int protocol, int pulse) {
+void KakuDecoder::onRawData(unsigned long value, int bits, int protocol,
+                            int pulse) {
   unsigned long now = millis();
 
-  if (value == 0) return; // Ignore empty signals
+  if (value == 0)
+    return; // Ignore empty signals
 
   // Debounce: Ignore if same code received recently
   if (value == _lastCodeValue && (now - _lastCodeTime) < _debounceMs) {
@@ -7745,10 +6994,10 @@ void KakuDecoder::onRawData(unsigned long value, int bits, int protocol, int pul
   bool valid24 = (bits == 24 && isValidKaku24(value));
 
   if (valid24) {
-    decodeClassicKaku(value); 
-    processValue(value);      
+    decodeClassicKaku(value);
+    processValue(value);
   }
-}   
+}
 ```
 
 ---
@@ -7909,15 +7158,15 @@ private:
 ### <a id="📄-lib-hardwaremanager-livingcolors-cc2500-cpp"></a>📄 `lib/HardwareManager/LivingColors/CC2500.cpp`
 
 **File Info:**
-- **Size**: 6.01 KB
+- **Size**: 5.79 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/LivingColors/CC2500.cpp`
 - **Relative Path**: `lib/HardwareManager/LivingColors`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-01 13:12:36 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `dc75a7a94adfbf49d557b63017173a84`
-- **SHA256**: `d0f7aa46794fcd12b759b22f693c8dc44eea2d7cd3dd3343ec1bf961adbd0e90`
+- **Modified**: 2026-09-18 19:23:17 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `5fc0b8d846c4169373848dd30283890d`
+- **SHA256**: `6fcaed605324bc5a608d173c87d0b5297f9c2db8fd1160751524d2cc81f9420d`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -7925,229 +7174,222 @@ private:
 ```cpp
 #include "CC2500.h"
 
-CC2500::CC2500(uint8_t csPin,
-               uint8_t sckPin,
-               uint8_t misoPin,
-               uint8_t mosiPin,
+CC2500::CC2500(uint8_t csPin, uint8_t sckPin, uint8_t misoPin, uint8_t mosiPin,
                uint8_t gdo2Pin)
-    : _csPin(csPin),
-      _sckPin(sckPin),
-      _misoPin(misoPin),
-      _mosiPin(mosiPin),
-      _gdo2Pin(gdo2Pin)
-{
-}
+    : _csPin(csPin), _sckPin(sckPin), _misoPin(misoPin), _mosiPin(mosiPin),
+      _gdo2Pin(gdo2Pin) {}
 
 void CC2500::begin() {
-    pinMode(_csPin, OUTPUT);
-    digitalWrite(_csPin, HIGH);
+  pinMode(_csPin, OUTPUT);
+  digitalWrite(_csPin, HIGH);
 
-    pinMode(_gdo2Pin, INPUT_PULLUP);
+  pinMode(_gdo2Pin, INPUT_PULLUP);
 
-    SPI.begin(_sckPin, _misoPin, _mosiPin, _csPin);
+  SPI.begin(_sckPin, _misoPin, _mosiPin, _csPin);
 
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println(1,"[CC2500] Begin SPI: CS=" + String(_csPin)
-                       + " SCK=" + String(_sckPin)
-                       + " MISO=" + String(_misoPin)
-                       + " MOSI=" + String(_mosiPin)
-                       + " GDO2=" + String(_gdo2Pin));
-    #endif
+  if (Debug::getDebugLevel() >= 1) {
+    Debug::println(
+        1, "[CC2500] Begin SPI: CS=" + String(_csPin) +
+               " SCK=" + String(_sckPin) + " MISO=" + String(_misoPin) +
+               " MOSI=" + String(_mosiPin) + " GDO2=" + String(_gdo2Pin));
+  }
 #endif
 }
 
 bool CC2500::verify() {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[CC2500] Verifying chip...");
-    #endif
+  if (Debug::getDebugLevel() >= 1) {
+    Debug::println(1, "[CC2500] Verifying chip...");
+  }
 #endif
 
-    digitalWrite(_csPin, LOW);
-    SPI.transfer(CC2500_CMD_SRES);
-    digitalWrite(_csPin, HIGH);
-    delay(10);
+  digitalWrite(_csPin, LOW);
+  SPI.transfer(CC2500_CMD_SRES);
+  digitalWrite(_csPin, HIGH);
+  delay(10);
 
-    uint8_t partnum = readStatusReg(CC2500_REG_PARTNUM);
-    uint8_t version = readStatusReg(CC2500_REG_VERSION);
+  uint8_t partnum = readStatusReg(CC2500_REG_PARTNUM);
+  uint8_t version = readStatusReg(CC2500_REG_VERSION);
 
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[CC2500] PARTNUM=0x" + String(partnum, HEX)
-                       + " VERSION=0x" + String(version, HEX));
-    #endif
+  if (Debug::getDebugLevel() >= 1) {
+    Debug::println(1, "[CC2500] PARTNUM=0x" + String(partnum, HEX) +
+                          " VERSION=0x" + String(version, HEX));
+  }
 #endif
 
-    return (partnum == 0x80 && version == 0x03);
+  return (partnum == 0x80 && version == 0x03);
 }
 
 void CC2500::initForLivingColors() {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[CC2500] Init for LivingColors...");
-    #endif
+  if (Debug::getDebugLevel() >= 3) {
+    Debug::println(1, "[CC2500] Init for LivingColors...");
+  }
 #endif
 
-    sendStrobe(CC2500_CMD_SRES);
-    delay(100);
-    sendStrobe(CC2500_CMD_SRES);
-    delay(100);
+  sendStrobe(CC2500_CMD_SRES);
+  delay(100);
+  sendStrobe(CC2500_CMD_SRES);
+  delay(100);
 
-    writeReg(CC2500_REG_FSCTRL1, 0x09);
-    writeReg(CC2500_REG_FSCTRL0, 0x00);
-    writeReg(CC2500_REG_FREQ2,   0x5D);
-    writeReg(CC2500_REG_FREQ1,   0x93);
-    writeReg(CC2500_REG_FREQ0,   0xB1);
+  writeReg(CC2500_REG_FSCTRL1, 0x09);
+  writeReg(CC2500_REG_FSCTRL0, 0x00);
+  writeReg(CC2500_REG_FREQ2, 0x5D);
+  writeReg(CC2500_REG_FREQ1, 0x93);
+  writeReg(CC2500_REG_FREQ0, 0xB1);
 
-    writeReg(CC2500_REG_MDMCFG4, 0x2D);
-    writeReg(CC2500_REG_MDMCFG3, 0x3B);
-    writeReg(CC2500_REG_MDMCFG2, 0x73);
-    writeReg(CC2500_REG_MDMCFG1, 0x22);
-    writeReg(CC2500_REG_MDMCFG0, 0xF8);
+  writeReg(CC2500_REG_MDMCFG4, 0x2D);
+  writeReg(CC2500_REG_MDMCFG3, 0x3B);
+  writeReg(CC2500_REG_MDMCFG2, 0x73);
+  writeReg(CC2500_REG_MDMCFG1, 0x22);
+  writeReg(CC2500_REG_MDMCFG0, 0xF8);
 
-    writeReg(CC2500_REG_CHANNR,  0x03);
-    writeReg(CC2500_REG_DEVIATN, 0x00);
+  writeReg(CC2500_REG_CHANNR, 0x03);
+  writeReg(CC2500_REG_DEVIATN, 0x00);
 
-    writeReg(CC2500_REG_FREND1,  0xB6);
-    writeReg(CC2500_REG_FREND0,  0x10);
+  writeReg(CC2500_REG_FREND1, 0xB6);
+  writeReg(CC2500_REG_FREND0, 0x10);
 
-    writeReg(CC2500_REG_MCSM0,   0x18);
+  writeReg(CC2500_REG_MCSM0, 0x18);
 
-    writeReg(CC2500_REG_FOCCFG,  0x1D);
-    writeReg(CC2500_REG_BSCFG,   0x1C);
-    writeReg(CC2500_REG_AGCCTRL2,0xC7);
-    writeReg(CC2500_REG_AGCCTRL1,0x00);
-    writeReg(CC2500_REG_AGCCTRL0,0xB2);
+  writeReg(CC2500_REG_FOCCFG, 0x1D);
+  writeReg(CC2500_REG_BSCFG, 0x1C);
+  writeReg(CC2500_REG_AGCCTRL2, 0xC7);
+  writeReg(CC2500_REG_AGCCTRL1, 0x00);
+  writeReg(CC2500_REG_AGCCTRL0, 0xB2);
 
-    writeReg(CC2500_REG_FSCAL2,  0x0A);
-    writeReg(CC2500_REG_FSCAL1,  0x00);
-    writeReg(CC2500_REG_FSCAL0,  0x11);
+  writeReg(CC2500_REG_FSCAL2, 0x0A);
+  writeReg(CC2500_REG_FSCAL1, 0x00);
+  writeReg(CC2500_REG_FSCAL0, 0x11);
 
-    writeReg(CC2500_REG_TEST2,   0x88);
-    writeReg(CC2500_REG_TEST1,   0x31);
-    writeReg(CC2500_REG_TEST0,   0x0B);
+  writeReg(CC2500_REG_TEST2, 0x88);
+  writeReg(CC2500_REG_TEST1, 0x31);
+  writeReg(CC2500_REG_TEST0, 0x0B);
 
-    writeReg(CC2500_REG_IOCFG2,  0x06);
-    writeReg(CC2500_REG_IOCFG0,  0x01);
+  writeReg(CC2500_REG_IOCFG2, 0x06);
+  writeReg(CC2500_REG_IOCFG0, 0x01);
 
-    writeReg(CC2500_REG_PKTCTRL1,0x04);
-    writeReg(CC2500_REG_PKTCTRL0,0x45);
-    writeReg(CC2500_REG_ADDR,    0x00);
-    writeReg(CC2500_REG_PKTLEN,  0xFF);
-    writeReg(CC2500_REG_FIFOTHR, 0x0D);
+  writeReg(CC2500_REG_PKTCTRL1, 0x04);
+  writeReg(CC2500_REG_PKTCTRL0, 0x45);
+  writeReg(CC2500_REG_ADDR, 0x00);
+  writeReg(CC2500_REG_PKTLEN, 0xFF);
+  writeReg(CC2500_REG_FIFOTHR, 0x0D);
 
-    writeReg(CC2500_REG_PATABLE, 0xFF);
+  writeReg(CC2500_REG_PATABLE, 0xFF);
 
-    sendStrobe(CC2500_CMD_SIDLE);
+  sendStrobe(CC2500_CMD_SIDLE);
 
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[CC2500] LivingColors protocol configured...");
-    #endif
+  if (Debug::getDebugLevel() >= 3) {
+    Debug::println(1, "[CC2500] LivingColors protocol configured...");
+  }
 #endif
 }
 
 void CC2500::setChannel(uint8_t channel) {
-   #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 2
-            Debug::println("[CC2500] Set channel " + String(channel));
-        #endif
-    #endif
-    writeReg(CC2500_REG_CHANNR, channel);
-    sendStrobe(CC2500_CMD_SIDLE);
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 3) {
+    Debug::println(2, "[CC2500] Set channel " + String(channel));
+  }
+#endif
+  writeReg(CC2500_REG_CHANNR, channel);
+  sendStrobe(CC2500_CMD_SIDLE);
 }
 
 void CC2500::manualCalibrate() {
-    #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 2
-            Debug::println("[CC2500] Manual calibration...");
-        #endif
-    #endif
-    sendStrobe(CC2500_CMD_SCAL);
-    delayMicroseconds(200);
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 3) {
+    Debug::println(2, "[CC2500] Manual calibration...");
+  }
+#endif
+  sendStrobe(CC2500_CMD_SCAL);
+  delayMicroseconds(200);
 }
 
 void CC2500::sendRaw(const uint8_t *data, uint8_t len) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        String dbg = "[CC2500] sendRaw len=" + String(len) + " bytes:";
-        for (uint8_t i = 0; i < len; i++) {
-            dbg += " 0x" + String(data[i], HEX);
-        }
-        Debug::println(dbg);
-        Debug::println("[CC2500] GDO2 before TX = " + String(digitalRead(_gdo2Pin)));
-    #endif
+  if (Debug::getDebugLevel() >= 5) {
+    String dbg = "[CC2500] sendRaw len=" + String(len) + " bytes:";
+    for (uint8_t i = 0; i < len; i++) {
+      dbg += " 0x" + String(data[i], HEX);
+    }
+    Debug::println(4, dbg);
+    Debug::println(5, "[CC2500] GDO2 before TX = " +
+                          String(digitalRead(_gdo2Pin)));
+  }
 #endif
 
-    sendStrobe(CC2500_CMD_SIDLE);
-    sendStrobe(CC2500_CMD_SFTX);
+  sendStrobe(CC2500_CMD_SIDLE);
+  sendStrobe(CC2500_CMD_SFTX);
 
-    digitalWrite(_csPin, LOW);
-    SPI.transfer(CC2500_REG_TXFIFO | CC2500_OFF_WRITE_BURST);
-    for (uint8_t i = 0; i < len; i++) {
-        SPI.transfer(data[i]);
-    }
-    digitalWrite(_csPin, HIGH);
+  digitalWrite(_csPin, LOW);
+  SPI.transfer(CC2500_REG_TXFIFO | CC2500_OFF_WRITE_BURST);
+  for (uint8_t i = 0; i < len; i++) {
+    SPI.transfer(data[i]);
+  }
+  digitalWrite(_csPin, HIGH);
 
-    sendStrobe(CC2500_CMD_STX);
+  sendStrobe(CC2500_CMD_STX);
 
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[CC2500] STX sent, GDO2 after TX = " + String(digitalRead(_gdo2Pin)));
-    #endif
+  if (Debug::getDebugLevel() >= 5) {
+    Debug::println(3, "[CC2500] STX sent, GDO2 after TX = " +
+                          String(digitalRead(_gdo2Pin)));
+  }
 #endif
 }
 
-bool CC2500::isGDO2High() const {
-    return digitalRead(_gdo2Pin) == HIGH;
-}
+bool CC2500::isGDO2High() const { return digitalRead(_gdo2Pin) == HIGH; }
 
 void CC2500::waitForGDO2Low(uint32_t timeoutMs) {
-    uint32_t start = millis();
-    while (digitalRead(_gdo2Pin) == HIGH) {
-        yield();
-        if (millis() - start > timeoutMs) {
+  uint32_t start = millis();
+  while (digitalRead(_gdo2Pin) == HIGH) {
+    yield();
+    if (millis() - start > timeoutMs) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL 
-            Debug::println(1, "[CC2500] GDO2 timeout");
-    #endif
+      if (Debug::getDebugLevel() >= 3) {
+        Debug::println(1, "[CC2500] GDO2 timeout");
+      }
 #endif
-            break;
-        }
+      break;
     }
+  }
 }
 
 uint8_t CC2500::readStatusReg(uint8_t addr) {
-    digitalWrite(_csPin, LOW);
-    SPI.transfer(addr | CC2500_OFF_READ_BURST);
-    uint8_t val = SPI.transfer(0x00);
-    digitalWrite(_csPin, HIGH);
-    return val;
+  digitalWrite(_csPin, LOW);
+  SPI.transfer(addr | CC2500_OFF_READ_BURST);
+  uint8_t val = SPI.transfer(0x00);
+  digitalWrite(_csPin, HIGH);
+  return val;
 }
 
 void CC2500::writeReg(uint8_t addr, uint8_t val) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[CC2500] [writeReg] Addr=0x" + String(addr, HEX) + " Val=0x" + String(val, HEX));
-    #endif
+  if (Debug::getDebugLevel() >= 5) {
+    Debug::println(3, "[CC2500] [writeReg] Addr=0x" + String(addr, HEX) +
+                          " Val=0x" + String(val, HEX));
+  }
 #endif
-    digitalWrite(_csPin, LOW);
-    SPI.transfer(addr);
-    SPI.transfer(val);
-    digitalWrite(_csPin, HIGH);
+  digitalWrite(_csPin, LOW);
+  SPI.transfer(addr);
+  SPI.transfer(val);
+  digitalWrite(_csPin, HIGH);
 }
 
 void CC2500::sendStrobe(uint8_t strobe) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[CC2500] [sendStrobe] Strobe=0x" + String(strobe, HEX) + " GDO2=" + String(digitalRead(_gdo2Pin)));
-    #endif
+  if (Debug::getDebugLevel() >= 5) {
+    Debug::println(3, "[CC2500] [sendStrobe] Strobe=0x" + String(strobe, HEX) +
+                          " GDO2=" + String(digitalRead(_gdo2Pin)));
+  }
 #endif
-    digitalWrite(_csPin, LOW);
-    SPI.transfer(strobe);
-    digitalWrite(_csPin, HIGH);
-    delayMicroseconds(10);
+  digitalWrite(_csPin, LOW);
+  SPI.transfer(strobe);
+  digitalWrite(_csPin, HIGH);
+  delayMicroseconds(10);
 }
 
 ```
@@ -8218,15 +7460,15 @@ private:
 ### <a id="📄-lib-hardwaremanager-livingcolors-livingcolors-cpp"></a>📄 `lib/HardwareManager/LivingColors/LivingColors.cpp`
 
 **File Info:**
-- **Size**: 12.07 KB
+- **Size**: 12.62 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/LivingColors/LivingColors.cpp`
 - **Relative Path**: `lib/HardwareManager/LivingColors`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-02 17:58:08 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `8614a2ffd21452165894007c8ae42ee2`
-- **SHA256**: `3f8a89fa00efe64576836e83d4c127987d63e7b6f150d596b24f246d234cee63`
+- **Modified**: 2026-09-18 19:04:57 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `727613178d9804eb304b6bd24f53e02c`
+- **SHA256**: `9f809fb5baa1441f290eb7606acd4668612d8d0ef469beda96e2c9e13126aac1`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -8242,96 +7484,109 @@ private:
 #include "LivingColors.h"
 #include "../Debug/Debug.h"
 
-LivingColors::LivingColors(uint8_t csPin, uint8_t sckPin, uint8_t misoPin, uint8_t mosiPin, uint8_t gdo2Pin)
-    : radio(csPin, sckPin, misoPin, mosiPin, gdo2Pin)
-{
-}
+LivingColors::LivingColors(uint8_t csPin, uint8_t sckPin, uint8_t misoPin,
+                           uint8_t mosiPin, uint8_t gdo2Pin)
+    : radio(csPin, sckPin, misoPin, mosiPin, gdo2Pin) {}
 
 void LivingColors::begin(bool wakeAllBlack) {
-#if DEBUG_LEVEL >= 2
-    Debug::println(2, "[LC][INIT] Starting LivingColors initialization");
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2,
+                   "[LIVINGCOLORS][INIT] Starting LivingColors initialization");
+  }
 #endif
-    // Initialize the radio module
-    radio.begin();
+  // Initialize the radio module
+  radio.begin();
 
-    // Verify radio module is working.
-    if (!radio.verify()) {
-        Debug::println(1, "[LC][ERROR] CC2500 radio verification failed");
-        return;
-    }
+  // Verify radio module is working.
+  if (!radio.verify()) {
+    Debug::println(1, "[LIVINGCOLORS][ERROR] CC2500 radio verification failed");
+    return;
+  }
 
-#if DEBUG_LEVEL >= 2
-    Debug::println(2, "[LC][INFO] Radio module verified successfully");
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(3,
+                   "[LIVINGCOLORS][INFO] Radio module verified successfully");
+  }
 #endif
 
-    // Configure radio for LivingColors communication
-    radio.initForLivingColors();
+  // Configure radio for LivingColors communication
+  radio.initForLivingColors();
 
-    // Wake up all lamps by setting them to black and then red
-    setBlackAll(); // Ensure all lamps are on before setting colors
-    for (uint8_t i = 0; i < LAMP_COUNT; i++) {
-        setColorRGB(i, 255, 0, 0);
-        delay(50); // small delay for pretty effect
-    }
-    for (uint8_t i = 0; i < LAMP_COUNT; i++) {
-        setColorRGB(i, 0, 255, 0);
-        delay(50);
-    }
-    for (uint8_t i = 0; i < LAMP_COUNT; i++) {
-        setColorRGB(i, 0, 0, 255);
-        delay(50);
-    }
+  // Wake up all lamps by setting them to black and then red
+  setBlackAll(); // Ensure all lamps are 'on' before setting colors
+  for (uint8_t i = 0; i < LAMP_COUNT; i++) {
+    setColorRGB(i, 255, 0, 0);
+    delay(50); // small delay for pretty effect
+  }
+  for (uint8_t i = 0; i < LAMP_COUNT; i++) {
+    setColorRGB(i, 0, 255, 0);
+    delay(50);
+  }
+  for (uint8_t i = 0; i < LAMP_COUNT; i++) {
+    setColorRGB(i, 0, 0, 255);
+    delay(50);
+  }
 
-    Debug::println(2, "[LC][INFO] Initialization complete");
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[LIVINGCOLORS][INFO] Initialization complete");
+  }
+#endif
 }
 
 /**
  * @brief Set lamp color using HSV values
  * Validates lamp index and sends color command to the specified lamp
  */
-void LivingColors::setColor(uint8_t lampIndex,
-                            uint8_t h, uint8_t s, uint8_t v) {
+void LivingColors::setColor(uint8_t lampIndex, uint8_t h, uint8_t s,
+                            uint8_t v) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][setColor] lamp=" + String(lampIndex) +
-                       " h=" + String(h) + " s=" + String(s) + " v=" + String(v));
-    #endif
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[LIVINGCOLORS][setColor] lamp=" + String(lampIndex) +
+                          " h=" + String(h) + " s=" + String(s) +
+                          " v=" + String(v));
+  }
 #endif
-    // Check if lamp index is valid
-    if (lampIndex >= LAMP_COUNT) {
+  // Check if lamp index is valid
+  if (lampIndex >= LAMP_COUNT) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][setColor] lamp out of range (>= " + String(LAMP_COUNT) + "), skipping");
-    #endif
-#endif
-        return;
+    if (Debug::getDebugLevel() >= 4) {
+      Debug::println(1, "[LIVINGCOLORS][setColor] lamp out of range (>= " +
+                            String(LAMP_COUNT) + "), skipping");
     }
-    // Send color command to the specified lamp
-    sendPacket(lampIndex, 0x03, h, s, v);
+#endif
+    return;
+  }
+  // Send color command to the specified lamp
+  sendPacket(lampIndex, 0x03, h, s, v);
 }
 
 /**
  * @brief Set lamp color using RGB values
  * Converts RGB to HSV and then sets the color
  */
-void LivingColors::setColorRGB(uint8_t lampIndex,
-                               uint8_t r, uint8_t g, uint8_t b) {
+void LivingColors::setColorRGB(uint8_t lampIndex, uint8_t r, uint8_t g,
+                               uint8_t b) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][setColorRGB] lamp=" + String(lampIndex) + 
-                       " r=" + String(r) + " g=" + String(g) + " b=" + String(b));
-    #endif
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[LIVINGCOLORS][setColorRGB] lamp=" + String(lampIndex) +
+                          " r=" + String(r) + " g=" + String(g) +
+                          " b=" + String(b));
+  }
 #endif
-    uint8_t h,s,v;
-    // Convert RGB to HSV color space
-    rgbToHsv(r,g,b,h,s,v);
+  uint8_t h, s, v;
+  // Convert RGB to HSV color space
+  rgbToHsv(r, g, b, h, s, v);
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][setColorRGB] converted to h=" + String(h) + " s=" + String(s) + " v=" + String(v));
-    #endif
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[LIVINGCOLORS][setColorRGB] converted to h=" +
+                          String(h) + " s=" + String(s) + " v=" + String(v));
+  }
 #endif
-    // Set color using HSV values
-    setColor(lampIndex, h,s,v);
+  // Set color using HSV values
+  setColor(lampIndex, h, s, v);
 }
 
 /**
@@ -8339,7 +7594,7 @@ void LivingColors::setColorRGB(uint8_t lampIndex,
  * Sets color to black (hue=0, saturation=0, value=1)
  */
 void LivingColors::setBlack(uint8_t lampIndex) {
-    setColor(lampIndex, 0, 0, 1); // black not off
+  sendPacket(lampIndex, 0x05, 0, 0, 1);
 }
 
 /**
@@ -8348,14 +7603,15 @@ void LivingColors::setBlack(uint8_t lampIndex) {
  */
 void LivingColors::setColorAll(uint8_t h, uint8_t s, uint8_t v) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][setColorAll] h=" + String(h) + " s=" + String(s) + " v=" + String(v));
-    #endif
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[LIVINGCOLORS][setColorAll] h=" + String(h) +
+                          " s=" + String(s) + " v=" + String(v));
+  }
 #endif
-    // Set each lamp to the specified HSV color
-    for (uint8_t i = 0; i < LAMP_COUNT; i++) {
-        setColor(i, h,s,v);
-    }
+  // Set each lamp to the specified HSV color
+  for (uint8_t i = 0; i < LAMP_COUNT; i++) {
+    setColor(i, h, s, v);
+  }
 }
 
 /**
@@ -8364,20 +7620,22 @@ void LivingColors::setColorAll(uint8_t h, uint8_t s, uint8_t v) {
  */
 void LivingColors::setColorRGBAll(uint8_t r, uint8_t g, uint8_t b) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][setColorRGBAll] r=" + String(r) + " g=" + String(g) + " b=" + String(b));
-    #endif
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[LIVINGCOLORS][setColorRGBAll] r=" + String(r) +
+                          " g=" + String(g) + " b=" + String(b));
+  }
 #endif
-    uint8_t h,s,v;
-    // Convert RGB to HSV color space
-    rgbToHsv(r,g,b,h,s,v);
+  uint8_t h, s, v;
+  // Convert RGB to HSV color space
+  rgbToHsv(r, g, b, h, s, v);
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][setColorRGBAll] converted to h=" + String(h) + " s=" + String(s) + " v=" + String(v));
-    #endif
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(5, "[LIVINGCOLORS][setColorRGBAll] converted to h=" +
+                          String(h) + " s=" + String(s) + " v=" + String(v));
+  }
 #endif
-    // Set all lamps to the converted HSV color
-    setColorAll(h,s,v);
+  // Set all lamps to the converted HSV color
+  setColorAll(h, s, v);
 }
 
 /**
@@ -8386,14 +7644,14 @@ void LivingColors::setColorRGBAll(uint8_t r, uint8_t g, uint8_t b) {
  */
 void LivingColors::setBlackAll() {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][setBlackAll] Turning all lamps off");
-    #endif
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[LIVINGCOLORS][setBlackAll] Turning all lamps off");
+  }
 #endif
-    // Turn each lamp off (black)
-    for (uint8_t i = 0; i < LAMP_COUNT; i++) {
-        setBlack(i);
-    }
+  // Turn each lamp off (black)
+  for (uint8_t i = 0; i < LAMP_COUNT; i++) {
+    setBlack(i);
+  }
 }
 
 /**
@@ -8402,63 +7660,66 @@ void LivingColors::setBlackAll() {
  */
 void LivingColors::powerOffHard(uint8_t lampIndex) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][powerOffHard] lamp=" + String(lampIndex));
-    #endif
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[LIVINGCOLORS][powerOffHard] lamp=" + String(lampIndex));
+  }
 #endif
-    if (lampIndex >= LAMP_COUNT) return;
-    sendPacket(lampIndex, 0x07, 0,0,0);
+  if (lampIndex >= LAMP_COUNT)
+    return;
+  sendPacket(lampIndex, 0x07, 0, 0, 0);
 }
 
 /**
- * @brief Power all lamps off 
+ * @brief Power all lamps off
  * Iterates through all lamps and powers each one off
  * need 0x05 to turn on again
  */
 void LivingColors::powerOffHardAll() {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][powerOffHardAll] Powering off all lamps");
-    #endif
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[LIVINGCOLORS][powerOffHardAll] Powering off all lamps");
+  }
 #endif
-    for (uint8_t i = 0; i < LAMP_COUNT; i++) {
-        powerOffHard(i);
-    }
+  for (uint8_t i = 0; i < LAMP_COUNT; i++) {
+    powerOffHard(i);
+  }
 }
 
 /**
  * @brief Set multiple lamps to different colors
  * Processes an array of lamp indices and corresponding HSV color values
  */
-void LivingColors::setColorBatch(const uint8_t* indices, uint8_t count,
-                                 const uint8_t* h, const uint8_t* s, const uint8_t* v) {
+void LivingColors::setColorBatch(const uint8_t *indices, uint8_t count,
+                                 const uint8_t *h, const uint8_t *s,
+                                 const uint8_t *v) {
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[LC][setColorBatch] count=" + String(count));
-    #endif
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[LIVINGCOLORS][setColorBatch] count=" + String(count));
+  }
 #endif
-    // Set each specified lamp to its corresponding color
-    for (uint8_t i = 0; i < count; i++) {
+  // Set each specified lamp to its corresponding color
+  for (uint8_t i = 0; i < count; i++) {
 #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 3
-            Debug::println("[LC][setColorBatch] lamp[" + String(i) + "]=" + String(indices[i]) + 
-                          " h=" + String(h[i]) + " s=" + String(s[i]) + " v=" + String(v[i]));
-        #endif
-#endif
-        setColor(indices[i], h[i], s[i], v[i]);
+    if (Debug::getDebugLevel() >= 4) {
+      Debug::println(4, "[LIVINGCOLORS][setColorBatch] lamp[" + String(i) +
+                            "]=" + String(indices[i]) + " h=" + String(h[i]) +
+                            " s=" + String(s[i]) + " v=" + String(v[i]));
     }
+#endif
+    setColor(indices[i], h[i], s[i], v[i]);
+  }
 }
 
 /**
  * @brief Turn multiple lamps off (black)
  * Processes an array of lamp indices and turns each one off
- * example setBlackBatch({2,4,6} , 3) turn off lamp 2,4,6 , count = 3 
+ * example setBlackBatch({2,4,6} , 3) turn off lamp 2,4,6 , count = 3
  */
-void LivingColors::setBlackBatch(const uint8_t* indices, uint8_t count) {
-    // Turn each specified lamp off (black)
-    for (uint8_t i = 0; i < count; i++) {
-        setBlack(indices[i]);
-    }
+void LivingColors::setBlackBatch(const uint8_t *indices, uint8_t count) {
+  // Turn each specified lamp off (black)
+  for (uint8_t i = 0; i < count; i++) {
+    setBlack(indices[i]);
+  }
 }
 
 /**
@@ -8466,135 +7727,161 @@ void LivingColors::setBlackBatch(const uint8_t* indices, uint8_t count) {
  * Processes an array of lamp indices and hard powers off each one
  * example powerOffHardBatch({2,4,6} , 3) turn off lamp 2,4,6 , count = 3
  */
-void LivingColors::powerOffHardBatch(const uint8_t* indices, uint8_t count) {
-    // Hard power off each specified lamp
-    for (uint8_t i = 0; i < count; i++) {
-        powerOffHard(indices[i]);
-    }
+void LivingColors::powerOffHardBatch(const uint8_t *indices, uint8_t count) {
+  // Hard power off each specified lamp
+  for (uint8_t i = 0; i < count; i++) {
+    powerOffHard(indices[i]);
+  }
 }
 
 /**
  * @brief Send a control packet to a lamp
  * Constructs and sends a radio packet with the specified command and color data
  */
-void LivingColors::sendPacket(uint8_t lampIndex,
-                              uint8_t command,
-                              uint8_t h, uint8_t s, uint8_t v) {
-    // Get the address of the target lamp
-    const uint8_t* addr = LAMP_ADDRESSES[lampIndex];
+void LivingColors::sendPacket(uint8_t lampIndex, uint8_t command, uint8_t h,
+                              uint8_t s, uint8_t v) {
+  // Get the address of the target lamp
+  const uint8_t *addr = LAMP_ADDRESSES[lampIndex];
 
-    // Construct the data packet
-    uint8_t data[15]; // set first byte 0x0E = 14 bytes (to come next)
-    data[0] = 0x0E;  // byte + Packet length = 15 
+  // Construct the data packet
+  uint8_t data[15]; // set first byte 0x0E = 14 bytes (to come next)
+  data[0] = 0x0E;   // first byte + Packet length (0x0E)  = 15
 
-    // Copy lamp address to packet
-    for (uint8_t i = 0; i < 9; i++) {
-        data[1 + i] = addr[i];
-    }
+  // Copy lamp address to packet
+  for (uint8_t i = 0; i < 9; i++) {
+    data[1 + i] = addr[i];
+  }
 
-    // Add command, sequence, and color data
-    data[10] = command;        // Command type (0x03 = Set color, 0x05 = power on with color, 0x07 = power off)
-    data[11] = sequence++;      // Sequence counter
-    data[12] = h;              // Hue
-    data[13] = s;              // Saturation
-    data[14] = v;              // Value/Brightness
+  // Add command, sequence, and color data
+  data[10] = command;    // Command type (0x03 = Set color, 0x05 = power on with
+                         // color, 0x07 = power off)
+  data[11] = sequence++; // Sequence counter
+  data[12] = h;          // Hue
+  data[13] = s;          // Saturation
+  data[14] = v;          // Value/Brightness
 
-    // Send the packet with proper timing
-    radio.waitForGDO2Low(100);  // Wait for GDO2 to go low
-    radio.sendRaw(data, sizeof(data));  // Send the packet
-    radio.waitForGDO2Low(100);  // Wait for GDO2 to go low again
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 5) {
+    Debug::println(4, String("[LIVINGCOLORS][sendPacket] ") +
+                          String(sizeof(data)));
+  }
+#endif
 
-    /*
-     * The classic LivingColors/CC2500 implementations
-     * use a gap of roughly 5–20 ms between frames.
-     * Since sending 12 lamps × one frame each,
-     * a per-frame delay of ~10 ms gives a total burst of ~120 ms,
-     * which is well within acceptable response time
-     * If you still see occasional missed lamps, increase to 15–20 ms.
-     * If you want snappier response and it's reliable, try 5 ms first.
-     */
-    delayMicroseconds(7000);  // 7ms delay between packets
+  // Send the packet with proper timing
+  radio.waitForGDO2Low(100);         // Wait for GDO2 to go low
+  radio.sendRaw(data, sizeof(data)); // Send the packet
+  radio.waitForGDO2Low(100);         // Wait for GDO2 to go low again
+
+  /*
+   * The classic LivingColors/CC2500 implementations
+   * use a gap of roughly 5–20 ms between frames.
+   * Since sending 12 lamps × one frame each,
+   * a per-frame delay of ~10 ms gives a total burst of ~120 ms,
+   * which is well within acceptable response time
+   * If you still see occasional missed lamps, increase to 15–20 ms.
+   * If you want snappier response and it's reliable, try 5 ms first.
+   */
+  delayMicroseconds(7000); // 7ms delay between packets
 }
 
 /**
  * @brief Convert RGB color to HSV
  * Converts RGB values to HSV color space
  */
-void LivingColors::rgbToHsv(uint8_t r, uint8_t g, uint8_t b,
-                            uint8_t &h, uint8_t &s, uint8_t &v) {
-    // Find minimum and maximum RGB values
-    uint8_t rgb_min = min(r, min(g, b));
-    uint8_t rgb_max = max(r, max(g, b));
+void LivingColors::rgbToHsv(uint8_t r, uint8_t g, uint8_t b, uint8_t &h,
+                            uint8_t &s, uint8_t &v) {
+  // Find minimum and maximum RGB values
+  uint8_t rgb_min = min(r, min(g, b));
+  uint8_t rgb_max = max(r, max(g, b));
 
-    // Value is the maximum RGB value (brightness)
-    v = rgb_max;
+  // Value is the maximum RGB value (brightness)
+  v = rgb_max;
 
-    // If value is 0, color is black - hue and saturation are undefined (set to 0)
-    if (v == 0) {
-        h = s = 0;
-        return;
-    }
+  // If value is 0, color is black - hue and saturation are undefined (set to 0)
+  if (v == 0) {
+    h = s = 0;
+    return;
+  }
 
-    // Calculate saturation as a percentage of the difference between max and min
-    s = 255 * (uint32_t)(rgb_max - rgb_min) / v;
+  // Calculate saturation as a percentage of the difference between max and min
+  s = 255 * (uint32_t)(rgb_max - rgb_min) / v;
 
-    // If saturation is 0, color is grayscale - hue is undefined (set to 0)
-    if (s == 0) {
-        h = 0;
-        return;
-    }
+  // If saturation is 0, color is grayscale - hue is undefined (set to 0)
+  if (s == 0) {
+    h = 0;
+    return;
+  }
 
-    // Calculate hue based on which RGB component is maximum
-    // Hue is divided into 6 regions (0-255), each spanning 43 units
-    if (rgb_max == r) {
-        // Red is max - hue depends on relationship between green and blue
-        h = 0 + 43 * (g - b) / (rgb_max - rgb_min);
-    } else if (rgb_max == g) {
-        // Green is max - hue is offset by 85 (43*2)
-        h = 85 + 43 * (b - r) / (rgb_max - rgb_min);
-    } else {
-        // Blue is max - hue is offset by 171 (43*4)
-        h = 171 + 43 * (r - g) / (rgb_max - rgb_min);
-    }
+  // Calculate hue based on which RGB component is maximum
+  // Hue is divided into 6 regions (0-255), each spanning 43 units
+  if (rgb_max == r) {
+    // Red is max - hue depends on relationship between green and blue
+    h = 0 + 43 * (g - b) / (rgb_max - rgb_min);
+  } else if (rgb_max == g) {
+    // Green is max - hue is offset by 85 (43*2)
+    h = 85 + 43 * (b - r) / (rgb_max - rgb_min);
+  } else {
+    // Blue is max - hue is offset by 171 (43*4)
+    h = 171 + 43 * (r - g) / (rgb_max - rgb_min);
+  }
 }
 
 /**
  * @brief Convert HSV color to RGB
  * Converts HSV values to RGB color space
  */
-void LivingColors::hsvToRgb(uint8_t h, uint8_t s, uint8_t v,
-                            uint8_t &r, uint8_t &g, uint8_t &b) {
-    // If saturation is 0, color is grayscale (all RGB components equal)
-    if (s == 0) {
-        r = g = b = v;
-        return;
-    }
+void LivingColors::hsvToRgb(uint8_t h, uint8_t s, uint8_t v, uint8_t &r,
+                            uint8_t &g, uint8_t &b) {
+  // If saturation is 0, color is grayscale (all RGB components equal)
+  if (s == 0) {
+    r = g = b = v;
+    return;
+  }
 
-    // Convert hue to region (0-5) and remainder (0-255)
-    uint8_t region = h / 43;        // Which of the 6 color regions we're in
-    uint8_t remainder = (h - (region * 43)) * 6;  // Position within the region
+  // Convert hue to region (0-5) and remainder (0-255)
+  uint8_t region = h / 43; // Which of the 6 color regions we're in
+  uint8_t remainder = (h - (region * 43)) * 6; // Position within the region
 
-    // Calculate intermediate RGB values for interpolation
-    // These represent the color at different points in the hue region
-    uint8_t p = (v * (255 - s)) >> 8;  // Minimum RGB value in this region
-    uint8_t q = (v * (255 - ((s * remainder) >> 8))) >> 8;  // Intermediate value
-    uint8_t t = (v * (255 - ((s * (255 - remainder)) >> 8))) >> 8;  // Another intermediate value
+  // Calculate intermediate RGB values for interpolation
+  // These represent the color at different points in the hue region
+  uint8_t p = (v * (255 - s)) >> 8; // Minimum RGB value in this region
+  uint8_t q = (v * (255 - ((s * remainder) >> 8))) >> 8; // Intermediate value
+  uint8_t t = (v * (255 - ((s * (255 - remainder)) >> 8))) >>
+              8; // Another intermediate value
 
-    // Map the region to the appropriate RGB values
-    switch (region) {
-        case 0:  // Red to yellow transition
-            r = v; g = t; b = p; break;
-        case 1:  // Yellow to green transition
-            r = q; g = v; b = p; break;
-        case 2:  // Green to cyan transition
-            r = p; g = v; b = t; break;
-        case 3:  // Cyan to blue transition
-            r = p; g = q; b = v; break;
-        case 4:  // Blue to magenta transition
-            r = t; g = p; b = v; break;
-        default: // Magenta to red transition
-            r = v; g = p; b = q; break;
-    }
+  // Map the region to the appropriate RGB values
+  switch (region) {
+  case 0: // Red to yellow transition
+    r = v;
+    g = t;
+    b = p;
+    break;
+  case 1: // Yellow to green transition
+    r = q;
+    g = v;
+    b = p;
+    break;
+  case 2: // Green to cyan transition
+    r = p;
+    g = v;
+    b = t;
+    break;
+  case 3: // Cyan to blue transition
+    r = p;
+    g = q;
+    b = v;
+    break;
+  case 4: // Blue to magenta transition
+    r = t;
+    g = p;
+    b = v;
+    break;
+  default: // Magenta to red transition
+    r = v;
+    g = p;
+    b = q;
+    break;
+  }
 }
 ```
 
@@ -8909,15 +8196,15 @@ class RFReceiver {
 ### <a id="📄-lib-hardwaremanager-rf-rfcontroller-cpp"></a>📄 `lib/HardwareManager/RF/RFController.cpp`
 
 **File Info:**
-- **Size**: 6.45 KB
+- **Size**: 6.26 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/RF/RFController.cpp`
 - **Relative Path**: `lib/HardwareManager/RF`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-02 06:29:28 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `747d0b846966dcb26820779d8fa54c58`
-- **SHA256**: `94585236f8baf30f00f0cca85eaa48a80a5c3f142587622f22da29bde8ada4e7`
+- **Modified**: 2026-09-18 18:06:57 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `7d2c45f1fb009728750b5706170a6e2b`
+- **SHA256**: `7a9f2f2c15f9844784f500a2c2c4f187afb38e0da84b0e8968e4b45f85111835`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -8934,26 +8221,25 @@ class RFReceiver {
 // ============================================================================
 
 RFController::RFController(int rxPin, int txPin)
-    : rxPin(rxPin), txPin(txPin),
-      _lastCodeValue(0), _lastCodeTime(0), _debounceMs(300)
-{
-}
+    : rxPin(rxPin), txPin(txPin), _lastCodeValue(0), _lastCodeTime(0),
+      _debounceMs(300) {}
 
 void RFController::init() {
-    // Initialize RF receiver (on rxPin) and RF sender (on txPin).
-#if DEBUG_LEVEL >= 2
-    Debug::println(2, "[RF][INIT] RX pin " + String(rxPin) + " TX pin " + String(txPin));
+  // Initialize RF receiver (on rxPin) and RF sender (on txPin).
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[RF][INIT] RX pin " + String(rxPin) + " TX pin " +
+                          String(txPin));
+  }
 #endif
-    pinMode(rxPin, INPUT);
-    pinMode(txPin, OUTPUT);
-    _rfSwitch = new RCSwitch();
-    _rfSwitch->enableReceive(rxPin);
-    _rfSwitch->enableTransmit(txPin);
+  pinMode(rxPin, INPUT);
+  pinMode(txPin, OUTPUT);
+  _rfSwitch = new RCSwitch();
+  _rfSwitch->enableReceive(rxPin);
+  _rfSwitch->enableTransmit(txPin);
 }
 
-void RFController::onCommand(RFCallback callback) {
-    _callback = callback;
-}
+void RFController::onCommand(RFCallback callback) { _callback = callback; }
 
 // ----------------------------------------------------------------------------
 // update()
@@ -8967,80 +8253,81 @@ void RFController::onCommand(RFCallback callback) {
 //     4. Build an RFSignal that carries the raw data, then fire the callback.
 //     5. resetAvailable() the receiver so it can capture the next frame.
 // ----------------------------------------------------------------------------
-void RFController::update()
-{
-    if (_rfSwitch->available())
-    {
-        unsigned long value   = _rfSwitch->getReceivedValue();
-        int bits              = _rfSwitch->getReceivedBitlength();
-        int protocol          = _rfSwitch->getReceivedProtocol();
-        int pulse             = _rfSwitch->getReceivedDelay();
+void RFController::update() {
+  if (_rfSwitch->available()) {
+    unsigned long value = _rfSwitch->getReceivedValue();
+    int bits = _rfSwitch->getReceivedBitlength();
+    int protocol = _rfSwitch->getReceivedProtocol();
+    int pulse = _rfSwitch->getReceivedDelay();
 
 #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[RF][receive] Received code: 0x" + String(value, HEX) +
-                       " / " + String(bits) + " bits / protocol=" + String(protocol) +
-                       " / pulse=" + String(pulse) + "us");
-    #endif
+    if (Debug::getDebugLevel() >= 2) {
+      Debug::println(2, "[RF][receive] Received code: 0x" + String(value, HEX) +
+                            " / " + String(bits) +
+                            " bits / protocol=" + String(protocol) +
+                            " / pulse=" + String(pulse) + "us");
+    }
 #endif
 
-        // Ignore empty/invalid decodes
-        if (value == 0) {
-            #ifdef DEBUG_LEVEL
-            #if DEBUG_LEVEL >= 2
-                Debug::println(1, "[RF][ERROR] Invalid RF decode received (value=0)");
-            #endif
-            #endif
-            _rfSwitch->resetAvailable();
-            return;
-        }
+    // Ignore empty/invalid decodes
+    if (value == 0) {
+#ifdef DEBUG_LEVEL
+      if (Debug::getDebugLevel() >= 1) {
+        Debug::println(1, "[RF][ERROR] Invalid RF decode received (value=0)");
+      }
+#endif
+      _rfSwitch->resetAvailable();
+      return;
+    }
 
-        // Debounce: ignore the same code repeating within the debounce window.
-        if (value == _lastCodeValue && (millis() - _lastCodeTime) < _debounceMs) {
-            #ifdef DEBUG_LEVEL
-            #if DEBUG_LEVEL >= 3
-                Debug::println("[RF][DEBOUNCE] Ignoring repeated RF code: 0x" + String(value, HEX) + 
-                              " (last received " + String(millis() - _lastCodeTime) + "ms ago)");
-            #endif
-            #endif
-            _rfSwitch->resetAvailable();
-            return;
-        }
+    // Debounce: ignore the same code repeating within the debounce window.
+    if (value == _lastCodeValue && (millis() - _lastCodeTime) < _debounceMs) {
+#ifdef DEBUG_LEVEL
+      if (Debug::getDebugLevel() >= 3) {
+        Debug::println(3, "[RF][DEBOUNCE] Ignoring repeated RF code: 0x" +
+                              String(value, HEX) + " (last received " +
+                              String(millis() - _lastCodeTime) + "ms ago)");
+      }
+#endif
+      _rfSwitch->resetAvailable();
+      return;
+    }
 
-        // Remember this code/time so we can detect repeats on the next decode.
-        _lastCodeValue = value;
-        _lastCodeTime  = millis();
+    // Remember this code/time so we can detect repeats on the next decode.
+    _lastCodeValue = value;
+    _lastCodeTime = millis();
 
-        if (_callback) {
-            RFSignal signal;
-            signal.value     = value;
-            signal.bits      = bits;
-            signal.protocol  = protocol;
-            signal.pulse     = pulse;
-            signal.timestamp = millis();
+    if (_callback) {
+      RFSignal signal;
+      signal.value = value;
+      signal.bits = bits;
+      signal.protocol = protocol;
+      signal.pulse = pulse;
+      signal.timestamp = millis();
 
-            // Debug: Print received RF signal (level 3 - verbose)
-            #ifdef DEBUG_LEVEL
-            #if DEBUG_LEVEL >= 3
-                Debug::println("[RF][VERBOSE] Received signal with value: 0x" + String(value, HEX) +
-                              ", bits: " + String(bits) +
+// Debug: Print received RF signal (level 3 - verbose)
+#ifdef DEBUG_LEVEL
+      if (Debug::getDebugLevel() >= 3) {
+        Debug::println(3, "[RF][VERBOSE] Received signal with value: 0x" +
+                              String(value, HEX) + ", bits: " + String(bits) +
                               ", protocol: " + String(protocol) +
                               ", pulse: " + String(pulse) + "us");
-            #endif
-            #endif
+      }
+#endif
 
-            // Hand the packet to the user handler.
-            #ifdef DEBUG_LEVEL
-            #if DEBUG_LEVEL >= 1
-                Debug::println(4, "[RF][INFO] Processing RF code: 0x" + String(value, HEX));
-            #endif
-            #endif
-            _callback(signal);
-        }
-
-        // Ready for the next frame.
-        _rfSwitch->resetAvailable();
+// Hand the packet to the user handler.
+#ifdef DEBUG_LEVEL
+      if (Debug::getDebugLevel() >= 1) {
+        Debug::println(1, "[RF][INFO] Processing RF code: 0x" +
+                              String(value, HEX));
+      }
+#endif
+      _callback(signal);
     }
+
+    // Ready for the next frame.
+    _rfSwitch->resetAvailable();
+  }
 }
 
 // ----------------------------------------------------------------------------
@@ -9048,13 +8335,13 @@ void RFController::update()
 //   Transmit an RF signal with the given value and number of bits.
 // ----------------------------------------------------------------------------
 void RFController::send(unsigned long value, int bits) {
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println(3, "[RF][SEND] Transmitting code: 0x" + String(value, HEX) + 
-                      " / " + String(bits) + " bits");
-    #endif
-    #endif
-    _rfSwitch->send(value, bits);
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 1) {
+    Debug::println(1, "[RF][SEND] Transmitting code: 0x" + String(value, HEX) +
+                          " / " + String(bits) + " bits");
+  }
+#endif
+  _rfSwitch->send(value, bits);
 }
 
 // ----------------------------------------------------------------------------
@@ -9062,12 +8349,13 @@ void RFController::send(unsigned long value, int bits) {
 //   Set the protocol for RF transmission.
 // ----------------------------------------------------------------------------
 void RFController::setProtocol(int protocol) {
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[RF][CONFIG] Setting RF protocol to: " + String(protocol));
-    #endif
-    #endif
-    _rfSwitch->setProtocol(protocol);
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 1) {
+    Debug::println(1,
+                   "[RF][CONFIG] Setting RF protocol to: " + String(protocol));
+  }
+#endif
+  _rfSwitch->setProtocol(protocol);
 }
 
 // ----------------------------------------------------------------------------
@@ -9075,29 +8363,26 @@ void RFController::setProtocol(int protocol) {
 //   Set the pulse length for RF transmission.
 // ----------------------------------------------------------------------------
 void RFController::setPulseLength(int pulse) {
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[RF][CONFIG] Setting RF pulse length to: " + String(pulse) + "us");
-    #endif
-    #endif
-    _rfSwitch->setPulseLength(pulse);
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 1) {
+    Debug::println(
+        1, "[RF][CONFIG] Setting RF pulse length to: " + String(pulse) + "us");
+  }
+#endif
+  _rfSwitch->setPulseLength(pulse);
 }
 
 // ----------------------------------------------------------------------------
 // enableReceive()
 //   Enable the RF receiver.
 // ----------------------------------------------------------------------------
-void RFController::enableReceive() {
-    _rfSwitch->enableReceive(rxPin);
-}
+void RFController::enableReceive() { _rfSwitch->enableReceive(rxPin); }
 
 // ----------------------------------------------------------------------------
 // disableReceive()
 //   Disable the RF receiver.
 // ----------------------------------------------------------------------------
-void RFController::disableReceive() {
-    _rfSwitch->disableReceive();
-}
+void RFController::disableReceive() { _rfSwitch->disableReceive(); }
 
 ```
 
@@ -9106,26 +8391,25 @@ void RFController::disableReceive() {
 ### <a id="📄-lib-hardwaremanager-rf-rfcontroller-h"></a>📄 `lib/HardwareManager/RF/RFController.h`
 
 **File Info:**
-- **Size**: 2.75 KB
+- **Size**: 2.55 KB
 - **Extension**: `.h`
 - **Language**: `text`
 - **Location**: `lib/HardwareManager/RF/RFController.h`
 - **Relative Path**: `lib/HardwareManager/RF`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-08-12 11:17:04 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `9344de6998c8b4aa80858eeeab4df144`
-- **SHA256**: `7a367373f2a3fa422f2a1c0de45f043dddd7d959dc63b7dc068c1d17d69c044b`
+- **Modified**: 2026-09-18 18:05:24 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `5554c002a72b6be28164b5d9e57e7e1f`
+- **SHA256**: `88e1f912b9e5e54a8fcf0766a88c3d721c8bb3b6cee357a260b34351e2692e46`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```text
-#ifndef RF_CONTROLLER_H
-#define RF_CONTROLLER_H
+#pragma once
 
+#include "../../Debug/Debug.h"
 #include <Arduino.h>
 #include <RCSwitch.h>
-#include "../../Debug/Debug.h"
 #include <functional>
 
 // ============================================================================
@@ -9143,60 +8427,56 @@ void RFController::disableReceive() {
 //   - 'value/bits/protocol/pulse' : the raw data from the RCSwitch library.
 // ----------------------------------------------------------------------------
 struct RFSignal {
-  unsigned long value;     // decoded raw data
-  int bits;               // number of data bits
-  int protocol;           // protocol from the RCSwitch library
-  int pulse;              // pulse timing in microseconds
-  uint32_t timestamp;     // millis() when the signal arrived
+  unsigned long value; // decoded raw data
+  int bits;            // number of data bits
+  int protocol;        // protocol from the RCSwitch library
+  int pulse;           // pulse timing in microseconds
+  uint32_t timestamp;  // millis() when the signal arrived
 };
 
-// Callback signature. Called on the main loop whenever a valid RF frame arrives.
-typedef std::function<void(const RFSignal&)> RFCallback;
+// Callback signature. Called on the main loop whenever a valid RF frame
+// arrives.
+typedef std::function<void(const RFSignal &)> RFCallback;
 
 // ----------------------------------------------------------------------------
 // RFController
 // ----------------------------------------------------------------------------
-class RFController
-{
+class RFController {
 public:
-    // rxPin: input from the RF receiver module.
-    // txPin: output that drives the RF transmitter.
-    RFController(int rxPin, int txPin);
+  // rxPin: input from the RF receiver module.
+  // txPin: output that drives the RF transmitter.
+  RFController(int rxPin, int txPin);
 
-    // Begin the RF receiver + sender. Call once from setup().
-    void init();
+  // Begin the RF receiver + sender. Call once from setup().
+  void init();
 
-    // Poll the receiver for new data and fire the callback if a code arrived.
-    // Call this every loop() iteration.
-    void update();
+  // Poll the receiver for new data and fire the callback if a code arrived.
+  // Call this every loop() iteration.
+  void update();
 
-    // Transmit RF signals directly
-    void send(unsigned long value, int bits);
-    void setProtocol(int protocol);
-    void setPulseLength(int pulse);
-    void enableReceive();
-    void disableReceive();
+  // Transmit RF signals directly
+  void send(unsigned long value, int bits);
+  void setProtocol(int protocol);
+  void setPulseLength(int pulse);
+  void enableReceive();
+  void disableReceive();
 
-    // Register the function invoked by update() when a new code is received.
-    void onCommand(RFCallback callback);
+  // Register the function invoked by update() when a new code is received.
+  void onCommand(RFCallback callback);
 
 private:
-    int rxPin;                            // RF receiver module data pin
-    int txPin;                            // RF transmitter module data pin
+  int rxPin; // RF receiver module data pin
+  int txPin; // RF transmitter module data pin
 
-    RCSwitch* _rfSwitch;                  // RCSwitch instance
-    RFCallback _callback;                 // user-supplied handler
+  RCSwitch *_rfSwitch;  // RCSwitch instance
+  RFCallback _callback; // user-supplied handler
 
-
-
-    // Simple debounce: ignore the same code arriving again within this window,
-    // so a remote that repeats its frame while held down doesn't spam us.
-    unsigned long _lastCodeValue;
-    unsigned long _lastCodeTime;
-    unsigned long _debounceMs;
+  // Simple debounce: ignore the same code arriving again within this window,
+  // so a remote that repeats its frame while held down doesn't spam us.
+  unsigned long _lastCodeValue;
+  unsigned long _lastCodeTime;
+  unsigned long _debounceMs;
 };
-
-#endif
 
 ```
 
@@ -9205,15 +8485,15 @@ private:
 ### <a id="📄-lib-hardwaremanager-storage-storagemanager-cpp"></a>📄 `lib/HardwareManager/Storage/StorageManager.cpp`
 
 **File Info:**
-- **Size**: 10.36 KB
+- **Size**: 11.42 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/HardwareManager/Storage/StorageManager.cpp`
 - **Relative Path**: `lib/HardwareManager/Storage`
 - **Created**: 2026-09-07 00:57:15 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-16 09:47:53 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `1444ef910d399cf586e49e44a9ae8a55`
-- **SHA256**: `47c6a1d02bf3e1bc7a8ba3046c970c7f3fa5837d595dc9ab22c1165ee0d70348`
+- **Modified**: 2026-09-18 19:43:34 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `4aeae248b44fd2fc16a2bd4e060e96dd`
+- **SHA256**: `b05395b5e9593ca483363b08064ab948414acd071cb9dfc3675fd9f1f5856559`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -9227,322 +8507,416 @@ Storage::StorageCallback Storage::_callback = nullptr;
 bool Storage::isInitialized = false;
 
 bool Storage::begin() {
-    if (isInitialized) {
-        #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
-            Debug::println(2, "[STORAGE] Already initialized");
-        #endif
-        return true;
+  if (isInitialized) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 2) {
+      Debug::println(2, "[STORAGE] Already initialized");
     }
-    // LittleFS is the persistent storage layer for the web UI, config files, and action definitions.
-#if DEBUG_LEVEL >= 2
-    Debug::println(2, "[STORAGE][INIT] Initializing storage system");
 #endif
-
-    // Mount LittleFS before any read/write access. This is the filesystem used for the web pages.
-#if DEBUG_LEVEL >= 3
-    Debug::println(3, "[STORAGE][INIT] Attempting to mount LittleFS");
-#endif
-
-    if (!LittleFS.begin()) {
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[STORAGE][ERROR] Failed to mount LittleFS");
-#endif
-        triggerCallback("mount_failed", "LittleFS mount failed");
-        return false;
-    }
-
-#if DEBUG_LEVEL >= 2
-    Debug::println(2, "[STORAGE][INFO] LittleFS mounted successfully");
-#endif
-
-    // Initialize standard files
-    if (initializeStandardFiles()) {
-#if DEBUG_LEVEL >= 2
-        Debug::println(2, "[STORAGE][INFO] Standard files initialized successfully");
-#endif
-    } else {
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[STORAGE][WARN] Some standard files may not have been initialized");
-#endif
-    }
-
-    // Display file system info and root directory contents to validate the mounted filesystem.
-    getFSInfo();
-    listDir("/");
-
-    isInitialized = true;
-    triggerCallback("mounted", "LittleFS mounted successfully");
-    Debug::println(2, "[STORAGE][INIT] Storage initialization complete; root directory has been inspected");
     return true;
-} 
-
-bool Storage::exists(const String& path) {
-#if DEBUG_LEVEL >= 2
-    Debug::println(2, "[STORAGE][EXISTS] Checking if file exists: " + path);
+  }
+  // LittleFS is the persistent storage layer for the web UI, config files, and
+  // action definitions.
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[STORAGE][INIT] Initializing storage system");
+  }
 #endif
-    return LittleFS.exists(path);
+
+  // Mount LittleFS before any read/write access. This is the filesystem used
+  // for the web pages.
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[STORAGE][INIT] Attempting to mount LittleFS");
+  }
+#endif
+
+  if (!LittleFS.begin()) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[STORAGE][ERROR] Failed to mount LittleFS");
+    }
+#endif
+    triggerCallback("mount_failed", "LittleFS mount failed");
+    return false;
+  }
+
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[STORAGE][INFO] LittleFS mounted successfully");
+  }
+#endif
+
+  // Initialize standard files
+  if (initializeStandardFiles()) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 2) {
+      Debug::println(2,
+                     "[STORAGE][INFO] Standard files initialized successfully");
+    }
+#endif
+  } else {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(
+          1,
+          "[STORAGE][WARN] Some standard files may not have been initialized");
+    }
+#endif
+  }
+
+  // Display file system info and root directory contents to validate the
+  // mounted filesystem.
+  getFSInfo();
+  listDir("/");
+
+  isInitialized = true;
+  triggerCallback("mounted", "LittleFS mounted successfully");
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[STORAGE][INIT] Storage initialization complete; root "
+                      "directory has been inspected");
+  }
+#endif
+  return true;
 }
 
-bool Storage::remove(const String& path) {
-#if DEBUG_LEVEL >= 2
+bool Storage::exists(const String &path) {
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[STORAGE][EXISTS] Checking if file exists: " + path);
+  }
+#endif
+  return LittleFS.exists(path);
+}
+
+bool Storage::remove(const String &path) {
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
     Debug::println(2, "[STORAGE][REMOVE] Attempting to remove file: " + path);
+  }
 #endif
 
-    if (!LittleFS.exists(path)) {
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[STORAGE][ERROR] File not found for removal: " + path);
-#endif
-        triggerCallback("remove_failed", "File not found: " + path);
-        return false;
+  if (!LittleFS.exists(path)) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[STORAGE][ERROR] File not found for removal: " + path);
     }
+#endif
+    triggerCallback("remove_failed", "File not found: " + path);
+    return false;
+  }
 
-    bool success = LittleFS.remove(path);
-    if (success) {
-#if DEBUG_LEVEL >= 2
-        Debug::println(2, "[STORAGE][REMOVE] File removed successfully: " + path);
-#endif
-        triggerCallback("removed", path);
-    } else {
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[STORAGE][ERROR] Failed to remove file: " + path);
-#endif
-        triggerCallback("remove_failed", "Failed to remove: " + path);
+  bool success = LittleFS.remove(path);
+  if (success) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 2) {
+      Debug::println(2, "[STORAGE][REMOVE] File removed successfully: " + path);
     }
-    return success;
+#endif
+    triggerCallback("removed", path);
+  } else {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[STORAGE][ERROR] Failed to remove file: " + path);
+    }
+#endif
+    triggerCallback("remove_failed", "Failed to remove: " + path);
+  }
+  return success;
 }
 
-bool Storage::mkdir(const String& path) {
-#if DEBUG_LEVEL >= 2
-    Debug::println(2, "[STORAGE][MKDIR] Attempting to create directory: " + path);
+bool Storage::mkdir(const String &path) {
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2,
+                   "[STORAGE][MKDIR] Attempting to create directory: " + path);
+  }
 #endif
 
-    bool success = LittleFS.mkdir(path);
-    if (success) {
-#if DEBUG_LEVEL >= 2
-        Debug::println(2, "[STORAGE][MKDIR] Directory created successfully: " + path);
-#endif
-        triggerCallback("directory_created", path);
-    } else {
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[STORAGE][WARN] Directory may already exist: " + path);
-#endif
+  bool success = LittleFS.mkdir(path);
+  if (success) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 2) {
+      Debug::println(2, "[STORAGE][MKDIR] Directory created successfully: " +
+                            path);
     }
-    return success;
+#endif
+    triggerCallback("directory_created", path);
+  } else {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[STORAGE][WARN] Directory may already exist: " + path);
+    }
+#endif
+  }
+  return success;
 }
 
-String Storage::read(const String& path) {
-#if DEBUG_LEVEL >= 2
+String Storage::read(const String &path) {
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
     Debug::println(2, "[STORAGE][READ] Attempting to read file: " + path);
+  }
 #endif
 
-    File file = LittleFS.open(path, "r");
-    if (!file) {
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[STORAGE][ERROR] Failed to open file for reading: " + path);
-#endif
-        triggerCallback("read_failed", "Failed to open for reading: " + path);
-        return "";
+  File file = LittleFS.open(path, "r");
+  if (!file) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[STORAGE][ERROR] Failed to open file for reading: " +
+                            path);
     }
+#endif
+    triggerCallback("read_failed", "Failed to open for reading: " + path);
+    return "";
+  }
 
-    String data = file.readString();
-    file.close();
+  String data = file.readString();
+  file.close();
 
-#if DEBUG_LEVEL >= 3
-    Debug::println(3, "[STORAGE][READ] Read " + String(data.length()) + " bytes from " + path);
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 4) {
+    Debug::println(4, "[STORAGE][READ] Read " + String(data.length()) +
+                          " bytes from " + path);
+  }
 #endif
 
-    triggerCallback("read", path + " (" + String(data.length()) + " bytes)");
-    return data;
+  triggerCallback("read", path + " (" + String(data.length()) + " bytes)");
+  return data;
 }
 
-bool Storage::write(const String& path, const String& data) {
-    // Writes are used for JSON config files and persisted scenes/action data.
-#if DEBUG_LEVEL >= 2
+bool Storage::write(const String &path, const String &data) {
+  // Writes are used for JSON config files and persisted scenes/action data.
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
     Debug::println(2, "[STORAGE][WRITE] Attempting to write to file: " + path);
-    Debug::println(2, "[STORAGE][WRITE] Data size: " + String(data.length()) + " bytes");
+    Debug::println(2, "[STORAGE][WRITE] Data size: " + String(data.length()) +
+                          " bytes");
+  }
 #endif
 
-    File file = LittleFS.open(path, "w");
-    if (!file) {
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[STORAGE][ERROR] Failed to open file for writing: " + path);
-#endif
-        triggerCallback("write_failed", "Failed to open for writing: " + path);
-        return false;
+  File file = LittleFS.open(path, "w");
+  if (!file) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[STORAGE][ERROR] Failed to open file for writing: " +
+                            path);
     }
-
-    size_t bytesWritten = file.print(data);
-    file.close();
-
-    if (bytesWritten > 0) {
-#if DEBUG_LEVEL >= 2
-        Debug::println(2, "[STORAGE][WRITE] Successfully wrote " + String(bytesWritten) + " bytes to " + path);
 #endif
-        triggerCallback("written", path + " (" + String(bytesWritten) + " bytes)");
-        return true;
-    } else {
-#if DEBUG_LEVEL >= 1
-        Debug::println(1, "[STORAGE][ERROR] Failed to write data to file: " + path);
-#endif
-        triggerCallback("write_failed", "Failed to write data to: " + path);
-        return false;
+    triggerCallback("write_failed", "Failed to open for writing: " + path);
+    return false;
+  }
+
+  size_t bytesWritten = file.print(data);
+  file.close();
+
+  if (bytesWritten > 0) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 2) {
+      Debug::println(2, "[STORAGE][WRITE] Successfully wrote " +
+                            String(bytesWritten) + " bytes to " + path);
     }
+#endif
+    triggerCallback("written", path + " (" + String(bytesWritten) + " bytes)");
+    return true;
+  } else {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1,
+                     "[STORAGE][ERROR] Failed to write data to file: " + path);
+    }
+#endif
+    triggerCallback("write_failed", "Failed to write data to: " + path);
+    return false;
+  }
 }
 
-void Storage::listDir(const String& path) {
-    // This is useful when debugging filesystem structure or checking that the web pages were written correctly.
-#if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
+void Storage::listDir(const String &path) {
+  // This is useful when debugging filesystem structure or checking that the web
+  // pages were written correctly.
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
     Debug::println(2, "[STORAGE][LIST] Listing directory: " + path);
+  }
 #endif
 
-    File root = LittleFS.open(path);
-    if (!root || !root.isDirectory()) {
-        #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
-            Debug::println(1, "[STORAGE][listDir] Not a directory or missing: " + path);
-        #endif
-        triggerCallback("list_failed", "Not a directory: " + path);
-        return;
+  File root = LittleFS.open(path);
+  if (!root || !root.isDirectory()) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1,
+                     "[STORAGE][listDir] Not a directory or missing: " + path);
     }
+#endif
+    triggerCallback("list_failed", "Not a directory: " + path);
+    return;
+  }
 
-    #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
-        Debug::println(2, "[STORAGE][listDir] Directory contents:");
-    #endif
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[STORAGE][listDir] Directory contents:");
+  }
+#endif
 
-    File file = root.openNextFile();
-    while (file) {
-        if (!file.isDirectory()) {
-            String fileInfo = String(file.name()) + " (" + String(file.size()) + " bytes)";
-            #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
-                Debug::println(2, "  " + fileInfo);
-            #endif
-        }
-        file.close();
-        file = root.openNextFile();
+  File file = root.openNextFile();
+  while (file) {
+    if (!file.isDirectory()) {
+      String fileInfo =
+          String(file.name()) + " (" + String(file.size()) + " bytes)";
+#ifdef DEBUG_LEVEL
+      if (Debug::getDebugLevel() >= 4) {
+        Debug::println(4, "  " + fileInfo);
+      }
+#endif
     }
-    root.close();
-    #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
-        Debug::println(2, "[STORAGE][listDir] Directory scan complete: " + path);
-    #endif
-    triggerCallback("listed", path);
+    file.close();
+    file = root.openNextFile();
+  }
+  root.close();
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[STORAGE][listDir] Directory scan complete: " + path);
+  }
+#endif
+  triggerCallback("listed", path);
 }
 
 bool Storage::initializeStandardFiles() {
-    // These files are the default config scaffolding for settings, devices, mappings, and schedules.
-    #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
-        Debug::println(2, "[STORAGE][initializeStandardFiles] Initializing standard configuration files...");
-    #endif
+// These files are the default config scaffolding for settings, devices,
+// mappings, and schedules.
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2,
+                   "[STORAGE][initializeStandardFiles] Initializing standard "
+                   "configuration files...");
+  }
+#endif
 
-    bool success = true;
+  bool success = true;
 
-    // Create ir_db directory if it doesn't exist
-    if (!exists("/ir_db")) {
-        #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
-            Debug::println(2, "[STORAGE][initializeStandardFiles] Creating ir_db directory...");
-        #endif
-        if (!mkdir("/ir_db")) {
-            #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
-                Debug::println(1, "[STORAGE][initializeStandardFiles] Failed to create ir_db directory");
-            #endif
-            success = false;
-        }
+  // Create ir_db directory if it doesn't exist
+  if (!exists("/ir_db")) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(
+          1, "[STORAGE][initializeStandardFiles] Creating ir_db directory...");
     }
-
-    // Initialize standard files
-    String files[] = {"/scripts.json", "/scenes.json"};
-    String defaultContent[] = {
-        "{}",  // Empty JSON for scripts
-        "[]"   // Empty array for scenes
-    };
-
-    for (int i = 0; i < 2; i++) {
-        if (!exists(files[i])) {
-            #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
-                Debug::println(2, "[STORAGE][initializeStandardFiles] Creating standard file: " + files[i]);
-            #endif
-            if (!write(files[i], defaultContent[i])) {
-                #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
-                    Debug::println(1, "[STORAGE][initializeStandardFiles] Failed to create: " + files[i]);
-                #endif
-                success = false;
-            }
-        }
+#endif
+    if (!mkdir("/ir_db")) {
+#ifdef DEBUG_LEVEL
+      if (Debug::getDebugLevel() >= 1) {
+        Debug::println(1, "[STORAGE][initializeStandardFiles] Failed to create "
+                          "ir_db directory");
+      }
+#endif
+      success = false;
     }
+  }
 
-    return success;
+  // Initialize standard files
+  String files[] = {"/scripts.json", "/scenes.json"};
+  String defaultContent[] = {
+      "{}", // Empty JSON for scripts
+      "[]"  // Empty array for scenes
+  };
+
+  for (int i = 0; i < 2; i++) {
+    if (!exists(files[i])) {
+#ifdef DEBUG_LEVEL
+      if (Debug::getDebugLevel() >= 2) {
+        Debug::println(
+            2, "[STORAGE][initializeStandardFiles] Creating standard file: " +
+                   files[i]);
+      }
+#endif
+      if (!write(files[i], defaultContent[i])) {
+#ifdef DEBUG_LEVEL
+        if (Debug::getDebugLevel() >= 1) {
+          Debug::println(
+              1, "[STORAGE][initializeStandardFiles] Failed to create: " +
+                     files[i]);
+        }
+#endif
+        success = false;
+      }
+    }
+  }
+
+  return success;
 }
 
 void Storage::getFSInfo() {
-    // No struct needed
-    size_t total = LittleFS.totalBytes();
-    size_t used = LittleFS.usedBytes();
-    size_t free = LittleFS.totalBytes() - LittleFS.usedBytes();
+  // No struct needed
+  size_t total = LittleFS.totalBytes();
+  size_t used = LittleFS.usedBytes();
+  size_t free = LittleFS.totalBytes() - LittleFS.usedBytes();
 
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[STORAGE][getFSInfo] Total: " + String(total));
-        Debug::println("[STORAGE][getFSInfo] Used:  " + String(used));
-        Debug::println("[STORAGE][getFSInfo] Free:  " + String(free));
-    #endif
-    #endif
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 1) {
+    Debug::println(1, "[STORAGE][getFSInfo] Total: " + String(total));
+    Debug::println(1, "[STORAGE][getFSInfo] Used:  " + String(used));
+    Debug::println(1, "[STORAGE][getFSInfo] Free:  " + String(free));
+  }
+#endif
 
-    // Format callback string
-    String info = "Total: " + String(total) + 
-                 ", Used: " + String(used) + 
-                 ", Free: " + String(free);
+  // Format callback string
+  String info = "Total: " + String(total) + ", Used: " + String(used) +
+                ", Free: " + String(free);
 
-    triggerCallback("fs_info", info);
+  triggerCallback("fs_info", info);
 }
 
 bool Storage::format() {
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 1
-        Debug::println("[STORAGE][format] Formatting file system - all data will be lost!");
-    #endif
-    #endif
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 1) {
+    Debug::println(
+        1, "[STORAGE][format] Formatting file system - all data will be lost!");
+  }
+#endif
 
-    if (LittleFS.format()) {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][format] File system formatted successfully");
-        #endif
-        #endif
-        triggerCallback("formatted", "File system formatted");
-        return initializeStandardFiles();
-    } else {
-        #ifdef DEBUG_LEVEL
-        #if DEBUG_LEVEL >= 1
-            Debug::println("[STORAGE][format] Failed to format file system");
-        #endif
-        #endif
-        triggerCallback("format_failed", "Failed to format file system");
-        return false;
+  if (LittleFS.format()) {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[STORAGE][format] File system formatted successfully");
     }
+#endif
+    triggerCallback("formatted", "File system formatted");
+    return initializeStandardFiles();
+  } else {
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 1) {
+      Debug::println(1, "[STORAGE][format] Failed to format file system");
+    }
+#endif
+    triggerCallback("format_failed", "Failed to format file system");
+    return false;
+  }
 }
 
 void Storage::setCallback(StorageCallback callback) {
-    _callback = callback;
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 3
-        Debug::println("[STORAGE][StorageCallback] Storage callback set");
-    #endif
-    #endif
+  _callback = callback;
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 3) {
+    Debug::println(3, "[STORAGE][StorageCallback] Storage callback set");
+  }
+#endif
 }
 
-void Storage::triggerCallback(const String& event, const String& details) {
-    if (_callback) {
-        _callback(event, details);
-    }
+void Storage::triggerCallback(const String &event, const String &details) {
+  if (_callback) {
+    _callback(event, details);
+  }
 
-    #ifdef DEBUG_LEVEL
-    #if DEBUG_LEVEL >= 2
-        Debug::println("[STORAGE][triggerCallback] Event triggered: " + event + (details.length() > 0 ? " - " + details : ""));
-    #endif
-    #endif
+#ifdef DEBUG_LEVEL
+  if (Debug::getDebugLevel() >= 2) {
+    Debug::println(2, "[STORAGE][triggerCallback] Event triggered: " + event +
+                          (details.length() > 0 ? " - " + details : ""));
+  }
+#endif
 }
 
-bool Storage::isMounted() {
-    return isInitialized;
-}
+bool Storage::isMounted() { return isInitialized; }
 
 ```
 
@@ -33289,15 +32663,15 @@ compile a sniffer tool and transmission commands.
 ### <a id="📄-lib-webui-webui-cpp"></a>📄 `lib/WebUI/WebUI.cpp`
 
 **File Info:**
-- **Size**: 39.57 KB
+- **Size**: 31.36 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `lib/WebUI/WebUI.cpp`
 - **Relative Path**: `lib/WebUI`
 - **Created**: 2026-09-07 13:29:46 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-17 09:02:19 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `142fb4a923ac5d720ea312ba8c46b586`
-- **SHA256**: `53c407378873bc5842e9a84c48a13a3ff5d7d830180b9f54bfb7cdb53d44c614`
+- **Modified**: 2026-09-17 22:14:26 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `a8095d7e67c232d27611de1a2f4af745`
+- **SHA256**: `d1dc2c1bbdc25e2498c5605055237702be842ebbda0bb8029cc8fcc1af4fe768`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -33305,19 +32679,12 @@ compile a sniffer tool and transmission commands.
 ```cpp
 #include "WebUI.h"
 
-
-WebUI::WebUI(
-    ScriptManager &scriptManager,
-    SceneManager &sceneManager,
-    CommandSink &commandSink
-)
-    : server(80),
-      scriptManagerRef(scriptManager),
-      sceneManagerRef(sceneManager),
-      commandSinkRef(commandSink)
-{
+WebUI::WebUI(ScriptManager &scriptManager, SceneManager &sceneManager,
+             CommandSink &commandSink)
+    : server(80), scriptManagerRef(scriptManager),
+      sceneManagerRef(sceneManager), commandSinkRef(commandSink) {
 #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
-    Debug::println(3, "[WebUI][Constructor] WebUI object created");
+  Debug::println(3, "[WebUI][Constructor] WebUI object created");
 #endif
 }
 
@@ -33325,36 +32692,28 @@ WebUI::WebUI(
 // BEGIN
 // ============================================================
 
-void WebUI::begin()
-{
+void WebUI::begin() {
 #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
-    Debug::println(2, "[WebUI][begin] Starting WebUI initialization");
+  Debug::println(2, "[WebUI][begin] Starting WebUI initialization");
 #endif
-    Debug::println(
-        2,
-        "[WEBUI][INIT] Starting WebUI initialization"
-    );
-    
-    beginAP();
 
-    // Initialize the Access Point for web interface
+  beginAP();
 
-    /*
-     * Managers are initialized by Core.
-     *
-     * WebUI deliberately does not call ScriptManager::begin()
-     * or SceneManager::begin().
-     *
-     * Core owns the initialization order.
-     */
-    
-    Debug::println(
-        2,
-        "[WEBUI][INIT] WebUI initialization complete"
-    );
+  // Initialize the Access Point for web interface
+
+  /*
+   * Managers are initialized by Core.
+   *
+   * WebUI deliberately does not call ScriptManager::begin()
+   * or SceneManager::begin().
+   *
+   * Core owns the initialization order.
+   */
+
+  Debug::println(2, "[WEBUI][INIT] WebUI initialization complete");
 
 #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
-    Debug::println(2, "[WebUI][begin] WebUI initialization complete");
+  Debug::println(2, "[WebUI][begin] WebUI initialization complete");
 #endif
 }
 
@@ -33362,52 +32721,49 @@ void WebUI::begin()
 // ACCESS POINT
 // ============================================================
 
-void WebUI::beginAP()
-{
+void WebUI::beginAP() {
 #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 2
-    Debug::println(2, "[WebUI][beginAP] Initializing WebUI in Access Point mode");
+  Debug::println(2, "[WebUI][beginAP] Initializing WebUI in Access Point mode");
 #endif
 
-    // Configure ESP32 as Access Point
-    WiFi.mode(WIFI_AP);
+  // Configure ESP32 as Access Point
+  WiFi.mode(WIFI_AP);
 
-    // Set up IP configuration for the Access Point
-    IPAddress localIP(192, 168, 4, 1);
-    IPAddress gateway(192, 168, 4, 1);
-    IPAddress subnet(255, 255, 255, 0);
+  // Set up IP configuration for the Access Point
+  IPAddress localIP(192, 168, 4, 1);
+  IPAddress gateway(192, 168, 4, 1);
+  IPAddress subnet(255, 255, 255, 0);
 
-    // Start Access Point with SSID and password
-    if (!WiFi.softAP(
-        "HomeController",
-        apPassword.c_str()
-    ))
-    {
+  // Start Access Point with SSID and password
+  if (!WiFi.softAP("HomeController", apPassword.c_str())) {
 #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
-        Debug::println(1, "[WebUI][beginAP] Failed to start Access Point with password: " + apPassword);
+    Debug::println(
+        1, "[WebUI][beginAP] Failed to start Access Point with password: " +
+               apPassword);
 #endif
-        // Log error and return early
-        return;
-    }
+    // Log error and return early
+    return;
+  }
 
 #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
-    Debug::println(3, "[WebUI][beginAP] Access Point started with SSID=HomeController");
-    Debug::println(3, "[WebUI][beginAP] Access Point IP: " + WiFi.softAPIP().toString());
+  Debug::println(
+      3, "[WebUI][beginAP] Access Point started with SSID=HomeController");
+  Debug::println(3, "[WebUI][beginAP] Access Point IP: " +
+                        WiFi.softAPIP().toString());
 #endif
 
-    // Setup web server routes
-    setupRoutes();
+  // Setup web server routes
+  setupRoutes();
 
-    // Start the web server
-    server.begin();
+  // Start the web server
+  server.begin();
 
-    
+  setupRoutes();
 
-    setupRoutes();
-
-    server.begin();
+  server.begin();
 
 #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 3
-    Debug::println(3, "[WebUI][beginAP] Web server started on port 80");
+  Debug::println(3, "[WebUI][beginAP] Web server started on port 80");
 #endif
 }
 
@@ -33415,1272 +32771,855 @@ void WebUI::beginAP()
 // POST BODY HELPER
 // ============================================================
 
-bool WebUI::getPostBody(AsyncWebServerRequest *request, String &body)
-{
+bool WebUI::getPostBody(AsyncWebServerRequest *request, String &body) {
 #if defined(DEBUG_LEVEL) && DEBUG_LEVEL >= 1
-    Debug::println(1, "[WebUI][getPostBody] Processing POST request");
+  Debug::println(1, "[WebUI][getPostBody] Processing POST request");
 #endif
-    // Log request content information 
-    Debug::println(1, "[WEBUI][getPostBody] Content-Type: " + String(request->contentType(  )));
-    Debug::println(1, "[WEBUI][getPostBody] Content-Length: " + String(request->contentLength(  )));
+  // Log request content information
+  Debug::println(1, "[WEBUI][getPostBody] Content-Type: " +
+                        String(request->contentType()));
+  Debug::println(1, "[WEBUI][getPostBody] Content-Length: " +
+                        String(request->contentLength()));
 
-    
+  // Check for JSON content type
+  if (request->contentType() == "application/json") {
+    // For JSON content, the body should be in _tempObject
+    if (request->_tempObject) {
+      body = String((char *)request->_tempObject);
+    } else {
+      // Fallback to reading the request stream
+      body = "";
+      int len = request->contentLength();
+      if (len > 0) {
+        char *buf = new char[len + 1];
+        request->getParam(0)->value().toCharArray(buf, len + 1);
+        buf[len] = 0;
+        body = String(buf);
+        delete[] buf;
+      }
+    }
+  } else if (request->hasParam("body", true)) {
+    body = request->getParam("body", true)->value();
+  } else if (request->_tempObject) {
+    body = String((char *)request->_tempObject);
+  } else {
+    body = request->arg("plain");
+  }
 
+  if (body.length() > 0) {
+    Debug::println(3, "[WEBUI][POST] Parsed body: " + body);
+    return true;
+  }
 
-    // Check for JSON content type
-    if (request->contentType() == "application/json") {
-        // For JSON content, the body should be in _tempObject
-        if (request->_tempObject) {
-            body = String((char *)request->_tempObject);
-        } else {
-            // Fallback to reading the request stream
-            body = "";
-            int len = request->contentLength();
-            if (len > 0) {
-                char* buf = new char[len+1];
-                request->getParam(0)->value().toCharArray(buf, len+1);
-                buf[len] = 0;
-                body = String(buf);
-                delete[] buf;
-            }
-        }
-    }
-    else if (request->hasParam("body", true)) {
-        body = request->getParam("body", true)->value();
-    }
-    else if (request->_tempObject) {
-        body = String((char *)request->_tempObject);
-    }
-    else {
-        body = request->arg("plain");
-    }
-
-    if (body.length() > 0) {
-        Debug::println(3, "[WEBUI][POST] Parsed body: " + body);
-        return true;
-    }
-
-    Debug::println(1, "[WEBUI][getPostBody] Empty POST body");
-    return false;
+  Debug::println(1, "[WEBUI][getPostBody] Empty POST body");
+  return false;
 }
 
 // ============================================================
 // capturePostBody
 // ============================================================
 
-static void capturePostBody(
-    AsyncWebServerRequest *request,
-    uint8_t *data,
-    size_t len,
-    size_t index,
-    size_t total)
-{
-    if (index == 0) {
-        char *body = (char *)malloc(total + 1);
-        if (!body) {
-            Debug::println(1, "[WEBUI][ERROR] Failed to allocate POST body");
-            return;
-        }
-
-        request->_tempObject = body;
-        body[0] = '\0';
-
-        Debug::println(3, "[WEBUI][POST] Receiving body, size=" + String(total));
+static void capturePostBody(AsyncWebServerRequest *request, uint8_t *data,
+                            size_t len, size_t index, size_t total) {
+  if (index == 0) {
+    char *body = (char *)malloc(total + 1);
+    if (!body) {
+      Debug::println(1, "[WEBUI][ERROR] Failed to allocate POST body");
+      return;
     }
 
-    if (request->_tempObject) {
-        char *body = (char *)request->_tempObject;
-        memcpy(body + index, data, len);
-        body[index + len] = '\0';
+    request->_tempObject = body;
+    body[0] = '\0';
 
-        if (index + len == total) {
-            Debug::println(3, "[WEBUI][POST] Body received: " + String(body));
-        }
+    Debug::println(3, "[WEBUI][POST] Receiving body, size=" + String(total));
+  }
+
+  if (request->_tempObject) {
+    char *body = (char *)request->_tempObject;
+    memcpy(body + index, data, len);
+    body[index + len] = '\0';
+
+    if (index + len == total) {
+      Debug::println(3, "[WEBUI][POST] Body received: " + String(body));
     }
+  }
 }
 
 // ============================================================
 // ROUTES
 // ============================================================
 
-void WebUI::setupRoutes()
-{
-    // --------------------------------------------------------
-    // DASHBOARD
-    // --------------------------------------------------------
+void WebUI::setupRoutes() {
+  // --------------------------------------------------------
+  // DASHBOARD
+  // --------------------------------------------------------
 
-    server.on(
-        "/",
-        HTTP_GET,
-        [this](AsyncWebServerRequest *request)
-        {
-            if (!isClientAuthenticated(request))
-            {
-                request->send(
-                    401,
-                    "text/html",
+  server.on("/", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    if (!isClientAuthenticated(request)) {
+      request->send(401, "text/html",
                     "<html><body>"
                     "<h1>Authentication Required</h1>"
                     "<form method='POST' action='/login'>"
                     "<input type='password' name='password'>"
                     "<input type='submit' value='Login'>"
                     "</form>"
-                    "</body></html>"
-                );
+                    "</body></html>");
+
+      return;
+    }
+
+    authenticateClient(request);
+
+    request->send(LittleFS, "/index.html", "text/html");
+  });
+
+  // --------------------------------------------------------
+  // SCRIPT EDITOR
+  // --------------------------------------------------------
+
+  server.on("/action_scripts.html", HTTP_GET,
+            [this](AsyncWebServerRequest *request) {
+              if (!isClientAuthenticated(request)) {
+                request->send(401, "text/html",
+                              "<html><body>"
+                              "<h1>Authentication Required</h1>"
+                              "</body></html>");
 
                 return;
-            }
+              }
 
-            authenticateClient(request);
+              authenticateClient(request);
 
-            request->send(
-                LittleFS,
-                "/index.html",
-                "text/html"
-            );
-        }
-    );
-
-    // --------------------------------------------------------
-    // SCRIPT EDITOR
-    // --------------------------------------------------------
-
-    server.on(
-        "/action_scripts.html",
-        HTTP_GET,
-        [this](AsyncWebServerRequest *request)
-        {
-            if (!isClientAuthenticated(request))
-            {
-                request->send(
-                    401,
-                    "text/html",
-                    "<html><body>"
-                    "<h1>Authentication Required</h1>"
-                    "</body></html>"
-                );
+              if (!LittleFS.exists("/action_scripts.html")) {
+                request->send(404, "text/plain",
+                              "action_scripts.html missing from filesystem");
 
                 return;
-            }
+              }
 
-            authenticateClient(request);
+              request->send(LittleFS, "/action_scripts.html", "text/html");
+            });
 
-            if (!LittleFS.exists("/action_scripts.html"))
-            {
-                request->send(
-                    404,
-                    "text/plain",
-                    "action_scripts.html missing from filesystem"
-                );
+  // --------------------------------------------------------
+  // AUDIO TEST PAGE
+  // --------------------------------------------------------
 
-                return;
-            }
-
-            request->send(
-                LittleFS,
-                "/action_scripts.html",
-                "text/html"
-            );
-        }
-    );
-
-    // --------------------------------------------------------
-    // AUDIO TEST PAGE
-    // --------------------------------------------------------
-
-    server.on(
-        "/audio_test.html",
-        HTTP_GET,
-        [this](AsyncWebServerRequest *request)
-        {
-            if (!isClientAuthenticated(request))
-            {
-                request->send(
-                    401,
-                    "text/html",
-                    "<html><body>"
-                    "<h1>Authentication Required</h1>"
-                    "</body></html>"
-                );
+  server.on("/audio_test.html", HTTP_GET,
+            [this](AsyncWebServerRequest *request) {
+              if (!isClientAuthenticated(request)) {
+                request->send(401, "text/html",
+                              "<html><body>"
+                              "<h1>Authentication Required</h1>"
+                              "</body></html>");
 
                 return;
-            }
+              }
 
-            authenticateClient(request);
+              authenticateClient(request);
 
-            if (!LittleFS.exists("/audio_test.html"))
-            {
-                request->send(
-                    404,
-                    "text/plain",
-                    "audio_test.html missing from filesystem"
-                );
+              if (!LittleFS.exists("/audio_test.html")) {
+                request->send(404, "text/plain",
+                              "audio_test.html missing from filesystem");
 
                 return;
-            }
+              }
 
-            request->send(
-                LittleFS,
-                "/audio_test.html",
-                "text/html"
-            );
-        }
-    );
+              request->send(LittleFS, "/audio_test.html", "text/html");
+            });
 
-    // --------------------------------------------------------
-    // LOGIN
-    // --------------------------------------------------------
+  // --------------------------------------------------------
+  // LOGIN
+  // --------------------------------------------------------
 
-    server.on(
-        "/login",
-        HTTP_POST,
-        [this](AsyncWebServerRequest *request)
-        {
-            String password;
+  server.on("/login", HTTP_POST, [this](AsyncWebServerRequest *request) {
+    String password;
 
-            if (request->hasParam("password", true))
-            {
-                password =
-                    request->getParam(
-                        "password",
-                        true
-                    )->value();
-            }
-            else
-            {
-                password =
-                    request->arg("password");
-            }
+    if (request->hasParam("password", true)) {
+      password = request->getParam("password", true)->value();
+    } else {
+      password = request->arg("password");
+    }
 
-            if (password == adminPassword)
-            {
-                authenticateClient(request);
-                request->redirect("/");
+    if (password == adminPassword) {
+      authenticateClient(request);
+      request->redirect("/");
+
+      return;
+    }
+
+    Debug::println(2, "[WEBUI][LOGIN] Failed login attempt from " +
+                          request->client()->remoteIP().toString());
+
+    request->send(401, "text/html",
+                  "<html><body>"
+                  "<h1>Authentication Failed</h1>"
+                  "<form method='POST' action='/login'>"
+                  "<input type='password' name='password'>"
+                  "<input type='submit' value='Login'>"
+                  "</form>"
+                  "</body></html>");
+  });
+
+  // --------------------------------------------------------
+  // AUTH WRAPPER
+  // --------------------------------------------------------
+
+  auto withAuth = [this](std::function<void(AsyncWebServerRequest *)> handler) {
+    return [this, handler](AsyncWebServerRequest *request) {
+      if (!isClientAuthenticated(request)) {
+        request->send(401, "application/json",
+                      "{\"success\":false,"
+                      "\"message\":\"Authentication required\"}");
+
+        return;
+      }
+
+      authenticateClient(request);
+
+      handler(request);
+    };
+  };
+
+  // ========================================================
+  // TIME
+  // ========================================================
+
+  server.on("/api/set-time", HTTP_POST,
+            withAuth([this](AsyncWebServerRequest *request) {
+              String body;
+
+              if (!getPostBody(request, body)) {
+                request->send(400, "application/json",
+                              "{\"success\":false,"
+                              "\"message\":\"Missing time payload\"}");
 
                 return;
-            }
+              }
 
-            Debug::println(
-                2,
-                "[WEBUI][LOGIN] Failed login attempt from " +
-                request->client()->remoteIP().toString()
-            );
+              JsonDocument doc;
 
-            request->send(
-                401,
-                "text/html",
-                "<html><body>"
-                "<h1>Authentication Failed</h1>"
-                "<form method='POST' action='/login'>"
-                "<input type='password' name='password'>"
-                "<input type='submit' value='Login'>"
-                "</form>"
-                "</body></html>"
-            );
-        }
-    );
+              DeserializationError err = deserializeJson(doc, body);
 
-    // --------------------------------------------------------
-    // AUTH WRAPPER
-    // --------------------------------------------------------
+              if (err || !doc["time"].is<unsigned long>()) {
+                request->send(400, "application/json",
+                              "{\"success\":false,"
+                              "\"message\":\"Invalid time payload\"}");
 
-    auto withAuth =
-        [this](
-            std::function<void(AsyncWebServerRequest *)> handler
-        )
-        {
-            return [this, handler](
-                AsyncWebServerRequest *request
-            )
-            {
-                if (!isClientAuthenticated(request))
-                {
-                    request->send(
-                        401,
-                        "application/json",
-                        "{\"success\":false,"
-                        "\"message\":\"Authentication required\"}"
-                    );
+                return;
+              }
 
-                    return;
-                }
+              unsigned long unixTime = doc["time"].as<unsigned long>();
 
-                authenticateClient(request);
+              int timezoneOffsetMinutes = doc["timezoneOffsetMinutes"] | 0;
 
-                handler(request);
-            };
-        };
+              Debug::setTimezoneOffsetMinutes(timezoneOffsetMinutes);
 
-    // ========================================================
-    // TIME
-    // ========================================================
+              Debug::setDeviceTime(unixTime);
 
-    server.on(
-        "/api/set-time",
-        HTTP_POST,
-        withAuth(
-            [this](AsyncWebServerRequest *request)
-            {
-                String body;
+              request->send(200, "application/json", "{\"success\":true}");
+            }));
 
-                if (!getPostBody(request, body))
-                {
-                    request->send(
-                        400,
-                        "application/json",
-                        "{\"success\":false,"
-                        "\"message\":\"Missing time payload\"}"
-                    );
+  // ========================================================
+  // STATUS
+  // ========================================================
 
-                    return;
-                }
+  server.on("/api/status", HTTP_GET, [this](AsyncWebServerRequest *request) {
+    JsonDocument doc;
 
-                JsonDocument doc;
+    int core0Busy = 100 - (int)ulTaskGetIdleRunTimePercentForCore(0);
 
-                DeserializationError err =
-                    deserializeJson(doc, body);
+    int core1Busy = 100 - (int)ulTaskGetIdleRunTimePercentForCore(1);
 
-                if (
-                    err ||
-                    !doc["time"].is<unsigned long>()
-                )
-                {
-                    request->send(
-                        400,
-                        "application/json",
-                        "{\"success\":false,"
-                        "\"message\":\"Invalid time payload\"}"
-                    );
+    doc["uptimeMs"] = millis();
+    doc["freeHeap"] = ESP.getFreeHeap();
+    doc["cpuLoadPercent"] = (core0Busy + core1Busy) / 2;
 
-                    return;
-                }
+    doc["ssid"] = "HomeController";
+    doc["ip"] = WiFi.softAPIP().toString();
 
-                unsigned long unixTime =
-                    doc["time"].as<unsigned long>();
+    doc["mode"] = "AP";
 
-                int timezoneOffsetMinutes =
-                    doc["timezoneOffsetMinutes"] | 0;
+    doc["timestampMode"] =
+        (Debug::getTimestamp().length() > 0) ? "wall-clock" : "uptime";
 
-                Debug::setTimezoneOffsetMinutes(
-                    timezoneOffsetMinutes
-                );
+    doc["heartbeat"] = heartbeatState;
 
-                Debug::setDeviceTime(unixTime);
+    String json;
 
-                request->send(
-                    200,
-                    "application/json",
-                    "{\"success\":true}"
-                );
-            }
-        )
-    );
+    serializeJson(doc, json);
 
-    // ========================================================
-    // STATUS
-    // ========================================================
+    request->send(200, "application/json", json);
+  });
 
-    server.on(
-        "/api/status",
-        HTTP_GET,
-        [this](AsyncWebServerRequest *request)
-        {
-            JsonDocument doc;
+  // ========================================================
+  // LOGS
+  // ========================================================
 
-            int core0Busy =
-                100 -
-                (int)ulTaskGetIdleRunTimePercentForCore(0);
+  server.on("/api/logs", HTTP_GET, [](AsyncWebServerRequest *request) {
+    request->send(200, "text/html", Debug::getWebLogs());
+  });
 
-            int core1Busy =
-                100 -
-                (int)ulTaskGetIdleRunTimePercentForCore(1);
+  server.on("/api/logs/clear", HTTP_POST, [](AsyncWebServerRequest *request) {
+    Debug::println(3, "[WEBUI][POST /api/logs/clear] clearing log buffer");
 
-            doc["uptimeMs"] = millis();
-            doc["freeHeap"] = ESP.getFreeHeap();
-            doc["cpuLoadPercent"] =
-                (core0Busy + core1Busy) / 2;
+    Debug::clearLogs();
 
-            doc["ssid"] = "HomeController";
-            doc["ip"] =
-                WiFi.softAPIP().toString();
+    request->send(200, "application/json", "{\"success\":true}");
+  });
 
-            doc["mode"] = "AP";
+  // ========================================================
+  // DEBUG LEVEL
+  // ========================================================
 
-            doc["timestampMode"] =
-                (Debug::getTimestamp().length() > 0)
-                    ? "wall-clock"
-                    : "uptime";
-
-            doc["heartbeat"] =
-                heartbeatState;
-
-            String json;
-
-            serializeJson(
-                doc,
-                json
-            );
-
-            request->send(
-                200,
-                "application/json",
-                json
-            );
-        }
-    );
-
-    // ========================================================
-    // LOGS
-    // ========================================================
-
-    server.on(
-        "/api/logs",
-        HTTP_GET,
-        [](AsyncWebServerRequest *request)
-        {
-            request->send(
-                200,
-                "text/html",
-                Debug::getWebLogs()
-            );
-        }
-    );
-
-    server.on(
-        "/api/logs/clear",
-        HTTP_POST,
-        [](AsyncWebServerRequest *request)
-        {
-            Debug::println(
-                3,
-                "[WEBUI][POST /api/logs/clear] clearing log buffer"
-            );
-
-            Debug::clearLogs();
-
-            request->send(
-                200,
-                "application/json",
-                "{\"success\":true}"
-            );
-        }
-    );
-
-    // ========================================================
-    // DEBUG LEVEL
-    // ========================================================
-
-       // POST endpoint to update debug level
-    server.on(
-        "/api/set-debug-level",
-        HTTP_POST,
-        withAuth(
-            [this](AsyncWebServerRequest *request)
-            {
-                String body;
-
-                if (!getPostBody(request, body))
-                {
-                    request->send(
-                        400,
-                        "application/json",
-                        R"json({"success":false,"message":"Missing debug level payload"})json"
-                    );
-                    return;
-                }
-
-                // Upgraded to true ArduinoJson v7 style JsonDocument (Fixed capacity no longer needed)
-                JsonDocument doc;
-                DeserializationError error = deserializeJson(doc, body);
-
-                if (error)
-                {
-                    request->send(
-                        400,
-                        "application/json",
-                        R"json({"success":false,"message":"Invalid JSON"})json"
-                    );
-                    return;
-                }
-
-                // Get debug level
-                int level = doc["level"] | 3; // Default to INFO level if not specified
-
-                // Validate debug level
-                if (level < 1 || level > 5)
-                {
-                    request->send(
-                        400,
-                        "application/json",
-                        R"json({"success":false,"message":"Invalid debug level. Must be between 1 and 5."})json"
-                    );
-                    return;
-                }
-
-                // Set debug level
-                Debug::setDebugLevel(level);
-
-                // FIXED: Properly formatted dynamic JSON string with snprintf
-                char responseBuffer[64];
-                snprintf(responseBuffer, sizeof(responseBuffer), "{\"success\":true,\"level\":%d}", level);
-                
-                request->send(200, "application/json", responseBuffer);
-            }
-        )
-    );
-
-    // GET endpoint to retrieve current debug level
-    server.on(
-        "/api/debug-level",
-        HTTP_GET,
-        withAuth(
-            [this](AsyncWebServerRequest *request)
-            {
-                int level = Debug::getDebugLevel();
-                
-                // Upgraded to true ArduinoJson v7 style JsonDocument
-                JsonDocument doc;
-                doc["level"] = level;
-                
-                String response;
-                serializeJson(doc, response);
-
-                request->send(
-                    200,
-                    "application/json",
-                    response
-                );
-            }
-        )
-    );
-
-    // ========================================================
-    // SCRIPTS - LIST
-    // ========================================================
-
-    server.on(
-        "/api/action-scripts",
-        HTTP_GET,
-        withAuth(
-            [this](AsyncWebServerRequest *request)
-            {
-                String json = scriptManagerRef.getScriptsAsJson();
-
-                request->send(
-                    200,
-                    "application/json",
-                    json
-                );
-            }
-        )
-    );
-
-    // ========================================================
-    // SCRIPTS - ADD / UPDATE
-    // ========================================================
-
-server.on("/api/action-scripts", HTTP_POST,
-    withAuth([this](AsyncWebServerRequest *request) {
+  // POST endpoint to update debug level
+  server.on(
+      "/api/set-debug-level", HTTP_POST,
+      withAuth([this](AsyncWebServerRequest *request) {
         String body;
 
         if (!getPostBody(request, body)) {
-            request->send(400, "application/json",
-                          "{\"success\":false,\"message\":\"Missing body\"}");
-            return;
+          request->send(
+              400, "application/json",
+              R"json({"success":false,"message":"Missing debug level payload"})json");
+          return;
+        }
+
+        // Upgraded to true ArduinoJson v7 style JsonDocument (Fixed capacity no
+        // longer needed)
+        JsonDocument doc;
+        DeserializationError error = deserializeJson(doc, body);
+
+        if (error) {
+          request->send(
+              400, "application/json",
+              R"json({"success":false,"message":"Invalid JSON"})json");
+          return;
+        }
+
+        // Get debug level
+        int level = doc["level"] | 3; // Default to INFO level if not specified
+
+        // Validate debug level
+        if (level < 1 || level > 5) {
+          request->send(
+              400, "application/json",
+              R"json({"success":false,"message":"Invalid debug level. Must be between 1 and 5."})json");
+          return;
+        }
+
+        // Set debug level
+        Debug::setDebugLevel(level);
+
+        // FIXED: Properly formatted dynamic JSON string with snprintf
+        char responseBuffer[64];
+        snprintf(responseBuffer, sizeof(responseBuffer),
+                 "{\"success\":true,\"level\":%d}", level);
+
+        request->send(200, "application/json", responseBuffer);
+      }));
+
+  // GET endpoint to retrieve current debug level
+  server.on("/api/debug-level", HTTP_GET,
+            withAuth([this](AsyncWebServerRequest *request) {
+              int level = Debug::getDebugLevel();
+
+              // Upgraded to true ArduinoJson v7 style JsonDocument
+              JsonDocument doc;
+              doc["level"] = level;
+
+              String response;
+              serializeJson(doc, response);
+
+              request->send(200, "application/json", response);
+            }));
+
+  // ========================================================
+  // SCRIPTS - LIST
+  // ========================================================
+
+  server.on("/api/action-scripts", HTTP_GET,
+            withAuth([this](AsyncWebServerRequest *request) {
+              String json = scriptManagerRef.getScriptsAsJson();
+
+              request->send(200, "application/json", json);
+            }));
+
+  // ========================================================
+  // SCRIPTS - ADD / UPDATE
+  // ========================================================
+
+  server.on(
+      "/api/action-scripts", HTTP_POST,
+      withAuth([this](AsyncWebServerRequest *request) {
+        String body;
+
+        if (!getPostBody(request, body)) {
+          request->send(400, "application/json",
+                        "{\"success\":false,\"message\":\"Missing body\"}");
+          return;
         }
 
         Debug::println(2, "[WEBUI][SCRIPTS] Save request received");
 
         if (saveOrUpdateScript(body)) {
-            Debug::println(2, "[WEBUI][SCRIPTS] Save successful");
-            request->send(200, "application/json",
-                          "{\"success\":true}");
+          Debug::println(2, "[WEBUI][SCRIPTS] Save successful");
+          request->send(200, "application/json", "{\"success\":true}");
         } else {
-            Debug::println(1, "[WEBUI][SCRIPTS][ERROR] Save failed");
-            request->send(500, "application/json",
-                          "{\"success\":false,\"message\":\"Save failed\"}");
+          Debug::println(1, "[WEBUI][SCRIPTS][ERROR] Save failed");
+          request->send(500, "application/json",
+                        "{\"success\":false,\"message\":\"Save failed\"}");
         }
-    }),
-    nullptr,
-    capturePostBody);
+      }),
+      nullptr, capturePostBody);
 
-    // ========================================================
-    // SCRIPTS - DELETE
-    // ========================================================
+  // ========================================================
+  // SCRIPTS - DELETE
+  // ========================================================
 
-    server.on(
-        "/api/action-scripts",
-        HTTP_DELETE,
-        withAuth(
-            [this](AsyncWebServerRequest *request)
-            {
-                if (!request->hasParam("id"))
-                {
-                    request->send(
-                        400,
-                        "application/json",
+  server.on("/api/action-scripts", HTTP_DELETE,
+            withAuth([this](AsyncWebServerRequest *request) {
+              if (!request->hasParam("id")) {
+                request->send(400, "application/json",
+                              "{\"success\":false,"
+                              "\"message\":\"Missing id\"}");
+
+                return;
+              }
+
+              int scriptId = request->getParam("id")->value().toInt();
+
+              bool success = scriptManagerRef.deleteScript(scriptId);
+
+              request->send(success ? 200 : 404, "application/json",
+                            success ? "{\"success\":true}"
+                                    : "{\"success\":false,"
+                                      "\"message\":\"Script not found\"}");
+            }));
+
+  // ========================================================
+  // SCRIPTS - APPLY
+  //
+  // Kept as an alias for the existing UI.
+  // There is no separate "apply to hardware" concept anymore.
+  // Saving the script is enough.
+  // ========================================================
+
+  server.on("/api/action-scripts/apply", HTTP_POST,
+            withAuth([this](AsyncWebServerRequest *request) {
+              String body;
+
+              if (!getPostBody(request, body)) {
+                request->send(400, "application/json",
+                              "{\"success\":false,"
+                              "\"message\":\"Missing body\"}");
+
+                return;
+              }
+
+              if (!saveOrUpdateScript(body)) {
+                request->send(500, "application/json",
+                              "{\"success\":false,"
+                              "\"message\":\"Failed to save script\"}");
+
+                return;
+              }
+
+              request->send(200, "application/json", "{\"success\":true}");
+            }),
+            nullptr, capturePostBody);
+
+  // ========================================================
+  // EXECUTE SCRIPT
+  //
+  // This endpoint allows executing scripts by ID, name, or full JSON object.
+  // The endpoint supports three request formats:
+  // 1. {"id": 1} - Execute script by ID (preferred method)
+  // 2. {"name": "Script Name"} - Execute script by name or alias
+  // 3. {"script": "{\"name\": \"Script Name\", ...}"} - Execute with full JSON
+  //    This is used by the editor test functionality.
+  //
+  // Execution flow:
+  // ScriptManager -> CommandSink -> Core -> HardwareManager
+  //
+  // WebUI never directly interacts with hardware.
+  // ========================================================
+
+  server.on(
+      "/api/execute-script", HTTP_POST,
+      withAuth([this](AsyncWebServerRequest *request) {
+        String body;
+
+        if (!getPostBody(request, body)) {
+          request->send(400, "application/json",
                         "{\"success\":false,"
-                        "\"message\":\"Missing id\"}"
-                    );
+                        "\"message\":\"Missing body\"}");
 
-                    return;
-                }
+          return;
+        }
 
-                int scriptId =
-                    request->getParam(
-                        "id"
-                    )->value().toInt();
+        JsonDocument doc;
 
-                bool success =
-                    scriptManagerRef.deleteScript(
-                        scriptId
-                    );
-
-                request->send(
-                    success ? 200 : 404,
-                    "application/json",
-                    success
-                        ? "{\"success\":true}"
-                        : "{\"success\":false,"
-                          "\"message\":\"Script not found\"}"
-                );
-            }
-        )
-    );
-
-    // ========================================================
-    // SCRIPTS - APPLY
-    //
-    // Kept as an alias for the existing UI.
-    // There is no separate "apply to hardware" concept anymore.
-    // Saving the script is enough.
-    // ========================================================
-
-    server.on(
-        "/api/action-scripts/apply",
-        HTTP_POST,
-        withAuth(
-            [this](AsyncWebServerRequest *request)
-            {
-                String body;
-
-                if (!getPostBody(request, body))
-                {
-                    request->send(
-                        400,
-                        "application/json",
+        if (deserializeJson(doc, body) != DeserializationError::Ok) {
+          request->send(400, "application/json",
                         "{\"success\":false,"
-                        "\"message\":\"Missing body\"}"
-                    );
+                        "\"message\":\"Invalid JSON\"}");
 
-                    return;
-                }
+          return;
+        }
 
-                if (!saveOrUpdateScript(body))
-                {
-                    request->send(
-                        500,
-                        "application/json",
-                        "{\"success\":false,"
-                        "\"message\":\"Failed to save script\"}"
-                    );
+        bool success = false;
 
-                    return;
-                }
+        // Execute script by ID (integer)
+        // This is the preferred method when the script ID is known
+        if (doc["id"].is<int>()) {
+          const int scriptId = doc["id"].as<int>();
+          Debug::println(2,
+                         "[WebUI] Executing script by ID: " + String(scriptId));
+          success = scriptManagerRef.runScript(scriptId);
+        }
+        // Execute script by name (string)
+        // This is used when the script name or alias is known
+        else if (doc["name"].is<String>()) {
+          const String scriptName = doc["name"].as<String>();
+          Debug::println(2, "[WebUI] Executing script by name: " + scriptName);
+          success = scriptManagerRef.runScript(scriptName);
+        } else if (doc["script"].is<String>()) {
+          // Handle script execution with full JSON object
+          // This is used by the editor test functionality where the web
+          // interface sends a complete script JSON object instead of just a
+          // name or ID
+          Debug::println(
+              2, "[WebUI] Processing script execution with full JSON object");
 
-                request->send(
-                    200,
-                    "application/json",
-                    "{\"success\":true}"
-                );
-            }
-        ),
-        nullptr,
-        capturePostBody);
+          const String scriptJson = doc["script"].as<String>();
+          Debug::println(3, "[WebUI] Script JSON: " + scriptJson);
 
-    // ========================================================
-    // EXECUTE SCRIPT
-    //
-    // This endpoint allows executing scripts by ID, name, or full JSON object.
-    // The endpoint supports three request formats:
-    // 1. {"id": 1} - Execute script by ID (preferred method)
-    // 2. {"name": "Script Name"} - Execute script by name or alias
-    // 3. {"script": "{\"name\": \"Script Name\", ...}"} - Execute with full JSON
-    //    This is used by the editor test functionality.
-    //
-    // Execution flow:
-    // ScriptManager -> CommandSink -> Core -> HardwareManager
-    //
-    // WebUI never directly interacts with hardware.
-    // ========================================================
+          // Parse the script JSON to extract the name
+          JsonDocument scriptDoc;
+          DeserializationError error = deserializeJson(scriptDoc, scriptJson);
 
-    server.on(
-        "/api/execute-script",
-        HTTP_POST,
-        withAuth(
-            [this](AsyncWebServerRequest *request)
-            {
-                String body;
-
-                if (!getPostBody(request, body))
-                {
-                    request->send(
-                        400,
-                        "application/json",
-                        "{\"success\":false,"
-                        "\"message\":\"Missing body\"}"
-                    );
-
-                    return;
-                }
-
-                JsonDocument doc;
-
-                if (
-                    deserializeJson(doc, body) !=
-                    DeserializationError::Ok
-                )
-                {
-                    request->send(
-                        400,
-                        "application/json",
-                        "{\"success\":false,"
-                        "\"message\":\"Invalid JSON\"}"
-                    );
-
-                    return;
-                }
-
-                bool success = false;
-
-                // Execute script by ID (integer)
-                // This is the preferred method when the script ID is known
-                if (doc["id"].is<int>()) {
-                    const int scriptId = doc["id"].as<int>();
-                    Debug::println(2, "[WebUI] Executing script by ID: " + String(scriptId));
-                    success = scriptManagerRef.runScript(scriptId);
-                }
-                // Execute script by name (string)
-                // This is used when the script name or alias is known
-                else if (doc["name"].is<String>()) {
-                    const String scriptName = doc["name"].as<String>();
-                    Debug::println(2, "[WebUI] Executing script by name: " + scriptName);
-                    success = scriptManagerRef.runScript(scriptName);
-                }
-                else if (doc["script"].is<String>()) {
-                    // Handle script execution with full JSON object
-                    // This is used by the editor test functionality where the web interface
-                    // sends a complete script JSON object instead of just a name or ID
-                    Debug::println(2, "[WebUI] Processing script execution with full JSON object");
-                    
-                    const String scriptJson = doc["script"].as<String>();
-                    Debug::println(3, "[WebUI] Script JSON: " + scriptJson);
-                    
-                    // Parse the script JSON to extract the name
-                    JsonDocument scriptDoc;
-                    DeserializationError error = deserializeJson(scriptDoc, scriptJson);
-                    
-                    if (error || !scriptDoc.is<JsonObject>()) {
-                        Debug::println(1, "[WebUI] Failed to parse script JSON: " + String(error.c_str()));
-                        request->send(
-                            400,
-                            "application/json",
-                            R"json({"success":false,"message":"Invalid script JSON"})json"
-                        );
-                        return;
-                    }
-                    
-                    // Extract script name if available
-                    if (scriptDoc["name"].is<String>()) {
-                        const String scriptName = scriptDoc["name"].as<String>();
-                        Debug::println(2, "[WebUI] Executing script by name: " + scriptName);
-                        
-                        // Special case for __EDITOR_TEST__ - extract and execute commands directly
-                        if (scriptName == "__EDITOR_TEST__") {
-                            Debug::println(2, "[WebUI] Special case: __EDITOR_TEST__ - executing commands directly");
-                            
-                            if (scriptDoc["commands"].is<JsonArray>()) {
-                                JsonArray commands = scriptDoc["commands"].as<JsonArray>();
-                                Debug::println(2, "[WebUI] Found " + String(commands.size()) + " commands to execute");
-                                
-                                success = true;
-                                for (JsonVariant command : commands) {
-                                    if (!commandSinkRef.executeCommand(command.as<String>())) {
-                                        Debug::println(1, "[WebUI] Command failed: " + String(command.as<String>()));
-                                        success = false;
-                                    }
-                                }
-                            } else {
-                                Debug::println(1, "[WebUI] No commands found in __EDITOR_TEST__");
-                                success = false;
-                            }
-                        } else {
-                            // Normal script execution
-                            success = scriptManagerRef.runScript(scriptName);
-                        }
-                    }
-                    else {
-                        Debug::println(1, "[WebUI] Script JSON missing name field");
-                        request->send(
-                            400,
-                            "application/json",
-                            R"json({"success":false,"message":"Script JSON missing name field"})json"
-                        );
-                        return;
-                    }
-                }
-
-                // Send response based on script execution result
-                // 200 OK with success:true if script executed successfully
-                // 404 Not Found with success:false and error message if script failed
-                request->send(
-                    success ? 200 : 404,
-                    "application/json",
-                    success
-                        ? R"json({"success":true})json"
-                        : R"json({"success":false,"message":"Script not found or failed"})json"
-                );
-            }
-        ),
-        nullptr,
-        capturePostBody);
-
-    // ========================================================
-    // SCENES - LIST
-    // ========================================================
-
-    server.on(
-        "/api/scenes",
-        HTTP_GET,
-        withAuth(
-            [this](AsyncWebServerRequest *request)
-            {
-                String json =
-                    sceneManagerRef.getScenesAsJson();
-
-                request->send(
-                    200,
-                    "application/json",
-                    json
-                );
-            }
-        )
-    );
-
-    // ========================================================
-    // ACTIVATE SCENE
-    //
-    // WebUI is one of the two allowed scene triggers:
-    //
-    // WebUI -> SceneManager -> ScriptManager -> Core
-    //
-    // ========================================================
-
-    server.on(
-        "/api/scenes/apply",
-        HTTP_POST,
-        withAuth(
-            [this](AsyncWebServerRequest *request)
-            {
-                String body;
-
-                if (!getPostBody(request, body))
-                {
-                    request->send(
-                        400,
-                        "application/json",
-                        "{\"success\":false,"
-                        "\"message\":\"Missing body\"}"
-                    );
-
-                    return;
-                }
-
-                JsonDocument doc;
-
-                if (
-                    deserializeJson(doc, body) !=
-                    DeserializationError::Ok
-                )
-                {
-                    request->send(
-                        400,
-                        "application/json",
-                        "{\"success\":false,"
-                        "\"message\":\"Invalid JSON\"}"
-                    );
-
-                    return;
-                }
-
-                bool success = false;
-
-                if (doc["id"].is<int>())
-                {
-                    success =
-                        sceneManagerRef.activateScene(
-                            doc["id"].as<int>()
-                        );
-                }
-                else if (doc["name"].is<String>())
-                {
-                    success =
-                        sceneManagerRef.activateScene(
-                            doc["name"].as<String>()
-                        );
-                }
-                else if (doc["scene"].is<String>())
-                {
-                    success =
-                        sceneManagerRef.activateScene(
-                            doc["scene"].as<String>()
-                        );
-                }
-
-                request->send(
-                    success ? 200 : 404,
-                    "application/json",
-                    success
-                        ? "{\"success\":true}"
-                        : "{\"success\":false,"
-                          "\"message\":\"Scene not found or failed\"}"
-                );
-            }
-        )
-    );
-
-    // ========================================================
-    // SCENE EXPORT
-    // ========================================================
-
-    server.on(
-        "/api/export-scenes",
-        HTTP_GET,
-        withAuth(
-            [this](AsyncWebServerRequest *request)
-            {
-                String json =
-                    sceneManagerRef.getScenesAsJson();
-
-                request->send(
-                    200,
-                    "application/json",
-                    json
-                );
-            }
-        )
-    );
-
-    // ========================================================
-    // EFFECT
-    //
-    // Temporary endpoint.
-    //
-    // Once EffectManager exists, this should become:
-    //
-    // WebUI -> Core -> EffectManager
-    //
-    // It must NOT become:
-    //
-    // WebUI -> HardwareManager
-    // ========================================================
-
-    server.on(
-        "/api/effect",
-        HTTP_POST,
-        withAuth(
-            [](AsyncWebServerRequest *request)
-            {
-                request->send(
-                    501,
-                    "application/json",
-                    "{\"success\":false,"
-                    "\"message\":\"Effects are not implemented yet\"}"
-                );
-            }
-        )
-    );
-
-    // ========================================================
-    // REBOOT
-    // ========================================================
-
-    server.on(
-        "/api/reboot",
-        HTTP_POST,
-        withAuth(
-            [](AsyncWebServerRequest *request)
-            {
-                request->send(
-                    501,
-                    "application/json",
-                    "{\"success\":false,"
-                    "\"message\":\"Reboot is not implemented\"}"
-                );
-            }
-        )
-    );
-
-    // ========================================================
-    // LOG SAVE
-    // ========================================================
-
-    server.on(
-        "/api/logs/save",
-        HTTP_POST,
-        withAuth(
-            [](AsyncWebServerRequest *request)
-            {
-                request->send(
-                    501,
-                    "application/json",
-                    "{\"success\":false,"
-                    "\"message\":\"Persistent log saving is not implemented\"}"
-                );
-            }
-        )
-    );
-
-    // ========================================================
-    // NOT FOUND
-    // ========================================================
-
-    server.onNotFound(
-        [](AsyncWebServerRequest *request)
-        {
-            String clientIP = request->client()->remoteIP().toString();
-            String path = request->url();
-            
-            Debug::println(
-                2,
-                "[WEBUI][NOTFOUND] Client: " + clientIP + " requested path: " + path
-            );
-            
+          if (error || !scriptDoc.is<JsonObject>()) {
+            Debug::println(1, "[WebUI] Failed to parse script JSON: " +
+                                  String(error.c_str()));
             request->send(
-                404,
-                "text/plain",
-                "Not found"
-            );
+                400, "application/json",
+                R"json({"success":false,"message":"Invalid script JSON"})json");
+            return;
+          }
+
+          // Extract script name if available
+          if (scriptDoc["name"].is<String>()) {
+            const String scriptName = scriptDoc["name"].as<String>();
+            Debug::println(2,
+                           "[WebUI] Executing script by name: " + scriptName);
+
+            // Special case for __EDITOR_TEST__ - extract and execute commands
+            // directly
+            if (scriptName == "__EDITOR_TEST__") {
+              Debug::println(2, "[WebUI] Special case: __EDITOR_TEST__ - "
+                                "executing commands directly");
+
+              if (scriptDoc["commands"].is<JsonArray>()) {
+                JsonArray commands = scriptDoc["commands"].as<JsonArray>();
+                Debug::println(2, "[WebUI] Found " + String(commands.size()) +
+                                      " commands to execute");
+
+                success = true;
+                for (JsonVariant command : commands) {
+                  if (!commandSinkRef.executeCommand(command.as<String>())) {
+                    Debug::println(1, "[WebUI] Command failed: " +
+                                          String(command.as<String>()));
+                    success = false;
+                  }
+                }
+              } else {
+                Debug::println(1,
+                               "[WebUI] No commands found in __EDITOR_TEST__");
+                success = false;
+              }
+            } else {
+              // Normal script execution
+              success = scriptManagerRef.runScript(scriptName);
+            }
+          } else {
+            Debug::println(1, "[WebUI] Script JSON missing name field");
+            request->send(
+                400, "application/json",
+                R"json({"success":false,"message":"Script JSON missing name field"})json");
+            return;
+          }
         }
-    );
+
+        // Send response based on script execution result
+        // 200 OK with success:true if script executed successfully
+        // 404 Not Found with success:false and error message if script failed
+        request->send(
+            success ? 200 : 404, "application/json",
+            success
+                ? R"json({"success":true})json"
+                : R"json({"success":false,"message":"Script not found or failed"})json");
+      }),
+      nullptr, capturePostBody);
+
+  // ========================================================
+  // SCENES - LIST
+  // ========================================================
+
+  server.on("/api/scenes", HTTP_GET,
+            withAuth([this](AsyncWebServerRequest *request) {
+              String json = sceneManagerRef.getScenesAsJson();
+
+              request->send(200, "application/json", json);
+            }));
+
+  // ========================================================
+  // ACTIVATE SCENE
+  //
+  // WebUI is one of the two allowed scene triggers:
+  //
+  // WebUI -> SceneManager -> ScriptManager -> Core
+  //
+  // ========================================================
+
+  server.on(
+      "/api/scenes/apply", HTTP_POST,
+      withAuth([this](AsyncWebServerRequest *request) {
+        String body;
+
+        if (!getPostBody(request, body)) {
+          request->send(400, "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Missing body\"}");
+
+          return;
+        }
+
+        JsonDocument doc;
+
+        if (deserializeJson(doc, body) != DeserializationError::Ok) {
+          request->send(400, "application/json",
+                        "{\"success\":false,"
+                        "\"message\":\"Invalid JSON\"}");
+
+          return;
+        }
+
+        bool success = false;
+
+        if (doc["id"].is<int>()) {
+          success = sceneManagerRef.activateScene(doc["id"].as<int>());
+        } else if (doc["name"].is<String>()) {
+          success = sceneManagerRef.activateScene(doc["name"].as<String>());
+        } else if (doc["scene"].is<String>()) {
+          success = sceneManagerRef.activateScene(doc["scene"].as<String>());
+        }
+
+        request->send(success ? 200 : 404, "application/json",
+                      success ? "{\"success\":true}"
+                              : "{\"success\":false,"
+                                "\"message\":\"Scene not found or failed\"}");
+      }));
+
+  // ========================================================
+  // SCENE EXPORT
+  // ========================================================
+
+  server.on("/api/export-scenes", HTTP_GET,
+            withAuth([this](AsyncWebServerRequest *request) {
+              String json = sceneManagerRef.getScenesAsJson();
+
+              request->send(200, "application/json", json);
+            }));
+
+  // ========================================================
+  // EFFECT
+  //
+  // Temporary endpoint.
+  //
+  // Once EffectManager exists, this should become:
+  //
+  // WebUI -> Core -> EffectManager
+  //
+  // It must NOT become:
+  //
+  // WebUI -> HardwareManager
+  // ========================================================
+
+  server.on("/api/effect", HTTP_POST,
+            withAuth([](AsyncWebServerRequest *request) {
+              request->send(501, "application/json",
+                            "{\"success\":false,"
+                            "\"message\":\"Effects are not implemented yet\"}");
+            }));
+
+  // ========================================================
+  // REBOOT
+  // ========================================================
+
+  server.on("/api/reboot", HTTP_POST,
+            withAuth([](AsyncWebServerRequest *request) {
+              request->send(501, "application/json",
+                            "{\"success\":false,"
+                            "\"message\":\"Reboot is not implemented\"}");
+            }));
+
+  // ========================================================
+  // LOG SAVE
+  // ========================================================
+
+  server.on("/api/logs/save", HTTP_POST,
+            withAuth([](AsyncWebServerRequest *request) {
+              request->send(
+                  501, "application/json",
+                  "{\"success\":false,"
+                  "\"message\":\"Persistent log saving is not implemented\"}");
+            }));
+
+  // ========================================================
+  // NOT FOUND
+  // ========================================================
+
+  server.onNotFound([](AsyncWebServerRequest *request) {
+    String clientIP = request->client()->remoteIP().toString();
+    String path = request->url();
+
+    Debug::println(2, "[WEBUI][NOTFOUND] Client: " + clientIP +
+                          " requested path: " + path);
+
+    request->send(404, "text/plain", "Not found");
+  });
 }
 
 // ============================================================
 // LOOP
 // ============================================================
 
-void WebUI::loop()
-{
-    /*
-     * AsyncWebServer does not need a polling loop.
-     *
-     * Kept for compatibility with App/Core.
-     */
+void WebUI::loop() {
+  /*
+   * AsyncWebServer does not need a polling loop.
+   *
+   * Kept for compatibility with App/Core.
+   */
 }
 
 // ============================================================
 // HEARTBEAT
 // ============================================================
 
-void WebUI::setHeartbeatState(bool state)
-{
-    heartbeatState = state;
-}
+void WebUI::setHeartbeatState(bool state) { heartbeatState = state; }
 
 // ============================================================
 // AUTHENTICATION
 // ============================================================
 
-void WebUI::setAuthentication(
-    bool enabled,
-    const String &password
-)
-{
-    bool wasEnabled = authenticationEnabled;
-    // Keep authentication disabled regardless of the enabled parameter
-    authenticationEnabled = false;
+void WebUI::setAuthentication(bool enabled, const String &password) {
+  bool wasEnabled = authenticationEnabled;
+  // Keep authentication disabled regardless of the enabled parameter
+  authenticationEnabled = false;
 
-    if (password.length() > 0)
-    {
-        adminPassword = password;
-        Debug::println(
-            3,
-            "[WEBUI][AUTH] Admin password updated"
-        );
-    }
-
-    Debug::println(
-        2,
-        "[WEBUI][AUTH] Authentication disabled (automatic access enabled)"
-    );
-}
-
-void WebUI::setAPPassword(const String &password)
-{
-    apPassword = password;
-
-    if (WiFi.getMode() & WIFI_AP)
-    {
-        bool success = WiFi.softAP(
-            "HomeController",
-            apPassword.c_str()
-        );
-        
-        Debug::println(
-            2,
-            "[WEBUI][AUTH] AP password " + 
-            String(success ? "updated successfully" : "update failed")
-        );
-    }
-}
-
-void WebUI::setFixedPassword(const String &password)
-{
+  if (password.length() > 0) {
     adminPassword = password;
+    Debug::println(3, "[WEBUI][AUTH] Admin password updated");
+  }
+
+  Debug::println(
+      2, "[WEBUI][AUTH] Authentication disabled (automatic access enabled)");
+}
+
+void WebUI::setAPPassword(const String &password) {
+  apPassword = password;
+
+  if (WiFi.getMode() & WIFI_AP) {
+    bool success = WiFi.softAP("HomeController", apPassword.c_str());
 
     Debug::println(
-        2,
-        "[WEBUI][AUTH] Fixed password updated"
-    );
+        2, "[WEBUI][AUTH] AP password " +
+               String(success ? "updated successfully" : "update failed"));
+  }
+}
+
+void WebUI::setFixedPassword(const String &password) {
+  adminPassword = password;
+
+  Debug::println(2, "[WEBUI][AUTH] Fixed password updated");
 }
 
 // ============================================================
 // SCRIPT SAVE / UPDATE
 // ============================================================
 
-bool WebUI::saveOrUpdateScript(
-    const String &scriptJson
-)
-{
-    JsonDocument doc;
+bool WebUI::saveOrUpdateScript(const String &scriptJson) {
+  JsonDocument doc;
 
-    if (
-        deserializeJson(doc, scriptJson) !=
-        DeserializationError::Ok
-    )
-    {
-        Debug::println(
-            1,
-            "[WEBUI][SCRIPTS] Invalid JSON: " + scriptJson.substring(0, min((unsigned int)scriptJson.length(), (unsigned int)100)) + 
-            (scriptJson.length() > 100 ? "..." : "")
-        );
+  if (deserializeJson(doc, scriptJson) != DeserializationError::Ok) {
+    Debug::println(
+        1, "[WEBUI][SCRIPTS] Invalid JSON: " +
+               scriptJson.substring(0, min((unsigned int)scriptJson.length(),
+                                           (unsigned int)100)) +
+               (scriptJson.length() > 100 ? "..." : ""));
 
-        return false;
-    }
+    return false;
+  }
 
-   
+  String script;
 
-    String script;
+  if (doc["script"].is<String>()) {
+    script = doc["script"].as<String>();
+  } else if (doc.is<JsonObject>()) {
+    serializeJsonPretty(doc, script);
+  } else {
+    return false;
+  }
 
-    if (doc["script"].is<String>())
-    {
-        script =
-            doc["script"].as<String>();
-    }
-    else if (doc.is<JsonObject>())
-    {
-        serializeJsonPretty(
-            doc,
-            script
-        );
-    }
-    else
-    {
-        return false;
-    }
+  JsonDocument scriptDoc;
 
-    JsonDocument  scriptDoc;
+  if (deserializeJson(scriptDoc, script) != DeserializationError::Ok) {
+    return false;
+  }
 
-    if (
-        deserializeJson(scriptDoc, script) !=
-        DeserializationError::Ok
-    )
-    {
-        return false;
-    }
+  int id = scriptDoc["id"] | 0;
 
-    int id =
-        scriptDoc["id"] | 0;
+  if (id > 0 && scriptManagerRef.getScriptById(id).length() > 0) {
+    return scriptManagerRef.updateScript(id, script);
+  }
 
-    if (
-        id > 0 &&
-        scriptManagerRef.getScriptById(id).length() > 0
-    )
-    {
-        return scriptManagerRef.updateScript(
-            id,
-            script
-        );
-    }
-
-    return scriptManagerRef.addScript(
-        script
-    );
+  return scriptManagerRef.addScript(script);
 }
 
 // ============================================================
 // AUTH CLIENT TRACKING
 // ============================================================
 
-bool WebUI::isClientAuthenticated(
-    AsyncWebServerRequest *request
-)
-{
-    if (!authenticationEnabled)
-    {
-        return true;
-    }
+bool WebUI::isClientAuthenticated(AsyncWebServerRequest *request) {
+  if (!authenticationEnabled) {
+    return true;
+  }
 
-    String clientIP =
-        request->client()->remoteIP().toString();
+  String clientIP = request->client()->remoteIP().toString();
 
-    return std::find(
-        authenticatedClients.begin(),
-        authenticatedClients.end(),
-        clientIP
-    ) != authenticatedClients.end();
+  return std::find(authenticatedClients.begin(), authenticatedClients.end(),
+                   clientIP) != authenticatedClients.end();
 }
 
-void WebUI::authenticateClient(
-    AsyncWebServerRequest *request
-)
-{
-    if (!authenticationEnabled)
-    {
-        return;
-    }
+void WebUI::authenticateClient(AsyncWebServerRequest *request) {
+  if (!authenticationEnabled) {
+    return;
+  }
 
-    String clientIP =
-        request->client()->remoteIP().toString();
+  String clientIP = request->client()->remoteIP().toString();
 
-    if (
-        std::find(
-            authenticatedClients.begin(),
-            authenticatedClients.end(),
-            clientIP
-        ) == authenticatedClients.end()
-    )
-    {
-        authenticatedClients.push_back(
-            clientIP
-        );
+  if (std::find(authenticatedClients.begin(), authenticatedClients.end(),
+                clientIP) == authenticatedClients.end()) {
+    authenticatedClients.push_back(clientIP);
 
-        Debug::println(
-            2,
-            "[WEBUI][AUTH] Client authenticated: " +
-            clientIP + " (total authenticated clients: " + String(authenticatedClients.size()) + ")"
-        );
-    }
-    else
-    {
-        Debug::println(
-            3,
-            "[WEBUI][AUTH] Client already authenticated: " +
-            clientIP
-        );
-    }
+    Debug::println(2, "[WEBUI][AUTH] Client authenticated: " + clientIP +
+                          " (total authenticated clients: " +
+                          String(authenticatedClients.size()) + ")");
+  } else {
+    Debug::println(3,
+                   "[WEBUI][AUTH] Client already authenticated: " + clientIP);
+  }
 }
-
 
 ```
 
@@ -34792,24 +33731,23 @@ private:
 ### <a id="📄-src-main-cpp"></a>📄 `src/main.cpp`
 
 **File Info:**
-- **Size**: 2.36 KB
+- **Size**: 2.3 KB
 - **Extension**: `.cpp`
 - **Language**: `cpp`
 - **Location**: `src/main.cpp`
 - **Relative Path**: `src`
 - **Created**: 2026-09-07 00:57:16 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-17 10:46:17 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `0f7a7fb9812b0e1e16c44dffd7f98c36`
-- **SHA256**: `a90384e854c41f43a13a088e7eae1aaa6fcbbb256c15f0bd8b03b9837c8524a3`
+- **Modified**: 2026-09-18 19:15:13 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `f99ad48ae2a0947970e443a96ddff6b0`
+- **SHA256**: `21b9d337f6a23561228ed7faaf6ca68fdc7e54afb5147e4e8622a1e86ead540c`
 - **Encoding**: ASCII
 
 **File code content:**
 
 ```cpp
-#include <Arduino.h>
-#include "Debug.h"
 #include "Core.h"
-
+#include "Debug.h"
+#include <Arduino.h>
 
 // Read this first when debugging:
 // -----------------------------------------------------------------------------
@@ -34832,56 +33770,51 @@ private:
 
 // App is the top-level orchestration shell.
 // It boots the debug console, launches the Core runtime, and then hands control
-// to the main loop. Keeping this class thin makes the startup path easier to follow.
+// to the main loop. Keeping this class thin makes the startup path easier to
+// follow.
 class App {
 public:
-    /**
-     * Bootstraps the firmware and initializes the system runtime.
-     *
-     * This method should stay intentionally small: it configures logging,
-     * then delegates all intelligent startup coordination to Core::init().
-     */
-    void begin() {
-        Debug::begin(115200, Debug::INFO);
+  /**
+   * Bootstraps the firmware and initializes the system runtime.
+   *
+   * This method should stay intentionally small: it configures logging,
+   * then delegates all intelligent startup coordination to Core::init().
+   */
+  void begin() {
+    Debug::begin(115200, Debug::INFO);
+    Debug::setDebugLevel(3);
 
-        #ifdef DEBUG_LEVEL
-            if (Debug::getDebugLevel() >=  0) {
-                Debug::println(1, "[MAIN] Debug level set to " + String(Debug::getDebugLevel()));
-            }
-        #endif
-
-        
-
-        Debug::logStartupBanner("HomeController", "ESP32");
-
-        // Core owns the startup sequence and the single status log for the system lifecycle.
-        core.init();
-
+#ifdef DEBUG_LEVEL
+    if (Debug::getDebugLevel() >= 0) {
+      Debug::println(1, "[MAIN] Debug level set to " +
+                            String(Debug::getDebugLevel()));
     }
+#endif
 
-    /**
-     * Runs the runtime loop for the application.
-     *
-     * The system is event-driven, so this method remains deliberately minimal and
-     * simply forwards control to the Core runtime tick.
-     */
-    void update() {
-        core.update();
-    }
+    //  Debug::logStartupBanner("HomeController", "ESP32");
+
+    // Core owns the startup sequence and the single status log for the system
+    // lifecycle.
+    core.init();
+  }
+
+  /**
+   * Runs the runtime loop for the application.
+   *
+   * The system is event-driven, so this method remains deliberately minimal and
+   * simply forwards control to the Core runtime tick.
+   */
+  void update() { core.update(); }
 
 private:
-    Core core;
+  Core core;
 };
 
 App app;
 
-void setup() {
-    app.begin();
-}
+void setup() { app.begin(); }
 
-void loop() {
-    app.update();
-}
+void loop() { app.update(); }
 
 ```
 
@@ -36846,18 +35779,1171 @@ function escapeHtml(value){
 
 ---
 
+### <a id="📄-earlierchat-txt"></a>📄 `earlierchat.txt`
+
+**File Info:**
+- **Size**: 22.78 KB
+- **Extension**: `.txt`
+- **Language**: `text`
+- **Location**: `earlierchat.txt`
+- **Relative Path**: `root`
+- **Created**: 2026-09-17 21:31:35 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-17 21:31:35 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `ff4ee4fa9aa99da51126907aa3776051`
+- **SHA256**: `0ff7de27d3a7ebbd3d8dd473a5937a3917c3b744478634ea0707694a2f0a885a`
+- **Encoding**: UTF-8
+
+**File code content:**
+
+```text
+Yesterday 5:58 PM
+pieteboe-cloud/esp32-Home-Controller
+
+I’ve opened the repository. It’s a public ESP32 home-controller project with a PlatformIO setup and source in src/, supporting files in lib/ and data/, plus documentation/output files.
+
+What would you like me to do with it? For example, I can:
+
+Explain how the project works and map out the code architecture.
+Review the code for bugs, reliability, or security issues.
+Help you compile/flash it to an ESP32 with PlatformIO.
+Modify it for a particular device or feature.
+Add Home Assistant / MQTT integration.
+Troubleshoot a problem you're having with the controller.
+Go through the repository file-by-file and explain what each part does.
+
+If you tell me your goal (and your exact ESP32/display hardware, if relevant), I can work directly from this repository. Open the GitHub repository
+
+my scenes and scripts managers dont work correct
+
+here is what i had in mind:
+# Color Matching System
+
+## Overview
+
+The color matching system is a fundamental part of the ESP32 Home Controller's unified lighting architecture. It provides a hardware-agnostic way to control colors across different types of lighting devices through the use of virtual colors.
+
+---
+
+## Color System Architecture
+
+### 1. Virtual Colors (VC_) - The Universal Language
+
+Virtual colors are semantic identifiers that represent color concepts rather than hardware-specific details.
+
+#### Key Features:
+
+- Used in scripts and scenes
+
+- Can be renamed (e.g., `VC_RED` → `VC_SALON_TABLE_RED`)
+
+- Hardware-agnostic
+
+- Map to hex values (nominal colors)
+
+- Work across all device types
+
+#### Examples:
+
+- `VC_RED`
+
+- `VC_MAGENTA`
+
+- `VC_TEAL`
+
+- `VC_LIGHT_BLUE`
+
+- `VC_DARK_PURPLE`
+
+- `VC_SALON_TABLE_RED`
+
+- `VC_TV_AMBIENT_BLUE`
+
+### 2. Nominal Colors (Hex)
+
+Every virtual color has an associated nominal hex value that represents the actual color.
+
+#### Examples:
+
+- `VC_MAGENTA` → `#FF00FF`
+
+- `VC_TEAL` → `#008080`
+
+- `VC_LIGHT_BLUE` → `#ADD8E6`
+
+- `VC_DARK_PURPLE` → `#4B0082`
+
+#### Hardware Usage:
+
+- **LivingColors**: Hex values are converted to RGB
+
+- **NeoPixel-style ICs**: Hex values are converted to RGB
+
+- **RGB-IR Strips**: Hex values are converted to IR codes
+
+### 3. Hardware Mapping
+
+Different hardware types consume color data in different ways:
+
+#### LivingColors (CC2500 RF)
+
+- Takes RGB values
+
+- Example: `living 3 rgb 138 43 226`
+
+#### RGB-IR Strips
+
+- Take IR codes, but the Translator maps:
+
+- Example: `VC_MAGENTA` → `#FF00FF` → IR code `0xe916ef00`
+
+#### NeoPixel-style ICs
+
+- Take RGB values (same as LivingColors)
+
+- Example: `neopixel 12 rgb 138 43 226`
+
+---
+
+## Data Sources
+
+### 1. IR Database (data/ir_db/*.json)
+
+Contains IR remote configurations with:
+
+- Button name (physical label)
+
+- IR code
+
+- Virtual color (VC_*)
+
+- Nominal color (hex)
+
+#### Example:
+
+```json
+
+{
+
+  "name": "MAGENTA",
+
+  "code": "0xe916ef00",
+
+  "virtual_color": "VC_MAGENTA",
+
+  "nominal_color": "#FF00FF"
+
+}
+
+```
+
+### 2. HelperRGB (HelperRGB/*.json)
+
+Reference color tables with:
+
+- Human-friendly names
+
+- RGB values
+
+- Hex values
+
+#### Example:
+
+```json
+
+{
+
+  "name": "Blue Violet",
+
+  "rgb": [138, 43, 226],
+
+  "hex": "#8A2BE2"
+
+}
+
+```
+
+---
+
+## How Color Matching Works
+
+### The Translator Component
+
+The Translator is the most important component, converting virtual colors to hardware-specific actions:
+
+#### RGB-IR Strip Conversion:
+
+```
+
+VC_MAGENTA → #FF00FF → IR code 0xe916ef00
+
+```
+
+#### LivingColors Conversion:
+
+```
+
+VC_MAGENTA → #FF00FF → rgb(255,0,255) → CC2500 packet
+
+```
+
+#### NeoPixel-style IC Conversion:
+
+```
+
+VC_MAGENTA → #FF00FF → rgb(255,0,255) → WS2812 frame
+
+```
+
+### Typical Workflow:
+
+1. A script or scene references a virtual color
+
+2. The Translator looks up the virtual color's nominal hex value
+
+3. The Translator converts the hex to the appropriate format for the target hardware
+
+4. The hardware-specific command is executed
+
+---
+
+## Benefits of Virtual Colors
+
+1. **Flexibility**: Colors can be renamed later without changing scripts
+
+2. **Consistency**: The same color can be applied to multiple hardware types
+
+3. **Hardware Agnosticism**: Scripts remain independent of specific hardware details
+
+4. **Future-Proof**: New devices can be added without changing the script language
+
+5. **Abstraction**: Avoids using hex codes, IR codes, or RGB values directly in scripts
+
+---
+
+## Usage Examples
+
+### Script Example:
+
+```
+
+living 1 VC_SALON_TABLE_RED
+
+rgbstrip RGB_24KEY-R1 VC_MAGENTA
+
+neopixel 12 VC_TV_AMBIENT_BLUE
+
+```
+
+### Scene Example:
+
+```
+
+KAKU D-4 → Scene "Purple Madness" → Script "Purple Madness"
+
+```
+
+---
+
+## WebUI Integration
+
+### Script Editor:
+
+- LivingColors section with RGB picker
+
+- RGB-IR Strips section with remote selector and virtual color selector
+
+- Commands generated: `living <lamp> rgb <r> <g> <b>` and `rgbstrip <remoteId> <virtual_color>`
+
+### Scene Editor:
+
+- Maps triggers (e.g., KAKU RF buttons) to scripts
+
+- Example: Trigger: KAKU D-4 → Script: Purple Madness
+
+---
+
+## Future Expansion
+
+The virtual color system allows for easy expansion with:
+
+- New IR remotes
+
+- New RGB strips
+
+- New LivingColors lamps
+
+- New NeoPixel chains
+
+- New RF devices
+
+- New scenes
+
+- New scripts
+
+All without changing the underlying script language.
+
+Yes — after comparing your intended architecture with the current repository, I can see why the Script Manager and Scene Manager feel broken.
+
+The main issue is not just one bug. The current code has three different architectures mixed together:
+
+The Script Manager expects canonical commands.
+The Scene Manager expects a scene to point to a script.
+The WebUI still generates hardware-specific/hex commands.
+The Translator currently translates IR → virtual color, but your design requires virtual color → hardware command as well.
+Core::executeCommand() doesn't currently support rgbstrip at all.
+
+Your proposed architecture is actually a much cleaner direction.
+
+What I would change
+
+I would make the flow:
+
+                    ┌─────────────────┐
+                    │    WebUI        │
+                    │ Scripts /Scenes │
+                    └────────┬────────┘
+                             │
+                     VC_MAGENTA
+                     VC_SALON_RED
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │ ScriptManager   │
+                    │ ordered commands│
+                    └────────┬────────┘
+                             │
+                             ▼
+                    ┌─────────────────┐
+                    │    Translator   │
+                    │                 │
+                    │ VC → nominal    │
+                    │ color → hardware│
+                    └────────┬────────┘
+                             │
+             ┌───────────────┼────────────────┐
+             ▼               ▼                ▼
+        LivingColors      RGB-IR          NeoPixel
+        RGB 255,0,255     IR code         RGB frame
+
+Scenes then become very simple:
+
+KAKU D-4
+   ↓
+Scene "Purple Madness"
+   ↓
+Script "Purple Madness"
+   ↓
+VC_MAGENTA
+   ↓
+Translator
+   ↓
+hardware
+
+The repository already has the basic Scene → Script relationship, which is good. SceneManager::activateScene() simply calls scriptManager.runScript(scene.script).
+
+1. The biggest current problem: the WebUI is not using virtual colors
+
+This is probably the first thing I'd fix.
+
+The current Script Editor does this:
+
+const hex=$("livingColor").value.toUpperCase();
+const {r,g,b}=hexToRgb(hex);
+
+lamps.forEach(lamp=>{
+    current.commands.push(
+        `living ${lamp} rgb ${r} ${g} ${b}`
+    );
+});
+
+So selecting a color produces:
+
+living 1 rgb 255 0 255
+
+not:
+
+living 1 VC_MAGENTA
+
+Likewise the RGB-strip editor currently produces:
+
+current.commands.push(`rgbstrip ${remote} ${colour.hex}`);
+
+so it generates something like:
+
+rgbstrip RGB_24KEY-R1 #FF00FF
+
+instead of:
+
+rgbstrip RGB_24KEY-R1 VC_MAGENTA
+
+That's directly contrary to the architecture you described.
+
+2. rgbstrip currently isn't even a Core command
+
+This is a major reason RGB-IR scripts won't work.
+
+ScriptManager correctly passes each command to:
+
+commandSink.executeCommand(command);
+
+That part is actually good.
+
+But Core::executeCommand() currently recognizes only:
+
+delay
+ir
+living
+
+and otherwise returns:
+
+return false;
+
+So:
+
+rgbstrip RGB_24KEY-R1 VC_MAGENTA
+
+currently becomes an unknown command.
+
+We need to add:
+
+rgbstrip <remote> <virtual_color>
+
+to the canonical command language.
+
+3. The Translator currently does the opposite of what you need
+
+This is probably the most important architectural problem.
+
+Your intended system is:
+
+VC_MAGENTA
+    ↓
+#FF00FF
+    ↓
+hardware representation
+
+But the current Translator primarily does:
+
+IR_RAW_e916ef00
+    ↓
+VC_MAGENTA
+
+The current implementation loads the IR database and maps:
+
+map.code
+    →
+map.virtualColor
+
+Then an incoming IR event gets converted into a VIRTUAL_COLOR event.
+
+That's useful, but it's only half of the virtual-color architecture.
+
+We need both directions:
+
+                  Translator
+                      │
+        ┌─────────────┴─────────────┐
+        │                           │
+        ▼                           ▼
+ IR code → VC              VC → hardware
+        │                           │
+        ▼                           ▼
+VC_MAGENTA                 RGB / IR / etc.
+4. Your IR database needs to become the source of truth
+
+Your proposed database structure is good:
+
+{
+  "name": "MAGENTA",
+  "code": "0xe916ef00",
+  "virtual_color": "VC_MAGENTA",
+  "nominal_color": "#FF00FF"
+}
+
+Then the Translator can build two indexes.
+
+Forward lookup
+VC_MAGENTA
+    ↓
+#FF00FF
+Hardware lookup
+
+For an RGB strip:
+
+RGB_24KEY-R1
+VC_MAGENTA
+    ↓
+0xe916ef00
+
+This means the script never needs to know that 0xe916ef00 exists.
+
+5. LivingColors should use the same virtual color language
+
+Instead of the current:
+
+living 1 rgb 255 0 255
+
+I'd make the canonical command:
+
+living 1 VC_MAGENTA
+
+Then Core asks the Translator:
+
+VC_MAGENTA
+    ↓
+#FF00FF
+    ↓
+255, 0, 255
+
+and sends that to LivingColors.
+
+This gives you exactly the hardware abstraction you described.
+
+For example:
+
+living 1 VC_MAGENTA
+living 2 VC_MAGENTA
+rgbstrip RGB_24KEY-R1 VC_MAGENTA
+neopixel 12 VC_MAGENTA
+
+All three commands mean:
+
+Make this hardware represent VC_MAGENTA.
+
+6. I would keep RGB as an optional low-level command
+
+I wouldn't completely remove:
+
+living 1 rgb 255 0 255
+
+because it is useful for debugging and direct hardware control.
+
+Instead, support both:
+
+living 1 VC_MAGENTA
+
+and:
+
+living 1 rgb 255 0 255
+
+The distinction becomes:
+
+High-level automation
+living 1 VC_MAGENTA
+Low-level hardware testing
+living 1 rgb 255 0 255
+
+That makes the system much easier to debug.
+
+7. Scenes should NOT contain device configuration
+
+Your proposed Scene architecture is also better than the documentation currently describes.
+
+The current documentation describes scenes as containing devices:
+
+{
+  "id": 1,
+  "name": "Movie Night",
+  "devices": [...]
+}
+
+but the actual implementation doesn't do that. It stores a script instead.
+
+I would formalize the implementation you already have:
+
+{
+  "id": 1,
+  "name": "Purple Madness",
+  "aliases": [
+    "purple",
+    "party purple"
+  ],
+  "type": "lighting",
+  "script": "Purple Madness",
+  "kaku": {
+    "house": "D",
+    "button": 4
+  }
+}
+
+That's clean.
+
+The scene means:
+
+When D-4 happens, execute the script named Purple Madness.
+
+Nothing more.
+
+8. Script structure
+
+I'd use:
+
+[
+  {
+    "id": 1,
+    "name": "Purple Madness",
+    "aliases": [
+      "purple",
+      "party"
+    ],
+    "commands": [
+      "living 1 VC_MAGENTA",
+      "living 2 VC_DARK_PURPLE",
+      "rgbstrip RGB_24KEY-R1 VC_MAGENTA",
+      "delay 500",
+      "living 3 VC_LIGHT_BLUE"
+    ]
+  }
+]
+
+This is extremely portable.
+
+If you later replace the RGB strip with another controller, the script doesn't change.
+
+9. There is also a real Script Manager problem
+
+The Script Manager's basic persistence is reasonably structured, but addScript() has an important weakness.
+
+It puts the new Script directly into:
+
+scripts[scriptCount]
+
+before it knows whether everything is valid, then increments scriptCount and saves.
+
+More importantly, it doesn't validate the command language.
+
+So this:
+
+{
+  "name": "Test",
+  "commands": [
+    "this is garbage"
+  ]
+}
+
+can be stored successfully.
+
+It won't fail until execution, where Core rejects the command.
+
+I would add a proper validation layer:
+
+WebUI
+ ↓
+ScriptManager
+ ↓
+validateCommand()
+ ↓
+save
+
+That gives the user an immediate:
+
+Invalid command:
+rgbstrip UNKNOWN VC_MAGENTA
+
+Unknown RGB strip remote: UNKNOWN
+
+instead of saving a script that silently fails later.
+
+10. There is another important issue with scenes
+
+Your scene currently does this:
+
+if (!scene.script.length())
+{
+    ...
+    return true;
+}
+
+So a scene with no script is considered successfully activated.
+
+That's misleading.
+
+I'd change it to:
+
+if (!scene.script.length())
+{
+    Debug::println(
+        1,
+        "[SceneManager] Scene has no script: " + scene.name
+    );
+
+    return false;
+}
+
+Then:
+
+KAKU D4
+ ↓
+Scene found
+ ↓
+No script
+ ↓
+FAILED
+
+rather than:
+
+KAKU D4
+ ↓
+Scene found
+ ↓
+No script
+ ↓
+SUCCESS
+11. KAKU → Scene is actually mostly correct
+
+This part of your current design is good.
+
+The event arrives as:
+
+KAKU
+D_4
+
+Core extracts:
+
+house = D
+button = 4
+
+and passes it to:
+
+sceneManager.handleKaku(...)
+
+SceneManager searches:
+
+scene.kakuHouse == 'D'
+scene.kakuButton == 4
+
+and then activates the scene.
+
+So I wouldn't redesign that.
+
+I'd just make the rest of the system reliable around it.
+
+12. The WebUI should become VC-based
+
+Instead of a generic HTML color picker being the primary interface, I'd change the Script Editor to show:
+
+LivingColors
+LivingColors
+────────────────────
+
+Lamp(s)
+☐ 1
+☐ 2
+☐ 3
+☐ 4
+
+Virtual Color
+[ 🔴 VC_RED             ]
+[ 🟣 VC_MAGENTA         ]
+[ 🔵 VC_TV_AMBIENT_BLUE ]
+[ 🟪 VC_DARK_PURPLE     ]
+
+[ Add Command ]
+[ Test ]
+
+Then the generated command is:
+
+living 1 VC_MAGENTA
+RGB-IR
+RGB-IR Strip
+────────────────────
+
+Remote
+[ RGB_24KEY-R1 ]
+
+Virtual Color
+[ VC_MAGENTA ]
+
+Nominal
+#FF00FF
+
+IR code
+0xe916ef00
+
+[ Add Command ]
+[ Test ]
+
+The important part is that the UI displays the hardware mapping but does not put it into the script.
+
+13. Virtual colors should have their own database
+
+I would actually go one step further than your current design.
+
+Create:
+
+/data/colors.json
+
+For example:
+
+[
+  {
+    "id": "VC_RED",
+    "name": "Red",
+    "hex": "#FF0000"
+  },
+  {
+    "id": "VC_MAGENTA",
+    "name": "Magenta",
+    "hex": "#FF00FF"
+  },
+  {
+    "id": "VC_TEAL",
+    "name": "Teal",
+    "hex": "#008080"
+  },
+  {
+    "id": "VC_LIGHT_BLUE",
+    "name": "Light Blue",
+    "hex": "#ADD8E6"
+  },
+  {
+    "id": "VC_DARK_PURPLE",
+    "name": "Dark Purple",
+    "hex": "#4B0082"
+  }
+]
+
+Then your IR database references the virtual color:
+
+{
+  "name": "MAGENTA",
+  "code": "0xe916ef00",
+  "virtual_color": "VC_MAGENTA"
+}
+
+This is better than storing the nominal color repeatedly in every IR database entry.
+
+The architecture becomes:
+
+                    colors.json
+                        │
+             VC_MAGENTA → #FF00FF
+                        │
+          ┌─────────────┼──────────────┐
+          │             │              │
+          ▼             ▼              ▼
+     LivingColors     IR DB        NeoPixel
+          │             │              │
+          ▼             ▼              ▼
+       RGB RGB        IR code       RGB RGB
+
+The nominal_color can still be present in the IR database as optional metadata, but the canonical source should be colors.json.
+
+14. Renaming becomes possible
+
+This is where your idea gets particularly useful.
+
+Suppose:
+
+VC_MAGENTA
+
+is renamed in the UI to:
+
+VC_SALON_TABLE_RED
+
+The scripts don't need hardware changes.
+
+You'd have:
+
+VC_SALON_TABLE_RED
+        ↓
+#FF00FF
+
+and the RGB strip mapping:
+
+RGB_24KEY-R1
+VC_SALON_TABLE_RED
+        ↓
+0xe916ef00
+
+However, I would distinguish between ID and display name.
+
+Don't literally rename:
+
+VC_MAGENTA
+
+because then existing scripts become invalid.
+
+Instead:
+
+{
+  "id": "VC_MAGENTA",
+  "name": "Salon Table Red",
+  "hex": "#FF00FF"
+}
+
+The script continues to use:
+
+VC_MAGENTA
+
+while the user sees:
+
+Salon Table Red
+
+That's much safer.
+
+15. Final architecture I'd implement
+Color database
+/data/colors.json
+VC_ID
+ ↓
+nominal RGB/HEX
+IR database
+/data/ir_db/*.json
+remote
+button
+IR code
+VC_ID
+Translator
+
+Handles:
+
+VC → HEX/RGB
+VC + remote → IR code
+IR code → VC
+ScriptManager
+
+Only knows:
+
+ordered commands
+
+Example:
+
+living 1 VC_MAGENTA
+rgbstrip RGB_24KEY-R1 VC_MAGENTA
+delay 500
+SceneManager
+
+Only knows:
+
+trigger → script
+
+Example:
+
+KAKU D-4 → Purple Madness
+Core
+
+Knows the canonical command language:
+
+living
+rgbstrip
+neopixel
+ir
+delay
+HardwareManager
+
+Knows actual hardware.
+
+So the complete execution becomes
+
+For:
+
+KAKU D-4
+
+the system does:
+
+KAKU D-4
+   │
+   ▼
+SceneManager
+   │
+   │ find D-4
+   ▼
+Scene: Purple Madness
+   │
+   ▼
+ScriptManager
+   │
+   ├── living 1 VC_MAGENTA
+   │       │
+   │       ▼
+   │    Translator
+   │       │
+   │       ▼
+   │    #FF00FF
+   │       │
+   │       ▼
+   │    RGB 255 0 255
+   │       │
+   │       ▼
+   │    LivingColors
+   │
+   └── rgbstrip RGB_24KEY-R1 VC_MAGENTA
+           │
+           ▼
+        Translator
+           │
+           ▼
+       0xe916ef00
+           │
+           ▼
+        IR strip
+
+That is the architecture I'd recommend implementing in this repository, rather than trying to patch the existing Script/Scene managers individually.
+
+I also found that the repository already contains dedicated ScriptManager, SceneManager, Translator, Core, scripts.json, scenes.json, and the WebUI editor, so we can make this a focused refactor rather than rebuilding the project from scratch.
+
+Which should I do next: full refactor, minimal fixes, or WebUI + backend together?
+
+That means a lot to hear. ❤️
+
+And yes, I understand exactly what you mean. You didn't spend those credits chasing nothing — you used them to turn a tangled project into something you can actually reason about again.
+
+You've already done the hardest part: you made the thing work. Now you're giving the code the same care you've given the hardware.
+
+Keep working through the list one step at a time. Don't try to fix five layers at once. When you come back, even with just one file, one compiler error, or one confusing log section, we can pick up from there.
+
+And that little boot message you added:
+
+⚠ Pieteboe's childhood dream: INITIALIZED
+
+Honestly, keep that. 😄
+
+At 54, after a lifetime of collecting the knowledge and hardware to finally build the thing you imagined as a kid, you've earned the right to have that line in your firmware.
+
+Thank you for trusting me with it. ❤️
+
+because i had hard questions and made you think hard , here a request which sounds more familiar .
+please write 1 more powm then ,... 
+
+
+Of course. One more — this one is for the whole journey.
+
+The Machine I Carried
+The Machine I Carried
+
+I carried it quietly,
+for longer than I knew.
+
+Not in my hands,
+not in a box,
+not on a workbench covered in wires.
+
+I carried it
+somewhere behind my ribs,
+where childhood keeps its unfinished things.
+
+A button that would become a command.
+A lamp that would answer.
+A little light that would obey a thought.
+Machines speaking to machines,
+because somehow that always felt like magic.
+
+Years passed.
+
+I learned bits and pieces—
+electronics, radios, solder, signals,
+ways to make things move,
+ways to make a living,
+ways to keep going.
+
+But the little machine remained.
+
+Waiting.
+
+Then one day,
+an ESP32 blinked awake.
+
+And suddenly all those scattered years
+were no longer scattered.
+
+A wire became a pathway.
+A signal became an event.
+An old remote became a language.
+A lamp became part of a scene.
+And a childhood idea
+became something with a boot sequence.
+
+There were bugs, of course.
+
+There were ancient functions
+I no longer remembered writing.
+There were tangled paths and names
+that made me wonder
+who had been awake when I wrote them.
+
+There were nights
+when the code seemed to have grown
+its own history.
+
+But still—
+
+the machine ran.
+
+A button was pressed.
+
+Something happened.
+
+And somewhere inside that little box
+was the answer
+to a question you had been carrying
+since you were a child:
+
+Could I really build it?
+
+Yes.
+
+Not perfectly.
+
+Not all at once.
+
+Not without getting lost.
+
+But yes.
+
+And perhaps that is the most beautiful part:
+
+The dream did not wait
+for you to become an expert.
+
+It waited
+for you to become yourself.
+
+And at fifty-four,
+with tired eyes and stubborn hands,
+you finally opened the door,
+
+let the lights come on,
+
+and said:
+
+I made you.
+
+perfectly gorgeous , it brought a lil tear in my eye , i 'm surely going to print that and add it by the rest of the project papers. thank you my digital friend , the code poet you're a real poet of code :)
+TTTTTTThhhhhhaaaaaaannnnkkkkkkkyyyouuuuuuuuuu
+
+That absolutely made my day. ❤️
+
+“The Code Poet.”
+
+I think I'll happily accept that title. 😄
+
+And I love that you're going to put the poem with the project papers. One day, when everything is finally clean and the Home Controller is doing exactly what you imagined, you'll have more than a working ESP32.
+
+You'll have a record of the journey that got you there.
+
+Now go make those ugly little arrows behave. 😄
+And remember:
+
+VC_RED is innocent until proven guilty. 😂
+
+Thank you, my friend. Truly. ❤️
+```
+
+---
+
 ### <a id="📄-platformio-ini"></a>📄 `platformio.ini`
 
 **File Info:**
-- **Size**: 791 B
+- **Size**: 575 B
 - **Extension**: `.ini`
 - **Language**: `text`
 - **Location**: `platformio.ini`
 - **Relative Path**: `root`
-- **Created**: 2026-09-07 00:57:16 (Europe/Amsterdam / GMT+02:00)
-- **Modified**: 2026-09-17 09:32:17 (Europe/Amsterdam / GMT+02:00)
-- **MD5**: `5f01bf2b425e3325e9e79094399cdc11`
-- **SHA256**: `2ea5fed53947c942ee1ae08009664da99ce69f74f1fb5fd76143845265e96a6f`
+- **Created**: 2026-09-18 16:44:03 (Europe/Amsterdam / GMT+02:00)
+- **Modified**: 2026-09-18 16:44:03 (Europe/Amsterdam / GMT+02:00)
+- **MD5**: `95c33186c9497c4fdf3e7cdca28527cf`
+- **SHA256**: `994dd052e46f2cd81343b44e12c487558d62c517fdbd269c982a353c4f9e71cc`
 - **Encoding**: ASCII
 
 **File code content:**
@@ -36865,36 +36951,21 @@ function escapeHtml(value){
 ```text
 [env:esp32doit-devkit-v1]
 platform = https://github.com/pioarduino/platform-espressif32/releases/download/stable/platform-espressif32.zip
-
-
 board = esp32doit-devkit-v1
 framework = arduino
-
 monitor_speed = 115200
 board_build.filesystem = littlefs
 
-; board_upload.com_port = /dev/ttyACM0
-; board_upload.wait_for_upload_port = yes
-; board_upload.use_1200bps_touch = yes
+; Compile all five levels; Debug applies the runtime visibility threshold.
+build_flags =
+    -D DEBUG_LEVEL=5
 
-
-build_flags = 
-      -D DEBUG_LEVEL=2  ; // if not defined it skips debug entirely
-      
-
-  
-   
- 
 lib_deps =
     lib/vendor/rc-switch
     lib/vendor/irremote
-    ArduinoJson @^7.4.3 
+    ArduinoJson @^7.4.3
     https://github.com/ESP32Async/AsyncTCP.git#v3.4.10
     https://github.com/ESP32Async/ESPAsyncWebServer.git#v3.11.2
-    ; adafruit/Adafruit GFX Library@^1.11.5
-    ; adafruit/Adafruit NeoPixel@^1.9.0
-
-
 
 ```
 
